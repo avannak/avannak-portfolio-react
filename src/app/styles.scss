@@ -1,3 +1,73 @@
 body{
- 
+ background-color: black;
+ margin: 0;
+ font-size: 2vw;
+}
+.content-container{
+    width: 100%;
+    height: 100%;
+}
+.bg-img{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    object-fit:cover;
+}
+// * Navigation Menu
+.nav-menu{
+    ul{
+        list-style: none;
+    }
+    li{
+        text-decoration: none;
+    }
+    a { color: inherit; text-decoration: none;} 
+    padding: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: #2c2c4375, $alpha: .6);
+    color: white;
+    width: 100%;
+    height: 100%;
+    .title-container{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        top: 0;
+        // background-color: rgba($color: #000000, $alpha: .8);
+        h1{
+            padding: 50px;
+            font-size: 4em;
+            text-shadow: rgba(0, 0, 0, 0.613) 2px 20px 0px;
+
+        }
+    }
+    .nav-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba($color: #030303, $alpha: .8);
+        width: 100%;
+        height: 100%;
+        h2{
+            
+        }
+    }
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

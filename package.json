@@ -9,19 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/courier-prime": "^4.5.9",
+    "@fontsource/pangolin": "^4.5.9",
+    "@fontsource/roboto-slab": "^4.5.11",
+    "@fontsource/rubik": "^4.5.14",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "^13.2.4",
     "@types/node": "18.15.7",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "fontsource-roboto-slab": "^4.0.0",
     "framer-motion": "^10.9.1",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0",
+    "react-scroll": "^1.8.9",
     "react-social-icons": "^5.15.0",
     "sass": "^1.60.0",
     "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@types/react-scroll": "^1.8.6",
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

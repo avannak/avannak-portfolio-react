@@ -12,18 +12,23 @@ const Header = (props: Props) => {
           fgColor="white"
           bgColor="transparent"
         ></SocialIcon>
-          <SocialIcon
+        <SocialIcon
           url="https://www.linkedin.com/in/arthur-vannakittikun-b7024a190/"
           fgColor="white"
           bgColor="transparent"
         ></SocialIcon>
-          <SocialIcon
+        <SocialIcon
           url="https://www.youtube.com/arthurvmusic"
           fgColor="white"
           bgColor="transparent"
         ></SocialIcon>
-          <SocialIcon
+        <SocialIcon
           url="https://soundcloud.com/arthurvofficial"
+          fgColor="white"
+          bgColor="transparent"
+        ></SocialIcon>
+        <SocialIcon
+          url="https://open.spotify.com/artist/4tUwnPevkVbKAvX8welQYT?si=T65-uDYdQBGFKZdoA260JQ"
           fgColor="white"
           bgColor="transparent"
         ></SocialIcon>

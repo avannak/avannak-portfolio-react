@@ -1,13 +1,33 @@
+@import "~@fontsource/courier-prime";
+@import "~@fontsource/pangolin";
+$large-screen: 3840px;
+
 body {
-  background-color: black;
-  margin: 0;
-  font-size: 2rem;
+  max-width: $large-screen;
+  margin: 0 auto;
+  background-color: rgb(0, 0, 0);
+  @media (min-width: 1024px) {
+    font-size: 1.5em;
+  }
+  max-width: 1920px; // Set the maximum width to 1920 pixels for screens up to 1920 pixels wide
+  min-width: 370px;
+}
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1920px; // Set the maximum width to 1920 pixels for screens up to 1920 pixels wide
 }
 .content-container {
   width: 100%;
-  height: 100%;
+  height: 1080px;
 }
+.app-container {
+  height: 1080px;
+}
+// Background Photo
 .bg-img {
+  z-index: -3;
   position: relative;
   margin: 0;
   padding: 0;
@@ -20,52 +40,150 @@ body {
 }
 // * Navigation Menu
 .nav-menu {
+  // background-color: grey;
+  z-index: 0;
   ul {
     list-style: none;
     padding: 0;
   }
   li {
+    text-align: left;
     text-decoration: none;
+    padding: 5px;
+    font-size: 1.5em;
   }
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
   padding: 0;
-  position: absolute;
   display: flex;
   flex-direction: column;
+  position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgba($color: #2c2c4375, $alpha: 0.6);
   color: white;
   width: 100%;
-  height: 100%;
+  min-width: 370px;
+  height: 1080px;
+  // Full Name
   .title-container {
+    display: flex;
+    align-items: center;
+    font-family: "Courier Prime", monospace;
+    z-index: 0;
     text-align: left;
-    position: relative;
-    height: 100%;
+    position: absolute;
+    height: 400px;
     width: 100%;
+    max-width: 1920px;
+    @media (max-height: 896px) {
+      height: 270px;
+    }
     top: 0;
-    // background-color: rgba($color: #000000, $alpha: .8);
+    background: rgba(88, 29, 251, 0.509);
+    background: linear-gradient(
+      180deg,
+      #a6a6a600 0%,
+      rgba(21, 20, 20, 0.485) 100%
+    );
+    // Title Name
+    .name {
+      @media (max-height: 896px) {
+        padding-top: 200px;
+      }
+    }
     h1 {
       padding: 50px;
       font-size: 4em;
+      @media (max-width: 896px) {
+        font-size: 2em;
+      }
+      @media (max-height: 896px) {
+        font-size: 2em;
+      }
       text-shadow: rgba(0, 0, 0, 0.613) 2px 20px 0px;
     }
+    // Occupation Name
+    .occupation-container {
+      // Occupation Title
+      .title {
+        font-size: 1.3em;
+        font-weight: bolder;
+        padding: 15px;
+        &.sect1 {
+          text-align: center;
+        }
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background: rgba(10, 10, 10, 0.189);
+      background-color: rgba(35, 35, 35, 0.303);
+      text-align: center;
+      top: 400px;
+      width: 100%;
+      height: 100px;
+      @media (max-height: 896px) {
+        top: 270px;
+      }
+      @media (max-width: 896px) {
+        font-size: 1em;
+        .icon {
+          height: 100px;
+        }
+      }
+    }
+  }
+  .nav-selections {
+    li {
+      &:hover {
+        color: rgb(255, 255, 113);
+      }
+    }
+    text-align: left;
   }
   .nav-container {
-    position: relative;
+    font-family: "Courier Prime", monospace;
+    .nav-selections-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .nav-background {
+      z-index: -2;
+      position: absolute;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.9) 70%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      width: 100%;
+      height: 100%;
+    }
+    position: absolute;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: rgba($color: #030303, $alpha: 0.8);
     width: 100%;
-    height: 100%;
-    h2 {
+    max-width: 1920px;
+    height: 500px;
+    top: 500px;
+    @media (max-height: 896px) {
+      top: 370px;
+      height: 390px;
     }
+  }
+  h2 {
+    display: flex;
+    text-align: center;
   }
 }
 .header {
@@ -73,14 +191,406 @@ body {
   align-items: center;
   justify-content: center;
 }
+.header-title {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0px 15px 2px rgb(28, 27, 27);
+}
+.title-divider {
+  margin: auto;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  height: 1px;
+}
+.section-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+// Home Page
+.home-page-container {
+  min-height: 896px;
+  position: relative;
+  background-color: rgba(7, 7, 7, 0.8);
+}
 // About Page
 .about-page-container {
+  font-family: "Courier Prime", monospace;
+  margin-top: 0;
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  margin: auto;
+  height: max-content;
+  width: 80%;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+  // min-width: 380px;
+  color: rgb(255, 255, 255);
+  background: rgb(8, 64, 142);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 68, 255, 0) 0%,
+    rgba(12, 7, 36, 0.378) 100%
+  );
+  h1 {
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  p {
+    padding: 50px;
+  }
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0px 5px 5px rgba(244, 244, 244, 0.13);
+    // background-color: grey;
+    path {
+      // fill: red;
+      width: 100%;
+    }
+  }
+  #cave-pic {
+    z-index: -1;
+    opacity: 0.3;
+    background-color: black;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    object-fit: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .about-me-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    .about-icons-column {
+      text-align: center;
+      flex: 30%;
+      .font-awesome-icon {
+        height: 100px;
+        width: 100px;
+        padding: 10px;
+        &.music {
+          color: rgb(255, 255, 255);
+        }
+        &.code {
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+    .about-description-column {
+      flex: 70%;
+      ul {
+        padding: 10px;
+      }
+      li {
+        padding: 15px;
+        list-style: none;
+      }
+    }
+  }
+  // languages icons
+  .language-container {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.2em;
+
+    padding: 50px 10px 50px 10px;
+    display: flex;
+    span {
+      padding: 5px;
+    }
+    @media (max-width: 562px) {
+      font-size: 0.8em;
+    }
+    // Skills
+    .fed-languages-list {
+      background: rgb(41, 47, 40);
+      background: radial-gradient(
+        circle,
+        rgba(40, 41, 47, 0.333) 0%,
+        rgba(1, 1, 1, 0.474) 90%,
+        rgba(0, 0, 0, 0.472) 100%
+      );
+      border: solid 2px white;
+      border-radius: 3px;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      flex-direction: row;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      width: 40%;
+      li {
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        flex: 50%;
+        overflow: hidden;
+      }
+      span {
+        font-size: 0.8em;
+        text-align: center;
+      }
+    }
+    .bed-languages-list {
+      background: rgb(41, 47, 40);
+      background: radial-gradient(
+        circle,
+        rgba(41, 47, 40, 0.333) 0%,
+        rgba(1, 1, 1, 0.474) 90%,
+        rgba(0, 0, 0, 0.472) 100%
+      );
+      border: solid 2px white;
+      border-radius: 3px;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      flex-direction: row;
+      margin: auto;
+      align-items: center;
+      width: 40%;
+      li {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        flex: 50%;
+      }
+      span {
+        font-size: 0.8em;
+        height: 50px;
+      }
+    }
+  }
+  .font-awesome-icon {
+    color: white;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+    @media (max-width: 562px) {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+// My Work Page
+.mywork-page-container {
+  font-family: "Courier Prime", monospace;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: max-content;
+  max-width: 100%;
+  // min-width: 380px;
+  margin: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(25, 21, 38, 0.901) 0%,
+    rgba(46, 42, 42, 0.316) 100%
+  );
+  color: rgb(255, 255, 255);
+  h1 {
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 30px;
+  }
+  h3 {
+    padding: 0;
+    font-size: 0.5em;
+    text-align: center;
+  }
+  .row {
+    border-radius: 15px;
+    padding: 30px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .project-column {
+    cursor: pointer;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .middle {
+    height: 100%;
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+  }
+  .container .image {
+    position: relative;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    object-fit: cover;
+    opacity: 1;
+    width: 100%;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+  }
+  .image:hover {
+    opacity: 0.3;
+  }
+  .middle:hover {
+    opacity: 1;
+  }
+  .text {
+    p {
+      padding: 15px;
+    }
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #171b1afb;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  #portfolio-container {
+    padding: 50px;
+  }
+  #desk-pic {
+    z-index: -1;
+    opacity: 0.9;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    object-fit: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  #cave-pic {
+    padding: 0;
+    z-index: -1;
+    opacity: 0.9;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    object-fit: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+.portfolio {
   width: 100%;
-  background-color: rgb(17, 19, 31);
-  color: white;
+}
+// Contact Page
+.contact-page-container {
+  // Contact Form
+  .contact-form {
+    background-color: grey;
+    max-width: 1200px;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    @media (max-width: 768px) {
+      max-width: 600px;
+      padding: 10px;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 280px;
+      padding: 5px;
+    }
+    &.container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: auto;
+    }
+    &.form {
+      flex: 80%;
+      padding: 10px;
+      height: 100%;
+      width: 100%;
+      background-color: salmon;
+    }
+    &.image {
+      flex: 50%;
+      padding: 10px;
+      height: 100%;
+      width: 100%;
+      background-color: lightblue;
+    }
+  }
+  font-family: "Courier Prime", monospace;
+  h1 {
+    text-align: center;
+  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background: rgba(15, 15, 15, 0.47);
+  #cave-pic {
+    z-index: -1;
+    opacity: 0.9;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    object-fit: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "fontsource-roboto-slab";
 export const metadata = {
   title: "Arthur's Portfolio",
   description: "Welcome to my portfolio!",

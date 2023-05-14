@@ -3,6 +3,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SiExpress, SiMysql } from "react-icons/si";
 import { DiMongodb, DiResponsive } from "react-icons/di";
+import { TbMicrophone2 } from "react-icons/tb";
+import { BsGear } from "react-icons/bs";
+import { CgWebsite } from "react-icons/cg";
+import { GiLaptop } from "react-icons/gi";
 import { FaBarcode } from "react-icons/fa";
 import {
   faJs,
@@ -16,10 +20,7 @@ import {
 import typescript from "../../assets/images/icons/typescript.svg";
 import {
   faShareNodes,
-  faMobile,
-  faHeadphones,
   faMusic,
-  faDatabase,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -47,14 +48,24 @@ const AboutPage = (props: Props) => {
       </div>
       <div className="about-me-section">
         <div className="about-icons-column container">
-          <FontAwesomeIcon
-            className="font-awesome-icon music"
-            icon={faMusic}
-          ></FontAwesomeIcon>
-          <FontAwesomeIcon
-            className="font-awesome-icon code"
-            icon={faCode}
-          ></FontAwesomeIcon>
+          <div className="laptop-icon-container">
+            <GiLaptop className="font-awesome-icon laptop" />
+            <div className="font-awesome-icon laptop-icons">
+              <FontAwesomeIcon
+                className="font-awesome-icon music"
+                icon={faMusic}
+              ></FontAwesomeIcon>
+              <TbMicrophone2 className="font-awesome-icon microphone"></TbMicrophone2>
+              <FontAwesomeIcon
+                className="font-awesome-icon code"
+                icon={faCode}
+              ></FontAwesomeIcon>
+              <div className="box one">
+                <BsGear className="font-awesome-icon gear"></BsGear>
+                <CgWebsite className="font-awesome-icon website"></CgWebsite>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="about-description-column container">
           <ul id="aboutdescription">
@@ -91,6 +102,11 @@ const AboutPage = (props: Props) => {
             className="icon"
             preserveAspectRatio="none"
           ></FaBarcode>
+          <span className="disclaimer">
+            <span>(see</span>
+            <a href="/">resume</a>
+            <span>for full list)</span>
+          </span>
         </div>
         <div className="language-container">
           <ul className="fed-languages-list">

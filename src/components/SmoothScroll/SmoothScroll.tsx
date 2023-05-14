@@ -30,15 +30,15 @@ const SmoothScroll = ({ children, ...props }: Props) => {
   }, [scrollRef, resizePageHeight]);
 
   const { scrollY } = useScroll();
-  const transform = useTransform(scrollY, [0, pageHeight], [0, -100]);
-  const physics = { damping: 15, mass: 0.5, stiffness: 55 };
+  const transform = useTransform(scrollY, [0, pageHeight], [0, 0]);
+  const physics = { damping: 50, mass: 1, stiffness: 600 };
   const spring = useSpring(transform, physics);
 
   return (
     <>
       <motion.div
         ref={scrollRef}
-        style={{ y: spring }}
+        style={{ y: spring, height: "100vh" }}
         className="scroll-container"
       >
         {children}

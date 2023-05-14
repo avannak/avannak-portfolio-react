@@ -1,11 +1,14 @@
 import Image from "next/image";
 import React from "react";
+import { FaBarcode, FaHandshake } from "react-icons/fa";
+import ContactForm from "./ContactForm";
+import Header from "@/components/Header";
 
 type Props = {};
 
 const ContactPage = (props: Props) => {
   return (
-    <div className="contact-page-container">
+    <div className="contact-page-container" id="contact-section">
       <Image
         id="cave-pic"
         src={"/rocky-wall.png"}
@@ -13,18 +16,26 @@ const ContactPage = (props: Props) => {
         height={3024}
         width={4032}
       ></Image>
-      <div id="contact-section">
-        <div className="section-title">
-          <h1>Contact Me</h1>
+      <div className="contact-section" id="contact-section">
+        <div className="header-title">
+          <h1 className="title">Contact</h1>
           <div className="title-divider" />
-          <p id="aboutdescription">
-            Let's work together! For inquiries email me at:
+          <FaBarcode
+            style={{ width: "200px", height: "20px" }}
+            viewBox="0 0 500 150"
+            className="icon"
+            preserveAspectRatio="none"
+          ></FaBarcode>
+        </div>
+        <div className="header-container">
+          <p className="text" style={{ textAlign: "center" }}>
+            Let's work together!
           </p>
-          <div>arthurvat7@gmail.com</div>
-          <div className="contact-form container">
-            <div className="contact-form form"></div>
-            <div className="contact-form image"></div>
-          </div>
+        </div>
+        <ContactForm />
+        <div className="footer">
+          <Header></Header>
+          <span>Designed by Arthur V</span>
         </div>
       </div>
     </div>

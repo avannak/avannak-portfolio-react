@@ -98,7 +98,7 @@ const NavMenu = (props: Props) => {
                 to="about-section"
                 spy={true}
                 smooth={true}
-                offset={0}
+                offset={-160}
                 duration={500}
               >
                 About
@@ -110,7 +110,7 @@ const NavMenu = (props: Props) => {
                 to="mywork-section"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={-250}
                 duration={500}
               >
                 My Work
@@ -122,7 +122,7 @@ const NavMenu = (props: Props) => {
                 to="contact-section"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={-350}
                 duration={500}
               >
                 Contact

@@ -1,43 +1,64 @@
 "use client";
-import Image from "next/image";
-import { Gloock } from "next/font/google";
-import Head from "next/head";
 import Header from "@/components/Header";
-import { motion, useScroll, useTransform } from "framer-motion";
+import Modal from "@/components/Modal";
 import NavMenu from "@/components/NavMenu";
-import { useRef } from "react";
-import HomePage from "./home/HomePage";
-import Link from "next/link";
-import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
+import { useEffect, useState } from "react";
+import { UserContext } from "../context/user/UserContext";
 import AboutPage from "./about/page";
-import MyWorkPage from "./mywork/page";
 import ContactPage from "./contact/page";
-
-const gloock = Gloock({ subsets: ["latin-ext"], weight: ["400"] });
+import HomePage from "./home/HomePage";
+import MyWorkPage from "./mywork/page";
+import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 
 export default function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState("");
+  const [storedScrollPos, setStoredScrollPos] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset || document.documentElement.scrollTop;
+      setStoredScrollPos(position);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="app-container">
-      {/* <SmoothScroll> */}
-      <div>
+      <UserContext.Provider
+        value={{
+          showModal,
+          setShowModal,
+          modalType,
+          setModalType,
+          scrollPosition,
+          setScrollPosition,
+          storedScrollPos,
+          setStoredScrollPos,
+        }}
+      >
         <div className="content-container">
+          {/* Home Section  */}
           <div id="home-section">
             <HomePage />
             <NavMenu />
           </div>
-          {/* Hero */}
-
-          {/* About  */}
+          {/* About Section */}
           <AboutPage />
-          {/* Experience */}
+          {/* Experience Section*/}
 
-          {/* Projects */}
+          {/* Projects Section*/}
+          {showModal && <Modal scrollPosition={scrollPosition}></Modal>}
           <MyWorkPage />
-          {/* Contact Me */}
+          {/* Contact Me Section*/}
           <ContactPage />
         </div>
-      </div>
-      {/* </SmoothScroll> */}
+      </UserContext.Provider>
     </div>
   );
 }

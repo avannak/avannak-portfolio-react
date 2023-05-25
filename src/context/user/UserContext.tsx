@@ -9,6 +9,12 @@ export type MyContextType = {
   setScrollPosition: Dispatch<SetStateAction<number>>;
   storedScrollPos: number;
   setStoredScrollPos: Dispatch<SetStateAction<number>>;
+  height: number;
+  setHeight: Dispatch<SetStateAction<number>>;
+  navBarIsOn: boolean;
+  setNavBarIsOn: Dispatch<SetStateAction<boolean>>;
+  isDarkMode: boolean;
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
 };
 
 export const UserContext = createContext<MyContextType>({
@@ -20,4 +26,10 @@ export const UserContext = createContext<MyContextType>({
   setScrollPosition: () => {},
   storedScrollPos: 0,
   setStoredScrollPos: () => {},
+  height: 0,
+  setHeight: () => {},
+  navBarIsOn: false,
+  setNavBarIsOn: () => {},
+  isDarkMode: true,
+  setIsDarkMode: () => {},
 });

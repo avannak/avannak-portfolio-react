@@ -1,182 +1,297 @@
-import Image from "next/image";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SiExpress, SiMysql } from "react-icons/si";
-import { DiMongodb, DiResponsive } from "react-icons/di";
-import { TbMicrophone2 } from "react-icons/tb";
-import { BsGear } from "react-icons/bs";
-import { CgWebsite } from "react-icons/cg";
-import { GiLaptop } from "react-icons/gi";
-import { FaBarcode } from "react-icons/fa";
+import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
 import {
+  faAws,
+  faCss3,
+  faGitAlt,
+  faHtml5,
   faJs,
   faNodeJs,
   faReact,
-  faHtml5,
-  faGitAlt,
-  faAws,
-  faCss3,
 } from "@fortawesome/free-brands-svg-icons";
+import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
+import { DiMongodb, DiResponsive } from "react-icons/di";
+import { FaBarcode } from "react-icons/fa";
+import { SiExpress, SiMysql } from "react-icons/si";
+import akai from "../../assets/images/akai-pixel.png";
+import artPixel from "../../assets/images/artpixel3.png";
+import dt990 from "../../assets/images/dt990-pixel.png";
+import gear from "../../assets/images/gear.png";
+import helloPixel from "../../assets/images/hello.png";
 import typescript from "../../assets/images/icons/typescript.svg";
-import {
-  faShareNodes,
-  faMusic,
-  faCode,
-} from "@fortawesome/free-solid-svg-icons";
+import macBook from "../../assets/images/macbook-pixel.png";
+import rodePixel from "../../assets/images/rode-pixel.png";
+import rokit from "../../assets/images/rokit.png";
+import sg from "../../assets/images/sg-pixel.png";
+import volt from "../../assets/images/volt-pixel-rouge.png";
+import { Fade } from "react-awesome-reveal";
 
 type Props = {};
 
 const AboutPage = (props: Props) => {
+  let ref = useRef(null);
+  let { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  let y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+  const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+
   return (
-    <div id="about-section" className="about-page-container">
-      <Image
-        id="cave-pic"
-        src={"/rocky-wall.png"}
-        alt=""
-        height={3024}
-        width={4032}
-      ></Image>
-      <div className="header-title">
-        <h1>About Me</h1>
-        <div className="title-divider" />
-        <FaBarcode
-          style={{ width: "200px", height: "20px" }}
-          viewBox="0 0 500 150"
-          className="icon"
-          preserveAspectRatio="none"
-        ></FaBarcode>
-      </div>
-      <div className="about-me-section">
-        <div className="about-icons-column container">
-          <div className="laptop-icon-container">
-            <GiLaptop className="font-awesome-icon laptop" />
-            <div className="font-awesome-icon laptop-icons">
-              <FontAwesomeIcon
-                className="font-awesome-icon music"
-                icon={faMusic}
-              ></FontAwesomeIcon>
-              <TbMicrophone2 className="font-awesome-icon microphone"></TbMicrophone2>
-              <FontAwesomeIcon
-                className="font-awesome-icon code"
-                icon={faCode}
-              ></FontAwesomeIcon>
-              <div className="box one">
-                <BsGear className="font-awesome-icon gear"></BsGear>
-                <CgWebsite className="font-awesome-icon website"></CgWebsite>
+    <motion.div id="about-section" className="about-page-container">
+      <motion.div className="content">
+        <Fade delay={500} cascade damping={1e-1} triggerOnce>
+          <div className="header-title" ref={ref}>
+            <h1>About Me</h1>
+            <div className="title-divider" />
+            <FaBarcode
+              style={{ width: "200px", height: "20px" }}
+              viewBox="0 0 500 150"
+              className="icon"
+              preserveAspectRatio="none"
+            ></FaBarcode>
+          </div>
+          <div className="about-me-section" ref={ref}>
+            <div className="about-icons-column container" ref={ref}>
+              <div className="laptop-icon-container">
+                {/* <Image id="matrix-bg" src={matrix} alt="matrix-pixel-bg"></Image> */}
+                <div id="container-text">
+                  <span>
+                    <span id="text1">const</span>{" "}
+                    <span id="dotlog">arthurGreetsYou</span>{" "}
+                    <span id="text2">=</span> <span id="text3">(</span>
+                    <span id="text4">guest</span>
+                    <span id="text3">)</span> =&gt;{" "}
+                  </span>
+                  <span>
+                    {" "}
+                    <span id="braces">&#123;</span>{" "}
+                    <span id="return">return </span>
+                    console.<span id="dotlog">log</span>(&quot;
+                    <span id="pleased">pleased to meet you,</span>
+                    &quot;, <span id="text4">guest</span>);{" "}
+                    <span id="braces">&#125;</span>
+                  </span>
+                </div>
+                <Image
+                  id="macbook-img"
+                  src={macBook}
+                  alt="macbook-pixel"
+                  height={367}
+                  width={679}
+                ></Image>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="about-description-column container">
-          <ul id="aboutdescription">
-            <li>
-              👋 I am a recent graduate of San Francisco State University with a{" "}
-              <span style={{ color: "rgb(255, 255, 113)" }}>
-                Bachelor's degree in Computer Science.
-              </span>{" "}
-            </li>
-            <li>
-              {" "}
-              My dream is to share my creative vision and passion for web design
-              and programming with others to create an extraordinary and
-              visually pleasurable user experience.
-            </li>
-            <li>
-              {" "}
-              During my coding off-hours, I am a{" "}
-              <i style={{ color: "rgb(136, 146, 255)" }}>
-                singer-songwriter
-              </i>{" "}
-              and <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="languages-section">
-        <div className="header-title">
-          <h1>Skills</h1>
-          <div className="title-divider" />
-          <FaBarcode
-            style={{ width: "200px", height: "20px" }}
-            viewBox="0 0 500 150"
-            className="icon"
-            preserveAspectRatio="none"
-          ></FaBarcode>
-          <span className="disclaimer">
-            <span>(see</span>
-            <a href="/">resume</a>
-            <span>for full list)</span>
-          </span>
-        </div>
-        <div className="language-container">
-          <ul className="fed-languages-list">
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faJs} />
-              <span>Javascript + ES6</span>
-            </li>
-            <li>
+            <div className="about-description-column container" ref={ref}>
+              <ul className="about-description-list">
+                <li id="hello-emote-container">
+                  <Image
+                    className="img"
+                    src={artPixel}
+                    alt="art-pixel"
+                    height={97}
+                    width={74}
+                  ></Image>
+                  <FloatingComponent>
+                    <Image
+                      className="img"
+                      src={helloPixel}
+                      alt="hello-pixel"
+                      height={387}
+                      width={451}
+                    ></Image>
+                  </FloatingComponent>
+                </li>
+                <li>
+                  I am a recent graduate of San Francisco State University with
+                  a
+                </li>
+
+                <li>
+                  <span style={{ color: "rgb(196, 119, 255)" }}>
+                    Bachelor's degree in Computer Science.
+                  </span>
+                </li>
+                <li>
+                  {" "}
+                  My dream is to share my creative vision and passion for web
+                  design and programming with others to create an extraordinary
+                  and visually pleasurable user experience.
+                </li>
+                <li>
+                  {" "}
+                  During my coding off-hours, I am a{" "}
+                  <i style={{ color: "rgb(165, 165, 255)" }}>
+                    singer-songwriter
+                  </i>{" "}
+                  and{" "}
+                  <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
+                </li>
+              </ul>
+              <span className="rokit-span">Here is my setup: </span>
+            </div>
+            <div className="rokit-container">
               <Image
-                className="font-awesome-icon"
-                src={typescript}
-                alt="typescript"
-                height={200}
-                width={200}
-              />
-              <span>Typescript</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faHtml5} />
-              <span>HTML5</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faCss3} />
-              <span>CSS3</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faReact} />
-              <span>React/Redux</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faGitAlt} />
-              <span>GIT</span>
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="font-awesome-icon"
-                icon={faShareNodes}
-              />
-              <span>REST APIs</span>
-            </li>
-            <li>
-              <DiResponsive className="font-awesome-icon" />
-              <span>Responsive Design</span>
-            </li>
-          </ul>
-          <ul className="bed-languages-list">
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faAws} />
-              <span>AWS</span>
-            </li>
-            <li>
-              <SiMysql className="font-awesome-icon" />
-              <span>MySQL</span>
-            </li>
-            <li>
-              <DiMongodb className="font-awesome-icon" />
-              <span>MongoDB</span>
-            </li>
-            <li>
-              <SiExpress className="font-awesome-icon" />
-              <span>Express.js</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="font-awesome-icon" icon={faNodeJs} />
-              <span>Node.js</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+                id="rode-img"
+                src={rodePixel}
+                alt="rode-pixel"
+                height={534}
+                width={468}
+              ></Image>
+              <Image
+                id="rokit-img"
+                src={rokit}
+                alt="rokit-pixel"
+                height={97}
+                width={74}
+              ></Image>
+              <Image
+                id="volt-img"
+                src={volt}
+                alt="volt-pixel"
+                height={318}
+                width={786}
+              ></Image>
+              <Image
+                id="akai-img"
+                src={akai}
+                alt="akai-pixel"
+                height={318}
+                width={786}
+              ></Image>
+              <Image
+                id="sg-img"
+                src={sg}
+                alt="sg-pixel"
+                height={810}
+                width={270}
+              ></Image>
+              <Image
+                id="dt990-img"
+                src={dt990}
+                alt="dt990-pixel"
+                height={500}
+                width={500}
+              ></Image>
+            </div>
+          </div>
+          <div className="languages-section" ref={ref}>
+            <Image
+              id="gear-img"
+              src={gear}
+              alt="gear-pixel"
+              height={408}
+              width={630}
+            ></Image>
+            <div className="header-title">
+              <h1>Skills</h1>
+              <div className="title-divider" />
+              <FaBarcode
+                style={{ width: "200px", height: "20px" }}
+                viewBox="0 0 500 150"
+                className="icon"
+                preserveAspectRatio="none"
+              ></FaBarcode>
+            </div>
+            <div className="center">
+              {" "}
+              <span className="disclaimer">
+                <span>(see</span>
+                <a href="/">resume</a>
+                <span>for full list)</span>
+              </span>
+            </div>
+            <div className="language-container">
+              <ul className="fed-languages-list">
+                <li>
+                  <FontAwesomeIcon className="font-awesome-icon" icon={faJs} />
+                  <span>Javascript + ES6</span>
+                </li>
+                <li>
+                  <Image
+                    className="font-awesome-icon"
+                    src={typescript}
+                    alt="typescript"
+                    height={200}
+                    width={200}
+                  />
+                  <span>Typescript</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faHtml5}
+                  />
+                  <span>HTML5</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faCss3}
+                  />
+                  <span>CSS3</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faReact}
+                  />
+                  <span>React/Redux</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faGitAlt}
+                  />
+                  <span>GIT</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faShareNodes}
+                  />
+                  <span>REST APIs</span>
+                </li>
+                <li>
+                  <DiResponsive className="font-awesome-icon" />
+                  <span>Responsive Design</span>
+                </li>
+              </ul>
+              <ul className="bed-languages-list">
+                <li>
+                  <FontAwesomeIcon className="font-awesome-icon" icon={faAws} />
+                  <span>AWS</span>
+                </li>
+                <li>
+                  <SiMysql className="font-awesome-icon" />
+                  <span>MySQL</span>
+                </li>
+                <li>
+                  <DiMongodb className="font-awesome-icon" />
+                  <span>MongoDB</span>
+                </li>
+                <li>
+                  <SiExpress className="font-awesome-icon" />
+                  <span>Express.js</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faNodeJs}
+                  />
+                  <span>Node.js</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Fade>
+      </motion.div>
+    </motion.div>
   );
 };
 

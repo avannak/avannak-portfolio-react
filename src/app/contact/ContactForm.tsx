@@ -1,5 +1,7 @@
+import Image from "next/image";
 import React, { useState, FormEvent } from "react";
 import { MdContactMail } from "react-icons/md";
+import gmailPixel from "../../assets/images/gmail-pixel.png";
 
 type Props = {};
 
@@ -43,8 +45,10 @@ const ContactForm = (props: Props) => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <button className="submit-button" type="submit">
-          Get In Touch
+        <button className="pushable">
+          <span className="shadow"></span>
+          <span className="edge blue"></span>
+          <span className="front blue">Get In Touch</span>
         </button>
       </div>
       <div className="image-container">
@@ -59,7 +63,13 @@ const ContactForm = (props: Props) => {
           </span>
         </div>
         <div className="image">
-          <MdContactMail></MdContactMail>
+          <Image
+            id="gmail-pic"
+            src={gmailPixel}
+            alt="gmail-pixel"
+            height={374}
+            width={510}
+          ></Image>
         </div>
       </div>
     </form>

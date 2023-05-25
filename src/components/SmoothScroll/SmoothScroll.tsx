@@ -38,7 +38,7 @@ const SmoothScroll = ({ children, ...props }: Props) => {
     <>
       <motion.div
         ref={scrollRef}
-        style={{ y: spring, height: "100vh" }}
+        style={{ y: spring, height: "100%" }}
         className="scroll-container"
       >
         {children}

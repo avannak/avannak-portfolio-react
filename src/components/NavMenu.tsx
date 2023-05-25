@@ -5,6 +5,14 @@ import Header from "@/components/Header";
 import { FaBarcode } from "react-icons/fa";
 import barcode from "../assets/images/barcode.png";
 import Image from "next/image";
+import musicNote from "../assets/images/music-note-blue.png";
+import cog from "../assets/images/cog-pixel.png";
+import codePixel from "../assets/images/code-pixel.png";
+import codeStatic from "../assets/images/code-static.png";
+import codeAnim from "../assets/images/code-anim6.gif";
+import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
+import FloatingComponent from "./AnimatedComponents/FloatingComponent";
+
 type Props = {};
 
 const NavMenu = (props: Props) => {
@@ -16,66 +24,99 @@ const NavMenu = (props: Props) => {
   let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   return (
     <div className="nav-menu">
-      <motion.div
-        className="title-container"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          ease: "linear",
-          duration: 1,
-          x: { duration: 0.3 },
-          delay: 0.4,
-        }}
-      >
-        <h1 className="name">
-          Arthur <br /> Vannakittikun
-        </h1>
-        <div className="occupation-container">
-          <motion.div
-            className="title sect1"
-            initial={{ opacity: 0, translateY: 50 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{
-              ease: "linear",
-              duration: 1,
-              x: { duration: 0.3 },
-              delay: 0.8,
-            }}
-          >
-            Front-end Engineer <br />
-          </motion.div>
-          <span>&</span>
-          <motion.div
-            className="title sect2"
-            initial={{ opacity: 0, translateY: 50 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{
-              ease: "linear",
-              duration: 1,
-              x: { duration: 0.3 },
-              delay: 0.8,
-            }}
-          >
-            Artist
-          </motion.div>
-        </div>
-      </motion.div>
-      <motion.div
-        // style={{ opacity }}
-        className="nav-container"
-        initial={{ opacity: 0, translateY: 50 }}
-        animate={{ opacity: 1, translateY: 0 }}
-        transition={{
-          ease: "linear",
-          duration: 1,
-          x: { duration: 0.3 },
-          delay: 0.8,
-        }}
-      >
+      <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" />
+      <div className="nav-menu-container">
         <motion.div
-          style={{ opacity }}
-          className="nav-background"
-          initial={{ opacity: 0.8, translateY: 50 }}
+          className="title-container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: "linear",
+            duration: 1,
+            x: { duration: 0.3 },
+            delay: 0.4,
+          }}
+        >
+          {/* <h1 className="name">
+            Arthur <br /> Vannakittikun
+          </h1> */}
+          <FloatingComponent>
+            {" "}
+            <TypewriterEffect
+              className="name"
+              propText="Arthur Vannakittikun"
+              // triggerSections={["#home-section"]}
+              triggerInstant={true}
+            ></TypewriterEffect>
+          </FloatingComponent>
+          <div className="occupation-container">
+            <motion.div
+              className="title sect1"
+              initial={{ opacity: 0, translateY: 50 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{
+                ease: "linear",
+                duration: 1,
+                x: { duration: 0.3 },
+                delay: 0.8,
+              }}
+            >
+              <Image
+                id="cog-img"
+                src={cog}
+                alt="cog"
+                height={500}
+                width={500}
+              ></Image>{" "}
+              <Image
+                id="code-pixel-img"
+                src={codePixel}
+                alt="code-pixel"
+                height={641}
+                width={810}
+              ></Image>
+              <span id="front-end">Front-end Engineer</span>
+              <br />
+            </motion.div>
+            <motion.span
+              className="title sect1"
+              initial={{ opacity: 0, translateY: 50 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{
+                ease: "linear",
+                duration: 1,
+                x: { duration: 0.3 },
+                delay: 0.8,
+              }}
+            >
+              <span id="amper">&</span>
+            </motion.span>
+            <motion.div
+              className="title sect2"
+              initial={{ opacity: 0, translateY: 50 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{
+                ease: "linear",
+                duration: 1,
+                x: { duration: 0.3 },
+                delay: 0.8,
+              }}
+            >
+              <span id="artist">Artist</span>
+              <Image
+                id="music-note-img"
+                src={musicNote}
+                alt="music-note"
+                height={270}
+                width={190}
+              ></Image>
+            </motion.div>
+          </div>
+        </motion.div>
+        <motion.div
+          // style={{ opacity }}
+          className="nav-container"
+          initial={{ opacity: 0, translateY: 50 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{
             ease: "linear",
@@ -83,68 +124,75 @@ const NavMenu = (props: Props) => {
             x: { duration: 0.3 },
             delay: 0.8,
           }}
-        ></motion.div>
-        <div className="nav-selections-container">
-          <Header></Header>
-          <motion.ul
-            className="nav-selections"
-            initial={{ opacity: 0, translateX: -50 }}
-            animate={{ opacity: 1, translateX: 0 }}
-            transition={{ duration: 1.5, delay: 0.8 }}
-          >
-            <li>
-              <Link
-                activeClass="active"
-                to="about-section"
-                spy={true}
-                smooth={true}
-                offset={-160}
-                duration={500}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="active"
-                to="mywork-section"
-                spy={true}
-                smooth={true}
-                offset={-250}
-                duration={500}
-              >
-                My Work
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="active"
-                to="contact-section"
-                spy={true}
-                smooth={true}
-                offset={-350}
-                duration={500}
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <div className="download-resume-wrapper">
+        >
+          <motion.div
+            style={{ opacity }}
+            className="nav-background"
+            initial={{ opacity: 0.8, translateY: 50 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              ease: "linear",
+              duration: 1,
+              x: { duration: 0.3 },
+              delay: 0.8,
+            }}
+          ></motion.div>
+          <div className="nav-selections-container">
+            <Header></Header>
+            <motion.ul
+              className="nav-selections"
+              initial={{ opacity: 0, translateX: -50 }}
+              animate={{ opacity: 1, translateX: 0 }}
+              transition={{ duration: 1.5, delay: 0.8 }}
+            >
+              <li>
+                <Link
+                  activeClass="active"
+                  to="about-section"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  activeClass="active"
+                  to="mywork-section"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  Projects
+                </Link>
+              </li>
+              <li>
                 <Link
                   activeClass="active"
                   to="contact-section"
                   spy={true}
                   smooth={true}
-                  offset={50}
+                  offset={-50}
                   duration={500}
                 >
-                  Resume
+                  Contact
                 </Link>
-              </div>
-            </li>
-          </motion.ul>
-        </div>
-      </motion.div>
+              </li>
+              <li> </li>
+            </motion.ul>
+            <div className="download-resume-wrapper">
+              <button className="pushable">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front">Download Resume</span>
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };

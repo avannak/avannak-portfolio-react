@@ -1,17 +1,14 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-scroll";
 import Header from "@/components/Header";
-import { FaBarcode } from "react-icons/fa";
-import barcode from "../assets/images/barcode.png";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import musicNote from "../assets/images/music-note-blue.png";
-import cog from "../assets/images/cog-pixel.png";
-import codePixel from "../assets/images/code-pixel.png";
-import codeStatic from "../assets/images/code-static.png";
+import { useRef } from "react";
+import { Link } from "react-scroll";
 import codeAnim from "../assets/images/code-anim6.gif";
-import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
+import codePixel from "../assets/images/code-pixel.png";
+import cog from "../assets/images/cog-pixel.png";
+import musicNote from "../assets/images/music-note-blue.png";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
+import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 
 type Props = {};
 

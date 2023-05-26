@@ -1,14 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Sanchez&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sono:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 $large-screen: 3840px;
+* {
+  cursor: none;
+}
+
+.cursor {
+  display: flex;
+  z-index: 1;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: difference;
+  background-color: rgb(255, 255, 255);
+}
 
 body {
   // font-family: "Sanchez", serif;
@@ -43,6 +55,7 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  height: max-content;
   // max-width: 1920px; // Set the maximum width to 1920 pixels for screens up to 1920 pixels wide
 }
 
@@ -444,7 +457,7 @@ body {
   }
   .social-svg {
     &:hover {
-      background-color: rgb(87, 87, 87);
+      background-color: rgba(67, 58, 99, 0.437);
       transition: background-color 0.3s ease;
     }
   }
@@ -486,8 +499,6 @@ body {
   // -o-transition: border 500ms ease-out;
   // transition: border 500ms ease-out;
   // border-width: 0 1px 0 1px;
-  .content {
-  }
 }
 
 @keyframes mymove {
@@ -1263,7 +1274,7 @@ body {
   // PROJECT COLUMN
   .project-column {
     padding: 0;
-    cursor: pointer;
+    cursor: none;
     display: flex;
     flex-direction: row;
     justify-content: center;

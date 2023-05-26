@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React, { useState, FormEvent } from "react";
-import { MdContactMail } from "react-icons/md";
+import { FormEvent, useState } from "react";
 import gmailPixel from "../../assets/images/gmail-pixel.png";
 
 type Props = {};

@@ -37,13 +37,20 @@ const AboutPage = (props: Props) => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
-  const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  let y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
+  let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
 
   return (
-    <motion.div id="about-section" className="about-page-container">
+    <motion.div
+      id="about-section"
+      className="about-page-container"
+      style={{ y, opacity }}
+      transition={{
+        ease: "linear",
+        duration: 0.3,
+        x: { duration: 0.2 },
+      }}
+    >
       <motion.div className="content">
         <Fade delay={500} cascade damping={1e-1} triggerOnce>
           <div className="header-title" ref={ref}>

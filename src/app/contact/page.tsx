@@ -11,13 +11,13 @@ import { Fade } from "react-awesome-reveal";
 type Props = {};
 
 const ContactPage = (props: Props) => {
-  let ref = useRef(null);
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  // let ref = useRef(null);
+  // let { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start start", "end start"],
+  // });
+  // let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <Fade triggerOnce>

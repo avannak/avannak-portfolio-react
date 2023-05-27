@@ -8,8 +8,6 @@ const nextConfig = {
     allowedRevalidateHeaderKeys: [],
     amp: {},
     clientRouterFilter: true,
-    // Specify the directory where your pages are located
-    pagesDir: path.join(__dirname, "src/app"),
   },
   webpack(config, { isServer }) {
     const prefix = config.assetPrefix ?? config.basePath ?? "";

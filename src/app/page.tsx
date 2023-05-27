@@ -32,7 +32,15 @@ const App = () => {
   const springConfig = { damping: 50, stiffness: 800 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
-  const isMobile = window.innerWidth < 768;
+
+  // CHECK IF MOBILE
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // Check if the code is running in a browser environment
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+    }
+  }, []);
 
   // CURSOR CODE
   useEffect(() => {

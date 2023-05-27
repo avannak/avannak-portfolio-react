@@ -16,7 +16,7 @@ import {
 } from "../../assets/images/vhs2.gif";
 import wavyboy from "../../assets/images/wavyboy.png";
 
-type Props = { onMouseEnter: any; onMouseLeave: any };
+export type Props = { onMouseEnter: any; onMouseLeave: any };
 
 const MyWorkPage = (props: Props) => {
   const {

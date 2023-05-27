@@ -40,13 +40,13 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
 
   // rotation
   const dampen = 60;
-  const rotateX = useTransform<number, number>(mouseY, (newMouseY) => {
+  const rotateX = useTransform<number, number>(mouseY, (newMouseY: number) => {
     if (!cardRef.current) return 0;
     const rect = cardRef.current.getBoundingClientRect();
     const newRotateX = newMouseY - rect.top - rect.height / 2;
     return -newRotateX / dampen;
   });
-  const rotateY = useTransform(mouseX, (newMouseX) => {
+  const rotateY = useTransform(mouseX, (newMouseX: number) => {
     if (!cardRef.current) return 0;
     const rect = cardRef.current.getBoundingClientRect();
     const newRotateY = newMouseX - rect.left - rect.width / 2;

@@ -10,11 +10,14 @@ import stars from "../assets/images/stars4.gif";
 import stars4 from "../assets/videos/particles3.mp4";
 import particles from "../assets/videos/particles5.mp4";
 import { UserContext } from "../context/user/UserContext";
-import AboutPage from "./about/page";
-import ContactPage from "./contact/page";
-import HomePage from "./home/HomePage";
-import MyWorkPage from "./mywork/page";
-import { backgroundStyle, imageStyle } from "./page/pageStyles";
+import AboutPage from "../pages/about/page";
+import ContactPage from "../pages/contact/page";
+import HomePage from "../pages/home/HomePage";
+import MyWorkPage from "../pages/mywork/page";
+import {
+  backgroundStyle,
+  imageStyle,
+} from "../styles/ImageParallaxStyles/pageStyles/pageStyles.types";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -108,22 +111,22 @@ const App = () => {
     damping: 28,
   };
 
-  function projectEnter(event: any) {
+  function projectEnter(e: any) {
     setCursorText("View Project 🔎");
     setCursorVariant("project");
   }
 
-  function projectLeave(event: any) {
+  function projectLeave(e: any) {
     setCursorText("");
     setCursorVariant("default");
   }
 
-  function contactEnter(event: any) {
+  function contactEnter(e: any) {
     setCursorText("👋");
     setCursorVariant("contact");
   }
 
-  function contactLeave(event: any) {
+  function contactLeave(e: any) {
     setCursorText("");
     setCursorVariant("default");
   }

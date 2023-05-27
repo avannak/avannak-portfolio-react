@@ -16,9 +16,12 @@ import {
 } from "../../assets/images/vhs2.gif";
 import wavyboy from "../../assets/images/wavyboy.png";
 
-export type Props = { onMouseEnter: any; onMouseLeave: any };
+export type PropTypes = {
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+};
 
-const MyWorkPage = (props: Props) => {
+const MyWorkPage = (props: PropTypes) => {
   const {
     showModal,
     setShowModal,

@@ -1,5 +1,6 @@
+"use client";
+import { useState, FormEvent } from "react";
 import Image from "next/image";
-import { FormEvent, useState } from "react";
 import gmailPixel from "../../assets/images/gmail-pixel.png";
 
 type Props = {};

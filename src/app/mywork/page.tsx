@@ -1,7 +1,8 @@
+"use client";
+import { useRef, useContext } from "react";
 import { UserContext } from "@/context/user/UserContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useContext, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
 import adulting from "../../assets/images/adulting.png";
 import bstocktradein from "../../assets/images/bstock-trade-in.png";

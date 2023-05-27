@@ -150,6 +150,7 @@ const App = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height]); // Only re-run the effect if 'height' changes
 
   return (

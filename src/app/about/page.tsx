@@ -1,4 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client";
+import { useRef } from "react";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
 import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
 import {
@@ -15,7 +17,6 @@ import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 import { Fade } from "react-awesome-reveal";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";

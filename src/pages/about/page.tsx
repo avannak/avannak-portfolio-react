@@ -195,13 +195,13 @@ const AboutPage = (props: Props) => {
           </div>
         </div>
         <div className="languages-section" ref={ref}>
-          <Image
+          {/* <Image
             id="gear-img"
             src={gear}
             alt="gear-pixel"
             height={408}
             width={630}
-          ></Image>
+          ></Image> */}
           <div className="header-title">
             <h1 style={{ color: "rgb(255, 255, 255)" }}>Skills 🛠️🧰</h1>
             {/* <div className="title-divider" /> */}

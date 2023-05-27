@@ -1,9 +1,8 @@
 import { UserContext } from "@/context/user/UserContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
-import { FaBarcode } from "react-icons/fa";
 import adulting from "../../assets/images/adulting.png";
 import bstocktradein from "../../assets/images/bstock-trade-in.png";
 import gatormedia from "../../assets/images/gatormedia.png";
@@ -36,35 +35,6 @@ const MyWorkPage = (props: Props) => {
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
   let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
 
-  const [isHovered, setIsHovered] = useState(false);
-  const [classNameHovered, setClassNameHovered] = useState("");
-
-  // const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
-  //   setIsHovered(true);
-  //   const target = event.target as HTMLDivElement;
-  //   const className = target.className;
-  //   setClassNameHovered(className);
-  // };
-  // const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
-  //   const { relatedTarget } = event;
-  //   const currentElement = event.currentTarget;
-
-  //   if (!currentElement.contains(relatedTarget as Node)) {
-  //     setIsHovered(false);
-  //     setClassNameHovered("");
-  //   }
-  // };
-
-  useEffect(() => {}, [
-    showModal,
-    setShowModal,
-    scrollPosition,
-    classNameHovered,
-    setClassNameHovered,
-    isHovered,
-    setIsHovered,
-  ]);
-
   return (
     <Fade triggerOnce>
       <motion.div
@@ -80,13 +50,21 @@ const MyWorkPage = (props: Props) => {
           x: { duration: 0.2 },
         }}
       >
-        <Image
-          id="studio-img"
-          src={hacking}
-          alt="studio-pixel"
-          height={738}
-          width={738}
-        ></Image>
+        <motion.div
+          className="gif-container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            id="studio-img"
+            className="gif"
+            src={hacking}
+            alt="studio-pixel"
+            height={738}
+            width={738}
+          ></Image>
+        </motion.div>
         <Image id="vhs-img" src={vhs} alt="" height={3840} width={2880}></Image>
         <motion.section className="portfolio" id="portfolio" ref={ref}>
           <motion.div
@@ -102,15 +80,17 @@ const MyWorkPage = (props: Props) => {
             }}
           >
             <div className="container">
-              <h1 className="title">Projects</h1>
+              <h1 className="title" style={{ color: "rgb(255, 255, 255)" }}>
+                Projects 🚧
+              </h1>
             </div>
-            <div className="title-divider" />
-            <FaBarcode
-              style={{ width: "200px", height: "20px" }}
-              viewBox="0 0 500 150"
-              className="icon"
+            {/* <div className="title-divider" /> */}
+            {/* <FaBarcode
+              style={{ width: "180px", height: "1px" }}
+              viewBox="100 0 500 150"
+              className="barcode-icon"
               preserveAspectRatio="none"
-            ></FaBarcode>
+            ></FaBarcode> */}
           </motion.div>
           <div className="description">
             <span style={{ padding: "5px" }}>
@@ -153,9 +133,6 @@ const MyWorkPage = (props: Props) => {
                   >
                     <p>Gatormedia: Multimedia Upload/Share App</p>
                     <span>Click To View</span>
-                    {/* <div className="icon-container" style={{ display: "flex" }}>
-                    <BiExpandAlt style={{ padding: "5px" }}></BiExpandAlt>
-                  </div> */}
                   </div>
                   <Image
                     id="project-img"

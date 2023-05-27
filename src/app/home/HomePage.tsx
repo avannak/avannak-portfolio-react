@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import NavMenu from "@/components/NavMenu";
-import deskcolor from "../../assets/images/deskcolor3.jpg";
-import landing from "../../assets/images/landing3.jpg";
 import { UserContext } from "@/context/user/UserContext";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useContext, useEffect, useRef, useState } from "react";
 
 type Props = {};
 
@@ -32,8 +29,8 @@ const HomePage = (props: Props) => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
   useEffect(() => {
     if (homePageRef.current) {

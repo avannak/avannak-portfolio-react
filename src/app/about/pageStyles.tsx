@@ -10,8 +10,6 @@ export const backgroundStyle: outerStyleType = {
   left: "0",
   width: "100%",
   height: "100%",
-  //   objectFit: "cover",
-  // backgroundSize: "100% auto", // Stretch the image horizontally to fill the width
 };
 
 export const imageStyle: innerStyleType = {
@@ -21,5 +19,4 @@ export const imageStyle: innerStyleType = {
   opacity: "0.2",
   objectFit: "cover",
   bottom: "0", // Position the image at the bottom
-  // backgroundSize: "100% auto", // Stretch the image horizontally to fill the width
 };

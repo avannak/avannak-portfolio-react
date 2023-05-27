@@ -1,7 +1,7 @@
 import { UserContext } from "@/context/user/UserContext";
-import React, { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-scroll";
-import DayNightToggle from "react-day-and-night-toggle";
+// import DayNightToggle from "react-day-and-night-toggle";
 
 type Props = {};
 
@@ -17,17 +17,13 @@ const NavBar = (props: Props) => {
   const navStyles = outerWidth < 598 ? 16 : 32;
   return (
     <div className="nav-bar">
-      {/* <a href="#home">Home</a>
-      <a href="#news">About</a>
-      <a href="#news">My Work</a>
-      <a href="#contact">Contact</a> */}
       <div className="nav-bar-container">
-        <DayNightToggle
+        {/* <DayNightToggle
           className="day-night-toggle"
           onChange={() => setIsDarkMode(!isDarkMode)}
           checked={isDarkMode}
           size={navStyles}
-        ></DayNightToggle>
+        ></DayNightToggle> */}
         <Link
           activeClass="active"
           to="home-section"
@@ -35,6 +31,7 @@ const NavBar = (props: Props) => {
           smooth={true}
           offset={-50}
           duration={500}
+          style={{ marginLeft: "auto" }}
         >
           Home
         </Link>
@@ -45,6 +42,7 @@ const NavBar = (props: Props) => {
           smooth={true}
           offset={-50}
           duration={500}
+          style={{ marginLeft: "auto" }}
         >
           About
         </Link>
@@ -55,6 +53,7 @@ const NavBar = (props: Props) => {
           smooth={true}
           offset={-50}
           duration={500}
+          style={{ marginLeft: "auto" }}
         >
           Projects
         </Link>
@@ -65,6 +64,7 @@ const NavBar = (props: Props) => {
           smooth={true}
           offset={-50}
           duration={500}
+          style={{ marginLeft: "auto" }}
         >
           Contact
         </Link>

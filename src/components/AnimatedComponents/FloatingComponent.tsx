@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { CSSProperties } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 type PropTypes = { children: ReactNode; style?: CSSProperties };
 const FloatingComponent = (props: PropTypes) => {

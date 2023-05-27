@@ -18,28 +18,6 @@ const TypewriterEffect: React.FC<PropTypes> = (props) => {
   const [shouldAnimate, setShouldAnimate] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (props.triggerSections && !props.triggerInstant) {
-        const triggerOffset = 0; // Adjust if needed
-        const sections = document.querySelectorAll(
-          props.triggerSections.join(",")
-        );
-        const isInView = Array.from(sections).some((section) => {
-          const rect = section.getBoundingClientRect();
-          return rect.top <= window.innerHeight - triggerOffset;
-        });
-        setShouldAnimate(isInView);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [props.triggerSections, props.triggerInstant]);
-
-  useEffect(() => {
     if (props.triggerInstant) {
       const timer = setInterval(() => {
         setVisibleText(props.propText.substring(0, currentIndex + 1));

@@ -1,12 +1,10 @@
-import Image from "next/image";
-import React, { useRef } from "react";
-import { FaBarcode, FaHandshake } from "react-icons/fa";
-import ContactForm from "./ContactForm";
+/* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/Header";
-import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { Fade } from "react-awesome-reveal";
 import mountain from "../../assets/images/mountain.png";
 import smiley from "../../assets/images/smiley.png";
-import { Fade } from "react-awesome-reveal";
+import ContactForm from "./ContactForm";
 
 type Props = {};
 
@@ -31,14 +29,16 @@ const ContactPage = (props: Props) => {
         ></Image>
         <div className="contact-section" id="contact-section">
           <div className="header-title">
-            <h1 className="title">Contact</h1>
-            <div className="title-divider" />
-            <FaBarcode
-              style={{ width: "200px", height: "20px" }}
-              viewBox="0 0 500 150"
-              className="icon"
+            <h1 className="title" style={{ color: "rgb(255, 255, 255)" }}>
+              Contact 🤙🏻
+            </h1>
+            {/* <div className="title-divider" /> */}
+            {/* <FaBarcode
+              style={{ width: "180px", height: "1px" }}
+              viewBox="100 0 500 150"
+              className="barcode-icon"
               preserveAspectRatio="none"
-            ></FaBarcode>
+            ></FaBarcode> */}
           </div>
           <div className="header-container">
             <p className="text" style={{ textAlign: "center" }}>

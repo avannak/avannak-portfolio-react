@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 type MouseParallaxVideoProps = { src: string | StaticImageData; id?: string };
 
@@ -16,22 +16,29 @@ const MouseParallaxVideo = ({ src, id }: MouseParallaxVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const { clientX, clientY } = event;
-      const videoElement = videoRef.current;
+    let animationFrameId: number;
 
-      if (videoElement) {
-        const { top, left, width, height } =
-          videoElement.getBoundingClientRect();
-        const x = (clientX - left) / width;
-        const y = (clientY - top) / height;
-        setVideoMousePosition({ x, y });
-      }
+    const handleMouseMove = (event: MouseEvent) => {
+      cancelAnimationFrame(animationFrameId);
+
+      animationFrameId = requestAnimationFrame(() => {
+        const { clientX, clientY } = event;
+        const videoElement = videoRef.current;
+
+        if (videoElement) {
+          const { top, left, width, height } =
+            videoElement.getBoundingClientRect();
+          const x = (clientX - left) / width;
+          const y = (clientY - top) / height;
+          setVideoMousePosition({ x, y });
+        }
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);

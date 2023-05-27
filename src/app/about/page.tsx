@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
+import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
 import {
   faAws,
   faCss3,
@@ -7,15 +9,16 @@ import {
   faJs,
   faNodeJs,
   faReact,
+  faSass,
 } from "@fortawesome/free-brands-svg-icons";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { Fade } from "react-awesome-reveal";
 import { DiMongodb, DiResponsive } from "react-icons/di";
-import { FaBarcode } from "react-icons/fa";
-import { SiExpress, SiMysql } from "react-icons/si";
+import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import akai from "../../assets/images/akai-pixel.png";
 import artPixel from "../../assets/images/artpixel3.png";
 import dt990 from "../../assets/images/dt990-pixel.png";
@@ -27,7 +30,6 @@ import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.png";
 import sg from "../../assets/images/sg-pixel.png";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import { Fade } from "react-awesome-reveal";
 
 type Props = {};
 
@@ -38,53 +40,57 @@ const AboutPage = (props: Props) => {
     offset: ["start start", "end start"],
   });
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
-  let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
+  let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0.6]);
 
   return (
     <motion.div
       id="about-section"
       className="about-page-container"
-      style={{ y, opacity }}
+      // style={{ opacity }}
       transition={{
         ease: "linear",
         duration: 0.3,
         x: { duration: 0.2 },
       }}
     >
-      <motion.div className="content">
-        <Fade delay={500} cascade damping={1e-1} triggerOnce>
-          <div className="header-title" ref={ref}>
-            <h1>About Me</h1>
-            <div className="title-divider" />
-            <FaBarcode
-              style={{ width: "200px", height: "20px" }}
-              viewBox="0 0 500 150"
-              className="icon"
-              preserveAspectRatio="none"
-            ></FaBarcode>
-          </div>
-          <div className="about-me-section" ref={ref}>
-            <div className="about-icons-column container" ref={ref}>
-              <div className="laptop-icon-container">
-                {/* <Image id="matrix-bg" src={matrix} alt="matrix-pixel-bg"></Image> */}
-                <div id="container-text">
-                  <span>
-                    <span id="text1">const</span>{" "}
-                    <span id="dotlog">arthurGreetsYou</span>{" "}
-                    <span id="text2">=</span> <span id="text3">(</span>
-                    <span id="text4">guest</span>
-                    <span id="text3">)</span> =&gt;{" "}
-                  </span>
-                  <span>
-                    {" "}
-                    <span id="braces">&#123;</span>{" "}
-                    <span id="return">return </span>
-                    console.<span id="dotlog">log</span>(&quot;
-                    <span id="pleased">pleased to meet you,</span>
-                    &quot;, <span id="text4">guest</span>);{" "}
-                    <span id="braces">&#125;</span>
-                  </span>
-                </div>
+      <Fade delay={500} cascade damping={1e-1} triggerOnce>
+        <div className="header-title" ref={ref}>
+          <h1
+            style={{
+              color: "rgb(255, 255, 255)",
+            }}
+          >
+            About Me 😎
+          </h1>
+          {/* <div className="title-divider" /> */}
+          {/* <FaBarcode
+            style={{ width: "180px", height: "1px" }}
+            viewBox="100 0 500 150"
+            className="barcode-icon"
+            preserveAspectRatio="none"
+          ></FaBarcode> */}
+        </div>
+        <div className="about-me-section" ref={ref}>
+          <div className="about-icons-column container" ref={ref}>
+            <div className="laptop-icon-container">
+              {/* <Image id="matrix-bg" src={matrix} alt="matrix-pixel-bg"></Image> */}
+              <div id="container-text">
+                <span style={{ boxSizing: "border-box", padding: "1rem" }}>
+                  <span id="text1">const</span>{" "}
+                  <span id="dotlog">arthurGreetsYou</span>{" "}
+                  <span id="text2">=</span> <span id="text3">(</span>
+                  <span id="text4">guest</span>
+                  <span id="text3">)</span> =&gt;{" "}
+                </span>
+                <span style={{ boxSizing: "border-box", padding: "1rem" }}>
+                  {" "}
+                  <span id="braces">&#123;</span>{" "}
+                  <span id="return">return </span>
+                  console.<span id="dotlog">log</span>(&quot;
+                  <span id="pleased">pleased to meet you,</span>
+                  &quot;, <span id="text4">guest</span>);{" "}
+                  <span id="braces">&#125;</span>
+                </span>
                 <Image
                   id="macbook-img"
                   src={macBook}
@@ -94,126 +100,127 @@ const AboutPage = (props: Props) => {
                 ></Image>
               </div>
             </div>
-            <div className="about-description-column container" ref={ref}>
-              <ul className="about-description-list">
-                <li id="hello-emote-container">
+          </div>
+          <div className="about-description-column container" ref={ref}>
+            <ul className="about-description-list">
+              <li id="hello-emote-container">
+                <Image
+                  className="img"
+                  src={artPixel}
+                  alt="art-pixel"
+                  height={97}
+                  width={74}
+                ></Image>
+                <FloatingComponent>
                   <Image
                     className="img"
-                    src={artPixel}
-                    alt="art-pixel"
-                    height={97}
-                    width={74}
+                    src={helloPixel}
+                    alt="hello-pixel"
+                    height={387}
+                    width={451}
                   ></Image>
-                  <FloatingComponent>
-                    <Image
-                      className="img"
-                      src={helloPixel}
-                      alt="hello-pixel"
-                      height={387}
-                      width={451}
-                    ></Image>
-                  </FloatingComponent>
-                </li>
-                <li>
-                  I am a recent graduate of San Francisco State University with
-                  a
-                </li>
+                </FloatingComponent>
+              </li>
+              <li>
+                I am a recent graduate of San Francisco State University with a
+              </li>
 
-                <li>
-                  <span style={{ color: "rgb(196, 119, 255)" }}>
-                    Bachelor's degree in Computer Science.
-                  </span>
-                </li>
-                <li>
-                  {" "}
-                  My dream is to share my creative vision and passion for web
-                  design and programming with others to create an extraordinary
-                  and visually pleasurable user experience.
-                </li>
-                <li>
-                  {" "}
-                  During my coding off-hours, I am a{" "}
-                  <i style={{ color: "rgb(165, 165, 255)" }}>
-                    singer-songwriter
-                  </i>{" "}
-                  and{" "}
-                  <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
-                </li>
-              </ul>
-              <span className="rokit-span">Here is my setup: </span>
-            </div>
-            <div className="rokit-container">
-              <Image
-                id="rode-img"
-                src={rodePixel}
-                alt="rode-pixel"
-                height={534}
-                width={468}
-              ></Image>
-              <Image
-                id="rokit-img"
-                src={rokit}
-                alt="rokit-pixel"
-                height={97}
-                width={74}
-              ></Image>
-              <Image
-                id="volt-img"
-                src={volt}
-                alt="volt-pixel"
-                height={318}
-                width={786}
-              ></Image>
-              <Image
-                id="akai-img"
-                src={akai}
-                alt="akai-pixel"
-                height={318}
-                width={786}
-              ></Image>
-              <Image
-                id="sg-img"
-                src={sg}
-                alt="sg-pixel"
-                height={810}
-                width={270}
-              ></Image>
-              <Image
-                id="dt990-img"
-                src={dt990}
-                alt="dt990-pixel"
-                height={500}
-                width={500}
-              ></Image>
-            </div>
+              <li>
+                <span style={{ color: "rgb(196, 119, 255)" }}>
+                  Bachelor's degree in Computer Science.
+                </span>
+              </li>
+              <li>
+                {" "}
+                My dream is to share my creative vision and passion for web
+                design and programming with others to create an extraordinary
+                and visually pleasurable user experience.
+              </li>
+              <li>
+                {" "}
+                During my coding off-hours, I am a{" "}
+                <i style={{ color: "rgb(165, 165, 255)" }}>
+                  singer-songwriter
+                </i>{" "}
+                and{" "}
+                <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
+              </li>
+            </ul>
+            <span className="rokit-span">Here is my setup: </span>
           </div>
-          <div className="languages-section" ref={ref}>
+          <div className="rokit-container">
             <Image
-              id="gear-img"
-              src={gear}
-              alt="gear-pixel"
-              height={408}
-              width={630}
+              id="rode-img"
+              src={rodePixel}
+              alt="rode-pixel"
+              height={534}
+              width={468}
             ></Image>
-            <div className="header-title">
-              <h1>Skills</h1>
-              <div className="title-divider" />
-              <FaBarcode
-                style={{ width: "200px", height: "20px" }}
-                viewBox="0 0 500 150"
-                className="icon"
-                preserveAspectRatio="none"
-              ></FaBarcode>
-            </div>
-            <div className="center">
-              {" "}
-              <span className="disclaimer">
-                <span>(see</span>
-                <a href="/">resume</a>
-                <span>for full list)</span>
-              </span>
-            </div>
-            <div className="language-container">
+            <Image
+              id="rokit-img"
+              src={rokit}
+              alt="rokit-pixel"
+              height={97}
+              width={74}
+            ></Image>
+            <Image
+              id="volt-img"
+              src={volt}
+              alt="volt-pixel"
+              height={318}
+              width={786}
+            ></Image>
+            <Image
+              id="akai-img"
+              src={akai}
+              alt="akai-pixel"
+              height={318}
+              width={786}
+            ></Image>
+            <Image
+              id="sg-img"
+              src={sg}
+              alt="sg-pixel"
+              height={810}
+              width={270}
+            ></Image>
+            <Image
+              id="dt990-img"
+              src={dt990}
+              alt="dt990-pixel"
+              height={500}
+              width={500}
+            ></Image>
+          </div>
+        </div>
+        <div className="languages-section" ref={ref}>
+          <Image
+            id="gear-img"
+            src={gear}
+            alt="gear-pixel"
+            height={408}
+            width={630}
+          ></Image>
+          <div className="header-title">
+            <h1 style={{ color: "rgb(255, 255, 255)" }}>Skills 🛠️🧰</h1>
+            {/* <div className="title-divider" /> */}
+            {/* <FaBarcode
+              style={{ width: "180px", height: "1px" }}
+              viewBox="100 0 500 150"
+              className="barcode-icon"
+              preserveAspectRatio="none"
+            ></FaBarcode> */}
+          </div>
+          <div className="center">
+            {" "}
+            <span className="disclaimer">
+              <span>see</span>
+              <a href="/">resume</a>
+              <span>for full list</span>
+            </span>
+          </div>
+          <div className="language-container">
+            <RotatingCard>
               <ul className="fed-languages-list">
                 <li>
                   <FontAwesomeIcon className="font-awesome-icon" icon={faJs} />
@@ -228,20 +235,6 @@ const AboutPage = (props: Props) => {
                     width={200}
                   />
                   <span>Typescript</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faHtml5}
-                  />
-                  <span>HTML5</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faCss3}
-                  />
-                  <span>CSS3</span>
                 </li>
                 <li>
                   <FontAwesomeIcon
@@ -268,8 +261,32 @@ const AboutPage = (props: Props) => {
                   <DiResponsive className="font-awesome-icon" />
                   <span>Responsive Design</span>
                 </li>
-              </ul>
-              <ul className="bed-languages-list">
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faHtml5}
+                  />
+                  <span>HTML5</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faCss3}
+                  />
+                  <span>CSS3</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    className="font-awesome-icon"
+                    icon={faSass}
+                  />
+                  <span>Sass</span>
+                </li>
+                <li>
+                  <SiStyledcomponents className="font-awesome-icon" />
+                  <span>styled-components</span>
+                </li>
+                <div className="title-divider"></div>
                 <li>
                   <FontAwesomeIcon className="font-awesome-icon" icon={faAws} />
                   <span>AWS</span>
@@ -294,10 +311,10 @@ const AboutPage = (props: Props) => {
                   <span>Node.js</span>
                 </li>
               </ul>
-            </div>
+            </RotatingCard>
           </div>
-        </Fade>
-      </motion.div>
+        </div>
+      </Fade>
     </motion.div>
   );
 };

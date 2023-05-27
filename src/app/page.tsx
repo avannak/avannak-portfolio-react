@@ -29,22 +29,10 @@ const App = () => {
   const [cursorVariant, setCursorVariant] = useState("default");
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 25, stiffness: 700 };
+  const springConfig = { damping: 50, stiffness: 800 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
-
-  // TRACK MOUSE POSITION FOR VARIANTS
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    const updateMousePos = (e: { clientX: any; clientY: any }) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    document.addEventListener("mousemove", updateMousePos);
-
-    return () => {
-      document.removeEventListener("mousemove", updateMousePos);
-    };
-  }, []);
+  const isMobile = window.innerWidth < 768;
 
   // CURSOR CODE
   useEffect(() => {
@@ -52,11 +40,17 @@ const App = () => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
     };
-    window.addEventListener("mousemove", moveCursor);
+
+    if (!isMobile) {
+      window.addEventListener("mousemove", moveCursor);
+    }
+
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      if (!isMobile) {
+        window.removeEventListener("mousemove", moveCursor);
+      }
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isMobile]);
 
   const variants = {
     default: {
@@ -68,8 +62,6 @@ const App = () => {
       width: 24,
       left: 4,
       top: 4,
-      alignItems: "center",
-      justifyContent: "center",
       fontSize: "16px",
       backgroundColor: "#fefefe",
       transition: {
@@ -78,16 +70,19 @@ const App = () => {
       },
     },
     project: {
+      display: "flex",
       opacity: 1,
-      // backgroundColor: "rgba(255, 255, 255, 0.6)",
       mixBlendMode: "normal" as const,
-      backgroundColor: "#72fda0ca",
-      left: -135,
-      top: -135,
-      color: "#000000",
-      height: 300,
-      width: 300,
-      fontSize: "18px",
+      backgroundColor: "#85dc8bdd",
+      left: -75,
+      top: -80,
+      color: "#ffea70",
+      textShadow: "0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black",
+      height: 200,
+      width: 200,
+      fontSize: "20px",
+      fontWeight: 900,
+      // webkitTextStroke: "1px #000000",
     },
     contact: {
       opacity: 1,
@@ -106,7 +101,7 @@ const App = () => {
   };
 
   function projectEnter(event: any) {
-    setCursorText("View Project");
+    setCursorText("View Project 🔎");
     setCursorVariant("project");
   }
 
@@ -134,53 +129,45 @@ const App = () => {
   };
 
   useEffect(() => {
-    // console.log(
-    //   "app loaded",
-    //   "scroll Position is:",
-    //   getScrollPosition().y,
-    //   "height is: ",
-    //   height
-    // );
     const handleScroll = () => {
-      const position = window.pageYOffset || document.documentElement.scrollTop;
-      setStoredScrollPos(position);
+      const currentScrollPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const positionChanged = Math.abs(currentScrollPos - storedScrollPos) > 5; // Change this value as needed
+
+      if (positionChanged) {
+        setStoredScrollPos(currentScrollPos);
+
+        if (currentScrollPos < height - 300) {
+          setNavBarIsOn(false);
+        } else if (currentScrollPos > height - 300) {
+          setNavBarIsOn(true);
+        }
+      }
     };
-    if (storedScrollPos < height - 300 || getScrollPosition().y < height) {
-      setNavBarIsOn(false);
-    }
-    if (storedScrollPos > height - 300 || getScrollPosition().y > height) {
-      setNavBarIsOn(true);
-    }
 
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [height, storedScrollPos]);
-
-  useEffect(() => {
-    if (scrollPosition < height - 300 || scrollPosition < height) {
-      setNavBarIsOn(false);
-    } else {
-      setNavBarIsOn(true);
-    }
-  }, [scrollPosition, height]);
-  /* CODE FOR MODAL POSITIONING END */
+  }, [height]); // Only re-run the effect if 'height' changes
 
   return (
     <div className="app-container">
-      <motion.div
-        className="cursor"
-        style={{
-          translateX: cursorXSpring,
-          translateY: cursorYSpring,
-        }}
-        variants={variants}
-        animate={cursorVariant}
-        transition={spring}
-      >
-        <span className="cursorText">{cursorText}</span>
-      </motion.div>
+      {!isMobile && (
+        <motion.div
+          className="cursor"
+          style={{
+            translateX: cursorXSpring,
+            translateY: cursorYSpring,
+          }}
+          variants={variants}
+          animate={cursorVariant}
+          transition={spring}
+        >
+          <span className="cursorText">{cursorText}</span>
+        </motion.div>
+      )}
       <UserContext.Provider
         value={{
           showModal,
@@ -228,7 +215,7 @@ const App = () => {
             <AboutPage />
           </motion.section>
           <section id="mywork-section">
-            {showModal && <Modal scrollPosition={scrollPosition} />}
+            <Modal scrollPosition={scrollPosition} />
             <MyWorkPage
               onMouseEnter={projectEnter}
               onMouseLeave={projectLeave}

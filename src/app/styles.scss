@@ -419,7 +419,7 @@ img {
     li {
       font-size: 2.5rem;
       &:hover {
-        color: rgb(255, 251, 42);
+        color: rgb(244, 236, 117);
         transition: color 0.3s ease;
       }
     }
@@ -739,20 +739,19 @@ img {
           font-size: 1em;
           box-sizing: border-box;
           border-radius: 20px;
-          padding: 2rem;
+          padding: 1rem;
           align-items: center;
           justify-content: center;
-          background-color: #161721c9;
+          background-color: #16172188;
           @media (max-width: 562px) {
             font-size: 0.7em;
           }
           span {
             box-sizing: border-box;
-            background-color: #0b0c11de;
+            background-color: #0b0c1199;
             border-radius: 20px;
             text-align: center;
-            margin: auto;
-            top: 0;
+            margin-bottom: auto;
             bottom: 0;
             z-index: 4;
           }
@@ -786,9 +785,11 @@ img {
             bottom: 0;
             left: 0;
             right: 0;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
             position: absolute;
-            height: 200px;
+            height: 160px;
             width: 200px;
             object-fit: contain;
           }

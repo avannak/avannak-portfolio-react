@@ -215,7 +215,7 @@ const AboutPage = (props: Props) => {
           <div className="center">
             {" "}
             <span className="disclaimer">
-              <span>see</span>
+              <span>See</span>
               <a href="/">resume</a>
               <span>for full list</span>
             </span>

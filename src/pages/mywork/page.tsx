@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import adulting from "../../assets/images/adulting.png";
 import bstocktradein from "../../assets/images/bstock-trade-in.png";
 import gatormedia from "../../assets/images/gatormedia.png";
-import hacking from "../../assets/images/hacking-computer-screen.gif";
+import cyberScreen from "../../assets/videos/cyber-screen.mp4";
 import musicplayer from "../../assets/images/musicplayer.png";
 import rapidhealth from "../../assets/images/rapidhealth.jpg";
 import {
@@ -15,6 +15,7 @@ import {
   default as vhs,
 } from "../../assets/images/vhs2.gif";
 import wavyboy from "../../assets/images/wavyboy.png";
+import MouseParallaxVideo from "@/components/AnimatedComponents/MouseParallaxVideo";
 
 export type PropTypes = {
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
@@ -54,21 +55,7 @@ const MyWorkPage = (props: PropTypes) => {
           x: { duration: 0.2 },
         }}
       >
-        <motion.div
-          className="gif-container"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            id="studio-img"
-            className="gif"
-            src={hacking}
-            alt="studio-pixel"
-            height={738}
-            width={738}
-          ></Image>
-        </motion.div>
+        <video id="cyber-video" src={cyberScreen}></video>
         <Image id="vhs-img" src={vhs} alt="" height={3840} width={2880}></Image>
         <motion.section className="portfolio" id="portfolio" ref={ref}>
           <motion.div

@@ -214,7 +214,6 @@ const App = () => {
         ></MouseParallaxImage>
         <div id="parallax-overlay"></div>
         <MouseParallaxVideo id="particles-video" src={particles} />
-        <MouseParallaxVideo id="particles-gif" src={stars4} />
 
         <motion.div className="content-container">
           <motion.section id="home-section">

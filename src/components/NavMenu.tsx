@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { Link } from "react-scroll";
 import codeAnim from "../assets/images/code-anim6.gif";
 import codePixel from "../assets/images/code-pixel.png";
 import cog from "../assets/images/cog-pixel.png";
@@ -11,6 +10,7 @@ import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 type Props = {};
 
@@ -145,40 +145,13 @@ const NavMenu = (props: Props) => {
               transition={{ duration: 1.5, delay: 0.8 }}
             >
               <li>
-                <Link
-                  activeClass="active"
-                  to="about-section"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  About
-                </Link>
+                <Link href="/about">About</Link>
               </li>
               <li>
-                <Link
-                  activeClass="active"
-                  to="mywork-section"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  Projects
-                </Link>
+                <Link href="/projects">Projects</Link>
               </li>
               <li>
-                <Link
-                  activeClass="active"
-                  to="contact-section"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  Contact
-                </Link>
+                <Link href="/contact">Contact</Link>
               </li>
               <li> </li>
             </motion.ul>
@@ -190,7 +163,7 @@ const NavMenu = (props: Props) => {
               </button>
             </div>
           </div>
-          <Link
+          {/* <Link
             activeClass="active"
             to="about-section"
             spy={true}
@@ -204,7 +177,7 @@ const NavMenu = (props: Props) => {
                 <span>Scroll Down for About Me</span>
               </div>
             </FloatingComponent>
-          </Link>
+          </Link> */}
         </motion.div>
       </div>
     </div>

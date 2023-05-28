@@ -10,10 +10,7 @@ import gatormedia from "../../assets/images/gatormedia.png";
 import cyberScreen from "../../assets/videos/cyber-screen.mp4";
 import musicplayer from "../../assets/images/musicplayer.png";
 import rapidhealth from "../../assets/images/rapidhealth.jpg";
-import {
-  default as tvStatic,
-  default as vhs,
-} from "../../assets/images/vhs2.gif";
+// import vhs from "../../assets/videos/vhs2.mp4";
 import wavyboy from "../../assets/images/wavyboy.png";
 import MouseParallaxVideo from "@/components/AnimatedComponents/MouseParallaxVideo";
 
@@ -55,8 +52,7 @@ const MyWorkPage = (props: PropTypes) => {
           x: { duration: 0.2 },
         }}
       >
-        <video id="cyber-video" src={cyberScreen}></video>
-        <Image id="vhs-img" src={vhs} alt="" height={3840} width={2880}></Image>
+        {/* <video id="cyber-video" src={cyberScreen}></video> */}
         <motion.section className="portfolio" id="portfolio" ref={ref}>
           <motion.div
             className="header-title"
@@ -131,7 +127,7 @@ const MyWorkPage = (props: PropTypes) => {
                     src={gatormedia}
                     alt="gatormedia"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
+                  {/* <video id="tv-img" src={vhs}></video> */}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -152,7 +148,7 @@ const MyWorkPage = (props: PropTypes) => {
                   visible: { opacity: 1, y: 0 },
                 }}
               >
-                <Image className="image" src={rapidhealth} alt="rapidhealth" />
+                {/* <Image className="image" src={rapidhealth} alt="rapidhealth" /> */}
                 <div className="middle">
                   <div
                     id="rapidhealth-detail"
@@ -166,11 +162,10 @@ const MyWorkPage = (props: PropTypes) => {
                   </div>
                   <Image
                     id="project-img"
-                    className="image project"
+                    className="image"
                     src={rapidhealth}
                     alt="rapidhealth"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
                 </div>
               </motion.div>
               <motion.div
@@ -205,7 +200,7 @@ const MyWorkPage = (props: PropTypes) => {
                     src={bstocktradein}
                     alt="bstocktradin"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
+                  {/* <video id="tv-img" src={vhs}></video> */}
                 </div>
               </motion.div>
               <motion.div
@@ -240,7 +235,7 @@ const MyWorkPage = (props: PropTypes) => {
                     src={wavyboy}
                     alt="wavyboy"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
+                  {/* <video id="tv-img" src={vhs}></video> */}
                 </div>
               </motion.div>
               <motion.div
@@ -278,7 +273,7 @@ const MyWorkPage = (props: PropTypes) => {
                     src={adulting}
                     alt="adulting"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
+                  {/* <video id="tv-img" src={vhs}></video> */}
                 </div>
               </motion.div>
               <motion.div
@@ -299,13 +294,6 @@ const MyWorkPage = (props: PropTypes) => {
                   visible: { opacity: 1, y: 0 },
                 }}
               >
-                <Image
-                  className="image"
-                  data-modal-target="#musicwebsitemodal"
-                  src={musicplayer}
-                  alt="musicplayer"
-                />
-
                 <div className="middle">
                   <div
                     id="musicwebsite-detail"
@@ -321,9 +309,9 @@ const MyWorkPage = (props: PropTypes) => {
                     id="project-img"
                     className="image project"
                     src={musicplayer}
-                    alt="musicwebsite"
+                    alt="musicplayer"
                   />
-                  <Image id="tv-img" src={tvStatic} alt="GIF" />
+                  {/* <video id="tv-img" src={vhs}></video> */}
                 </div>
               </motion.div>
             </div>

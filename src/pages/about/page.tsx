@@ -31,6 +31,7 @@ import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.png";
 import sg from "../../assets/images/sg-pixel.png";
 import volt from "../../assets/images/volt-pixel-rouge.png";
+import Tooltip from "@/components/Tooltip/Tooltip";
 
 type Props = {};
 
@@ -40,8 +41,8 @@ const AboutPage = (props: Props) => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
-  let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0.6]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
 
   return (
     <motion.div
@@ -147,51 +148,65 @@ const AboutPage = (props: Props) => {
                 <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
               </li>
             </ul>
-            <span className="rokit-span">Here is my setup: </span>
+            <span className="rokit-span">
+              If interested, here is my music studio setup:{" "}
+            </span>
           </div>
           <div className="rokit-container">
-            <Image
-              id="rode-img"
-              src={rodePixel}
-              alt="rode-pixel"
-              height={534}
-              width={468}
-            ></Image>
-            <Image
-              id="rokit-img"
-              src={rokit}
-              alt="rokit-pixel"
-              height={97}
-              width={74}
-            ></Image>
-            <Image
-              id="volt-img"
-              src={volt}
-              alt="volt-pixel"
-              height={318}
-              width={786}
-            ></Image>
-            <Image
-              id="akai-img"
-              src={akai}
-              alt="akai-pixel"
-              height={318}
-              width={786}
-            ></Image>
-            <Image
-              id="sg-img"
-              src={sg}
-              alt="sg-pixel"
-              height={810}
-              width={270}
-            ></Image>
-            <Image
-              id="dt990-img"
-              src={dt990}
-              alt="dt990-pixel"
-              height={500}
-              width={500}
-            ></Image>
+            <Tooltip content="Rode NT-2A">
+              <Image
+                id="rode-img"
+                src={rodePixel}
+                alt="rode-pixel"
+                height={534}
+                width={468}
+              ></Image>
+            </Tooltip>
+            <Tooltip content="KRK Rokit G3">
+              <Image
+                id="rokit-img"
+                src={rokit}
+                alt="rokit-pixel"
+                height={97}
+                width={74}
+              ></Image>
+            </Tooltip>
+            <Tooltip content="VOLT 2 Audio Interface">
+              <Image
+                id="volt-img"
+                src={volt}
+                alt="volt-pixel"
+                height={318}
+                width={786}
+              ></Image>
+            </Tooltip>
+            <Tooltip content="AKAI MPK Mini">
+              <Image
+                id="akai-img"
+                src={akai}
+                alt="akai-pixel"
+                height={318}
+                width={786}
+              ></Image>
+            </Tooltip>
+            <Tooltip content="Epiphone SG Cherry">
+              <Image
+                id="sg-img"
+                src={sg}
+                alt="sg-pixel"
+                height={810}
+                width={270}
+              ></Image>
+            </Tooltip>
+            <Tooltip content="Beyerdynamic DDT 990">
+              <Image
+                id="dt990-img"
+                src={dt990}
+                alt="dt990-pixel"
+                height={500}
+                width={500}
+              ></Image>
+            </Tooltip>
           </div>
         </div>
         <div className="languages-section" ref={ref}>

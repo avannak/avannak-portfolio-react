@@ -30,7 +30,7 @@ const HomePage = (props: Props) => {
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
 
   useEffect(() => {
     if (homePageRef.current) {

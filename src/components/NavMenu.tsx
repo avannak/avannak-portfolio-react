@@ -9,6 +9,8 @@ import cog from "../assets/images/cog-pixel.png";
 import musicNote from "../assets/images/music-note-blue.png";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
@@ -188,6 +190,21 @@ const NavMenu = (props: Props) => {
               </button>
             </div>
           </div>
+          <Link
+            activeClass="active"
+            to="about-section"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
+            <FloatingComponent>
+              <div className="scroll-down-tip">
+                <FontAwesomeIcon icon={faCaretDown} id="angle-down-icon" />
+                <span>Scroll Down for About Me</span>
+              </div>
+            </FloatingComponent>
+          </Link>
         </motion.div>
       </div>
     </div>

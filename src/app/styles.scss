@@ -434,13 +434,13 @@ img {
     width: 100%;
     max-width: 100%;
     margin: auto;
-    height: 500px;
+    height: 100%;
     .nav-selections-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 20px;
+      // margin-top: 20px;
       width: 100%;
     }
     .nav-background {
@@ -496,6 +496,28 @@ img {
   min-height: 1000px;
   position: relative;
   // background-color: rgba(7, 7, 7, 0.8);
+}
+.download-resume-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  width: 290px;
+  margin-bottom: 5px;
+}
+.scroll-down-tip {
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+}
+#angle-down-icon {
+  height: 50px;
+  width: 50px;
 }
 // About Page
 #about-section {
@@ -1844,3 +1866,15 @@ img {
 }
 
 //Day/Night
+
+//Tooltip
+.Tooltip {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  pointer-events: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  max-width: 400px;
+  z-index: 9999999999;
+}

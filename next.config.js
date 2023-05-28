@@ -12,6 +12,9 @@ const nextConfig = {
   },
   webpack(config, { isServer }) {
     const prefix = config.assetPrefix ?? config.basePath ?? "";
+    const withOptimizedImages = require("next-optimized-images");
+
+    module.exports = withOptimizedImages({});
     config.module.rules.push({
       test: /\.mp4$/,
       use: [

@@ -1,21 +1,19 @@
 "use client";
-import { useRef, useContext } from "react";
 import { UserContext } from "@/context/user/UserContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useContext, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
-import adulting from "../../assets/images/adulting.png";
-import bstocktradein from "../../assets/images/bstock-trade-in.png";
-import gatormedia from "../../assets/images/gatormedia.png";
-import cyberScreen from "../../assets/videos/cyber-screen.mp4";
-import musicplayer from "../../assets/images/musicplayer.png";
-import rapidhealth from "../../assets/images/rapidhealth.jpg";
+import adulting from "../../assets/images/adulting.webp";
+import bstocktradein from "../../assets/images/bstock-trade-in.webp";
+import gatormedia from "../../assets/images/gatormedia.webp";
+import musicplayer from "../../assets/images/musicplayer.webp";
+import rapidhealth from "../../assets/images/rapidhealth.webp";
 // import vhs from "../../assets/videos/vhs2.mp4";
-import wavyboy from "../../assets/images/wavyboy.png";
-import MouseParallaxVideo from "@/components/AnimatedComponents/MouseParallaxVideo";
-import NavBar from "@/components/NavBar/NavBar";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
+import NavBar from "@/components/NavBar/NavBar";
+import wavyboy from "../../assets/images/wavyboy.png";
 
 // export type PropTypes = {
 //   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;

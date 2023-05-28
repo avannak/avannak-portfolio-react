@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
-import mountain from "../../assets/images/mountain.png";
-import smiley from "../../assets/images/smiley.png";
+import mountain from "../../assets/images/mountain.webp";
+import smiley from "../../assets/images/smiley.webp";
 import ContactForm from "../../pages/contact/ContactForm";
 
 type Props = {};

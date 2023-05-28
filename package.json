@@ -26,6 +26,7 @@
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.12.16",
     "next": "^13.4.3",
+    "next-optimized-images": "^2.6.2",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.3",
     "react-dom": "^18.2.0",
@@ -34,7 +35,8 @@
     "react-scroll": "^1.8.9",
     "react-social-icons": "^5.15.0",
     "sass": "^1.60.0",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@types/react-scroll": "^1.8.6",

@@ -15,8 +15,6 @@ const NavBar = (props: Props) => {
     isDarkMode,
     setIsDarkMode,
   } = useContext(UserContext);
-  const outerWidth = window.outerWidth;
-  const navStyles = outerWidth < 598 ? 16 : 32;
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">

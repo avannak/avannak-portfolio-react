@@ -35,6 +35,7 @@
     "react-scroll": "^1.8.9",
     "react-social-icons": "^5.15.0",
     "sass": "^1.60.0",
+    "sharp": "^0.32.1",
     "styled-components": "^5.3.11",
     "webp-loader": "^0.6.0"
   },

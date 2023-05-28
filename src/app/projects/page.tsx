@@ -17,12 +17,12 @@ import NavBar from "@/components/NavBar/NavBar";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
-export type PropTypes = {
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
-};
+// export type PropTypes = {
+//   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+//   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+// };
 
-const MyWorkPage = (props: PropTypes) => {
+const MyWorkPage = () => {
   const {
     showModal,
     setShowModal,
@@ -108,8 +108,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item1");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item1"
                   className="project-column"
                   initial="hidden"
@@ -143,8 +143,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item2");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item2"
                   className="project-column"
                   initial="hidden"
@@ -181,8 +181,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item3");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item3"
                   className="project-column"
                   initial="hidden"
@@ -216,8 +216,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item4");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item4"
                   className="project-column"
                   initial="hidden"
@@ -254,8 +254,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item5");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item5"
                   className="project-column"
                   initial="hidden"
@@ -292,8 +292,8 @@ const MyWorkPage = (props: PropTypes) => {
                     setShowModal(!showModal);
                     setModalType("item6");
                   }}
-                  onMouseEnter={props.onMouseEnter}
-                  onMouseLeave={props.onMouseLeave}
+                  // onMouseEnter={props.onMouseEnter}
+                  // onMouseLeave={props.onMouseLeave}
                   id="item6"
                   className="project-column"
                   initial="hidden"

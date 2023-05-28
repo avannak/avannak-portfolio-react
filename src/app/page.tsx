@@ -1,6 +1,6 @@
 "use client";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-import CustomCursor from "@/components/CustomCursor/CustomCursor";
+// import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import NavBar from "@/components/NavBar/NavBar";
 import { useState } from "react";
 import { UserContext } from "../context/user/UserContext";
@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <NavBar />
       <UserContext.Provider
         value={{

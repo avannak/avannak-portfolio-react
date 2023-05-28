@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import codeAnim from "../assets/images/code-anim6.gif";
+// import codeAnim from "../assets/images/code-anim6.gif";
 import codePixel from "../assets/images/code-pixel.webp";
 import cog from "../assets/images/cog-pixel.png";
 import musicNote from "../assets/images/music-note-blue.webp";
@@ -23,7 +23,7 @@ const NavMenu = (props: Props) => {
   let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   return (
     <div className="nav-menu">
-      <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" />
+      {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
       <div className="nav-menu-container">
         <motion.div
           className="title-container"

@@ -23,7 +23,7 @@ const RotationWrapper = styled(motion.div)`
 
 const CardWrapper = styled(motion.div)`
   border-radius: 20px;
-  backdrop-filter: blur(4px) brightness(120%);
+  /* backdrop-filter: blur(4px) brightness(120%); */
 `;
 
 const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {

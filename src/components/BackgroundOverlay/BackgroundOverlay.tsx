@@ -9,25 +9,21 @@ import {
   imageStyle,
 } from "../../styles/ImageParallaxStyles/pageStyles/pageStyles.types";
 import MouseParallaxVideo from "../AnimatedComponents/MouseParallaxVideo";
+import Image from "next/image";
 
 type Props = {};
 
 const BackgroundOverlay = (props: Props) => {
   return (
     <>
-      <MouseParallaxImage
+      <Image
         id="space-pic"
         src={space}
-        outerStyle={backgroundStyle}
-        innerStyle={imageStyle}
+        alt="space"
+        // outerStyle={backgroundStyle}
+        // innerStyle={imageStyle}
         priority={true}
-      ></MouseParallaxImage>
-      <MouseParallaxImage
-        id="stars-pic"
-        src={stars}
-        innerStyle={imageStyle}
-        outerStyle={backgroundStyle}
-      ></MouseParallaxImage>
+      ></Image>
       {/* <div id="parallax-overlay"></div>
       <MouseParallaxVideo id="particles-video" src={particles} /> */}
     </>

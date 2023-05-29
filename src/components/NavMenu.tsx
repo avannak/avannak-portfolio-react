@@ -14,12 +14,6 @@ import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 type Props = {};
 
 const NavMenu = (props: Props) => {
-  let ref = useRef(null);
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   return (
     <div className="nav-menu">
       {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
@@ -124,7 +118,6 @@ const NavMenu = (props: Props) => {
           }}
         >
           <motion.div
-            style={{ opacity }}
             className="nav-background"
             initial={{ opacity: 0.8, translateY: 50 }}
             animate={{ opacity: 1, translateY: 0 }}

@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import Image from "next/image";
 // import { Fade } from "react-awesome-reveal";
+import { motion } from "framer-motion";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 import ContactForm from "../../pages/contact/ContactForm";
@@ -13,16 +14,21 @@ import ContactForm from "../../pages/contact/ContactForm";
 type Props = {};
 
 const ContactPage = (props: Props) => {
-  // let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  // let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
   return (
     <>
-      {/* <CustomCursor /> */}
       <BackgroundOverlay />
       <NavBar />
-      {/* <Fade triggerOnce> */}
-      <div className="contact-page-container" id="contact-section">
+      <motion.section
+        className="contact-page-container"
+        id="contact-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          ease: "linear",
+          duration: 0.3,
+          x: { duration: 0.2 },
+        }}
+      >
         <Image id="cave-pic" src={mountain} alt="mountain"></Image>
         <div className="contact-section" id="contact-section">
           <div className="header-title">
@@ -48,8 +54,7 @@ const ContactPage = (props: Props) => {
             <span>Designed by Arthur V</span>
           </div>
         </div>
-      </div>
-      {/* </Fade> */}
+      </motion.section>
     </>
   );
 };

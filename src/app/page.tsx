@@ -12,8 +12,6 @@ const App = () => {
   const [height, setHeight] = useState<number>(0);
   const [navBarIsOn, setNavBarIsOn] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
-
-  console.log(showModal);
   return (
     <div className="app-container">
       <UserContext.Provider

@@ -23,9 +23,8 @@ const BackgroundOverlay = (props: Props) => {
         alt="space"
         // outerStyle={backgroundStyle}
         // innerStyle={imageStyle}
-        priority={true}
       ></Image>
-      <Image id="stars-pic" src={stars} alt="stars" priority={true}></Image>
+      <Image id="stars-pic" src={stars} alt="stars"></Image>
       {/* <div id="parallax-overlay"></div>
       <MouseParallaxVideo id="particles-video" src={particles} /> */}
     </>

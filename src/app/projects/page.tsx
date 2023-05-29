@@ -29,14 +29,6 @@ const MyWorkPage = () => {
     setShowModal(!showModal);
   };
 
-  let ref = useRef(null);
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
-  let opacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
-
   return (
     <>
       {showModal && (
@@ -52,8 +44,6 @@ const MyWorkPage = () => {
       <motion.div
         id="mywork-section"
         className="mywork-page-container"
-        ref={ref}
-        style={{ y, opacity }}
         transition={{
           ease: "linear",
           duration: 0.3,
@@ -63,8 +53,6 @@ const MyWorkPage = () => {
         <motion.section
           className="portfolio"
           id="portfolio"
-          ref={ref}
-          style={{ y, opacity }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
@@ -73,7 +61,7 @@ const MyWorkPage = () => {
             x: { duration: 0.2 },
           }}
         >
-          <div className="header-title" ref={ref}>
+          <div className="header-title">
             <div className="container">
               <h1 className="title" style={{ color: "rgb(255, 255, 255)" }}>
                 Projects 🚧

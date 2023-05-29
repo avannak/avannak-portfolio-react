@@ -37,30 +37,23 @@ import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay"
 type Props = {};
 
 const AboutPage = (props: Props) => {
-  let ref = useRef(null);
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
-
   return (
     <>
       {/* <CustomCursor /> */}
-      <BackgroundOverlay />
       <motion.div
         id="about-section"
         className="about-page-container"
-        // style={{ opacity }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{
           ease: "linear",
           duration: 0.3,
           x: { duration: 0.2 },
         }}
       >
+        <BackgroundOverlay />
         {/* <Fade delay={500} cascade damping={1e-1} triggerOnce> */}
-        <div className="header-title" ref={ref}>
+        <div className="header-title">
           <h1
             style={{
               color: "rgb(255, 255, 255)",
@@ -76,8 +69,8 @@ const AboutPage = (props: Props) => {
             preserveAspectRatio="none"
           ></FaBarcode> */}
         </div>
-        <div className="about-me-section" ref={ref}>
-          <div className="about-icons-column container" ref={ref}>
+        <div className="about-me-section">
+          <div className="about-icons-column container">
             <div className="laptop-icon-container">
               {/* <Image id="matrix-bg" src={matrix} alt="matrix-pixel-bg"></Image> */}
               <div id="container-text">
@@ -107,7 +100,7 @@ const AboutPage = (props: Props) => {
               </div>
             </div>
           </div>
-          <div className="about-description-column container" ref={ref}>
+          <div className="about-description-column container">
             <ul className="about-description-list">
               <li id="hello-emote-container">
                 <Image
@@ -213,7 +206,7 @@ const AboutPage = (props: Props) => {
             </Tooltip>
           </div>
         </div>
-        <div className="languages-section" ref={ref}>
+        <div className="languages-section">
           {/* <Image
             id="gear-img"
             src={gear}

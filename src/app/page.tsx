@@ -3,7 +3,6 @@ import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay"
 import { useState } from "react";
 import { UserContext } from "../context/user/UserContext";
 import HomePage from "../pages/home/HomePage";
-import RootRouter from "@/common/routers/RootRouter";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,18 +13,9 @@ const App = () => {
   const [navBarIsOn, setNavBarIsOn] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  /* CODE BELOW FOR MODAL POSITIONING. Change at own risk. */
-  const getScrollPosition = () => {
-    return {
-      x: window.pageXOffset || document.documentElement.scrollLeft,
-      y: window.pageYOffset || document.documentElement.scrollTop,
-    };
-  };
-
   console.log(showModal);
   return (
     <div className="app-container">
-      {/* <RootRouter /> */}
       <UserContext.Provider
         value={{
           showModal,

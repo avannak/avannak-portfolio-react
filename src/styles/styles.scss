@@ -1086,6 +1086,7 @@ img {
     border: none;
     position: absolute;
     @media (max-width: 600px) {
+      top: 60%;
       width: 95vw;
       height: max-content;
       font-size: 0.8em;

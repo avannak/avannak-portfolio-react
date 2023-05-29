@@ -1,4 +1,7 @@
-import "./styles.scss";
+import CustomCursor from "@/components/CustomCursor/CustomCursor";
+import "../styles/styles.scss";
+import NavBar from "@/components/NavBar/NavBar";
+
 export const metadata = {
   title: "Arthur's Portfolio",
   description: "Welcome to my portfolio!",
@@ -11,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head />
+      <body>
+        <CustomCursor />
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

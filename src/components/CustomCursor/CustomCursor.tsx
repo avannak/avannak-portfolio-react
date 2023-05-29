@@ -1,5 +1,13 @@
+"use client";
 import { useMotionValue, useSpring, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
+  ssr: false,
+});
+
+<AnimatedCursor />;
 
 type Props = {};
 
@@ -52,77 +60,18 @@ export const spring = {
 };
 
 const CustomCursor = (props: Props) => {
-  const [cursorText, setCursorText] = useState("");
-  const [cursorVariant, setCursorVariant] = useState("default");
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 50, stiffness: 800 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
-
-  function projectEnter(e: any) {
-    setCursorText("View Project 🔎");
-    setCursorVariant("project");
-  }
-
-  function projectLeave(e: any) {
-    setCursorText("");
-    setCursorVariant("default");
-  }
-
-  function contactEnter(e: any) {
-    setCursorText("👋");
-    setCursorVariant("contact");
-  }
-
-  function contactLeave(e: any) {
-    setCursorText("");
-    setCursorVariant("default");
-  }
-
-  // CHECK IF MOBILE
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    // Check if the code is running in a browser environment
-    if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth < 768);
-    }
-  }, []);
-
-  // CURSOR CODE
-  useEffect(() => {
-    const moveCursor = (e: { clientX: number; clientY: number }) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
-    };
-
-    if (!isMobile) {
-      window.addEventListener("mousemove", moveCursor);
-    }
-
-    return () => {
-      if (!isMobile) {
-        window.removeEventListener("mousemove", moveCursor);
-      }
-    };
-  }, [cursorX, cursorY, isMobile]);
-
   return (
     <div>
-      {!isMobile && (
-        <motion.div
-          className="cursor"
-          style={{
-            translateX: cursorXSpring,
-            translateY: cursorYSpring,
-          }}
-          variants={variants}
-          animate={cursorVariant}
-          transition={spring}
-        >
-          <span className="cursorText">{cursorText}</span>
-        </motion.div>
-      )}
+      <AnimatedCursor
+        outerStyle={{
+          zIndex: 999999,
+          backgroundColor: "rgba(255, 255, 255, 0.624)",
+        }}
+        innerStyle={{
+          zIndex: 999999,
+          backgroundColor: "rgb(253, 103, 103)",
+        }}
+      />
     </div>
   );
 };

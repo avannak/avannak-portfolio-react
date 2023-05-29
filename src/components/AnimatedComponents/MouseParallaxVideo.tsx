@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";

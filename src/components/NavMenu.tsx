@@ -1,16 +1,15 @@
+"use client";
 import Header from "@/components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 // import codeAnim from "../assets/images/code-anim6.gif";
+import Link from "next/link";
 import codePixel from "../assets/images/code-pixel.webp";
 import cog from "../assets/images/cog-pixel.png";
 import musicNote from "../assets/images/music-note-blue.webp";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 
 type Props = {};
 

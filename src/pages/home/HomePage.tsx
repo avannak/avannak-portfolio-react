@@ -1,3 +1,4 @@
+"use client";
 import NavMenu from "@/components/NavMenu";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";

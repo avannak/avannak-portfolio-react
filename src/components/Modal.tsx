@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client";
 import { UserContext } from "@/context/user/UserContext";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";

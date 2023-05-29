@@ -12,7 +12,6 @@ import rapidhealth from "../../assets/images/rapidhealth.webp";
 // import vhs from "../../assets/videos/vhs2.mp4";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import NavBar from "@/components/NavBar/NavBar";
 import wavyboy from "../../assets/images/wavyboy.png";
 
 // export type PropTypes = {
@@ -42,7 +41,6 @@ const MyWorkPage = () => {
     <>
       {/* <CustomCursor /> */}
       <BackgroundOverlay />
-      <NavBar />
       {/* <Fade triggerOnce> */}
       <motion.div
         id="mywork-section"

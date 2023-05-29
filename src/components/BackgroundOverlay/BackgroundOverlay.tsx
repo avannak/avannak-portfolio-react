@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MouseParallaxImage from "../AnimatedComponents/MouseParallaxImage/MouseParallaxImage";
 import space from "../../assets/images/space.webp";
@@ -24,6 +25,7 @@ const BackgroundOverlay = (props: Props) => {
         // innerStyle={imageStyle}
         priority={true}
       ></Image>
+      <Image id="stars-pic" src={stars} alt="stars" priority={true}></Image>
       {/* <div id="parallax-overlay"></div>
       <MouseParallaxVideo id="particles-video" src={particles} /> */}
     </>

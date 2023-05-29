@@ -1,11 +1,8 @@
 "use client";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-// import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import NavBar from "@/components/NavBar/NavBar";
 import { useState } from "react";
 import { UserContext } from "../context/user/UserContext";
 import HomePage from "../pages/home/HomePage";
-import AnimatedCursor from "react-animated-cursor";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -26,9 +23,6 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {/* <CustomCursor /> */}
-      <AnimatedCursor outerStyle={{zIndex: 999999}} innerStyle={{zIndex: 999999}}/>
-      <NavBar />
       <UserContext.Provider
         value={{
           showModal,

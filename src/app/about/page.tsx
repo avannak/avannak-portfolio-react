@@ -31,7 +31,6 @@ import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
 import Tooltip from "@/components/Tooltip/Tooltip";
-import NavBar from "@/components/NavBar/NavBar";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
@@ -50,7 +49,6 @@ const AboutPage = (props: Props) => {
     <>
       {/* <CustomCursor /> */}
       <BackgroundOverlay />
-      <NavBar />
       <motion.div
         id="about-section"
         className="about-page-container"

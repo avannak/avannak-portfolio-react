@@ -3,6 +3,7 @@ import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay"
 import { useState } from "react";
 import { UserContext } from "../context/user/UserContext";
 import HomePage from "../pages/home/HomePage";
+import RootRouter from "@/common/routers/RootRouter";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,8 +22,10 @@ const App = () => {
     };
   };
 
+  console.log(showModal);
   return (
     <div className="app-container">
+      {/* <RootRouter /> */}
       <UserContext.Provider
         value={{
           showModal,

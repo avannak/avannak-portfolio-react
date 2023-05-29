@@ -22,7 +22,6 @@ body {
   margin: 0 auto;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
   max-width: 100%;
-  max-width: 1920px;
   min-width: 370px;
 }
 .app-container {
@@ -1205,6 +1204,32 @@ img {
   .mywork-page-container .row {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+.mywork-page-container .project-thumbnail {
+  position: relative;
+}
+.mywork-page-container .project-thumbnail .middle {
+  position: relative;
+}
+.mywork-page-container .project-thumbnail .middle:hover .view-text-container {
+  opacity: 1;
+}
+.mywork-page-container .project-thumbnail .view-text-container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+}
+.mywork-page-container .project-thumbnail .cursor-text {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
 }
 .mywork-page-container .project-column {
   border-radius: 20px;

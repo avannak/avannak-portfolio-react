@@ -1,13 +1,8 @@
 "use client";
-import { useMotionValue, useSpring, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
-
-<AnimatedCursor />;
 
 type Props = {};
 
@@ -61,18 +56,16 @@ export const spring = {
 
 const CustomCursor = (props: Props) => {
   return (
-    <div>
-      <AnimatedCursor
-        outerStyle={{
-          zIndex: 999999,
-          backgroundColor: "rgba(255, 255, 255, 0.624)",
-        }}
-        innerStyle={{
-          zIndex: 999999,
-          backgroundColor: "rgb(253, 103, 103)",
-        }}
-      />
-    </div>
+    <AnimatedCursor
+      outerStyle={{
+        zIndex: 999999,
+        backgroundColor: "rgba(255, 255, 255, 0.624)",
+      }}
+      innerStyle={{
+        zIndex: 999999,
+        backgroundColor: "rgb(253, 103, 103)",
+      }}
+    />
   );
 };
 

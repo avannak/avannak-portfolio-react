@@ -35,7 +35,6 @@ body {
     // font-size: 1.6em;
   }
   max-width: 100%;
-  max-width: 1920px; // Set the maximum width to 1920 pixels for screens up to 1920 pixels wide
   min-width: 370px;
 }
 .app-container {
@@ -1035,7 +1034,19 @@ img {
 }
 // Modal
 .modal-container {
+  box-sizing: border-box;
   // font-family: "Courier Prime", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.4);
   .overlay {
     position: fixed;
     top: 0;
@@ -1058,13 +1069,15 @@ img {
       rgb(18, 21, 26) 0%,
       rgba(16, 16, 24, 0.967) 100%
     );
+    box-sizing: border-box;
     box-shadow: 0px 0px 20px 10px rgba(29, 59, 78, 0.071);
     height: max-content;
-    min-height: 600px;
-    max-height: fit-content;
-    width: 90%;
-    min-width: 300px;
-    max-width: 1080px;
+    // min-height: 600px;
+    max-height: 100%;
+    width: 80vw;
+    min-width: 200px;
+    max-width: 1000px;
+    padding: 2em;
     top: 50%;
     left: 50%;
     right: 50%;
@@ -1072,9 +1085,17 @@ img {
     border-radius: 20px;
     border: none;
     position: absolute;
+    @media (max-width: 600px) {
+      width: 95vw;
+      height: max-content;
+      font-size: 0.8em;
+      overflow: scroll;
+    }
     .close-button {
       margin-left: auto;
       margin-top: auto;
+      min-width: 50px;
+      min-height: 30px;
       width: 50px;
       height: 30px;
       color: rgb(255, 255, 255);
@@ -1148,7 +1169,7 @@ img {
             .icon {
               width: 35px;
               height: 35px;
-              padding: 8px;
+              padding: 4px;
               @media (max-width: 504px) {
                 width: 20px;
                 height: 20px;
@@ -1326,6 +1347,37 @@ img {
     }
   }
   // PROJECT COLUMN
+  .project-thumbnail {
+    position: relative;
+
+    .middle {
+      position: relative;
+
+      &:hover .view-text-container {
+        opacity: 1;
+      }
+    }
+
+    .view-text-container {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      padding: 10px;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+    }
+
+    .cursor-text {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  }
+
   .project-column {
     border-radius: 20px;
     padding: 0;

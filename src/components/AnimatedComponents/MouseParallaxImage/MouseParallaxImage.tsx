@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { MouseParallaxImageProps } from "./MouseParallaxImage.types";

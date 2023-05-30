@@ -116,18 +116,21 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
 
   return (
     <RotationWrapper>
-      <CardWrapper
-        ref={cardRef}
-        style={{
-          zIndex: 999999999999,
-          rotateX,
-          rotateY,
-          transformPerspective: 9000,
-          backgroundImage: sheenGradient,
-        }}
-      >
-        {children}
-      </CardWrapper>
+      {!isMobile && (
+        <CardWrapper
+          ref={cardRef}
+          style={{
+            zIndex: 999999999999,
+            rotateX,
+            rotateY,
+            transformPerspective: 9000,
+            backgroundImage: sheenGradient,
+          }}
+        >
+          {children}
+        </CardWrapper>
+      )}
+      {isMobile && <>{children}</>}
     </RotationWrapper>
   );
 };

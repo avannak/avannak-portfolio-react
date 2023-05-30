@@ -6,18 +6,13 @@ type Props = {};
 
 const HomePage = (props: Props) => {
   return (
-    <motion.div className="home-page-container">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          ease: "linear",
-          duration: 0.3,
-          x: { duration: 0.2 },
-        }}
-      >
-        <NavMenu />
-      </motion.div>
+    <motion.div
+      className="home-page-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <NavMenu />
     </motion.div>
   );
 };

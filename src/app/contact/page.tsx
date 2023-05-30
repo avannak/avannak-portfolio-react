@@ -28,6 +28,7 @@ const ContactPage = (props: Props) => {
           duration: 0.3,
           x: { duration: 0.2 },
         }}
+        exit={{ opacity: 0 }}
       >
         <Image id="cave-pic" src={mountain} alt="mountain"></Image>
         <div className="contact-section" id="contact-section">

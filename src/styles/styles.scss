@@ -937,6 +937,7 @@ img {
     }
     @media (max-width: 562px) {
       font-size: 0.8em;
+      pointer-events: none;
     }
     // Skills
     .fed-languages-list {

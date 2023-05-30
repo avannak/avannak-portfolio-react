@@ -50,6 +50,7 @@ const AboutPage = (props: Props) => {
           duration: 0.3,
           x: { duration: 0.2 },
         }}
+        exit={{ opacity: 0 }}
       >
         <BackgroundOverlay />
         {/* <Fade delay={500} cascade damping={1e-1} triggerOnce> */}

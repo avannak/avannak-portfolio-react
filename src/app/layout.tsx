@@ -1,7 +1,6 @@
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import "../styles/styles.scss";
 import NavBar from "@/components/NavBar/NavBar";
-import { UserContext } from "../context/user/UserContext";
+import "../styles/styles.scss";
 
 export const metadata = {
   title: "Arthur's Portfolio",
@@ -17,8 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <CustomCursor />
         <NavBar />
+        <CustomCursor />
         {children}
       </body>
     </html>

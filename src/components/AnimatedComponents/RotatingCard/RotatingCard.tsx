@@ -6,7 +6,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 interface RotatingCardProps {
@@ -24,10 +24,12 @@ const RotationWrapper = styled(motion.div)`
 
 const CardWrapper = styled(motion.div)`
   border-radius: 20px;
-  /* backdrop-filter: blur(4px) brightness(120%); */
 `;
 
 const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
+  // Add isMobile state
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   // mouse position
   const mouseX = useMotionValue(
     typeof window !== "undefined" ? window.innerWidth / 2 : 0
@@ -79,6 +81,8 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
     let requestId: number;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (isMobile) return; // Skip updating mouseX and mouseY if isMobile is true
+
       requestId = requestAnimationFrame(() => {
         // animate mouse x and y
         animate(mouseX, e.clientX);
@@ -86,10 +90,19 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
       });
     };
 
-    if (typeof window === "undefined") return;
+    // Update isMobile when window resizes
+    const handleResize = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth <= 600);
+    };
 
-    // recalculate grid on resize
-    window.addEventListener("mousemove", handleMouseMove);
+    if (typeof window !== "undefined") {
+      // Initial check for isMobile
+      handleResize();
+
+      // recalculate grid on resize
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("resize", handleResize);
+    }
 
     // cleanup
     return () => {
@@ -97,8 +110,9 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
         cancelAnimationFrame(requestId);
       }
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
 
   return (
     <RotationWrapper>

@@ -1,25 +1,15 @@
 "use client";
-import { UserContext } from "@/context/user/UserContext";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useContext, useRef, useState } from "react";
-// import { Fade } from "react-awesome-reveal";
+import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
+import Modal from "@/components/Modal/Modal";
+import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import adulting from "../../assets/images/adulting.webp";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
-// import vhs from "../../assets/videos/vhs2.mp4";
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-// import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import wavyboy from "../../assets/images/wavyboy.png";
-import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
-import Modal from "@/components/Modal/Modal";
-
-// export type PropTypes = {
-//   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
-//   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
-// };
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,9 +28,6 @@ const MyWorkPage = () => {
           modalType={modalType}
         />
       )}
-      {/* <CustomCursor /> */}
-      <BackgroundOverlay />
-      {/* <Fade triggerOnce> */}
       <motion.div
         id="mywork-section"
         className="mywork-page-container"
@@ -49,7 +36,9 @@ const MyWorkPage = () => {
           duration: 0.3,
           x: { duration: 0.2 },
         }}
+        exit={{ opacity: 0 }}
       >
+        <BackgroundOverlay />
         <motion.section
           className="portfolio"
           id="portfolio"
@@ -154,7 +143,6 @@ const MyWorkPage = () => {
           </div>
         </motion.section>
       </motion.div>
-      {/* </Fade> */}
     </>
   );
 };

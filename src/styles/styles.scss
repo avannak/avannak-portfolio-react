@@ -541,7 +541,7 @@ img {
 }
 
 #space-pic {
-  z-index: -1;
+  z-index: -999999999;
   opacity: 0.4;
   position: absolute;
   bottom: 0;
@@ -1089,7 +1089,7 @@ img {
       top: 60%;
       width: 95vw;
       height: max-content;
-      font-size: 0.8em;
+      font-size: 0.75em;
       overflow: scroll;
     }
     .close-button {

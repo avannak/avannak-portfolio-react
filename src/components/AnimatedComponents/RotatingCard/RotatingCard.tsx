@@ -104,6 +104,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
     <CardWrapper
       ref={cardRef}
       style={{
+        zIndex: 999999999999,
         rotateX,
         rotateY,
         transformPerspective: 9000,

@@ -101,18 +101,20 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
   }, [mouseX, mouseY]);
 
   return (
-    <CardWrapper
-      ref={cardRef}
-      style={{
-        zIndex: 999999999999,
-        rotateX,
-        rotateY,
-        transformPerspective: 9000,
-        backgroundImage: sheenGradient,
-      }}
-    >
-      {children}
-    </CardWrapper>
+    <RotationWrapper>
+      <CardWrapper
+        ref={cardRef}
+        style={{
+          zIndex: 999999999999,
+          rotateX,
+          rotateY,
+          transformPerspective: 9000,
+          backgroundImage: sheenGradient,
+        }}
+      >
+        {children}
+      </CardWrapper>
+    </RotationWrapper>
   );
 };
 

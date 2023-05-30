@@ -2,48 +2,90 @@
 import { useState, FormEvent } from "react";
 import Image from "next/image";
 import gmailPixel from "../../assets/images/gmail-pixel.webp";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 type Props = {};
 
 const ContactForm = (props: Props) => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // TODO: Handle form submission
-    console.log("Form submitted!");
+  const [successMessage, setSuccessMessage] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<IFormInput>();
+  const onSubmit = (data: any) => {
+    console.log("Form Submitted! Here is what was submitted: ", data);
+    axios
+      .post("https://eopvtqqy312v6wt.m.pipedream.net", data)
+      .then((res) => {
+        setSuccessMessage(
+          `Thank you for submitting a message! I will try to get back to you as soon as possible. Check your inbox for updates 😃`
+        );
+      })
+      .catch((e) => console.log(e));
+    // https://eopvtqqy312v6wt.m.pipedream.net
   };
+  interface IFormInput {
+    name: string;
+    email: string;
+    message: string;
+  }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form-container">
         <div className="input-group">
           <input
-            id="name"
-            type="text"
             placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            type="text"
+            required
+            {...register("name", {
+              required: "Name is required",
+              pattern: {
+                value: /^[a-z ,.'-]+$/i,
+                message: "invalid name",
+              },
+            })}
+            className="input"
           />
         </div>
         <div className="input-group">
           <input
-            id="email"
-            type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: "Please enter a valid email",
+              },
+            })}
+            type="email"
+            required
+            className="input"
           />
         </div>
         <div className="input-group">
           <textarea
             id="message"
             placeholder="Enter Your Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            {...register("message", {
+              required: "Message is required.",
+              minLength: {
+                value: 10,
+                message: "Your message should be at least 10 characters long.",
+              },
+              maxLength: {
+                value: 500,
+                message: "Your message can be up to 500 characters long.",
+              },
+            })}
+            required
           />
+          {errors.message && <p className="error">{errors.message.message}</p>}
+          {successMessage && <p className="success">{successMessage}</p>}
         </div>
         <button className="pushable">
           <span className="shadow"></span>

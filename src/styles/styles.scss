@@ -1623,6 +1623,26 @@ img {
     }
   }
   // Contact Form
+  .error {
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    color: rgb(255, 81, 81);
+  }
+  .success {
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    color: rgb(81, 255, 130);
+  }
   .contact-form {
     display: flex;
     flex-direction: row;
@@ -1647,6 +1667,7 @@ img {
       align-items: center;
       justify-content: center;
       height: 100%;
+      max-width: 500px;
       width: 100%;
       order: 1;
       flex: 60%;
@@ -1655,10 +1676,12 @@ img {
       }
       .input-group {
         display: flex;
+        flex-direction: column;
         align-items: center;
         text-align: left;
         justify-content: center;
         width: 100%;
+        max-width: 500px;
         input {
           border-radius: 2px;
           font-family: inherit;

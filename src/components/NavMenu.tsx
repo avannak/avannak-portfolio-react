@@ -15,6 +15,7 @@ import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "@/context/global/GlobalContext";
 import ReactSwitch from "react-switch";
 import { isMobileDevice, useIsMobile } from "../utils/isMobileDevice";
+import StyledButton from "./Button/StyledButton";
 
 type Props = {};
 
@@ -150,38 +151,30 @@ const NavMenu = (props: Props) => {
                   <p>Start</p>
                 </Link>
               </li>
-
-              <div className="download-resume-wrapper">
-                <button className="pushable">
-                  <span className="shadow"></span>
-                  <span className="edge"></span>
-                  <span className="front">Download Resume</span>
-                </button>
-              </div>
-            </motion.ul>
-            {!isMobile && (
-              <>
-                <div
-                  className="toggle-container"
-                  style={{ boxSizing: "border-box", padding: "2rem" }}
-                >
-                  <div className="text-container" style={{ marginRight: 15 }}>
-                    <p>
-                      Parallax effect: <br />
-                    </p>
-                    <p style={{ fontSize: "0.8em" }}>
-                      (Turn off if page is slow)
-                    </p>
+              <li>
+                <StyledButton text="Download Resume" />
+              </li>
+              {!isMobile && (
+                <>
+                  <div className="toggle-container">
+                    <div className="text-container" style={{ marginRight: 15 }}>
+                      <p>
+                        Parallax effect: <br />
+                      </p>
+                      <p style={{ fontSize: "0.8em" }}>
+                        (Turn off if page is slow)
+                      </p>
+                    </div>
+                    <ReactSwitch
+                      onChange={() => {
+                        setParallaxIsOn(!parallaxIsOn);
+                      }}
+                      checked={parallaxIsOn}
+                    />
                   </div>
-                  <ReactSwitch
-                    onChange={() => {
-                      setParallaxIsOn(!parallaxIsOn);
-                    }}
-                    checked={parallaxIsOn}
-                  />
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </motion.ul>
           </div>
         </motion.div>
       </div>

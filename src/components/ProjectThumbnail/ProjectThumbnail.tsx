@@ -1,6 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import React, { ReactNode } from "react";
+import StyledButton from "../Button/StyledButton";
 
 type PropTypes = {
   children?: ReactNode;
@@ -20,7 +21,7 @@ const ProjectThumbnail = (props: PropTypes) => {
       <div className="middle">
         <div id={props.middleId} className={props.middleClassName}>
           <p>{props.text}</p>
-          <span>Click To View 🔎</span>
+          <StyledButton text="Click To View 🔎" />
         </div>
         <Image
           id="project-img"

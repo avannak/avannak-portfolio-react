@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "@/context/global/GlobalContext";
 import ReactSwitch from "react-switch";
+import { isMobileDevice } from "../utils/isMobileDevice";
 
 type Props = {};
 
@@ -162,12 +163,14 @@ const NavMenu = (props: Props) => {
                 </p>
                 <p style={{ fontSize: "0.8em" }}>(Turn off if page is slow)</p>
               </div>
-              <ReactSwitch
-                onChange={() => {
-                  setParallaxIsOn(!parallaxIsOn);
-                }}
-                checked={parallaxIsOn}
-              />
+              {isMobileDevice() === false && (
+                <ReactSwitch
+                  onChange={() => {
+                    setParallaxIsOn(!parallaxIsOn);
+                  }}
+                  checked={parallaxIsOn}
+                />
+              )}
             </div>
           </div>
         </motion.div>

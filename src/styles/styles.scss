@@ -29,12 +29,15 @@ $large-screen: 3840px;
 body {
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.368);
   font-family: "Tickerbit", monospace;
-  font-weight: 100;
-  font-size: 1.1em;
+  font-weight: 400;
+  font-size: 1.2em;
   margin: 0 auto;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
   @media (max-width: 1024px) {
-    font-size: 0.8em;
+    font-size: 1em;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.85em;
   }
   max-width: 100%;
   min-width: 370px;
@@ -190,7 +193,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  padding-right: 16px; /* Add padding to the right side for spacing */
+  // padding-right: 16px; /* Add padding to the right side for spacing */
 }
 // Day & Night Toggle
 .day-night-toggle {
@@ -1752,7 +1755,7 @@ section {
       max-width: 500px;
       width: 100%;
       order: 1;
-      flex: 60%;
+      flex: 50%;
       @media (max-width: 518px) {
         order: 2; /* default order */
       }

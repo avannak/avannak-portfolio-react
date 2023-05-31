@@ -14,12 +14,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "@/context/global/GlobalContext";
 import ReactSwitch from "react-switch";
-import { isMobileDevice } from "../utils/isMobileDevice";
+import { isMobileDevice, useIsMobile } from "../utils/isMobileDevice";
 
 type Props = {};
 
 const NavMenu = (props: Props) => {
   const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
+  const isMobile = useIsMobile();
+
   return (
     <div className="nav-menu">
       {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
@@ -156,22 +158,26 @@ const NavMenu = (props: Props) => {
                 <span className="front">Download Resume</span>
               </button>
             </div>
-            <div className="toggle-container">
-              <div className="text-container" style={{ marginRight: 15 }}>
-                <p>
-                  Parallax Effect: <br />
-                </p>
-                <p style={{ fontSize: "0.8em" }}>(Turn off if page is slow)</p>
-              </div>
-              {isMobileDevice() === false && (
-                <ReactSwitch
-                  onChange={() => {
-                    setParallaxIsOn(!parallaxIsOn);
-                  }}
-                  checked={parallaxIsOn}
-                />
-              )}
-            </div>
+            {!isMobile && (
+              <>
+                <div className="toggle-container">
+                  <div className="text-container" style={{ marginRight: 15 }}>
+                    <p>
+                      Parallax Effect: <br />
+                    </p>
+                    <p style={{ fontSize: "0.8em" }}>
+                      (Turn off if page is slow)
+                    </p>
+                  </div>
+                  <ReactSwitch
+                    onChange={() => {
+                      setParallaxIsOn(!parallaxIsOn);
+                    }}
+                    checked={parallaxIsOn}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </motion.div>
       </div>

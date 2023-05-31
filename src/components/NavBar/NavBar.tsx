@@ -1,21 +1,12 @@
 "use client";
-import { UserContext } from "@/context/user/UserContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 // import DayNightToggle from "react-day-and-night-toggle";
 
 type Props = {};
 
 const NavBar = (props: Props) => {
-  const {
-    navBarIsOn,
-    setNavBarIsOn,
-    storedScrollPos,
-    isDarkMode,
-    setIsDarkMode,
-  } = useContext(UserContext);
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">

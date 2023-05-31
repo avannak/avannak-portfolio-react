@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { useRef } from "react";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
 import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
 import {
@@ -13,11 +12,20 @@ import {
   faReact,
   faSass,
 } from "@fortawesome/free-brands-svg-icons";
-import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faLeftLong,
+  faRightLong,
+  faRotateBack,
+  faShareNodes,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 // import { Fade } from "react-awesome-reveal";
+import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
+import Tooltip from "@/components/Tooltip/Tooltip";
+import Link from "next/link";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import akai from "../../assets/images/akai-pixel.png";
@@ -30,8 +38,6 @@ import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import Tooltip from "@/components/Tooltip/Tooltip";
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
 type Props = {};
@@ -53,22 +59,32 @@ const AboutPage = (props: Props) => {
         exit={{ opacity: 0 }}
       >
         <BackgroundOverlay />
-        {/* <Fade delay={500} cascade damping={1e-1} triggerOnce> */}
-        <div className="header-title">
+        <div className="header-title navigation">
+          <Link href="/" className="link" style={{ width: "100%" }}>
+            <div className="icon-container">
+              <FontAwesomeIcon className="icon" icon={faHome}></FontAwesomeIcon>
+              <span>Home</span>
+            </div>
+          </Link>
           <h1
             style={{
               color: "rgb(255, 255, 255)",
+              margin: "5px 15px 5px 15px",
+              width: "100%",
             }}
           >
-            About Me 😎
+            About Me <br />
+            😎
           </h1>
-          {/* <div className="title-divider" /> */}
-          {/* <FaBarcode
-            style={{ width: "180px", height: "1px" }}
-            viewBox="100 0 500 150"
-            className="barcode-icon"
-            preserveAspectRatio="none"
-          ></FaBarcode> */}
+          <Link href="/projects" className="link" style={{ width: "100%" }}>
+            <div className="icon-container">
+              <FontAwesomeIcon
+                className="icon"
+                icon={faRightLong}
+              ></FontAwesomeIcon>
+              <span>Projects</span>
+            </div>
+          </Link>
         </div>
         <div className="about-me-section">
           <div className="about-icons-column container">

@@ -12,21 +12,36 @@ import {
 import MouseParallaxVideo from "../AnimatedComponents/MouseParallaxVideo";
 import Image from "next/image";
 
-type Props = {};
+type Props = { parallax?: boolean };
 
 const BackgroundOverlay = (props: Props) => {
   return (
     <>
-      <Image
-        id="space-pic"
-        src={space}
-        alt="space"
-        // outerStyle={backgroundStyle}
-        // innerStyle={imageStyle}
-      ></Image>
-      <Image id="stars-pic" src={stars} alt="stars"></Image>
-      {/* <div id="parallax-overlay"></div>
-      <MouseParallaxVideo id="particles-video" src={particles} /> */}
+      {props.parallax && (
+        <>
+          <MouseParallaxImage
+            id="space-pic"
+            src={space}
+            // alt="space"
+            outerStyle={backgroundStyle}
+            innerStyle={imageStyle}
+          ></MouseParallaxImage>
+          <MouseParallaxImage
+            id="stars-pic"
+            src={stars}
+            outerStyle={backgroundStyle}
+            innerStyle={imageStyle}
+          ></MouseParallaxImage>
+          <div id="parallax-overlay"></div>
+          <MouseParallaxVideo id="particles-video" src={particles} />
+        </>
+      )}
+      {!props.parallax && (
+        <>
+          <Image id="space-pic" src={space} alt="space"></Image>
+          <Image id="stars-pic" src={stars} alt="stars"></Image>
+        </>
+      )}
     </>
   );
 };

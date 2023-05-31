@@ -42,7 +42,7 @@ const MouseParallaxImage = ({
     position: { x: number; y: number }
   ) => {
     const { x, y } = position;
-    const maxTranslate = 10;
+    const maxTranslate = 5;
 
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       // Disable parallax effect for mobile resolutions (<= 768px)

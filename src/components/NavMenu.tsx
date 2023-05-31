@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 // import codeAnim from "../assets/images/code-anim6.gif";
 import Link from "next/link";
 import codePixel from "../assets/images/code-pixel.webp";
@@ -10,10 +10,14 @@ import cog from "../assets/images/cog-pixel.png";
 import musicNote from "../assets/images/music-note-blue.webp";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { GlobalContext } from "@/context/global/GlobalContext";
 
 type Props = {};
 
 const NavMenu = (props: Props) => {
+  const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
   return (
     <div className="nav-menu">
       {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
@@ -29,15 +33,10 @@ const NavMenu = (props: Props) => {
             delay: 0.4,
           }}
         >
-          {/* <h1 className="name">
-            Arthur <br /> Vannakittikun
-          </h1> */}
           <FloatingComponent>
-            {" "}
             <TypewriterEffect
               className="name"
               propText="Arthur Vannakittikun"
-              // triggerSections={["#home-section"]}
               triggerInstant={true}
             ></TypewriterEffect>
           </FloatingComponent>
@@ -59,7 +58,7 @@ const NavMenu = (props: Props) => {
                 alt="cog"
                 height={500}
                 width={500}
-              ></Image>{" "}
+              ></Image>
               <Image
                 id="code-pixel-img"
                 src={codePixel}
@@ -137,15 +136,16 @@ const NavMenu = (props: Props) => {
               transition={{ duration: 1.5, delay: 0.8 }}
             >
               <li>
-                <Link href="/about">About</Link>
+                <Link href="/about">
+                  <FloatingComponent floatStyle="floatX">
+                    <FontAwesomeIcon
+                      icon={faHandPointRight}
+                      style={{ marginRight: 15 }}
+                    />
+                  </FloatingComponent>
+                  <p>Start</p>
+                </Link>
               </li>
-              <li>
-                <Link href="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
-              <li> </li>
             </motion.ul>
             <div className="download-resume-wrapper">
               <button className="pushable">
@@ -155,21 +155,6 @@ const NavMenu = (props: Props) => {
               </button>
             </div>
           </div>
-          {/* <Link
-            activeClass="active"
-            to="about-section"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >
-            <FloatingComponent>
-              <div className="scroll-down-tip">
-                <FontAwesomeIcon icon={faCaretDown} id="angle-down-icon" />
-                <span>Scroll Down for About Me</span>
-              </div>
-            </FloatingComponent>
-          </Link> */}
         </motion.div>
       </div>
     </div>

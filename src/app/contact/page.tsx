@@ -6,7 +6,14 @@ import Header from "@/components/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import Image from "next/image";
 // import { Fade } from "react-awesome-reveal";
+import {
+  faCaretLeft,
+  faHome,
+  faLeftLong,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 import ContactForm from "../../pages/contact/ContactForm";
@@ -32,10 +39,34 @@ const ContactPage = (props: Props) => {
       >
         <Image id="cave-pic" src={mountain} alt="mountain"></Image>
         <div className="contact-section" id="contact-section">
-          <div className="header-title">
-            <h1 className="title" style={{ color: "rgb(255, 255, 255)" }}>
-              Contact 🤙🏻
+          <div className="header-title navigation">
+            <Link href="/projects" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faLeftLong}
+                ></FontAwesomeIcon>
+                <span>Projects</span>
+              </div>
+            </Link>
+            <h1
+              style={{
+                color: "rgb(255, 255, 255)",
+                margin: "5px 15px 5px 15px",
+                width: "100%",
+              }}
+            >
+              Contact <br /> 🤙🏻
             </h1>
+            <Link href="/" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faHome}
+                ></FontAwesomeIcon>
+                <span>Back To Home</span>
+              </div>
+            </Link>
           </div>
           <div className="header-container">
             <p className="text" style={{ textAlign: "center" }}>

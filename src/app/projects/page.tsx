@@ -2,7 +2,10 @@
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Modal from "@/components/Modal/Modal";
 import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
+import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 import adulting from "../../assets/images/adulting.webp";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
@@ -50,12 +53,34 @@ const MyWorkPage = () => {
             x: { duration: 0.2 },
           }}
         >
-          <div className="header-title">
-            <div className="container">
-              <h1 className="title" style={{ color: "rgb(255, 255, 255)" }}>
-                Projects 🚧
-              </h1>
-            </div>
+          <div className="header-title navigation">
+            <Link href="/about" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faLeftLong}
+                ></FontAwesomeIcon>
+                <span>About</span>
+              </div>
+            </Link>
+            <h1
+              style={{
+                color: "rgb(255, 255, 255)",
+                margin: "5px 15px 5px 15px",
+                width: "100%",
+              }}
+            >
+              Projects <br /> 🚧
+            </h1>
+            <Link href="/contact" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faRightLong}
+                ></FontAwesomeIcon>
+                <span>Contact</span>
+              </div>
+            </Link>
           </div>
           <div className="description">
             <span style={{ padding: "5px" }}>

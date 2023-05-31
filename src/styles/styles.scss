@@ -279,6 +279,7 @@ img {
 // * Navigation Menu
 .nav-menu {
   .nav-menu-container {
+    box-sizing: border-box;
     // background-color: rgba(24, 24, 33, 0.507);
     margin: auto;
     width: 100%;
@@ -289,16 +290,21 @@ img {
   ul {
     list-style: none;
     padding: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
   }
   li {
-    text-align: left;
+    height: 100%;
+    width: 100%;
+    text-align: center;
     text-decoration: none;
-    padding: 5px;
     // font-size: 1.5em;
   }
   a {
     color: inherit;
     text-decoration: none;
+    text-align: center;
     // cursor: pointer;
   }
   padding: 0;
@@ -415,15 +421,26 @@ img {
     }
   }
   .nav-selections {
+    box-sizing: border-box;
+    padding: 0;
     li {
+      padding: 0;
       font-size: 2.5rem;
       &:hover {
         color: rgb(244, 236, 117);
         transition: color 0.3s ease;
       }
     }
-    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
     text-align: left;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      height: 100%;
+    }
   }
   .nav-container {
     position: relative;
@@ -460,11 +477,6 @@ img {
   justify-content: center;
   width: 100%;
   height: 100px;
-  // background-color: grey;
-  // .social {
-  //   height: 50px;
-  //   width: 50px;
-  // }
   .social-svg {
     &:hover {
       background-color: rgba(67, 58, 99, 0.437);
@@ -490,9 +502,10 @@ img {
 // Home Page
 .home-page-container {
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   // border: 1px solid rgb(30, 29, 29);
-  height: 100vh;
-  min-height: 1000px;
+  // min-height: 1000px;
   position: relative;
   // background-color: rgba(7, 7, 7, 0.8);
 }
@@ -1231,7 +1244,56 @@ img {
   }
 }
 // Header Container
+.icon-container {
+  width: 100%;
+  color: white;
+  font-size: 0.8em;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 20px;
+  height: 100%;
+  min-width: max-content;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  span {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+  .icon-container {
+    background-color: rgba(42, 42, 80, 0.291);
+  }
+}
 .header-title {
+  max-width: 900px;
+  @media (max-width: 660px) {
+    font-size: 0.9em;
+  }
+  box-sizing: border-box;
+  padding: 1rem;
+  &.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      height: 40px;
+      width: 40px;
+      color: white;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   font-size: 1.5rem;
@@ -1572,6 +1634,8 @@ img {
   display: flex;
   flex-direction: column;
   .contact-section {
+    height: 100%;
+    width: 100%;
     z-index: 2;
   }
   #cave-pic {
@@ -1650,6 +1714,7 @@ img {
     align-items: center;
     max-width: 1200px;
     width: 100%;
+    margin: auto;
     // margin: 0 auto;
     // @media (max-width: 768px) {
     //   max-width: 600px;

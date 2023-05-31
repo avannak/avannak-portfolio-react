@@ -1,6 +1,7 @@
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
+import { GlobalContextProvider } from "@/context/global/GlobalContext";
 
 export const metadata = {
   title: "Arthur's Portfolio",
@@ -18,7 +19,7 @@ export default function RootLayout({
       <body>
         <NavBar />
         <CustomCursor />
-        {children}
+        <GlobalContextProvider>{children}</GlobalContextProvider>
       </body>
     </html>
   );

@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/user/UserContext.tsx", "src/**/*.mp4"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/global/GlobalContext.tsx", "src/**/*.mp4"],
   "exclude": ["node_modules"]
 }

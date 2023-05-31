@@ -188,15 +188,6 @@ const Modal = (props: Props) => {
                     Worked in a team of six as the front-end lead to develop a
                     UX friendly file upload/share application geared towards San
                     Francisco State University faculty and students.
-                    <br />
-                    <br />
-                    Features user login/signup authentication and support for
-                    uploading multiple media format types for the front-end.
-                    <br />
-                    <br />
-                    Also features a inbox messaging system that allows users to
-                    contact sellers for permission to purchase and download
-                    uploads.
                   </p>
                   <a href="http://ec2-50-18-97-37.us-west-1.compute.amazonaws.com/">
                     <button className="pushable">
@@ -313,9 +304,6 @@ const Modal = (props: Props) => {
                     Notivize, a notification API, and alerts you whenever the
                     number of COVID-19 cases increases or decreases in your
                     area.
-                    <br />
-                    <br />
-                    All you have to do is enter your contact information.
                     <br />
                     <br />
                     Our project won an honor award for best use of Notivize's

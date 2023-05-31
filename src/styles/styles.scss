@@ -564,7 +564,7 @@ img {
   // );
 }
 section {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.487);
 }
 #space-pic {
   z-index: -99;
@@ -750,13 +750,13 @@ section {
           padding: 1rem;
           align-items: center;
           justify-content: center;
-          background-color: #16172188;
+          background-color: #161721ac;
           @media (max-width: 562px) {
             font-size: 0.7em;
           }
           span {
             box-sizing: border-box;
-            background-color: #0b0c1199;
+            background-color: #0b0c11e7;
             border-radius: 20px;
             text-align: center;
             margin-bottom: auto;
@@ -859,9 +859,9 @@ section {
       background-color: rgb(65, 120, 223);
       background: linear-gradient(
         180deg,
-        rgba(70, 79, 182, 0.286) 0%,
-        rgba(86, 111, 212, 0.244) 50%,
-        rgba(115, 94, 232, 0.26) 100%
+        rgba(70, 79, 182, 0.481) 0%,
+        rgba(86, 111, 212, 0.422) 50%,
+        rgba(115, 94, 232, 0.478) 100%
       );
       width: 90%;
       margin: auto;
@@ -1047,7 +1047,7 @@ section {
     height: 40px;
     width: 40px;
     padding: 10px;
-    @media (max-width: 562px) {
+    @media (max-width: 590px) {
       height: 30px;
       width: 30px;
     }
@@ -1098,7 +1098,7 @@ section {
     width: 80vw;
     min-width: 200px;
     max-width: 1000px;
-    padding: 2em;
+    padding: 1em;
     top: 50%;
     left: 50%;
     right: 50%;
@@ -1106,8 +1106,8 @@ section {
     border-radius: 20px;
     border: none;
     position: absolute;
-    @media (max-width: 600px) {
-      top: 60%;
+    @media (max-width: 700px) {
+      max-height: 700px;
       width: 95vw;
       height: max-content;
       font-size: 0.75em;
@@ -1127,7 +1127,8 @@ section {
       }
     }
     .content {
-      padding: 20px;
+      box-sizing: border-box;
+      padding: 10px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -1152,8 +1153,9 @@ section {
           &.bstock {
             object-position: top left;
           }
-          @media (max-width: 504px) {
-            max-height: 150px;
+          @media (max-width: 590px) {
+            max-height: 200px;
+            max-width: 200px;
           }
         }
       }
@@ -1192,7 +1194,7 @@ section {
               width: 35px;
               height: 35px;
               padding: 4px;
-              @media (max-width: 504px) {
+              @media (max-width: 590px) {
                 width: 20px;
                 height: 20px;
               }

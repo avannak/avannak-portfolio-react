@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import particlesImg from "../../assets/images/particles5.jpg";
+import particlesImg from "../../assets/images/particles5.webp";
 import space from "../../assets/images/space.webp";
 import stars from "../../assets/images/stars4.gif";
 import particlesVideo from "../../assets/videos/particles5.mp4";

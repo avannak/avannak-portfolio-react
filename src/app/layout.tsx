@@ -4,7 +4,7 @@ import "../styles/styles.scss";
 import { GlobalContextProvider } from "@/context/global/GlobalContext";
 import localFont from "next/font/local";
 const myFont = localFont({
-  src: "../../public/fonts/Tickerbit-mono.otf",
+  src: "../../public/fonts/PixeloidSansBold-PKnYd.ttf",
 });
 
 export const metadata = {

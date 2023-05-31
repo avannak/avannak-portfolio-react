@@ -34,7 +34,7 @@ body {
   margin: 0 auto;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
   @media (max-width: 1024px) {
-    font-size: 1.3em;
+    font-size: 1em;
   }
   @media (max-width: 600px) {
     font-size: 0.8em;
@@ -959,7 +959,7 @@ section {
     padding: 50px 10px 50px 10px;
     display: flex;
     span {
-      padding: 2px;
+      padding: 1px;
     }
     @media (max-width: 562px) {
       font-size: 0.6em;
@@ -1298,13 +1298,13 @@ section {
 .header-title {
   max-width: 900px;
   @media (max-width: 660px) {
-    font-size: 1em;
+    font-size: 0.8em;
     h1 {
       font-size: 1.3em;
     }
   }
   box-sizing: border-box;
-  padding: 0.3rem;
+  padding: 1rem;
   &.navigation {
     display: flex;
     flex-direction: row;

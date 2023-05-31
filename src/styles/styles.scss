@@ -1298,10 +1298,13 @@ section {
 .header-title {
   max-width: 900px;
   @media (max-width: 660px) {
-    font-size: 0.9em;
+    font-size: 1em;
+    h1 {
+      font-size: 1.3em;
+    }
   }
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 0.3rem;
   &.navigation {
     display: flex;
     flex-direction: row;
@@ -1906,7 +1909,7 @@ section {
 // Button
 .pushable {
   font-family: inherit;
-  font-size: 0.7em;
+  font-size: 0.9em;
   position: relative;
   border: none;
   background: transparent;

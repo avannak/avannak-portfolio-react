@@ -163,7 +163,7 @@ const NavMenu = (props: Props) => {
                 <div className="toggle-container">
                   <div className="text-container" style={{ marginRight: 15 }}>
                     <p>
-                      Parallax Effect: <br />
+                      Parallax effect: <br />
                     </p>
                     <p style={{ fontSize: "0.8em" }}>
                       (Turn off if page is slow)

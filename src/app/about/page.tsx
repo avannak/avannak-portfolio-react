@@ -58,35 +58,38 @@ const AboutPage = (props: Props) => {
         }}
         exit={{ opacity: 0 }}
       >
-        <BackgroundOverlay />
-        <div className="header-title navigation">
-          <Link href="/" className="link" style={{ width: "100%" }}>
-            <div className="icon-container">
-              <FontAwesomeIcon className="icon" icon={faHome}></FontAwesomeIcon>
-              <span>Home</span>
-            </div>
-          </Link>
-          <h1
-            style={{
-              color: "rgb(255, 255, 255)",
-              margin: "5px 15px 5px 15px",
-              width: "100%",
-            }}
-          >
-            About Me <br />
-            😎
-          </h1>
-          <Link href="/projects" className="link" style={{ width: "100%" }}>
-            <div className="icon-container">
-              <FontAwesomeIcon
-                className="icon"
-                icon={faRightLong}
-              ></FontAwesomeIcon>
-              <span>Projects</span>
-            </div>
-          </Link>
-        </div>
-        <div className="about-me-section">
+        <section className="about-me-section">
+          <BackgroundOverlay />
+          <div className="header-title navigation">
+            <Link href="/" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faHome}
+                ></FontAwesomeIcon>
+                <span>Home</span>
+              </div>
+            </Link>
+            <h1
+              style={{
+                color: "rgb(255, 255, 255)",
+                margin: "5px 15px 5px 15px",
+                width: "100%",
+              }}
+            >
+              About Me <br />
+              😎
+            </h1>
+            <Link href="/projects" className="link" style={{ width: "100%" }}>
+              <div className="icon-container">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faRightLong}
+                ></FontAwesomeIcon>
+                <span>Projects</span>
+              </div>
+            </Link>
+          </div>
           <div className="about-icons-column container">
             <div className="laptop-icon-container">
               {/* <Image id="matrix-bg" src={matrix} alt="matrix-pixel-bg"></Image> */}
@@ -222,128 +225,134 @@ const AboutPage = (props: Props) => {
               ></Image>
             </Tooltip>
           </div>
-        </div>
-        <div className="languages-section">
-          {/* <Image
+          <div className="languages-section">
+            {/* <Image
             id="gear-img"
             src={gear}
             alt="gear-pixel"
             height={408}
             width={630}
           ></Image> */}
-          <div className="header-title">
-            <h1 style={{ color: "rgb(255, 255, 255)" }}>Skills 🛠️🧰</h1>
-            {/* <div className="title-divider" /> */}
-            {/* <FaBarcode
+            <div className="header-title">
+              <h1 style={{ color: "rgb(255, 255, 255)" }}>Skills 🛠️🧰</h1>
+              {/* <div className="title-divider" /> */}
+              {/* <FaBarcode
               style={{ width: "180px", height: "1px" }}
               viewBox="100 0 500 150"
               className="barcode-icon"
               preserveAspectRatio="none"
             ></FaBarcode> */}
+            </div>
+            <div className="center">
+              {" "}
+              <span className="disclaimer">
+                <span>See</span>
+                <a href="/">resume</a>
+                <span>for full list</span>
+              </span>
+            </div>
+            <div className="language-container">
+              <RotatingCard>
+                <ul className="fed-languages-list">
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faJs}
+                    />
+                    <span>Javascript + ES6</span>
+                  </li>
+                  <li>
+                    <Image
+                      className="font-awesome-icon"
+                      src={typescript}
+                      alt="typescript"
+                      height={200}
+                      width={200}
+                    />
+                    <span>Typescript</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faReact}
+                    />
+                    <span>React/Redux</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faGitAlt}
+                    />
+                    <span>GIT</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faShareNodes}
+                    />
+                    <span>REST APIs</span>
+                  </li>
+                  <li>
+                    <DiResponsive className="font-awesome-icon" />
+                    <span>Responsive Design</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faHtml5}
+                    />
+                    <span>HTML5</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faCss3}
+                    />
+                    <span>CSS3</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faSass}
+                    />
+                    <span>Sass</span>
+                  </li>
+                  <li>
+                    <SiStyledcomponents className="font-awesome-icon" />
+                    <span>styled-components</span>
+                  </li>
+                  <div className="title-divider"></div>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faAws}
+                    />
+                    <span>AWS</span>
+                  </li>
+                  <li>
+                    <SiMysql className="font-awesome-icon" />
+                    <span>MySQL</span>
+                  </li>
+                  <li>
+                    <DiMongodb className="font-awesome-icon" />
+                    <span>MongoDB</span>
+                  </li>
+                  <li>
+                    <SiExpress className="font-awesome-icon" />
+                    <span>Express.js</span>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon
+                      className="font-awesome-icon"
+                      icon={faNodeJs}
+                    />
+                    <span>Node.js</span>
+                  </li>
+                </ul>
+              </RotatingCard>
+            </div>
           </div>
-          <div className="center">
-            {" "}
-            <span className="disclaimer">
-              <span>See</span>
-              <a href="/">resume</a>
-              <span>for full list</span>
-            </span>
-          </div>
-          <div className="language-container">
-            <RotatingCard>
-              <ul className="fed-languages-list">
-                <li>
-                  <FontAwesomeIcon className="font-awesome-icon" icon={faJs} />
-                  <span>Javascript + ES6</span>
-                </li>
-                <li>
-                  <Image
-                    className="font-awesome-icon"
-                    src={typescript}
-                    alt="typescript"
-                    height={200}
-                    width={200}
-                  />
-                  <span>Typescript</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faReact}
-                  />
-                  <span>React/Redux</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faGitAlt}
-                  />
-                  <span>GIT</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faShareNodes}
-                  />
-                  <span>REST APIs</span>
-                </li>
-                <li>
-                  <DiResponsive className="font-awesome-icon" />
-                  <span>Responsive Design</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faHtml5}
-                  />
-                  <span>HTML5</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faCss3}
-                  />
-                  <span>CSS3</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faSass}
-                  />
-                  <span>Sass</span>
-                </li>
-                <li>
-                  <SiStyledcomponents className="font-awesome-icon" />
-                  <span>styled-components</span>
-                </li>
-                <div className="title-divider"></div>
-                <li>
-                  <FontAwesomeIcon className="font-awesome-icon" icon={faAws} />
-                  <span>AWS</span>
-                </li>
-                <li>
-                  <SiMysql className="font-awesome-icon" />
-                  <span>MySQL</span>
-                </li>
-                <li>
-                  <DiMongodb className="font-awesome-icon" />
-                  <span>MongoDB</span>
-                </li>
-                <li>
-                  <SiExpress className="font-awesome-icon" />
-                  <span>Express.js</span>
-                </li>
-                <li>
-                  <FontAwesomeIcon
-                    className="font-awesome-icon"
-                    icon={faNodeJs}
-                  />
-                  <span>Node.js</span>
-                </li>
-              </ul>
-            </RotatingCard>
-          </div>
-        </div>
+        </section>
         {/* </Fade> */}
       </motion.div>
     </>

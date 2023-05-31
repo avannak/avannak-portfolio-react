@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export type outerStyleType = {
+  transform?: string;
   position?: string;
   overflow?: string;
   top?: string;

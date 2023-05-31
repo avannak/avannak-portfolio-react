@@ -49,7 +49,7 @@ const MouseParallaxVideo = ({ src, id }: MouseParallaxVideoProps) => {
     position: { x: number; y: number }
   ) => {
     const { x, y } = position;
-    const maxTranslate = 30;
+    const maxTranslate = 15;
 
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       // Disable parallax effect for mobile resolutions (<= 768px)

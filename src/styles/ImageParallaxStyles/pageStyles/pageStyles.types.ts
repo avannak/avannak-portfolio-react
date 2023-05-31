@@ -5,18 +5,16 @@ import {
 
 export const backgroundStyle: outerStyleType = {
   backgroundRepeat: "repeat",
-  position: "fixed",
-  overflow: "clip",
-  top: "0",
-  left: "0",
-  width: "145%",
-  height: "100%",
+  width: "calc(100% + 40px)",   // increase the width by 40px
+  height: "calc(100% + 40px)",  // increase the height by 40px
   objectFit: "cover",
+  transform: "translate(-40px, -20px)", // shift back the image by 40px to the left and 20px up
 };
 
 export const imageStyle: innerStyleType = {
   backgroundRepeat: "repeat",
-  width: "100%",
-  height: "100%",
+  width: "calc(100% + 40px)",   // increase the width by 40px
+  height: "calc(100% + 40px)",  // increase the height by 40px
   objectFit: "cover",
+  transform: "translate(-40px, -20px)", // shift back the image by 40px to the left and 20px up
 };

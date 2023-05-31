@@ -150,17 +150,21 @@ const NavMenu = (props: Props) => {
                   <p>Start</p>
                 </Link>
               </li>
+
+              <div className="download-resume-wrapper">
+                <button className="pushable">
+                  <span className="shadow"></span>
+                  <span className="edge"></span>
+                  <span className="front">Download Resume</span>
+                </button>
+              </div>
             </motion.ul>
-            <div className="download-resume-wrapper">
-              <button className="pushable">
-                <span className="shadow"></span>
-                <span className="edge"></span>
-                <span className="front">Download Resume</span>
-              </button>
-            </div>
             {!isMobile && (
               <>
-                <div className="toggle-container">
+                <div
+                  className="toggle-container"
+                  style={{ boxSizing: "border-box", padding: "2rem" }}
+                >
                   <div className="text-container" style={{ marginRight: 15 }}>
                     <p>
                       Parallax effect: <br />

@@ -29,16 +29,16 @@ $large-screen: 3840px;
 body {
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.368);
   // font-family: "Mintsoda", sans-serif;
-  font-weight: 800;
+  font-weight: 300;
   // letter-spacing: -2px;
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin: 0 auto;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
   @media (max-width: 1024px) {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
   @media (max-width: 600px) {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   max-width: 100%;
   min-width: 370px;
@@ -472,15 +472,23 @@ img {
     text-align: center;
   }
 }
+//Download Button
+.download-resume-wrapper {
+  position: relative;
+  display: flex;
+  margin: auto;
+  align-items: center;
 
+  justify-content: center;
+}
 //Toggle container
 .toggle-container {
+  position: relative;
   font-size: 0.7em;
-  width: 250px;
-  height: 200px;
+  width: 450px;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
@@ -1594,11 +1602,11 @@ section {
         box-sizing: border-box;
         font-size: 0.9em;
         padding: 20px;
-        border: 2px solid rgb(90, 97, 224);
+        border: 2px solid rgb(74, 83, 255);
         background: linear-gradient(
           180deg,
-          rgb(51, 65, 127) 0%,
-          rgba(40, 43, 101, 0.979) 100%
+          rgb(64, 90, 204) 0%,
+          rgba(41, 41, 132, 0.979) 100%
         );
         color: rgb(180, 189, 246);
         @media (max-width: 660px) {
@@ -2000,13 +2008,13 @@ section {
 
 //Tooltip
 .Tooltip {
-  font-family: inherit;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background: rgba(0, 0, 0, 0.85);
   color: white;
   pointer-events: none;
   border-radius: 6px;
   padding: 8px 18px;
-  font-size: 0.85rem;
+  font-size: 0.8em;
   max-width: 400px;
   z-index: 9999999999;
 }

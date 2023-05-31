@@ -164,10 +164,12 @@ const AboutPage = (props: Props) => {
                 and{" "}
                 <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
               </li>
+              <li>
+                <span className="rokit-span">
+                  If curious, here is my music studio setup:{" "}
+                </span>
+              </li>
             </ul>
-            <span className="rokit-span">
-              If interested, here is my music studio setup:{" "}
-            </span>
           </div>
           <div className="rokit-container">
             <Tooltip content="Rode NT-2A">

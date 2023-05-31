@@ -2,6 +2,10 @@ import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
 import { GlobalContextProvider } from "@/context/global/GlobalContext";
+import localFont from "next/font/local";
+const myFont = localFont({
+  src: "../../public/fonts/Tickerbit-mono.otf",
+});
 
 export const metadata = {
   title: "Arthur's Portfolio",
@@ -17,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <NavBar />
-        <CustomCursor />
-        <GlobalContextProvider>{children}</GlobalContextProvider>
+        <div className={myFont.className}>
+          <NavBar />
+          <CustomCursor />
+          <GlobalContextProvider>{children}</GlobalContextProvider>
+        </div>
       </body>
     </html>
   );

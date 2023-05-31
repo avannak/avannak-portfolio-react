@@ -29,7 +29,7 @@ import Link from "next/link";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import akai from "../../assets/images/akai-pixel.png";
-import artPixel from "../../assets/images/artpixel3.webp";
+import artPixel from "../../assets/images/artpixel2.png";
 import dt990 from "../../assets/images/dt990-pixel.webp";
 import helloPixel from "../../assets/images/hello.webp";
 import typescript from "../../assets/images/icons/typescript.svg";

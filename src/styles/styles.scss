@@ -1750,7 +1750,7 @@ section {
       width: 100%;
       order: 1;
       flex: 60%;
-      @media (max-width: 596px) {
+      @media (max-width: 518px) {
         order: 2; /* default order */
       }
       .input-group {

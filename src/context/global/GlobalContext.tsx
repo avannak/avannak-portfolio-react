@@ -15,14 +15,14 @@ export type MyContextType = {
 };
 
 export const GlobalContext = createContext<MyContextType>({
-  parallaxIsOn: false,
+  parallaxIsOn: true,
   setParallaxIsOn: () => {},
   isMobile: false,
   setIsMobile: () => {},
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
-  const [parallaxIsOn, setParallaxIsOn] = useState(false);
+  const [parallaxIsOn, setParallaxIsOn] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   return (

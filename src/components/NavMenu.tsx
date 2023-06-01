@@ -20,9 +20,6 @@ import StyledButton from "./Button/StyledButton";
 type Props = {};
 
 const NavMenu = (props: Props) => {
-  const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
-  const isMobile = useIsMobile();
-
   return (
     <div className="nav-menu">
       {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
@@ -154,7 +151,7 @@ const NavMenu = (props: Props) => {
               <li>
                 <StyledButton text="Download Resume" />
               </li>
-              {!isMobile && (
+              {/* {!isMobile && (
                 <>
                   <div className="toggle-container">
                     <div className="text-container" style={{ marginRight: 15 }}>
@@ -173,7 +170,7 @@ const NavMenu = (props: Props) => {
                     />
                   </div>
                 </>
-              )}
+              )} */}
             </motion.ul>
           </div>
         </motion.div>

@@ -22,9 +22,11 @@ export default function RootLayout({
       <head />
       <body>
         <div className={myFont.className}>
-          <NavBar />
-          <CustomCursor />
-          <GlobalContextProvider>{children}</GlobalContextProvider>
+          <GlobalContextProvider>
+            <NavBar />
+            <CustomCursor />
+            {children}
+          </GlobalContextProvider>
         </div>
       </body>
     </html>

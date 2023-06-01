@@ -17,13 +17,17 @@ import Link from "next/link";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 import ContactForm from "../../pages/contact/ContactForm";
+import { GlobalContext } from "@/context/global/GlobalContext";
+import { useContext } from "react";
 
 type Props = {};
 
 const ContactPage = (props: Props) => {
+  const { parallaxIsOn } = useContext(GlobalContext);
   return (
     <>
-      <BackgroundOverlay />
+      {parallaxIsOn && <BackgroundOverlay parallax />}
+      {!parallaxIsOn && <BackgroundOverlay />}
       <NavBar />
       <motion.section
         className="contact-page-container"

@@ -38,11 +38,14 @@ import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
+import { GlobalContext } from "@/context/global/GlobalContext";
+import { useContext } from "react";
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
 type Props = {};
 
 const AboutPage = (props: Props) => {
+  const { parallaxIsOn } = useContext(GlobalContext);
   return (
     <>
       {/* <CustomCursor /> */}
@@ -59,7 +62,8 @@ const AboutPage = (props: Props) => {
         exit={{ opacity: 0 }}
       >
         <section className="about-me-section">
-          <BackgroundOverlay />
+          {parallaxIsOn && <BackgroundOverlay parallax />}
+          {!parallaxIsOn && <BackgroundOverlay />}
           <div className="header-title navigation">
             <Link href="/" className="link" style={{ width: "100%" }}>
               <div className="icon-container">

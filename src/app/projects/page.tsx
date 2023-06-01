@@ -6,18 +6,19 @@ import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import adulting from "../../assets/images/adulting.webp";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
 import wavyboy from "../../assets/images/wavyboy.png";
+import { GlobalContext } from "@/context/global/GlobalContext";
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
-
+  const { parallaxIsOn } = useContext(GlobalContext);
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -41,7 +42,8 @@ const MyWorkPage = () => {
         }}
         exit={{ opacity: 0 }}
       >
-        <BackgroundOverlay />
+        {parallaxIsOn && <BackgroundOverlay parallax />}
+        {!parallaxIsOn && <BackgroundOverlay />}
         <motion.section
           className="portfolio"
           id="portfolio"

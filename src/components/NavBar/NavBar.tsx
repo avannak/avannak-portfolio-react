@@ -1,12 +1,18 @@
 "use client";
+import { useContext } from "react";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import ReactSwitch from "react-switch";
+import { GlobalContext } from "@/context/global/GlobalContext";
+import { useIsMobile } from "@/utils/isMobileDevice";
 // import DayNightToggle from "react-day-and-night-toggle";
 
 type Props = {};
 
 const NavBar = (props: Props) => {
+  const isMobile = useIsMobile();
+  const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">
@@ -16,7 +22,23 @@ const NavBar = (props: Props) => {
           checked={isDarkMode}
           size={navStyles}
         ></DayNightToggle> */}
-        <Link href="/" style={{ marginLeft: "auto" }}>
+        {!isMobile && (
+          <>
+            <p style={{ color: "white", marginRight: 15, fontSize: "0.7em" }}>
+              Parallax: {parallaxIsOn ? "On" : "Off"} <br /> (Turn off if page
+              is slow)
+            </p>
+            <ReactSwitch
+              onChange={() => {
+                setParallaxIsOn(!parallaxIsOn);
+              }}
+              checked={parallaxIsOn}
+              checkedIcon={false}
+              uncheckedIcon={false}
+            />
+          </>
+        )}
+        <Link href="/" style={{ marginLeft: "15px" }}>
           <FontAwesomeIcon
             icon={faHouse}
             style={{ margin: "auto", alignItems: "center" }}

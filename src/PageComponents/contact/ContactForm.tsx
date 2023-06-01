@@ -9,22 +9,24 @@ type Props = {};
 
 const ContactForm = (props: Props) => {
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm<IFormInput>();
+    formState: { errors, isSubmitting, isDirty, isValid },
+  } = useForm<IFormInput>({ mode: "onChange" });
   const onSubmit = (data: any) => {
     console.log("Form Submitted! Here is what was submitted: ", data);
     axios
       .post("https://eopvtqqy312v6wt.m.pipedream.net", data)
       .then((res) => {
+        setLoading(true);
         setSuccessMessage(
           `Thank you for submitting a message! I will try to get back to you as soon as possible. Check your inbox for updates 😃`
         );
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.error(e));
     // https://eopvtqqy312v6wt.m.pipedream.net
   };
   interface IFormInput {
@@ -39,17 +41,18 @@ const ContactForm = (props: Props) => {
         <div className="input-group">
           <input
             placeholder="Your Name"
-            type="text"
+            id="name"
             required
             {...register("name", {
               required: "Name is required",
               pattern: {
-                value: /^[a-z ,.'-]+$/i,
-                message: "invalid name",
+                value: /^[\p{L}'][ \p{L}'-]*[\p{L}]$/u,
+                message: "Invalid name. Only letters with no spaces allowed.",
               },
             })}
             className="input"
           />
+          {errors.name && <p className="error">{errors.name.message}</p>}
         </div>
         <div className="input-group">
           <input
@@ -62,10 +65,11 @@ const ContactForm = (props: Props) => {
                 message: "Please enter a valid email",
               },
             })}
-            type="email"
+            id="email"
             required
             className="input"
           />
+          {errors.email && <p className="error">{errors.email.message}</p>}
         </div>
         <div className="input-group">
           <textarea
@@ -87,7 +91,12 @@ const ContactForm = (props: Props) => {
           {errors.message && <p className="error">{errors.message.message}</p>}
           {successMessage && <p className="success">{successMessage}</p>}
         </div>
-        <button className="pushable">
+        <button
+          className={`pushable contact${
+            loading || !isDirty || !isValid ? " disabled" : ""
+          }`}
+          type="submit"
+        >
           <span className="shadow"></span>
           <span className="edge blue"></span>
           <span className="front blue">Get In Touch</span>

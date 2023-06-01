@@ -4,15 +4,24 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import ReactSwitch from "react-switch";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import { useIsMobile } from "@/utils/isMobileDevice";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/app/GlobalRedux/types";
+import { toggleParallax } from "@/app/GlobalRedux/Features/parallax/parallaxSlice";
 // import DayNightToggle from "react-day-and-night-toggle";
 
 type Props = {};
 
 const NavBar = (props: Props) => {
   const isMobile = useIsMobile();
-  const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
+  const parallaxIsOn = useSelector(
+    (state: RootState) => state.parallax?.parallaxIsOn
+  );
+  const dispatch = useDispatch();
+
+  const handleToggle = () => {
+    dispatch(toggleParallax());
+  };
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">
@@ -29,9 +38,7 @@ const NavBar = (props: Props) => {
               is slow)
             </p>
             <ReactSwitch
-              onChange={() => {
-                setParallaxIsOn(!parallaxIsOn);
-              }}
+              onChange={handleToggle}
               checked={parallaxIsOn}
               checkedIcon={false}
               uncheckedIcon={false}

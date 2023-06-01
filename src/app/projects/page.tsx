@@ -13,15 +13,18 @@ import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
 import wavyboy from "../../assets/images/wavyboy.png";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
+import { useSelector } from "react-redux";
+import { RootState } from "../GlobalRedux/types";
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
   const isLoading = useLoading();
-  const { parallaxIsOn } = useContext(GlobalContext);
+  const parallaxIsOn = useSelector(
+    (state: RootState) => state.parallax?.parallaxIsOn
+  );
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -41,7 +44,6 @@ const MyWorkPage = () => {
           <PacmanLoader
             color="#ffffff"
             loading
-            // size={150}
             aria-label="Loading Spinner"
             data-testid="loader"
           />

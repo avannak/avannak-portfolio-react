@@ -1,11 +1,9 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-// import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import Image from "next/image";
-// import { Fade } from "react-awesome-reveal";
 import {
   faCaretLeft,
   faHome,
@@ -17,16 +15,19 @@ import Link from "next/link";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 import ContactForm from "../../PageComponents/contact/ContactForm";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import { useContext } from "react";
 import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
+import { useSelector } from "react-redux";
+import { RootState } from "../GlobalRedux/types";
 
 type Props = {};
 
 const ContactPage = (props: Props) => {
-  const { parallaxIsOn } = useContext(GlobalContext);
   const isLoading = useLoading();
+  const parallaxIsOn = useSelector(
+    (state: RootState) => state.parallax?.parallaxIsOn
+  );
   return (
     <>
       {isLoading ? (

@@ -1,8 +1,9 @@
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
-import { GlobalContextProvider } from "@/context/global/GlobalContext";
 import localFont from "next/font/local";
+import { Providers } from "./GlobalRedux/provider";
+
 const myFont = localFont({
   src: "../../public/fonts/FSEX300.ttf",
 });
@@ -21,13 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <div className={myFont.className}>
-          <GlobalContextProvider>
+        <Providers>
+          <div className={myFont.className}>
             <NavBar />
             <CustomCursor />
             {children}
-          </GlobalContextProvider>
-        </div>
+          </div>
+        </Providers>
       </body>
     </html>
   );

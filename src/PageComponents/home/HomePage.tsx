@@ -1,14 +1,17 @@
 "use client";
+import { RootState } from "@/app/GlobalRedux/types";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import NavMenu from "@/components/NavMenu";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import { motion } from "framer-motion";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
 const HomePage = (props: Props) => {
-  const { parallaxIsOn, setParallaxIsOn } = useContext(GlobalContext);
+  const parallaxIsOn = useSelector(
+    (state: RootState) => state.parallax?.parallaxIsOn
+  );
   return (
     <motion.div
       className="home-page-container"

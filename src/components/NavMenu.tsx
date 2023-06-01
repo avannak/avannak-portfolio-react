@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useContext, useRef } from "react";
-// import codeAnim from "../assets/images/code-anim6.gif";
 import Link from "next/link";
 import codePixel from "../assets/images/code-pixel.webp";
 import cog from "../assets/images/cog-pixel.png";
@@ -12,7 +11,6 @@ import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import ReactSwitch from "react-switch";
 import { isMobileDevice, useIsMobile } from "../utils/isMobileDevice";
 import StyledButton from "./Button/StyledButton";
@@ -22,7 +20,6 @@ type Props = {};
 const NavMenu = (props: Props) => {
   return (
     <div className="nav-menu">
-      {/* <Image className="bg-code" src={codeAnim} alt="codeStaticLayer" /> */}
       <div className="nav-menu-container">
         <motion.div
           className="title-container"

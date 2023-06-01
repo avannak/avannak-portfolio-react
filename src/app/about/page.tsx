@@ -22,7 +22,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
-// import { Fade } from "react-awesome-reveal";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Tooltip from "@/components/Tooltip/Tooltip";
 import Link from "next/link";
@@ -38,20 +37,21 @@ import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import { GlobalContext } from "@/context/global/GlobalContext";
 import { useContext, useState, useEffect, CSSProperties } from "react";
 import Loader from "@/components/Loaders/Loader";
 import { PacmanLoader } from "react-spinners";
 import { css } from "@emotion/react";
 import useLoading from "@/hooks/useLoading";
-// import CustomCursor from "@/components/CustomCursor/CustomCursor";
+import { useSelector } from "react-redux";
+import { RootState } from "../GlobalRedux/types";
 
 type Props = {};
 
 const AboutPage = (props: Props) => {
-  const { parallaxIsOn } = useContext(GlobalContext);
   const isLoading = useLoading();
-
+  const parallaxIsOn = useSelector(
+    (state: RootState) => state.parallax?.parallaxIsOn
+  );
   return (
     <>
       {isLoading ? (

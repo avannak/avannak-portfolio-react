@@ -14,10 +14,13 @@ import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
 import wavyboy from "../../assets/images/wavyboy.png";
 import { GlobalContext } from "@/context/global/GlobalContext";
+import useLoading from "@/hooks/useLoading";
+import { PacmanLoader } from "react-spinners";
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
+  const isLoading = useLoading();
   const { parallaxIsOn } = useContext(GlobalContext);
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -25,151 +28,178 @@ const MyWorkPage = () => {
 
   return (
     <>
-      {showModal && (
-        <Modal
-          setShowModal={setShowModal}
-          showModal={showModal}
-          modalType={modalType}
-        />
-      )}
-      <motion.div
-        id="mywork-section"
-        className="mywork-page-container"
-        transition={{
-          ease: "linear",
-          duration: 0.3,
-          x: { duration: 0.2 },
-        }}
-        exit={{ opacity: 0 }}
-      >
-        {parallaxIsOn && <BackgroundOverlay parallax />}
-        {!parallaxIsOn && <BackgroundOverlay />}
-        <motion.section
-          className="portfolio"
-          id="portfolio"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            ease: "linear",
-            duration: 0.3,
-            x: { duration: 0.2 },
+      {isLoading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "#0f0f14",
           }}
         >
-          <div className="header-title navigation">
-            <Link href="/about" className="link" style={{ width: "100%" }}>
-              <div className="icon-container">
-                <FontAwesomeIcon
-                  className="icon"
-                  icon={faLeftLong}
-                ></FontAwesomeIcon>
-                <span>About</span>
-              </div>
-            </Link>
-            <h1
-              style={{
-                color: "rgb(255, 255, 255)",
-                margin: "5px 15px 5px 15px",
-                width: "100%",
+          <PacmanLoader
+            color="#ffffff"
+            loading
+            // size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      ) : (
+        <>
+          {showModal && (
+            <Modal
+              setShowModal={setShowModal}
+              showModal={showModal}
+              modalType={modalType}
+            />
+          )}
+          <motion.div
+            id="mywork-section"
+            className="mywork-page-container"
+            transition={{
+              ease: "linear",
+              duration: 0.3,
+              x: { duration: 0.2 },
+            }}
+            exit={{ opacity: 0 }}
+          >
+            {parallaxIsOn && <BackgroundOverlay parallax />}
+            {!parallaxIsOn && <BackgroundOverlay />}
+            <motion.section
+              className="portfolio"
+              id="portfolio"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                ease: "linear",
+                duration: 0.3,
+                x: { duration: 0.2 },
               }}
             >
-              Projects <br /> 🚧
-            </h1>
-            <Link href="/contact" className="link" style={{ width: "100%" }}>
-              <div className="icon-container">
-                <FontAwesomeIcon
-                  className="icon"
-                  icon={faRightLong}
-                ></FontAwesomeIcon>
-                <span>Contact</span>
+              <div className="header-title navigation">
+                <Link href="/about" className="link" style={{ width: "100%" }}>
+                  <div className="icon-container">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faLeftLong}
+                    ></FontAwesomeIcon>
+                    <span>About</span>
+                  </div>
+                </Link>
+                <h1
+                  style={{
+                    color: "rgb(255, 255, 255)",
+                    margin: "5px 15px 5px 15px",
+                    width: "100%",
+                  }}
+                >
+                  Projects <br /> 🚧
+                </h1>
+                <Link
+                  href="/contact"
+                  className="link"
+                  style={{ width: "100%" }}
+                >
+                  <div className="icon-container">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faRightLong}
+                    ></FontAwesomeIcon>
+                    <span>Contact</span>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </div>
-          <div className="description">
-            <span style={{ padding: "5px" }}>
-              Stay tuned for more projects!
-            </span>
-            <span
-              style={{
-                padding: "5px",
-                color: "rgb(161, 201, 254)",
-                fontSize: ".8em",
-              }}
-            >
-              Click a Project for more details
-            </span>
-          </div>
-          <div className="container" id="portfolio-container">
-            <div className="row">
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item1");
-                }}
-                id="item1"
-                middleId="gatormedia-detail"
-                middleClassName="project-content gatormedia"
-                text="Gatormedia: Multimedia Upload/Share App"
-                imgSrc={gatormedia}
-              />
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item2");
-                }}
-                id="item2"
-                middleId="rapidhealth-detail"
-                middleClassName="project-content rapidhealth"
-                text="RapidHealth: Covid Statistics Notification App"
-                imgSrc={rapidhealth}
-              />
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item3");
-                }}
-                id="item3"
-                middleId="bstock-detail"
-                middleClassName="project-content bstock"
-                text="B-Stock Phone Trade-in App"
-                imgSrc={bstocktradein}
-              />
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item4");
-                }}
-                id="item4"
-                middleId="wavyboy-detail"
-                middleClassName="project-content wavyboy"
-                text="【wavyboy】Synthesizer"
-                imgSrc={wavyboy}
-              />
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item5");
-                }}
-                id="item5"
-                middleId="adulting-detail"
-                middleClassName="project-content adulting"
-                text="Adulting.io: To-do List App"
-                imgSrc={adulting}
-              />
-              <ProjectThumbnail
-                onClick={() => {
-                  toggleModal();
-                  setModalType("item6");
-                }}
-                id="item6"
-                middleId="musicwebsite-detail"
-                middleClassName="project-content musicwebsite"
-                text="Music Website Player"
-                imgSrc={musicplayer}
-              />
-            </div>
-          </div>
-        </motion.section>
-      </motion.div>
+              <div className="description">
+                <span style={{ padding: "5px" }}>
+                  Stay tuned for more projects!
+                </span>
+                <span
+                  style={{
+                    padding: "5px",
+                    color: "rgb(161, 201, 254)",
+                    fontSize: ".8em",
+                  }}
+                >
+                  Click a Project for more details
+                </span>
+              </div>
+              <div className="container" id="portfolio-container">
+                <div className="row">
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item1");
+                    }}
+                    id="item1"
+                    middleId="gatormedia-detail"
+                    middleClassName="project-content gatormedia"
+                    text="Gatormedia: Multimedia Upload/Share App"
+                    imgSrc={gatormedia}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item2");
+                    }}
+                    id="item2"
+                    middleId="rapidhealth-detail"
+                    middleClassName="project-content rapidhealth"
+                    text="RapidHealth: Covid Statistics Notification App"
+                    imgSrc={rapidhealth}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item3");
+                    }}
+                    id="item3"
+                    middleId="bstock-detail"
+                    middleClassName="project-content bstock"
+                    text="B-Stock Phone Trade-in App"
+                    imgSrc={bstocktradein}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item4");
+                    }}
+                    id="item4"
+                    middleId="wavyboy-detail"
+                    middleClassName="project-content wavyboy"
+                    text="【wavyboy】Synthesizer"
+                    imgSrc={wavyboy}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item5");
+                    }}
+                    id="item5"
+                    middleId="adulting-detail"
+                    middleClassName="project-content adulting"
+                    text="Adulting.io: To-do List App"
+                    imgSrc={adulting}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
+                      setModalType("item6");
+                    }}
+                    id="item6"
+                    middleId="musicwebsite-detail"
+                    middleClassName="project-content musicwebsite"
+                    text="Music Website Player"
+                    imgSrc={musicplayer}
+                  />
+                </div>
+              </div>
+            </motion.section>
+          </motion.div>
+          )
+        </>
+      )}
     </>
   );
 };

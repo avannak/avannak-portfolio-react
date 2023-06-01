@@ -24,15 +24,16 @@ const BackgroundOverlay = (props: Props) => {
             // alt="space"
             outerStyle={backgroundStyle}
             innerStyle={imageStyle}
+            priority
           ></MouseParallaxImage>
-          <Image id="stars-pic" src={stars} alt="stars"></Image>
+          <Image id="stars-pic" src={stars} alt="stars" priority></Image>
           <MouseParallaxVideo id="particles-video" src={particlesVideo} />
         </>
       )}
       {!props.parallax && (
         <>
-          <Image id="space-pic" src={space} alt="space"></Image>
-          <Image id="stars-pic" src={stars} alt="stars"></Image>
+          <Image id="space-pic" src={space} alt="space" priority></Image>
+          <Image id="stars-pic" src={stars} alt="stars" priority></Image>
           <Image id="particles-video" alt="particles" src={particlesImg} />
         </>
       )}

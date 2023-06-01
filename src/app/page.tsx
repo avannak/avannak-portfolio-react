@@ -1,5 +1,5 @@
 "use client";
-import HomePage from "../pages/home/HomePage";
+import HomePage from "../PageComponents/home/HomePage";
 
 const App = () => {
   return (

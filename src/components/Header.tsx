@@ -6,8 +6,8 @@ import styled from "styled-components";
 type Props = {};
 
 const Icon = styled(SocialIcon)`
-  height: 2em !important;
-  width: 2em !important;
+  height: 3em !important;
+  width: 3em !important;
 
   @media (max-width: 623px) {
     height: 3em !important;

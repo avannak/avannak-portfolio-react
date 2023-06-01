@@ -4,7 +4,7 @@ import "../styles/styles.scss";
 import { GlobalContextProvider } from "@/context/global/GlobalContext";
 import localFont from "next/font/local";
 const myFont = localFont({
-  src: "../../public/fonts/PixelOperatorMono-Bold.ttf",
+  src: "../../public/fonts/FSEX300.ttf",
 });
 
 export const metadata = {

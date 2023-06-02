@@ -45,8 +45,12 @@ const ContactForm = (props: Props) => {
             required
             {...register("name", {
               required: "Name is required",
+              minLength: {
+                value: 1,
+                message: "Your message should be at least 1 character long.",
+              },
               pattern: {
-                value: /^[\p{L}'][ \p{L}'-]*[\p{L}]$/u,
+                value: /^[a-z ,.'-]+$/i,
                 message: "Invalid name. Only letters with no spaces allowed.",
               },
             })}

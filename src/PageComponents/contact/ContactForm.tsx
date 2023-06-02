@@ -51,7 +51,7 @@ const ContactForm = (props: Props) => {
               },
               pattern: {
                 value: /^[a-z ,.'-]+$/i,
-                message: "Invalid name. Only letters with no spaces allowed.",
+                message: "Invalid name. Only letters allowed.",
               },
             })}
             className="input"

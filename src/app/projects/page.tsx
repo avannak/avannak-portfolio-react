@@ -13,10 +13,12 @@ import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
 import wavyboy from "../../assets/images/wavyboy.png";
+import portFolio from "../../assets/images/portfolio.webp";
 import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
+import Image from "next/image";
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -97,7 +99,14 @@ const MyWorkPage = () => {
                     width: "100%",
                   }}
                 >
-                  Projects <br /> 🚧
+                  Projects <br />{" "}
+                  <Image
+                    src={portFolio}
+                    alt="folder"
+                    height={80}
+                    width={80}
+                    style={{ margin: 5, objectFit: "contain" }}
+                  />
                 </h1>
                 <Link
                   href="/contact"

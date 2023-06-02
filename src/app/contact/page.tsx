@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
+import callMe from "../../assets/images/call.webp";
 import ContactForm from "../../PageComponents/contact/ContactForm";
 import { useContext } from "react";
 import useLoading from "@/hooks/useLoading";
@@ -88,7 +89,14 @@ const ContactPage = (props: Props) => {
                     width: "100%",
                   }}
                 >
-                  Contact <br /> 🤙🏻
+                  Contact <br />{" "}
+                  <Image
+                    src={callMe}
+                    alt="call"
+                    height={60}
+                    width={60}
+                    style={{ margin: 5, objectFit: "contain" }}
+                  />
                 </h1>
                 <Link href="/" className="link" style={{ width: "100%" }}>
                   <div className="icon-container">

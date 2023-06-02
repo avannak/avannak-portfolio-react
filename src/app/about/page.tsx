@@ -28,9 +28,11 @@ import Link from "next/link";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import akai from "../../assets/images/akai-pixel.png";
-import artPixel from "../../assets/images/artpixel2.png";
+import artPixel from "../../assets/images/artpixel2.webp";
 import dt990 from "../../assets/images/dt990-pixel.webp";
 import helloPixel from "../../assets/images/hello.webp";
+import smileyGlasses from "../../assets/images/smiley-glasses.webp";
+import toolKit from "../../assets/images/toolkit.webp";
 import typescript from "../../assets/images/icons/typescript.svg";
 import macBook from "../../assets/images/macbook-pixel.webp";
 import rodePixel from "../../assets/images/rode-pixel.png";
@@ -106,7 +108,13 @@ const AboutPage = (props: Props) => {
                 }}
               >
                 About Me <br />
-                😎
+                <Image
+                  src={smileyGlasses}
+                  alt="smiley"
+                  height={80}
+                  width={80}
+                  style={{ margin: 5, objectFit: "contain" }}
+                />
               </h1>
               <Link href="/projects" className="link" style={{ width: "100%" }}>
                 <div className="icon-container">
@@ -150,13 +158,7 @@ const AboutPage = (props: Props) => {
             <div className="about-description-column container">
               <ul className="about-description-list">
                 <li id="hello-emote-container">
-                  <Image
-                    className="img"
-                    src={artPixel}
-                    alt="art-pixel"
-                    height={97}
-                    width={74}
-                  ></Image>
+                  <Image className="img" src={artPixel} alt="art-pixel"></Image>
                   <FloatingComponent>
                     <Image
                       className="img"
@@ -264,7 +266,16 @@ const AboutPage = (props: Props) => {
             width={630}
           ></Image> */}
               <div className="header-title">
-                <h1 style={{ color: "rgb(255, 255, 255)" }}>Skills 🛠️🧰</h1>
+                <h1 style={{ color: "rgb(255, 255, 255)" }}>
+                  Skills <br />
+                  <Image
+                    src={toolKit}
+                    alt="toolkit"
+                    height={100}
+                    width={100}
+                    style={{ margin: 5, objectFit: "contain" }}
+                  />
+                </h1>
                 {/* <div className="title-divider" /> */}
                 {/* <FaBarcode
               style={{ width: "180px", height: "1px" }}

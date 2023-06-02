@@ -281,6 +281,11 @@ img {
   opacity: 0.04;
 }
 // * Navigation Menu
+#about-me-link {
+  @media (max-width: 500px) {
+    font-size: 0.8em;
+  }
+}
 .nav-menu {
   .nav-menu-container {
     box-sizing: border-box;
@@ -415,6 +420,9 @@ img {
         .icon {
           height: 100px;
         }
+      }
+      @media (max-width: 500px) {
+        font-size: 0.8em;
       }
     }
   }

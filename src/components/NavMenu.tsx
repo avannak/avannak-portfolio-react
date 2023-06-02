@@ -104,7 +104,6 @@ const NavMenu = (props: Props) => {
           </div>
         </motion.div>
         <motion.div
-          // style={{ opacity }}
           className="nav-container"
           initial={{ opacity: 0, translateY: 50 }}
           animate={{ opacity: 1, translateY: 0 }}
@@ -142,32 +141,12 @@ const NavMenu = (props: Props) => {
                       style={{ marginRight: 15 }}
                     />
                   </FloatingComponent>
-                  <p>Start</p>
+                  <p id="about-me-link">Start: About Me</p>
                 </Link>
               </li>
               <li>
                 <StyledButton text="Download Resume" />
               </li>
-              {/* {!isMobile && (
-                <>
-                  <div className="toggle-container">
-                    <div className="text-container" style={{ marginRight: 15 }}>
-                      <p>
-                        Parallax effect: <br />
-                      </p>
-                      <p style={{ fontSize: "0.8em" }}>
-                        (Turn off if page is slow)
-                      </p>
-                    </div>
-                    <ReactSwitch
-                      onChange={() => {
-                        setParallaxIsOn(!parallaxIsOn);
-                      }}
-                      checked={parallaxIsOn}
-                    />
-                  </div>
-                </>
-              )} */}
             </motion.ul>
           </div>
         </motion.div>

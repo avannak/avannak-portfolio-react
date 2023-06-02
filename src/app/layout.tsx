@@ -11,6 +11,9 @@ const myFont = localFont({
 export const metadata = {
   title: "Arthur's Portfolio",
   description: "Welcome to my portfolio!",
+  icons: {
+    icon: "../../public/favicon/customFav.png",
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +23,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link
+          type="image/png"
+          rel="icon"
+          href="/favicon/customFav.png"
+          sizes="any"
+        />
+      </head>
       <body>
         <Providers>
           <div className={myFont.className}>

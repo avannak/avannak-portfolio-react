@@ -1,20 +1,25 @@
 "use client";
+import { setMousePosition } from "@/app/GlobalRedux/Features/parallax/mousePositionSlice";
+import { RootState } from "@/app/GlobalRedux/store";
 import { motion } from "framer-motion";
 import { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 type MouseParallaxVideoProps = { src: string | StaticImageData; id?: string };
 
 const MouseParallaxVideo = ({ src, id }: MouseParallaxVideoProps) => {
-  const [videoMousePosition, setVideoMousePosition] = useState<{
-    x: number;
-    y: number;
-  }>({
-    x: 0,
-    y: 0,
-  });
+  // const [videoMousePosition, setVideoMousePosition] = useState<{
+  //   x: number;
+  //   y: number;
+  // }>({
+  //   x: 0,
+  //   y: 0,
+  // });
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const dispatch = useDispatch();
+  const mousePosition = useSelector((state: RootState) => state.mousePosition);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -31,7 +36,7 @@ const MouseParallaxVideo = ({ src, id }: MouseParallaxVideoProps) => {
             videoElement.getBoundingClientRect();
           const x = (clientX - left) / width;
           const y = (clientY - top) / height;
-          setVideoMousePosition({ x, y });
+          dispatch(setMousePosition({ x, y }));
         }
       });
     };
@@ -62,7 +67,7 @@ const MouseParallaxVideo = ({ src, id }: MouseParallaxVideoProps) => {
     return `translate(${translateX}px, ${translateY}px)`;
   };
 
-  const videoTranslate = calculateTranslate(5, videoMousePosition);
+  const videoTranslate = calculateTranslate(5, mousePosition);
 
   return (
     <motion.div

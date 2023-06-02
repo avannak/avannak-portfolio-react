@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage'; 
 import { persistReducer, persistStore } from 'redux-persist';
 import parallaxReducer from './Features/parallax/parallaxSlice';
+import mousePositionReducer from './Features/parallax/mousePositionSlice';
 import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import thunk from 'redux-thunk';
 
@@ -14,6 +15,7 @@ const persistConfig = {
   
   const rootReducer = combineReducers({
     parallax: parallaxReducer,
+    mousePosition: mousePositionReducer,
   });
   
   const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,6 +1,9 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { setMousePosition } from "@/app/GlobalRedux/Features/parallax/mousePositionSlice";
+import { RootState } from "@/app/GlobalRedux/store";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 import { MouseParallaxImageProps } from "./MouseParallaxImage.types";
 
 const MouseParallaxImage = ({
@@ -10,11 +13,9 @@ const MouseParallaxImage = ({
   innerStyle,
   priority,
 }: MouseParallaxImageProps) => {
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
   const imageRef = useRef<HTMLImageElement>(null);
+  const dispatch = useDispatch();
+  const mousePosition = useSelector((state: RootState) => state.mousePosition);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -26,7 +27,7 @@ const MouseParallaxImage = ({
           imageElement.getBoundingClientRect();
         const x = (clientX - left) / width;
         const y = (clientY - top) / height;
-        setMousePosition({ x, y });
+        dispatch(setMousePosition({ x, y }));
       }
     };
 

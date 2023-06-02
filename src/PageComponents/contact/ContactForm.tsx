@@ -44,7 +44,7 @@ const ContactForm = (props: Props) => {
             id="name"
             required
             {...register("name", {
-              required: "Name is required",
+              required: "Name is required.",
               minLength: {
                 value: 1,
                 message: "Your message should be at least 1 character long.",
@@ -62,7 +62,7 @@ const ContactForm = (props: Props) => {
           <input
             placeholder="Email"
             {...register("email", {
-              required: "Email is required",
+              required: "Email is required.",
               pattern: {
                 value:
                   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,

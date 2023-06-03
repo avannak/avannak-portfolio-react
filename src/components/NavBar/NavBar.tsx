@@ -32,7 +32,7 @@ const NavBar = (props: Props) => {
           size={navStyles}
         ></DayNightToggle> */}
         {!isMobile && (
-          <div className="toggle-wrapper">
+          <div className="desktop-only">
             <p style={{ color: "white", marginRight: 15, fontSize: "0.7em" }}>
               Parallax: {parallaxIsOn ? "On" : "Off"} <br /> (Turn off if page
               is slow)

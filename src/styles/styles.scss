@@ -458,13 +458,16 @@ img {
   }
 }
 //Toggle container
-.toggle-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 768) {
-    display: none;
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 .toggle-container {

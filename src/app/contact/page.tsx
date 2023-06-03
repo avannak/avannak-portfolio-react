@@ -66,7 +66,13 @@ const ContactPage = (props: Props) => {
             }}
             exit={{ opacity: 0 }}
           >
-            <Image priority id="cave-pic" src={mountain} alt="mountain"></Image>
+            <Image
+              priority={false}
+              id="mountain-pic"
+              src={mountain}
+              alt="mountain"
+              placeholder="blur"
+            ></Image>
             <div className="contact-section" id="contact-section">
               <div className="header-title navigation">
                 <Link
@@ -96,6 +102,7 @@ const ContactPage = (props: Props) => {
                     height={60}
                     width={60}
                     style={{ margin: 5, objectFit: "contain" }}
+                    placeholder="blur"
                   />
                 </h1>
                 <Link href="/" className="link" style={{ width: "100%" }}>
@@ -117,6 +124,7 @@ const ContactPage = (props: Props) => {
                     alt="smiley"
                     height={512}
                     width={512}
+                    placeholder="blur"
                   ></Image>
                 </p>
               </div>

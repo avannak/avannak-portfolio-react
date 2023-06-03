@@ -31,7 +31,7 @@ import akai from "../../assets/images/akai-pixel.png";
 import artPixel from "../../assets/images/artpixel2.webp";
 import dt990 from "../../assets/images/dt990-pixel.webp";
 import helloPixel from "../../assets/images/hello.webp";
-import smileyGlasses from "../../assets/images/smiley-glasses.webp";
+import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
 import toolKit from "../../assets/images/toolkit.webp";
 import typescript from "../../assets/images/icons/typescript.svg";
 import macBook from "../../assets/images/macbook-pixel.webp";
@@ -114,6 +114,7 @@ const AboutPage = (props: Props) => {
                   height={80}
                   width={80}
                   style={{ margin: 5, objectFit: "contain" }}
+                  placeholder="blur"
                 />
               </h1>
               <Link href="/projects" className="link" style={{ width: "100%" }}>
@@ -151,6 +152,7 @@ const AboutPage = (props: Props) => {
                     alt="macbook-pixel"
                     height={367}
                     width={679}
+                    placeholder="blur"
                   ></Image>
                 </div>
               </div>
@@ -166,6 +168,7 @@ const AboutPage = (props: Props) => {
                       alt="hello-pixel"
                       height={387}
                       width={451}
+                      placeholder="blur"
                     ></Image>
                   </FloatingComponent>
                 </li>
@@ -209,6 +212,7 @@ const AboutPage = (props: Props) => {
                   alt="rode-pixel"
                   height={534}
                   width={468}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
               <Tooltip content="KRK Rokit G3">
@@ -218,6 +222,7 @@ const AboutPage = (props: Props) => {
                   alt="rokit-pixel"
                   height={97}
                   width={74}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
               <Tooltip content="VOLT 2 Audio Interface">
@@ -227,6 +232,7 @@ const AboutPage = (props: Props) => {
                   alt="volt-pixel"
                   height={318}
                   width={786}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
               <Tooltip content="AKAI MPK Mini">
@@ -236,6 +242,7 @@ const AboutPage = (props: Props) => {
                   alt="akai-pixel"
                   height={318}
                   width={786}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
               <Tooltip content="Epiphone SG Cherry">
@@ -245,6 +252,7 @@ const AboutPage = (props: Props) => {
                   alt="sg-pixel"
                   height={810}
                   width={270}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
               <Tooltip content="Beyerdynamic DDT 990">
@@ -254,6 +262,7 @@ const AboutPage = (props: Props) => {
                   alt="dt990-pixel"
                   height={500}
                   width={500}
+                  placeholder="blur"
                 ></Image>
               </Tooltip>
             </div>
@@ -274,6 +283,7 @@ const AboutPage = (props: Props) => {
                     height={100}
                     width={100}
                     style={{ margin: 5, objectFit: "contain" }}
+                    placeholder="blur"
                   />
                 </h1>
                 {/* <div className="title-divider" /> */}

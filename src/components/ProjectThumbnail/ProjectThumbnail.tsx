@@ -28,6 +28,7 @@ const ProjectThumbnail = (props: PropTypes) => {
           className="image project"
           src={props.imgSrc}
           alt="project-thumbnail"
+          placeholder="blur"
         />
       </div>
     </div>

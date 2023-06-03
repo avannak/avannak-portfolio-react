@@ -46,7 +46,7 @@ const MyWorkPage = () => {
 
   return (
     <>
-      {!imagesLoaded ? (
+      {!imagesLoaded && isLoading ? (
         <div
           style={{
             display: "flex",
@@ -75,6 +75,8 @@ const MyWorkPage = () => {
           <motion.div
             id="mywork-section"
             className="mywork-page-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
               ease: "linear",
               duration: 0.3,
@@ -84,17 +86,7 @@ const MyWorkPage = () => {
           >
             {parallaxIsOn && <BackgroundOverlay parallax />}
             {!parallaxIsOn && <BackgroundOverlay />}
-            <motion.section
-              className="portfolio"
-              id="portfolio"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                ease: "linear",
-                duration: 0.3,
-                x: { duration: 0.2 },
-              }}
-            >
+            <motion.section className="portfolio" id="portfolio">
               <div className="header-title navigation">
                 <Link href="/about" className="link" style={{ width: "100%" }}>
                   <div className="icon-container">

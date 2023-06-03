@@ -32,7 +32,7 @@ const NavBar = (props: Props) => {
           size={navStyles}
         ></DayNightToggle> */}
         {!isMobile && (
-          <>
+          <div className="toggle-wrapper">
             <p style={{ color: "white", marginRight: 15, fontSize: "0.7em" }}>
               Parallax: {parallaxIsOn ? "On" : "Off"} <br /> (Turn off if page
               is slow)
@@ -43,7 +43,7 @@ const NavBar = (props: Props) => {
               checkedIcon={false}
               uncheckedIcon={false}
             />
-          </>
+          </div>
         )}
         <Link href="/" style={{ marginLeft: "15px" }}>
           <FontAwesomeIcon

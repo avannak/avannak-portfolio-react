@@ -103,8 +103,8 @@ const MyWorkPage = () => {
                   <Image
                     src={portFolio}
                     alt="folder"
-                    height={75}
-                    width={75}
+                    height={60}
+                    width={60}
                     style={{ margin: 5, objectFit: "contain" }}
                     placeholder="blur"
                   />

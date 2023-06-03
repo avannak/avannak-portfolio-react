@@ -111,8 +111,8 @@ const AboutPage = (props: Props) => {
                 <Image
                   src={smileyGlasses}
                   alt="smiley"
-                  height={80}
-                  width={80}
+                  height={60}
+                  width={60}
                   style={{ margin: 5, objectFit: "contain" }}
                   placeholder="blur"
                 />

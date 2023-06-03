@@ -458,6 +458,15 @@ img {
   }
 }
 //Toggle container
+.toggle-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768) {
+    display: none;
+  }
+}
 .toggle-container {
   position: relative;
   font-size: 0.7em;

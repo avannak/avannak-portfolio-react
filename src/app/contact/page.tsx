@@ -21,6 +21,7 @@ import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
 
 type Props = {};
 
@@ -29,9 +30,13 @@ const ContactPage = (props: Props) => {
   const parallaxIsOn = useSelector(
     (state: RootState) => state.parallax?.parallaxIsOn
   );
+
+  const images = [mountain, smiley, callMe];
+
+  const imagesLoaded = useImageLoading(images);
   return (
     <>
-      {isLoading ? (
+      {!imagesLoaded ? (
         <div
           style={{
             display: "flex",

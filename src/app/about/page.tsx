@@ -46,6 +46,7 @@ import { css } from "@emotion/react";
 import useLoading from "@/hooks/useLoading";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
 
 type Props = {};
 
@@ -54,9 +55,27 @@ const AboutPage = (props: Props) => {
   const parallaxIsOn = useSelector(
     (state: RootState) => state.parallax?.parallaxIsOn
   );
+
+  const images = [
+    akai,
+    artPixel,
+    dt990,
+    helloPixel,
+    smileyGlasses,
+    toolKit,
+    typescript,
+    macBook,
+    rodePixel,
+    rokit,
+    sg,
+    volt,
+  ];
+
+  const imagesLoaded = useImageLoading(images);
+
   return (
     <>
-      {isLoading ? (
+      {!imagesLoaded ? (
         <div
           style={{
             display: "flex",
@@ -69,7 +88,6 @@ const AboutPage = (props: Props) => {
           <PacmanLoader
             color="#ffffff"
             loading
-            // size={150}
             aria-label="Loading Spinner"
             data-testid="loader"
           />

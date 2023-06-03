@@ -19,6 +19,7 @@ import { PacmanLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
 import Image from "next/image";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
 
 const MyWorkPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -31,9 +32,21 @@ const MyWorkPage = () => {
     setShowModal(!showModal);
   };
 
+  const images = [
+    adulting,
+    bstocktradein,
+    gatormedia,
+    musicplayer,
+    rapidhealth,
+    wavyboy,
+    portFolio,
+  ];
+
+  const imagesLoaded = useImageLoading(images);
+
   return (
     <>
-      {isLoading ? (
+      {!imagesLoaded ? (
         <div
           style={{
             display: "flex",

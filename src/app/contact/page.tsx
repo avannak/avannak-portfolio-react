@@ -58,7 +58,6 @@ const ContactPage = (props: Props) => {
         <>
           ({parallaxIsOn && <BackgroundOverlay parallax />}
           {!parallaxIsOn && <BackgroundOverlay />}
-          <NavBar />
           <motion.section
             className="contact-page-container"
             id="contact-section"

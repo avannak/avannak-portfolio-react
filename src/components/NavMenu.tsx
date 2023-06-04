@@ -145,7 +145,7 @@ const NavMenu = (props: Props) => {
                 </Link>
               </li>
               <li>
-                <StyledButton text="Download Resume" />
+                <StyledButton text="Download Resume" downloadResume />
               </li>
             </motion.ul>
           </div>

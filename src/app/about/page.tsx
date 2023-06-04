@@ -315,8 +315,10 @@ const AboutPage = (props: Props) => {
               <div className="center">
                 {" "}
                 <span className="disclaimer">
-                  <span>See</span>
-                  <a href="/">resume</a>
+                  <span>Download</span>
+                  <a href="/documents/arthurvresume.pdf" download>
+                    resume
+                  </a>
                   <span>for full list</span>
                 </span>
               </div>

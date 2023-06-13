@@ -12,7 +12,7 @@ import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
-import wavyboy from "../../assets/images/wavyboy.png";
+import financy from "../../assets/images/financy.png";
 import portFolio from "../../assets/images/portfolio.webp";
 import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
@@ -38,7 +38,7 @@ const MyWorkPage = () => {
     gatormedia,
     musicplayer,
     rapidhealth,
-    wavyboy,
+    financy,
     portFolio,
   ];
 
@@ -185,8 +185,8 @@ const MyWorkPage = () => {
                     id="item4"
                     middleId="wavyboy-detail"
                     middleClassName="project-content wavyboy"
-                    text="【wavyboy】Synthesizer"
-                    imgSrc={wavyboy}
+                    text="Fi.nancy: Finance Tracking App"
+                    imgSrc={financy}
                   />
                   <ProjectThumbnail
                     onClick={() => {

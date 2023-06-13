@@ -9,10 +9,12 @@ import { FaCss3, FaReact } from "react-icons/fa";
 import {
   SiAmazonaws,
   SiExpress,
+  SiFirebase,
   SiHtml5,
   SiJavascript,
   SiJquery,
   SiMysql,
+  SiNextdotjs,
   SiNodedotjs,
   SiReactquery,
   SiStyledcomponents,
@@ -24,7 +26,8 @@ import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
-import wavyboy from "../../assets/images/wavyboy.png";
+import financy from "../../assets/images/financy.png";
+import tailwind from "../../assets/images/icons/tailwind.png";
 
 type Props = {
   showModal: boolean;
@@ -464,16 +467,26 @@ const Modal = (props: Props) => {
                 <div className="image-container">
                   <Image
                     className="image"
-                    src={wavyboy}
-                    alt="wavyboy pic"
+                    src={financy}
+                    alt="financy pic"
                   ></Image>
                 </div>
                 <div className="description-container">
-                  <h1>【wavyboy】Synthesizer</h1>
+                  <h1>Fi.nancy: Finance Tracking App</h1>
                   <div className="stack-container">
                     <span className="title">Built With:</span>
                     <div className="stack">
                       <div className="fed">
+                        <SiTypescript
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("Typescript");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></SiTypescript>
                         <SiJavascript
                           className="icon"
                           onMouseEnter={() => {
@@ -494,6 +507,18 @@ const Modal = (props: Props) => {
                             setIsHovered(false);
                           }}
                         ></TiHtml5>
+                        <Image
+                          className="icon"
+                          src={tailwind}
+                          alt="tailwind"
+                          onMouseEnter={() => {
+                            setIconText("Tailwind CSS");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></Image>
                         <FaCss3
                           className="icon"
                           onMouseEnter={() => {
@@ -506,6 +531,26 @@ const Modal = (props: Props) => {
                         ></FaCss3>
                       </div>
                       <div className="bed">
+                        <SiNextdotjs
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("Next.js");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></SiNextdotjs>
+                        <SiFirebase
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("Firebase");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></SiFirebase>
                         <SiNodedotjs
                           className="icon"
                           onMouseEnter={() => {
@@ -525,18 +570,18 @@ const Modal = (props: Props) => {
                     </div>
                   </div>
                   <p>
-                    I am also a part-time music producer. So to elevate my own
-                    understanding of how a synthesizer works, I decided to build
-                    one myself with the Tone.js framework.
+                    The application leverages Chart.js to present insightful
+                    analytics and visual representations, fostering informed
+                    spending habits and successful budget management.
                     <br />
-                    <br />
-                    【wavyboy】features EQ gain knobs, volume and reverb/delay
-                    sliders, and pitch-shifting buttons for maximum sound
-                    customizability.
                   </p>
-                  {/* <a href="https://wavyboy.herokuapp.com/">
-              <span className="button">View Website</span>
-            </a> */}
+                  <a href="https://finance-tracking-app.vercel.app/">
+                    <button className="pushable">
+                      <span className="shadow"></span>
+                      <span className="edge blue"></span>
+                      <span className="front blue">View Website</span>
+                    </button>
+                  </a>
                 </div>
               </div>
             )}

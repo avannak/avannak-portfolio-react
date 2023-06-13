@@ -570,9 +570,13 @@ const Modal = (props: Props) => {
                     </div>
                   </div>
                   <p>
-                    The application leverages Chart.js to present insightful
-                    analytics and visual representations, fostering informed
-                    spending habits and successful budget management.
+                    The application utilizes Chart.js to deliver informative
+                    analytics and visual representations, promoting wise
+                    spending practices and effective budget management.
+                    <br />
+                    <br />
+                    Additionally, it employs Google Authentication to provide
+                    users with a secure and convenient sign-in experience.
                     <br />
                   </p>
                   <a href="https://finance-tracking-app.vercel.app/">

@@ -207,9 +207,12 @@ const AboutPage = (props: Props) => {
                   user experiences.
                   <br />
                   <br />
-                  With a keen interest in full-stack software development, I am
-                  committed to leveraging my skills and knowledge to craft
-                  robust and innovative applications.
+                  With a keen interest in{" "}
+                  <i style={{ color: "rgb(60, 148, 255)" }}>
+                    full-stack software development
+                  </i>
+                  , I am committed to leveraging my skills and knowledge to
+                  craft robust and innovative applications.
                 </li>
                 <li>
                   {" "}

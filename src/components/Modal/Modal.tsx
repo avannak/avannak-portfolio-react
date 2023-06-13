@@ -472,7 +472,7 @@ const Modal = (props: Props) => {
                   ></Image>
                 </div>
                 <div className="description-container">
-                  <h1>Fi.nancy: Finance Tracking App</h1>
+                  <h1>Fi.nancy: Finance Tracker</h1>
                   <div className="stack-container">
                     <span className="title">Built With:</span>
                     <div className="stack">

@@ -185,7 +185,7 @@ const MyWorkPage = () => {
                     id="item4"
                     middleId="wavyboy-detail"
                     middleClassName="project-content wavyboy"
-                    text="Fi.nancy: Finance Tracking App"
+                    text="Fi.nancy: Finance Tracker"
                     imgSrc={financy}
                   />
                   <ProjectThumbnail

@@ -65,7 +65,7 @@ const NavMenu = (props: Props) => {
                 height={641}
                 width={810}
               ></Image>
-              <span id="front-end">Front-end Engineer</span>
+              <span id="front-end">Software Engineer</span>
               <br />
             </motion.div>
             <motion.span

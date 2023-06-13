@@ -201,22 +201,31 @@ const AboutPage = (props: Props) => {
                   </span>
                 </li>
                 <li>
-                  {" "}
-                  My dream is to share my creative vision and passion for web
-                  design and programming with others to create an extraordinary
-                  and visually pleasurable user experience.
+                  My professional journey is driven by a burning passion for web
+                  design and programming, and I strive to bring forth my
+                  creative vision to create exceptional and visually captivating
+                  user experiences.
+                  <br />
+                  <br />
+                  With a keen interest in full-stack software development, I am
+                  committed to leveraging my skills and knowledge to craft
+                  robust and innovative applications.
                 </li>
                 <li>
                   {" "}
-                  During my coding off-hours, I am a{" "}
+                  Beyond coding, I am also a{" "}
                   <i style={{ color: "rgb(165, 165, 255)" }}>
                     singer-songwriter
                   </i>{" "}
                   and{" "}
-                  <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>.
+                  <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>,
+                  exploring my artistic side during my off-hours.
                 </li>
                 <li>
-                  <span className="rokit-span">
+                  <span
+                    className="rokit-span"
+                    style={{ color: "rgb(255, 139, 240)" }}
+                  >
                     If curious, here is my music studio setup:{" "}
                   </span>
                 </li>

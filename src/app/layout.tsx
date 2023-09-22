@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
         <meta name="description" content="Welcome to my portfolio!" />
         <link
           type="image/png"

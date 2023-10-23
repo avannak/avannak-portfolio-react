@@ -190,46 +190,42 @@ const AboutPage = (props: Props) => {
                     ></Image>
                   </FloatingComponent>
                 </li>
-                <li>
-                  I am a recent graduate of San Francisco State University with
-                  a
+                <li className="mission-statement">
+                  <i>
+                    "Crafting exceptional digital experiences while harmonizing
+                    codes with chords."
+                  </i>
                 </li>
-
-                <li>
-                  <span style={{ color: "rgb(196, 119, 255)" }}>
-                    Bachelor's degree in Computer Science.
+                <li className="intro">
+                  Hello! I'm a proud alumnus of{" "}
+                  <strong>San Francisco State University</strong> with a{" "}
+                  <span className="highlight-degree">
+                    Bachelor's in Computer Science.
                   </span>
                 </li>
-                <li>
-                  My professional journey is driven by a burning passion for web
-                  design and programming, and I strive to bring forth my
-                  creative vision to create exceptional and visually captivating
-                  user experiences.
-                  <br />
-                  <br />
-                  With a keen interest in{" "}
-                  <i style={{ color: "rgb(60, 148, 255)" }}>
-                    full-stack software development
-                  </i>
-                  , I am committed to leveraging my skills and knowledge to
-                  craft robust and innovative applications.
+                <li className="passion">
+                  My journey in the tech realm is fueled by a fervent passion
+                  for web design and programming. Each code I pen down manifests
+                  my dedication to creating enchanting and user-friendly
+                  experiences.
                 </li>
-                <li>
-                  {" "}
-                  Beyond coding, I am also a{" "}
-                  <i style={{ color: "rgb(165, 165, 255)" }}>
-                    singer-songwriter
-                  </i>{" "}
-                  and{" "}
-                  <i style={{ color: "rgb(103, 205, 126)" }}>music producer</i>,
-                  exploring my artistic side during my off-hours.
+                <li className="skills">
+                  As I delve deeper into{" "}
+                  <span className="highlight-tech">full-stack development</span>
+                  , I ensure my applications are not just operational but
+                  groundbreaking. Amidst coding, I transition into my role as a{" "}
+                  <span className="highlight-art">singer-songwriter</span> and a{" "}
+                  <span className="highlight-art">music producer</span>,
+                  channeling a different form of creativity.
                 </li>
-                <li>
-                  <span
-                    className="rokit-span"
-                    style={{ color: "rgb(255, 139, 240)" }}
-                  >
-                    If curious, here is my music studio setup:{" "}
+                <li className="inspiration">
+                  My dual zeal for tech and music consistently inspires and
+                  motivates me to discover and innovate.
+                </li>
+                <li className="invitation">
+                  <span className="highlight-invitation">
+                    Intrigued by my artistic inclination? Step into my world of
+                    music and get a tour of my studio setup.
                   </span>
                 </li>
               </ul>
@@ -327,7 +323,11 @@ const AboutPage = (props: Props) => {
               <div className="center">
                 {" "}
                 <span className="disclaimer">
-                  <span>Download</span>
+                  <span>
+                    (Including but not limited to) <br />
+                    <br />
+                    Download
+                  </span>
                   <a href="/documents/arthurvresume.pdf" download>
                     resume
                   </a>

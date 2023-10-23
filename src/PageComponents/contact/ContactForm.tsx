@@ -116,15 +116,15 @@ const ContactForm = (props: Props) => {
               arthurvat7@gmail.com
             </a>
           </span>
-        </div>
-        <div className="image">
-          <Image
-            id="gmail-pic"
-            src={gmailPixel}
-            alt="gmail-pixel"
-            height={374}
-            width={510}
-          ></Image>
+          <div className="image">
+            <Image
+              id="gmail-pic"
+              src={gmailPixel}
+              alt="gmail-pixel"
+              height={374}
+              width={510}
+            ></Image>
+          </div>
         </div>
       </div>
     </form>

@@ -782,7 +782,7 @@ const Modal = (props: Props) => {
                     A music website player which features different background
                     themes to each song selection.
                     <br />
-                    <br /> vocals and music production are done with Logic Pro X
+                    <br /> Vocals and music production are done with Logic Pro X
                     and yours truly.
                   </p>
                   <a href="https://music-player-avannak.vercel.app/">

@@ -109,41 +109,47 @@ const AboutPage = (props: Props) => {
             {parallaxIsOn && <BackgroundOverlay parallax />}
             {!parallaxIsOn && <BackgroundOverlay />}
             <div className="header-title navigation">
-              <Link href="/" className="link" style={{ width: "100%" }}>
-                <div className="icon-container">
-                  <FontAwesomeIcon
-                    className="icon"
-                    icon={faHome}
-                  ></FontAwesomeIcon>
-                  <span>Home</span>
-                </div>
-              </Link>
-              <h1
-                style={{
-                  color: "rgb(255, 255, 255)",
-                  margin: "5px 15px 5px 15px",
-                  width: "100%",
-                }}
-              >
-                About Me <br />
-                <Image
-                  src={smileyGlasses}
-                  alt="smiley"
-                  height={60}
-                  width={60}
-                  style={{ margin: 5, objectFit: "contain" }}
-                  placeholder="blur"
-                />
-              </h1>
-              <Link href="/projects" className="link" style={{ width: "100%" }}>
-                <div className="icon-container">
-                  <FontAwesomeIcon
-                    className="icon"
-                    icon={faRightLong}
-                  ></FontAwesomeIcon>
-                  <span>Projects</span>
-                </div>
-              </Link>
+              <div className="content-container">
+                <Link href="/" className="link" style={{ width: "100%" }}>
+                  <div className="icon-container">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faHome}
+                    ></FontAwesomeIcon>
+                    <span>Home</span>
+                  </div>
+                </Link>
+                <h1
+                  style={{
+                    color: "rgb(255, 255, 255)",
+                    margin: "5px 15px 5px 15px",
+                    width: "100%",
+                  }}
+                >
+                  About Me <br />
+                  <Image
+                    src={smileyGlasses}
+                    alt="smiley"
+                    height={60}
+                    width={60}
+                    style={{ margin: 5, objectFit: "contain" }}
+                    placeholder="blur"
+                  />
+                </h1>
+                <Link
+                  href="/projects"
+                  className="link"
+                  style={{ width: "100%" }}
+                >
+                  <div className="icon-container">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faRightLong}
+                    ></FontAwesomeIcon>
+                    <span>Projects</span>
+                  </div>
+                </Link>
+              </div>
             </div>
             <div className="about-icons-column container">
               <div className="laptop-icon-container">

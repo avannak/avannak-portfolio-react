@@ -88,45 +88,51 @@ const MyWorkPage = () => {
             {!parallaxIsOn && <BackgroundOverlay />}
             <motion.section className="portfolio" id="portfolio">
               <div className="header-title navigation">
-                <Link href="/about" className="link" style={{ width: "100%" }}>
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faLeftLong}
-                    ></FontAwesomeIcon>
-                    <span>About</span>
-                  </div>
-                </Link>
-                <h1
-                  style={{
-                    color: "rgb(255, 255, 255)",
-                    margin: "5px 15px 5px 15px",
-                    width: "100%",
-                  }}
-                >
-                  Projects <br />{" "}
-                  <Image
-                    src={portFolio}
-                    alt="folder"
-                    height={60}
-                    width={60}
-                    style={{ margin: 5, objectFit: "contain" }}
-                    placeholder="blur"
-                  />
-                </h1>
-                <Link
-                  href="/contact"
-                  className="link"
-                  style={{ width: "100%" }}
-                >
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faRightLong}
-                    ></FontAwesomeIcon>
-                    <span>Contact</span>
-                  </div>
-                </Link>
+                <div className="content-container">
+                  <Link
+                    href="/about"
+                    className="link"
+                    style={{ width: "100%" }}
+                  >
+                    <div className="icon-container">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faLeftLong}
+                      ></FontAwesomeIcon>
+                      <span>About</span>
+                    </div>
+                  </Link>
+                  <h1
+                    style={{
+                      color: "rgb(255, 255, 255)",
+                      margin: "5px 15px 5px 15px",
+                      width: "100%",
+                    }}
+                  >
+                    Projects <br />{" "}
+                    <Image
+                      src={portFolio}
+                      alt="folder"
+                      height={60}
+                      width={60}
+                      style={{ margin: 5, objectFit: "contain" }}
+                      placeholder="blur"
+                    />
+                  </h1>
+                  <Link
+                    href="/contact"
+                    className="link"
+                    style={{ width: "100%" }}
+                  >
+                    <div className="icon-container">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faRightLong}
+                      ></FontAwesomeIcon>
+                      <span>Contact</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
               <div className="description">
                 <span style={{ padding: "5px" }}>

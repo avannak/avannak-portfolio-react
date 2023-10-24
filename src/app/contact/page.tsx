@@ -79,45 +79,47 @@ const ContactPage = (props: Props) => {
             ></Image>
             <div className="contact-section" id="contact-section">
               <div className="header-title navigation">
-                <Link
-                  href="/projects"
-                  className="link"
-                  style={{ width: "100%" }}
-                >
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faLeftLong}
-                    ></FontAwesomeIcon>
-                    <span>Projects</span>
-                  </div>
-                </Link>
-                <h1
-                  style={{
-                    color: "rgb(255, 255, 255)",
-                    margin: "5px 15px 5px 15px",
-                    width: "100%",
-                  }}
-                >
-                  Contact <br />{" "}
-                  <Image
-                    src={callMe}
-                    alt="call"
-                    height={60}
-                    width={60}
-                    style={{ margin: 5, objectFit: "contain" }}
-                    placeholder="blur"
-                  />
-                </h1>
-                <Link href="/" className="link" style={{ width: "100%" }}>
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faHome}
-                    ></FontAwesomeIcon>
-                    <span>Back To Home</span>
-                  </div>
-                </Link>
+                <div className="content-container">
+                  <Link
+                    href="/projects"
+                    className="link"
+                    style={{ width: "100%" }}
+                  >
+                    <div className="icon-container">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faLeftLong}
+                      ></FontAwesomeIcon>
+                      <span>Projects</span>
+                    </div>
+                  </Link>
+                  <h1
+                    style={{
+                      color: "rgb(255, 255, 255)",
+                      margin: "5px 15px 5px 15px",
+                      width: "100%",
+                    }}
+                  >
+                    Contact <br />{" "}
+                    <Image
+                      src={callMe}
+                      alt="call"
+                      height={60}
+                      width={60}
+                      style={{ margin: 5, objectFit: "contain" }}
+                      placeholder="blur"
+                    />
+                  </h1>
+                  <Link href="/" className="link" style={{ width: "100%" }}>
+                    <div className="icon-container">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faHome}
+                      ></FontAwesomeIcon>
+                      <span>Back To Home</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
               <div className="header-container">
                 <p className="text" style={{ textAlign: "center" }}>

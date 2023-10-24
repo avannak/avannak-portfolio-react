@@ -8,7 +8,7 @@ const nextConfig = {
     allowedRevalidateHeaderKeys: [],
     amp: {},
     clientRouterFilter: true,
-    // Specify the directory where your pages are located
+    // Specify the directory where pagesa are loaded
   },
   webpack(config, { isServer }) {
     const prefix = config.assetPrefix ?? config.basePath ?? "";

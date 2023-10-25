@@ -46,7 +46,7 @@ body {
 }
 @media (max-width: 600px) {
   body {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -622,7 +622,6 @@ section {
   margin-bottom: 1rem;
 }
 .about-description-list .mission-statement {
-  font-size: 1.2rem;
   margin-bottom: 1.5rem;
   background-color: rgba(64, 124, 235, 0.3294117647);
   border-radius: 15px;
@@ -733,7 +732,7 @@ section {
   padding: 1rem;
   align-items: center;
   justify-content: center;
-  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.481), rgba(0, 0, 0, 0.481) 10px, rgba(0, 0, 0, 0.422) 10px, rgba(0, 0, 0, 0.422) 20px), linear-gradient(90deg, rgba(119, 118, 118, 0.481), rgba(175, 70, 255, 0.422) 50%, rgba(141, 141, 141, 0.478) 100%);
+  background: repeating-conic-gradient(rgba(0, 0, 0, 0.481) 0% 2%, rgba(0, 0, 0, 0.422) 2% 4%), linear-gradient(90deg, rgba(119, 118, 118, 0.481), rgba(175, 70, 255, 0.422) 50%, rgba(141, 141, 141, 0.478) 100%);
 }
 @media (max-width: 562px) {
   .about-page-container .about-me-section .about-icons-column .laptop-icon-container #container-text {
@@ -1257,7 +1256,7 @@ section {
 }
 
 .icon-container .icon {
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 .link {
@@ -1273,8 +1272,10 @@ section {
   border-top: solid 2px rgb(130, 142, 213);
   border-bottom: solid 2px rgb(153, 157, 212);
   background-color: #28416e;
-  background-image: radial-gradient(#1c2d50 1px, #28416e 1px);
-  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(90deg, #3a465f, #22375f 3px, #28416e 2px, #28416e 6px), repeating-linear-gradient(90deg, #3a465f, #22375f 3px, #28416e 2px, #28416e 6px), radial-gradient(#1c2d50 1px, #28416e 1px); /* Dotted Pattern */
+  background-size: 100% 10px, 100% 10px, 20px 20px;
+  background-position: top, bottom, center center;
+  background-repeat: repeat-x, repeat-x, repeat;
   width: 100%;
   box-sizing: border-box;
   padding: 0.2rem;

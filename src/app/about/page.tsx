@@ -94,8 +94,8 @@ const AboutPage = (props: Props) => {
         </div>
       ) : (
         <motion.div
-          id="about-section"
           className="about-page-container"
+          id="about-section"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{

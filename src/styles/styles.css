@@ -1269,13 +1269,13 @@ section {
 }
 
 .header-title {
+  position: relative;
   border-top: solid 2px rgb(130, 142, 213);
   border-bottom: solid 2px rgb(153, 157, 212);
-  background-color: #28416e;
-  background-image: repeating-linear-gradient(90deg, #3a465f, #22375f 3px, #28416e 2px, #28416e 6px), repeating-linear-gradient(90deg, #3a465f, #22375f 3px, #28416e 2px, #28416e 6px), radial-gradient(#1c2d50 1px, #28416e 1px); /* Dotted Pattern */
-  background-size: 100% 10px, 100% 10px, 20px 20px;
-  background-position: top, bottom, center center;
-  background-repeat: repeat-x, repeat-x, repeat;
+  z-index: 1;
+  height: 150px;
+  background-image: linear-gradient(to bottom, #2e3f60, rgba(36, 55, 92, 0.6901960784));
+  background-repeat: none;
   width: 100%;
   box-sizing: border-box;
   padding: 0.2rem;
@@ -1335,6 +1335,22 @@ section {
 .header-title .container .title {
   margin-bottom: auto;
   text-align: center;
+}
+
+.header-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  /* Linear gradient stripes here */
+  background-image: repeating-linear-gradient(90deg, #3a465f, #22375f 2px, #17191d 5px, #172132 10px), repeating-linear-gradient(90deg, #3a465f, #22375f 2px, #17191d 5px, #172132 10px);
+  background-size: 100% 5px, 100% 5px;
+  background-position: top, bottom;
+  background-repeat: repeat-x, repeat-x;
+  pointer-events: none;
 }
 
 .disclaimer {

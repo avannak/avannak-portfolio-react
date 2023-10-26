@@ -2,6 +2,10 @@
 "use client";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
 import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
+import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
+import Tooltip from "@/components/Tooltip/Tooltip";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
+import useLoading from "@/hooks/useLoading";
 import {
   faAws,
   faCss3,
@@ -14,39 +18,30 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faHome,
-  faLeftLong,
   faRightLong,
-  faRotateBack,
   faShareNodes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-import Tooltip from "@/components/Tooltip/Tooltip";
 import Link from "next/link";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
+import { useSelector } from "react-redux";
+import { PacmanLoader } from "react-spinners";
 import akai from "../../assets/images/akai-pixel.png";
 import artPixel from "../../assets/images/artpixel2.webp";
 import dt990 from "../../assets/images/dt990-pixel.webp";
 import helloPixel from "../../assets/images/hello.webp";
-import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
-import toolKit from "../../assets/images/toolkit.webp";
 import typescript from "../../assets/images/icons/typescript.svg";
 import macBook from "../../assets/images/macbook-pixel.webp";
 import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
+import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
+import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import { useContext, useState, useEffect, CSSProperties } from "react";
-import Loader from "@/components/Loaders/Loader";
-import { PacmanLoader } from "react-spinners";
-import { css } from "@emotion/react";
-import useLoading from "@/hooks/useLoading";
-import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
-import { useImageLoading } from "@/hooks/useImagesLoaded";
 
 type Props = {};
 

@@ -76,7 +76,7 @@ const ContactPage = (props: Props) => {
               placeholder="blur"
             ></Image>
             <div className="contact-section" id="contact-section">
-              ({parallaxIsOn && <BackgroundOverlay parallax />}
+              {parallaxIsOn && <BackgroundOverlay parallax />}
               {!parallaxIsOn && <BackgroundOverlay />}
               <div className="header-title navigation">
                 <div className="content-container">
@@ -141,7 +141,6 @@ const ContactPage = (props: Props) => {
               </div>
             </div>
           </motion.section>
-          )
         </>
       )}
     </>

@@ -199,35 +199,35 @@ const AboutPage = (props: Props) => {
                 </li>
                 <li className="intro">
                   Hello! I'm a proud alumnus of{" "}
-                  <strong>San Francisco State University</strong> with a{" "}
+                  <strong>San Francisco State University</strong>, armed with a{" "}
                   <span className="highlight-degree">
-                    Bachelor's in Computer Science.
-                  </span>
+                    Bachelor's in Computer Science
+                  </span>{" "}
+                  and a knack for blending the analytical with the artistic.
                 </li>
                 <li className="passion">
-                  My journey in the tech realm is fueled by a fervent passion
-                  for web design and programming. Each code I pen down manifests
-                  my dedication to creating enchanting and user-friendly
-                  experiences.
+                  Web design and development isn't just what I do—it's a canvas
+                  for my imagination, where every line of code aims to make user
+                  experiences smoother and more intuitive.
                 </li>
                 <li className="skills">
-                  As I delve deeper into{" "}
+                  Tackling{" "}
                   <span className="highlight-tech">full-stack development</span>
-                  , I ensure my applications are not just operational but
-                  groundbreaking. Amidst coding, I transition into my role as a{" "}
-                  <span className="highlight-art">singer-songwriter</span> and a{" "}
-                  <span className="highlight-art">music producer</span>,
-                  channeling a different form of creativity.
+                  , my goal is to build applications that are as innovative as
+                  they are effective. Then, switching from code to chords, I
+                  embrace my other passion as a{" "}
+                  <span className="highlight-art">singer-songwriter</span> and{" "}
+                  <span className="highlight-art">music producer</span>, where
+                  creativity knows no bounds.
                 </li>
                 <li className="inspiration">
-                  My dual zeal for tech and music consistently inspires and
-                  motivates me to discover and innovate.
+                  It's this combination of tech and tunes that fuels my drive to
+                  learn, create, and constantly push the envelope.
                 </li>
                 <li className="invitation">
-                  <span className="highlight-invitation">
-                    Intrigued by my artistic inclination? Step into my world of
-                    music and get a tour of my studio setup.
-                  </span>
+                  Curious about the harmony of my musical ventures? I invite you
+                  to take a peek into my studio and explore the rhythm of my
+                  world.
                 </li>
               </ul>
             </div>

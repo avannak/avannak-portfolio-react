@@ -71,6 +71,8 @@ const MouseParallaxImage = ({
         alt="Parallax Image"
         style={modifiedInnerStyle as React.CSSProperties}
         priority={priority}
+        width={window.innerWidth}
+        height={window.innerHeight}
       />
     </div>
   );

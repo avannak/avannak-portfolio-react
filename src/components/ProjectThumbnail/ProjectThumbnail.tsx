@@ -13,7 +13,7 @@ type PropTypes = {
   middleId: string;
   middleClassName: string;
   text: string;
-  imgSrc: StaticImageData;
+  imgSrc: StaticImageData | string;
 };
 const ProjectThumbnail = (props: PropTypes) => {
   return (
@@ -29,6 +29,8 @@ const ProjectThumbnail = (props: PropTypes) => {
           src={props.imgSrc}
           alt="project-thumbnail"
           placeholder="blur"
+          height={300}
+          width={500}
         />
       </div>
     </div>

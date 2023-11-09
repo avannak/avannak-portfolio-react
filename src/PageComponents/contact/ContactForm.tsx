@@ -123,6 +123,7 @@ const ContactForm = (props: Props) => {
               alt="gmail-pixel"
               height={374}
               width={510}
+              placeholder="blur"
             ></Image>
           </div>
         </div>

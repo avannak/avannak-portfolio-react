@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
     // Only include allowed properties here
     adjustFontFallbacks: true,
     adjustFontFallbacksWithSizeAdjust: true,

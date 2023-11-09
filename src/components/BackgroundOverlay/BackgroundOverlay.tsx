@@ -1,9 +1,5 @@
 "use client";
 import Image from "next/image";
-import particlesImg from "../../assets/images/particles5.webp";
-import space from "../../assets/images/space.webp";
-import stars from "../../assets/images/stars4.gif";
-import particlesVideo from "../../assets/videos/particles5.mp4";
 import {
   backgroundStyle,
   imageStyle,
@@ -22,28 +18,79 @@ const BackgroundOverlay = (props: Props) => {
         <>
           <MouseParallaxImage
             id="space-pic"
-            src={space}
-            // alt="space"
+            src="/images/space.webp"
             outerStyle={backgroundStyle}
             innerStyle={imageStyle}
             priority
-          ></MouseParallaxImage>
-          <Image id="stars-pic" src={stars} alt="stars" priority />
-          <MouseParallaxVideo id="particles-video" src={particlesVideo} />
+          />
+          <Image
+            id="stars-pic"
+            src="/images/stars4.gif"
+            alt="stars"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
+          <MouseParallaxVideo
+            id="particles-video"
+            src="/videos/particles5.mp4"
+          />{" "}
         </>
       )}
       {props.parallax && isMobile && (
         <>
-          <Image id="space-pic" src={space} alt="space" priority />
-          <Image id="stars-pic" src={stars} alt="stars" priority />
-          <Image id="particles-video" alt="particles" src={particlesImg} />
+          <Image
+            id="space-pic"
+            src="/images/space.webp"
+            alt="space"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
+          <Image
+            id="stars-pic"
+            src="/images/stars4.gif"
+            alt="stars"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
+          <Image
+            id="particles-video"
+            src="/images/particles5.webp"
+            alt="particles"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
         </>
       )}
       {!props.parallax && (
         <>
-          <Image id="space-pic" src={space} alt="space" priority />
-          <Image id="stars-pic" src={stars} alt="stars" priority />
-          <Image id="particles-video" alt="particles" src={particlesImg} />
+          <Image
+            id="space-pic"
+            src="/images/space.webp"
+            alt="space"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
+          <Image
+            id="stars-pic"
+            src="/images/stars4.gif"
+            alt="stars"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
+          <Image
+            id="particles-video"
+            src="/images/particles5.webp"
+            alt="particles"
+            priority
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />{" "}
         </>
       )}
     </>

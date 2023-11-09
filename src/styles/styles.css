@@ -822,6 +822,9 @@ section {
     width: 70px;
   }
 }
+.about-page-container .about-me-section .about-description-column .about-description-list .img.glow {
+  filter: drop-shadow(0 0 5px rgba(240, 255, 34, 0.3529411765));
+}
 .about-page-container .about-me-section .rokit-span {
   display: flex;
   flex-direction: column;

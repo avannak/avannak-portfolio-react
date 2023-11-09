@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
+import dynamic from "next/dynamic";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
-import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Tooltip from "@/components/Tooltip/Tooltip";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
@@ -42,6 +42,11 @@ import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
 import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
 import { RootState } from "../GlobalRedux/types";
+
+const RotatingCard = dynamic(
+  () => import("@/components/AnimatedComponents/RotatingCard/RotatingCard"),
+  { ssr: false }
+);
 
 type Props = {};
 
@@ -179,7 +184,12 @@ const AboutPage = (props: Props) => {
             <div className="about-description-column container">
               <ul className="about-description-list">
                 <li id="hello-emote-container">
-                  <Image className="img" src={artPixel} alt="art-pixel"></Image>
+                  <Image
+                    className="img glow"
+                    src={artPixel}
+                    alt="art-pixel"
+                    placeholder="blur"
+                  ></Image>
                   <FloatingComponent>
                     <Image
                       className="img"

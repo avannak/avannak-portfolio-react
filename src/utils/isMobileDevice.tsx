@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { throttle } from "lodash";
 
 export const isMobileDevice = () => {
   // Check if the window object is defined
@@ -13,16 +14,19 @@ export const isMobileDevice = () => {
 };
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth <= 768
+  );
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    // Call checkMobile immediately to update state
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    const throttledCheckMobile = throttle(() =>
+      setIsMobile(window.innerWidth <= 768)
+    );
+    window.addEventListener("resize", throttledCheckMobile);
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("resize", throttledCheckMobile);
+      throttledCheckMobile.cancel();
     };
   }, []);
 

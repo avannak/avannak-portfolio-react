@@ -73,6 +73,7 @@ const MouseParallaxImage = ({
         priority={priority}
         width={window.innerWidth}
         height={window.innerHeight}
+        loading="eager"
       />
     </div>
   );

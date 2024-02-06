@@ -192,13 +192,6 @@ const Modal = (props: Props) => {
                     UX friendly file upload/share application geared towards San
                     Francisco State University faculty and students.
                   </p>
-                  <a href="http://ec2-50-18-97-37.us-west-1.compute.amazonaws.com/">
-                    <button className="pushable">
-                      <span className="shadow"></span>
-                      <span className="edge blue"></span>
-                      <span className="front blue">View Website</span>
-                    </button>
-                  </a>
                 </div>
               </div>
             )}

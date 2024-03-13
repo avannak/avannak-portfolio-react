@@ -3,9 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { CgClose } from "react-icons/cg";
-import { DiGoogleCloudPlatform } from "react-icons/di";
-import { FaCss3, FaReact } from "react-icons/fa";
+import { CgClose, CgYoutube } from "react-icons/cg";
+import { DiGoogleCloudPlatform, DiMongodb } from "react-icons/di";
+import { FaCss3, FaReact, FaYoutube } from "react-icons/fa";
 import {
   SiAmazonaws,
   SiExpress,
@@ -21,7 +21,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { TiHtml5 } from "react-icons/ti";
-import adulting from "../../assets/images/adulting.webp";
+import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
@@ -587,12 +587,12 @@ const Modal = (props: Props) => {
                 <div className="image-container">
                   <Image
                     className="image"
-                    src={adulting}
-                    alt="adulting pic"
+                    src={prodyoutive}
+                    alt="prodyoutive pic"
                   ></Image>
                 </div>
                 <div className="description-container">
-                  <h1>Adulting.io: To-do List App</h1>
+                  <h1>ProdYouTive: YouTube Productivity Optimizer</h1>
                   <div className="stack-container">
                     <span className="title">Built With:</span>
                     <div className="stack">
@@ -607,16 +607,6 @@ const Modal = (props: Props) => {
                             setIsHovered(false);
                           }}
                         ></SiJavascript>
-                        <FaReact
-                          className="icon"
-                          onMouseEnter={() => {
-                            setIconText("React");
-                            setIsHovered(true);
-                          }}
-                          onMouseLeave={() => {
-                            setIsHovered(false);
-                          }}
-                        ></FaReact>
                         <TiHtml5
                           className="icon"
                           onMouseEnter={() => {
@@ -637,16 +627,6 @@ const Modal = (props: Props) => {
                             setIsHovered(false);
                           }}
                         ></FaCss3>
-                        <SiStyledcomponents
-                          className="icon"
-                          onMouseEnter={() => {
-                            setIconText("styled-components");
-                            setIsHovered(true);
-                          }}
-                          onMouseLeave={() => {
-                            setIsHovered(false);
-                          }}
-                        ></SiStyledcomponents>
                       </div>
                       <div className="bed">
                         <SiNodedotjs
@@ -659,6 +639,46 @@ const Modal = (props: Props) => {
                             setIsHovered(false);
                           }}
                         ></SiNodedotjs>
+                        <SiExpress
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("Express.js");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></SiExpress>
+                        <DiMongodb
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("MongoDB");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></DiMongodb>
+                        <DiGoogleCloudPlatform
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("Google Cloud");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></DiGoogleCloudPlatform>
+                        <FaYoutube
+                          className="icon"
+                          onMouseEnter={() => {
+                            setIconText("YouTube API");
+                            setIsHovered(true);
+                          }}
+                          onMouseLeave={() => {
+                            setIsHovered(false);
+                          }}
+                        ></FaYoutube>
                       </div>
                     </div>
                     <div className="hover-icon-box">
@@ -668,19 +688,33 @@ const Modal = (props: Props) => {
                     </div>
                   </div>
                   <p>
-                    My easy to use to-do list app includes the ability to add,
-                    delete, and clear all new tasks using JSON, saving them in
-                    cache when the application is closed.
-                    <br />
-                    <br />
-                    This application also includes Drag & Drop functionality and
-                    color picker feature for tasks.
+                    <strong>ProdYouTive</strong>, a Chrome extension designed
+                    for productivity enhancement, enhances your YouTube browsing
+                    experience. Features include:
+                    <ul>
+                      <li>
+                        <strong>Insightful Analytics:</strong> Get detailed
+                        statistics on viewing habits, including total watch time
+                        and daily averages.
+                      </li>
+                      <li>
+                        <strong>Focus Mode:</strong> Reduce distractions by
+                        emphasizing educational content and hiding the rest.
+                      </li>
+                      <li>
+                        <strong>Custom Settings:</strong> Adjust timers,
+                        notifications, and preferences for a personalized
+                        experience.
+                      </li>
+                    </ul>
+                    Transform YouTube into a platform for growth and efficient
+                    learning with ProdYouTive.
                   </p>
-                  <a href="https://adulting-react-avannak.vercel.app/">
+                  <a href="https://github.com/avannak/ProdYouTive">
                     <button className="pushable">
                       <span className="shadow"></span>
                       <span className="edge blue"></span>
-                      <span className="front blue">View Website</span>
+                      <span className="front blue">View Github Code</span>
                     </button>
                   </a>
                 </div>

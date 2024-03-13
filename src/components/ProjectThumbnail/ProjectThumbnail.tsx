@@ -21,7 +21,7 @@ const ProjectThumbnail = (props: PropTypes) => {
       <div className="middle">
         <div id={props.middleId} className={props.middleClassName}>
           <p>{props.text}</p>
-          <StyledButton text="Click To View" magnifyIcon />
+          <StyledButton className="clickToViewBtn" text="Click To View" />
         </div>
         <Image
           id="project-img"

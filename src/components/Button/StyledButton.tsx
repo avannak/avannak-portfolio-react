@@ -2,11 +2,18 @@ import Image from "next/image";
 import React from "react";
 import magnifyGlass from "../../assets/images/magnify-glass.webp";
 
-type Props = { text: string; magnifyIcon?: boolean; downloadResume?: boolean };
+type Props = {
+  text: string;
+  magnifyIcon?: boolean;
+  downloadResume?: boolean;
+  className?: string;
+};
 
 const StyledButton = (props: Props) => {
   return (
-    <div className="download-resume-wrapper">
+    <div
+      className={props.className ? props.className : "download-resume-wrapper"}
+    >
       {props.downloadResume && (
         <a href="/documents/arthurvresume.pdf" download>
           <button className="pushable">

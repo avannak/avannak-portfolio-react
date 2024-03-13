@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useContext } from "react";
-import adulting from "../../assets/images/adulting.webp";
+import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
@@ -33,7 +33,7 @@ const MyWorkPage = () => {
   };
 
   const images = [
-    adulting,
+    prodyoutive,
     bstocktradein,
     gatormedia,
     musicplayer,
@@ -153,6 +153,17 @@ const MyWorkPage = () => {
                   <ProjectThumbnail
                     onClick={() => {
                       toggleModal();
+                      setModalType("item5");
+                    }}
+                    id="item5"
+                    middleId="prodyoutive-detail"
+                    middleClassName="project-content prodyoutive"
+                    text="ProdYouTive: YouTube Productivity Optimizer"
+                    imgSrc={prodyoutive}
+                  />
+                  <ProjectThumbnail
+                    onClick={() => {
+                      toggleModal();
                       setModalType("item1");
                     }}
                     id="item1"
@@ -197,17 +208,6 @@ const MyWorkPage = () => {
                   <ProjectThumbnail
                     onClick={() => {
                       toggleModal();
-                      setModalType("item5");
-                    }}
-                    id="item5"
-                    middleId="adulting-detail"
-                    middleClassName="project-content adulting"
-                    text="Adulting.io: To-do List App"
-                    imgSrc={adulting}
-                  />
-                  <ProjectThumbnail
-                    onClick={() => {
-                      toggleModal();
                       setModalType("item6");
                     }}
                     id="item6"
@@ -220,7 +220,6 @@ const MyWorkPage = () => {
               </div>
             </motion.section>
           </motion.div>
-          )
         </>
       )}
     </>

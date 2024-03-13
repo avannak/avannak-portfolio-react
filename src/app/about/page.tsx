@@ -42,6 +42,7 @@ import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
 import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
 import { RootState } from "../GlobalRedux/types";
+import { TypingEffectMission } from "@/components/AnimatedComponents/TypingEffectMission";
 
 const RotatingCard = dynamic(
   () => import("@/components/AnimatedComponents/RotatingCard/RotatingCard"),
@@ -151,45 +152,19 @@ const AboutPage = (props: Props) => {
                 </Link>
               </div>
             </div>
-            <div className="about-icons-column container">
-              <div className="laptop-icon-container">
-                <div id="container-text">
-                  <span style={{ boxSizing: "border-box", padding: "1rem" }}>
-                    <span id="text1">const</span>{" "}
-                    <span id="dotlog">arthurGreetsYou</span>{" "}
-                    <span id="text2">=</span> <span id="text3">(</span>
-                    <span id="text4">guest</span>
-                    <span id="text3">)</span> =&gt;{" "}
-                  </span>
-                  <span style={{ boxSizing: "border-box", padding: "1rem" }}>
-                    {" "}
-                    <span id="braces">&#123;</span>{" "}
-                    <span id="return">return </span>
-                    console.<span id="dotlog">log</span>(&quot;
-                    <span id="pleased">pleased to meet you,</span>
-                    &quot;, <span id="text4">guest</span>);{" "}
-                    <span id="braces">&#125;</span>
-                  </span>
-                  <Image
-                    id="macbook-img"
-                    src={macBook}
-                    alt="macbook-pixel"
-                    height={367}
-                    width={679}
-                    placeholder="blur"
-                  ></Image>
-                </div>
-              </div>
-            </div>
             <div className="about-description-column container">
               <ul className="about-description-list">
+                <TypingEffectMission
+                  text="Study the science of art. Study the art of science. Develop your senses — especially learn how to see. Realize that everything connects to everything else."
+                  author="- Leonardo da Vinci"
+                />
                 <li id="hello-emote-container">
                   <Image
                     className="img glow"
                     src={artPixel}
                     alt="art-pixel"
                     placeholder="blur"
-                  ></Image>
+                  />
                   <FloatingComponent>
                     <Image
                       className="img"
@@ -198,46 +173,70 @@ const AboutPage = (props: Props) => {
                       height={387}
                       width={451}
                       placeholder="blur"
-                    ></Image>
+                    />
                   </FloatingComponent>
                 </li>
-                <li className="mission-statement">
-                  <i>
-                    "Crafting exceptional digital experiences while harmonizing
-                    codes with chords."
-                  </i>
-                </li>
                 <li className="intro">
-                  Hello! I'm a proud alumnus of{" "}
-                  <strong>San Francisco State University</strong>, armed with a{" "}
+                  As a <strong>San Francisco State University</strong> graduate
+                  with a{" "}
                   <span className="highlight-degree">
-                    Bachelor's in Computer Science
-                  </span>{" "}
-                  and a knack for blending the analytical with the artistic.
+                    Bachelors in Computer Science
+                  </span>
+                  , I fuse technical and artistic skills.
                 </li>
                 <li className="passion">
-                  Web design and development isn't just what I do—it's a canvas
-                  for my imagination, where every line of code aims to make user
-                  experiences smoother and more intuitive.
+                  Web design and development for me is an imaginative canvas,
+                  aiming for intuitive and smooth user experiences.
                 </li>
+                <div className="about-icons-column container">
+                  <div className="laptop-icon-container">
+                    <div id="container-text">
+                      <span
+                        style={{ boxSizing: "border-box", padding: "1rem" }}
+                      >
+                        <span id="text1">const</span>{" "}
+                        <span id="dotlog">arthurGreetsYou</span>{" "}
+                        <span id="text2">=</span> <span id="text3">(</span>
+                        <span id="text4">guest</span>
+                        <span id="text3">)</span> =&gt;{" "}
+                      </span>
+                      <span
+                        style={{ boxSizing: "border-box", padding: "1rem" }}
+                      >
+                        {" "}
+                        <span id="braces">&#123;</span>{" "}
+                        <span id="return">return </span>
+                        console.<span id="dotlog">log</span>(&quot;
+                        <span id="pleased">pleased to meet you,</span>
+                        &quot;, <span id="text4">guest</span>);{" "}
+                        <span id="braces">&#125;</span>
+                      </span>
+                      <Image
+                        id="macbook-img"
+                        src={macBook}
+                        alt="macbook-pixel"
+                        height={367}
+                        width={679}
+                        placeholder="blur"
+                      ></Image>
+                    </div>
+                  </div>
+                </div>
                 <li className="skills">
-                  Tackling{" "}
+                  Focused on{" "}
                   <span className="highlight-tech">full-stack development</span>
-                  , my goal is to build applications that are as innovative as
-                  they are effective. Then, switching from code to chords, I
-                  embrace my other passion as a{" "}
+                  , I strive to create innovative applications. Also a{" "}
                   <span className="highlight-art">singer-songwriter</span> and{" "}
-                  <span className="highlight-art">music producer</span>, where
-                  creativity knows no bounds.
+                  <span className="highlight-art">music producer</span>, I blend
+                  creativity seamlessly.
                 </li>
                 <li className="inspiration">
-                  It's this combination of tech and tunes that fuels my drive to
-                  learn, create, and constantly push the envelope.
+                  The synergy of technology and music drives my relentless quest
+                  for learning and innovation.
                 </li>
                 <li className="invitation">
-                  Curious about the harmony of my musical ventures? I invite you
-                  to take a peek into my studio and explore the rhythm of my
-                  world.
+                  Intrigued by the harmony of my music and tech? Explore the
+                  rhythm of my studio and creations.
                 </li>
               </ul>
             </div>

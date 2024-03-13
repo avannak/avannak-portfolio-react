@@ -2,26 +2,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Header from "@/components/Header";
-import NavBar from "@/components/NavBar/NavBar";
-import Image from "next/image";
-import {
-  faCaretLeft,
-  faHome,
-  faLeftLong,
-} from "@fortawesome/free-solid-svg-icons";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
+import useLoading from "@/hooks/useLoading";
+import { faHome, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { PacmanLoader } from "react-spinners";
+import ContactForm from "../../PageComponents/contact/ContactForm";
+import callMe from "../../assets/images/call.webp";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
-import callMe from "../../assets/images/call.webp";
-import ContactForm from "../../PageComponents/contact/ContactForm";
-import { useContext } from "react";
-import useLoading from "@/hooks/useLoading";
-import { PacmanLoader } from "react-spinners";
-import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
-import { useImageLoading } from "@/hooks/useImagesLoaded";
 
 type Props = {};
 

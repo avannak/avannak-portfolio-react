@@ -18,19 +18,11 @@ const BackgroundOverlay = (props: Props) => {
         <>
           <MouseParallaxImage
             id="space-pic"
-            src="/images/space.webp"
+            src="/images/space4.webp"
             outerStyle={backgroundStyle}
             innerStyle={imageStyle}
             priority
           />
-          <Image
-            id="stars-pic"
-            src="/images/stars4.gif"
-            alt="stars"
-            priority
-            width={window.innerWidth}
-            height={window.innerHeight}
-          />{" "}
           <MouseParallaxVideo
             id="particles-video"
             src="/videos/particles5.mp4"
@@ -41,16 +33,8 @@ const BackgroundOverlay = (props: Props) => {
         <>
           <Image
             id="space-pic"
-            src="/images/space.webp"
+            src="/images/space4.webp"
             alt="space"
-            priority
-            width={window.innerWidth}
-            height={window.innerHeight}
-          />{" "}
-          <Image
-            id="stars-pic"
-            src="/images/stars4.gif"
-            alt="stars"
             priority
             width={window.innerWidth}
             height={window.innerHeight}
@@ -69,16 +53,8 @@ const BackgroundOverlay = (props: Props) => {
         <>
           <Image
             id="space-pic"
-            src="/images/space.webp"
+            src="/images/space4.webp"
             alt="space"
-            priority
-            width={window.innerWidth}
-            height={window.innerHeight}
-          />{" "}
-          <Image
-            id="stars-pic"
-            src="/images/stars4.gif"
-            alt="stars"
             priority
             width={window.innerWidth}
             height={window.innerHeight}

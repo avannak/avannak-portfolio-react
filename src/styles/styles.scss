@@ -680,7 +680,6 @@ section {
     max-width: 600px;
     height: 100px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.664);
     border-radius: 15px;
   }
 
@@ -747,12 +746,7 @@ section {
     }
   }
   .about-me-section {
-    background: radial-gradient(
-      circle,
-      rgba(7, 10, 23, 0.879) 0%,
-      rgba(6, 3, 11, 0.97) 98%,
-      rgba(0, 0, 0, 0.875) 100%
-    );
+    background: rgba(10, 10, 16, 0.874);
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;

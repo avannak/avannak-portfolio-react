@@ -30,12 +30,15 @@ h1 {
   font-family: "FSEX300";
 }
 
+html {
+  font-size: 1em;
+}
+
 body {
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.295);
   font-weight: 400;
-  font-size: 1.2em;
   margin: 0 auto;
-  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
+  background: linear-gradient(to top, hsl(180, 25%, 3%) 0%, hsl(240, 38%, 9%) 30%, hsl(231, 51%, 8%) 70%, hsl(265, 29%, 8%) 100%);
   max-width: 100%;
   min-width: 370px;
 }
@@ -95,7 +98,7 @@ body {
   top: 0;
   left: 0;
   width: 130%;
-  height: 100%;
+  height: 130%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -141,7 +144,7 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: flex-end;
-  background: linear-gradient(to bottom, hsl(223, 7%, 19%) 0%, hsl(256, 13%, 17%) 8%, hsl(0, 0%, 11%) 92%, hsl(224, 39%, 19%) 100%);
+  background: linear-gradient(to bottom, hsl(240, 5%, 4%) 0%, hsl(256, 13%, 17%) 8%, hsl(0, 0%, 5%) 92%, hsl(224, 39%, 19%) 100%);
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
@@ -436,6 +439,8 @@ img {
   justify-content: center;
   padding: 0;
   height: 200px;
+  width: 100%;
+  border-radius: 20px;
 }
 @media (max-width: 600px) {
   .download-resume-wrapper {
@@ -536,12 +541,13 @@ img {
 }
 
 section {
-  background-color: rgba(0, 0, 0, 0.487);
+  width: 100%;
+  height: 100%;
 }
 
 #space-pic {
   z-index: -99;
-  opacity: 0.4;
+  opacity: 0.1;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -619,12 +625,66 @@ section {
 }
 
 .about-description-list li {
-  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  min-width: 100px; /* Adjust as needed */
+  max-width: 100%; /* Adjust as needed */
+}
+.about-description-list .animated-text {
+  /* Remove or comment out white-space: nowrap; */
+  /* white-space: nowrap; */
+  overflow: hidden;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  animation: typing 4.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+.about-description-list .author {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: 20px;
+  text-align: right;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 2s;
+  animation-delay: 0.5s;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  font-style: italic; /* optional styling */
 }
 .about-description-list .mission-statement {
-  margin-bottom: 1.5rem;
-  background-color: rgba(64, 124, 235, 0.3294117647);
+  margin-top: 100px;
+  margin-bottom: 1rem;
+  position: relative;
+  padding: 20px;
+  /* Add max-width or width as needed */
+  max-width: 600px;
+  height: 100px;
+  box-sizing: border-box;
   border-radius: 15px;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 .about-description-list .highlight-degree,
 .about-description-list .highlight-tech,
@@ -677,9 +737,6 @@ section {
   margin-bottom: 5px;
   text-align: center;
 }
-.about-page-container p {
-  padding: 50px;
-}
 .about-page-container a {
   padding: 5px;
   font-size: 1em;
@@ -689,7 +746,8 @@ section {
   color: rgb(243, 255, 136);
 }
 .about-page-container .about-me-section {
-  background-color: rgba(18, 18, 30, 0.7607843137);
+  background: rgba(10, 10, 16, 0.874);
+  box-shadow: 0px 0px 20px rgba(29, 59, 78, 0.42);
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -704,12 +762,14 @@ section {
   position: relative;
   text-align: center;
   flex: 50%;
-  width: 300px;
+  width: 100%;
   height: 200px;
   min-width: 250px;
   max-width: 100%;
   min-height: 210px;
   margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .about-page-container .about-me-section .about-icons-column .laptop-icon-container {
   display: flex;
@@ -732,7 +792,6 @@ section {
   padding: 1rem;
   align-items: center;
   justify-content: center;
-  background: repeating-conic-gradient(rgba(0, 0, 0, 0.481) 0% 2%, rgba(0, 0, 0, 0.422) 2% 4%), linear-gradient(90deg, rgba(119, 118, 118, 0.481), rgba(175, 70, 255, 0.422) 50%, rgba(141, 141, 141, 0.478) 100%);
 }
 @media (max-width: 562px) {
   .about-page-container .about-me-section .about-icons-column .laptop-icon-container #container-text {
@@ -741,7 +800,7 @@ section {
 }
 .about-page-container .about-me-section .about-icons-column .laptop-icon-container #container-text span {
   box-sizing: border-box;
-  background-color: rgba(11, 12, 17, 0.9058823529);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 20px;
   text-align: center;
   margin-bottom: auto;
@@ -823,7 +882,7 @@ section {
   }
 }
 .about-page-container .about-me-section .about-description-column .about-description-list .img.glow {
-  filter: drop-shadow(0 0 5px rgba(240, 255, 34, 0.3529411765));
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.0941176471));
 }
 .about-page-container .about-me-section .rokit-span {
   display: flex;
@@ -840,8 +899,7 @@ section {
   max-height: 100px;
   display: flex;
   justify-content: center;
-  background-color: rgb(65, 120, 223);
-  background: repeating-linear-gradient(-45deg, rgba(45, 49, 89, 0.481), rgba(45, 49, 89, 0.481) 10px, rgba(86, 111, 212, 0.422) 10px, rgba(86, 111, 212, 0.422) 20px), linear-gradient(90deg, rgba(45, 49, 89, 0.481) 0%, rgba(86, 111, 212, 0.422) 50%, rgba(115, 94, 232, 0.478) 100%);
+  background: repeating-conic-gradient(rgba(49, 60, 93, 0.481) 0% 2%, rgba(8, 12, 22, 0.422) 2% 4%), linear-gradient(90deg, rgba(25, 46, 103, 0.81), rgba(129, 129, 248, 0.625) 50%, rgba(63, 84, 241, 0.478) 100%);
   width: 90%;
   margin: auto;
   align-items: center;
@@ -1101,11 +1159,12 @@ section {
   flex-direction: row;
 }
 .modal-container .dialog-box .content .image-container {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   color: black;
   flex: 40%;
-  padding: 0;
+  padding: 20px;
   min-width: 200px;
 }
 .modal-container .dialog-box .content .image-container .image {
@@ -1217,9 +1276,10 @@ section {
   opacity: 1;
 }
 .modal-container .dialog-box .content .description-container p {
-  font-size: 1em;
+  font-size: 0.9em;
   text-align: left;
-  padding: 8px 10px 20px 20px;
+  padding: 20px 20px 20px 20px;
+  line-height: 1.8em;
 }
 .modal-container .dialog-box .content .description-container a {
   text-decoration: none;
@@ -1232,7 +1292,8 @@ section {
 .icon-container {
   width: 200px;
   color: white;
-  font-size: 0.8em;
+  font-size: 0.7em;
+  font-weight: bold;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 20px;
@@ -1273,11 +1334,9 @@ section {
 
 .header-title {
   position: relative;
-  border-top: solid 2px rgb(130, 142, 213);
-  border-bottom: solid 2px rgb(153, 157, 212);
   z-index: 1;
-  height: 150px;
-  background-image: linear-gradient(to bottom, #2e3f60, rgba(36, 55, 92, 0.6901960784));
+  height: 130px;
+  background: rgba(9, 9, 11, 0.95);
   background-repeat: none;
   width: 100%;
   box-sizing: border-box;
@@ -1298,10 +1357,9 @@ section {
 @media (max-width: 660px) {
   .header-title {
     margin: 10;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   .header-title h1 {
-    font-size: 1.3em;
     font-weight: bolder;
   }
 }
@@ -1350,7 +1408,7 @@ section {
   z-index: -1;
   /* Linear gradient stripes here */
   background-image: repeating-linear-gradient(90deg, #3a465f, #22375f 2px, #17191d 5px, #172132 10px), repeating-linear-gradient(90deg, #3a465f, #22375f 2px, #17191d 5px, #172132 10px);
-  background-size: 100% 5px, 100% 5px;
+  background-size: 100% 2px, 100% 2px;
   background-position: top, bottom;
   background-repeat: repeat-x, repeat-x;
   pointer-events: none;
@@ -1373,44 +1431,16 @@ section {
   align-items: center;
 }
 
-#cyber-video {
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  z-index: -1;
-  opacity: 0.07;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .mywork-page-container {
-  background-color: rgba(49, 56, 149, 0.2549019608);
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: -moz-max-content;
+  height: max-content;
   min-height: 100%;
   margin: auto;
   color: rgb(255, 255, 255);
-}
-.mywork-page-container #vhs-img {
-  opacity: 0;
-  display: flex;
-  position: absolute;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -9999;
-  width: 100%;
-  height: 100%;
-  margin: auto;
 }
 .mywork-page-container h1 {
   font-size: 1.2em;
@@ -1485,34 +1515,38 @@ section {
   position: relative;
   border: 1px solid rgb(18, 28, 57);
 }
+.mywork-page-container .project-column .clickToViewBtn {
+  font-family: "FSEX300";
+  position: relative;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  font-size: 0.8em;
+  justify-content: center;
+  padding: 0;
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(rgba(230, 100, 100, 0), #06060f);
+  border-radius: 20px;
+}
+@media (max-width: 600px) {
+  .mywork-page-container .project-column .clickToViewBtn {
+    font-size: 0.7em;
+  }
+}
 .mywork-page-container .project-column:hover .pushable {
   filter: brightness(110%);
+  box-shadow: rgba(255, 255, 255, 0.174) 2px 2px 10px;
+  border-radius: 12px;
 }
 .mywork-page-container .project-column:hover .pushable .front {
   transform: translateY(-6px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  background: linear-gradient(to left, hsl(210, 8%, 10%) 0%, hsl(240, 37%, 27%) 30%, hsl(284, 37%, 14%) 70%, hsl(300, 20%, 6%) 100%);
 }
 .mywork-page-container .project-column:hover .pushable .shadow {
   transform: translateY(4px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-}
-.mywork-page-container #tv-img {
-  position: absolute;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  opacity: 0;
-  width: 100%;
-  transition: 0.1s ease;
-  backface-visibility: hidden;
-  display: flex;
-  margin: auto;
-  top: 0;
 }
 .mywork-page-container .container .image {
   border-radius: 20px;
@@ -1540,15 +1574,9 @@ section {
   opacity: 1;
   position: relative;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0);
 }
 .mywork-page-container .middle:hover {
-  box-shadow: 0px 0px 0px 5px rgba(56, 249, 191, 0.533);
-}
-.mywork-page-container .middle:hover #tv-img {
-  border-radius: 20px;
-  z-index: 3;
-  opacity: 0.6;
+  box-shadow: 0px 0px 0px 5px rgba(65, 249, 71, 0.861);
 }
 .mywork-page-container .middle:hover #project-img {
   width: 100%;
@@ -1568,7 +1596,7 @@ section {
   margin: auto;
   align-items: center;
   justify-content: center;
-  background-color: rgba(39, 39, 39, 0);
+  background: rgba(55, 62, 71, 0.427);
   color: rgb(255, 255, 255);
   font-size: inherit;
   width: 100%;
@@ -1580,7 +1608,8 @@ section {
   text-align: center;
   box-sizing: border-box;
   font-size: 1em;
-  background-color: rgba(13, 14, 22, 0.95);
+  font-weight: bold;
+  background: linear-gradient(#191827, #06060c);
   padding: 10px;
   align-items: center;
   justify-content: center;
@@ -1616,26 +1645,14 @@ section {
   padding: 30px;
   max-width: 1920px;
 }
-.mywork-page-container #desk-pic {
-  z-index: -1;
-  opacity: 0.9;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-}
 
 .portfolio {
   margin-bottom: auto;
   margin-top: auto;
-  height: 100%;
-  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .contact-page-container {
@@ -1865,8 +1882,7 @@ section {
 }
 .contact-page-container .contact-form .image-container .description {
   padding: 50px;
-  background-color: rgba(3, 3, 3, 0.831372549);
-  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.481), rgba(0, 0, 0, 0.481) 10px, rgba(0, 0, 0, 0.422) 10px, rgba(0, 0, 0, 0.422) 20px), linear-gradient(90deg, rgba(82, 107, 123, 0.481), rgba(40, 43, 55, 0.853) 50%, rgba(19, 19, 43, 0.478) 100%);
+  background: repeating-linear-gradient(-45deg, hsla(200, 14%, 4%, 0.723), hsl(240, 12%, 8%) 10px, hsla(228, 8%, 12%, 0.481) 10px, hsla(338, 20%, 8%, 0.394) 20px), linear-gradient(90deg, rgba(22, 29, 33, 0.481), rgba(15, 16, 21, 0.853) 50%, rgba(14, 14, 22, 0.478) 100%);
   border: solid 2px rgba(209, 209, 217, 0.831372549);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1886,6 +1902,7 @@ section {
 .contact-page-container .title {
   text-align: center;
 }
+
 .footer {
   margin: auto;
   display: flex;
@@ -1940,10 +1957,11 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  background: linear-gradient(to left, hsl(223, 74%, 58%) 0%, hsl(262, 61%, 52%) 8%, hsl(248, 52%, 36%) 92%, hsl(264, 42%, 13%) 100%);
+  background: linear-gradient(to left, hsl(211, 27%, 34%) 0%, hsl(239, 100%, 63%) 30%, hsl(262, 65%, 53%) 70%, hsl(327, 50%, 52%) 100%);
+  filter: drop-shadow(0px 10px 4px #0b0b12);
 }
 .edge.blue {
-  background: linear-gradient(to left, hsl(203, 100%, 76%) 0%, hsl(210, 64%, 45%) 8%, hsl(213, 51%, 36%) 92%, hsl(222, 60%, 20%) 100%);
+  background: linear-gradient(to left, hsl(211, 27%, 34%) 0%, hsl(239, 100%, 63%) 30%, hsl(262, 65%, 53%) 70%, hsl(327, 50%, 52%) 100%);
 }
 
 .front {
@@ -1953,7 +1971,7 @@ section {
   border-radius: 12px;
   font-size: 2em;
   color: white;
-  background: hsl(232, 47%, 53%);
+  background: linear-gradient(to left, hsl(220, 16%, 7%) 0%, hsl(240, 24%, 15%) 30%, hsl(282, 25%, 8%) 70%, hsl(300, 20%, 6%) 100%);
   will-change: transform;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -1964,14 +1982,17 @@ section {
   }
 }
 .front.blue {
-  background: hsl(210, 100%, 60%);
+  background: linear-gradient(to left, hsl(220, 16%, 7%) 0%, hsl(240, 24%, 15%) 30%, hsl(282, 25%, 8%) 70%, hsl(300, 20%, 6%) 100%);
 }
 
 .pushable:hover {
   filter: brightness(110%);
+  box-shadow: rgba(255, 255, 255, 0.174) 2px 2px 10px;
+  border-radius: 12px;
 }
 
 .pushable:hover .front {
+  background: linear-gradient(to left, hsl(210, 8%, 10%) 0%, hsl(240, 37%, 27%) 30%, hsl(284, 37%, 14%) 70%, hsl(300, 20%, 6%) 100%);
   transform: translateY(-6px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }

@@ -316,8 +316,8 @@ const AboutPage = (props: Props) => {
                   <Image
                     src={toolKit}
                     alt="toolkit"
-                    height={100}
-                    width={100}
+                    height={70}
+                    width={70}
                     style={{ margin: 5, objectFit: "contain" }}
                     placeholder="blur"
                   />

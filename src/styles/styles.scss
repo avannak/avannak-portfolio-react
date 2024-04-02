@@ -1146,20 +1146,21 @@ section {
     border-radius: 20px;
     border: none;
     position: absolute;
-    @media (max-width: 700px) {
+    @media (max-width: 1024px) {
       max-height: 700px;
       width: 95vw;
       height: max-content;
       font-size: 0.75em;
     }
     .close-button {
-      margin-left: auto;
-      margin-top: auto;
-      min-width: 50px;
-      min-height: 30px;
-      width: 50px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
       height: 30px;
       color: rgb(255, 255, 255);
+      cursor: pointer;
+      z-index: 9999;
       &:hover {
         color: rgb(78, 229, 131);
       }
@@ -1175,9 +1176,12 @@ section {
         display: flex;
         align-items: center;
         color: black;
-        flex: 40%;
+        flex: 30%;
         padding: 20px;
         min-width: 200px;
+        @media (max-width: 688px) {
+          flex: 50%;
+        }
         .image {
           border-radius: 20px;
           box-sizing: border-box;
@@ -1185,14 +1189,14 @@ section {
           margin: auto;
           padding: 0px;
           height: 80%;
-          width: 90%;
+          width: 100%;
           object-fit: cover;
           object-position: top;
           box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.13);
           &.bstock {
             object-position: top left;
           }
-          @media (max-width: 590px) {
+          @media (max-width: 768px) {
             max-height: 200px;
             max-width: 200px;
           }
@@ -1202,7 +1206,7 @@ section {
         box-sizing: border-box;
         padding: 10px;
         color: rgb(239, 240, 255);
-        flex: 60%;
+        flex: 65%;
         width: 100%;
         // Title
         h1 {

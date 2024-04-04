@@ -688,27 +688,12 @@ const Modal = (props: Props) => {
                     </div>
                   </div>
                   <p>
-                    <strong>ProdYouTive</strong>, a Chrome extension designed
-                    for productivity enhancement, enhances your YouTube browsing
-                    experience. Features include:
-                    <ul>
-                      <li>
-                        <strong>Insightful Analytics:</strong> Get detailed
-                        statistics on viewing habits, including total watch time
-                        and daily averages.
-                      </li>
-                      <li>
-                        <strong>Focus Mode:</strong> Reduce distractions by
-                        emphasizing educational content and hiding the rest.
-                      </li>
-                      <li>
-                        <strong>Custom Settings:</strong> Adjust timers,
-                        notifications, and preferences for a personalized
-                        experience.
-                      </li>
-                    </ul>
-                    Transform YouTube into a platform for growth and efficient
-                    learning with ProdYouTive.
+                    ProdYouTive, a Chrome extension, boosts productivity on
+                    YouTube. It offers insightful analytics on viewing habits,
+                    Focus Mode to emphasize educational content, and
+                    customizable settings for timers and notifications.
+                    Transform YouTube into a tool for efficient learning and
+                    personal growth with ProdYouTive.
                   </p>
                   <a href="https://github.com/avannak/ProdYouTive">
                     <button className="pushable">

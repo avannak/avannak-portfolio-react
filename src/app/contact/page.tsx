@@ -64,7 +64,7 @@ const ContactPage = (props: Props) => {
           >
             <Image
               priority={false}
-              id="mountain-pic"
+              className="mountain-pic"
               src={mountain}
               alt="mountain"
               placeholder="blur"
@@ -98,8 +98,8 @@ const ContactPage = (props: Props) => {
                     <Image
                       src={callMe}
                       alt="call"
-                      height={60}
-                      width={60}
+                      height={50}
+                      width={50}
                       style={{ margin: 5, objectFit: "contain" }}
                       placeholder="blur"
                     />
@@ -110,7 +110,7 @@ const ContactPage = (props: Props) => {
                         className="icon"
                         icon={faHome}
                       ></FontAwesomeIcon>
-                      <span>Back To Home</span>
+                      <span>Home</span>
                     </div>
                   </Link>
                 </div>

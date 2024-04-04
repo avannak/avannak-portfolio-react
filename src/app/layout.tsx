@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import { Providers } from "./GlobalRedux/provider";
 
 const myFont = localFont({
-  src: "../../public/fonts/Inter.ttf",
+  src: "../../public/fonts/terminal-grotesque.ttf",
 });
 
 export const metadata = {

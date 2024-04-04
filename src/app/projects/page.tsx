@@ -14,6 +14,7 @@ import musicplayer from "../../assets/images/musicplayer.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
 import financy from "../../assets/images/financy.png";
 import portFolio from "../../assets/images/portfolio.webp";
+import mountain from "../../assets/images/mountain.webp";
 import useLoading from "@/hooks/useLoading";
 import { PacmanLoader } from "react-spinners";
 import { useSelector } from "react-redux";
@@ -86,6 +87,13 @@ const MyWorkPage = () => {
           >
             {parallaxIsOn && <BackgroundOverlay parallax />}
             {!parallaxIsOn && <BackgroundOverlay />}
+            <Image
+              priority={false}
+              className="mountain-pic"
+              src={mountain}
+              alt="mountain"
+              placeholder="blur"
+            ></Image>
             <motion.section className="portfolio" id="portfolio">
               <div className="header-title navigation">
                 <div className="content-container">
@@ -113,8 +121,8 @@ const MyWorkPage = () => {
                     <Image
                       src={portFolio}
                       alt="folder"
-                      height={60}
-                      width={60}
+                      height={50}
+                      width={50}
                       style={{ margin: 5, objectFit: "contain" }}
                       placeholder="blur"
                     />

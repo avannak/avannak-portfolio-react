@@ -1,14 +1,11 @@
 @font-face {
-  font-family: "FSEX300";
-  src: url("../../public/fonts/FSEX300.ttf") format("truetype");
-  font-weight: normal;
+  font-family: "dpcomic";
+  src: url("../../public/fonts/dpcomic.ttf") format("truetype");
   font-style: normal;
 }
-
 @font-face {
-  font-family: "Inter";
-  src: url("/avannak-portfolio/public/fonts/Inter/static/Inter.ttf")
-    format("truetype");
+  font-family: "Terminal Grotesque";
+  src: url("../../public/fonts/terminal-grotesque.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -30,26 +27,26 @@
 }
 
 h1 {
-  font-family: "FSEX300";
+  font-family: "dpcomic";
 }
 
 html {
-  font-size: 1em;
+  font-size: 1.4em;
 }
 
 body {
-  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.295);
+  text-shadow: 0px 2px 2px rgb(0, 0, 0);
   font-weight: 400;
   margin: 0 auto;
   background: linear-gradient(
-    to top,
-    hsl(180, 25%, 3%) 0%,
-    /* Light Blue */ hsl(240, 38%, 9%) 30%,
-    /* Blue-Purple */ hsl(231, 51%, 8%) 70%,
-    /* Deep Purple */ hsl(265, 29%, 8%) 100% /* Dark Pink */
-  );
+      217deg,
+      rgb(25, 1, 1),
+      rgba(22, 11, 11, 0.835) 70.71%
+    ),
+    linear-gradient(127deg, rgb(0, 4, 0), rgb(1, 21, 1) 70.71%),
+    linear-gradient(336deg, rgb(0, 0, 12), rgb(0, 0, 17) 70.71%);
   @media (max-width: 1024px) {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   @media (max-width: 600px) {
     font-size: 1em;
@@ -157,6 +154,7 @@ body {
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   min-width: 370px;
+  height: 80px;
 }
 .nav-bar-container {
   display: flex;
@@ -190,6 +188,8 @@ body {
 .nav-bar a:hover {
   background: #ddd;
   color: black;
+  text-shadow: none;
+  border-radius: 5px;
   // cursor: pointer;
 }
 
@@ -247,7 +247,7 @@ img {
 }
 // * Navigation Menu
 #about-me-link {
-  font-family: "FSEX300";
+  font-family: "dpcomic";
   @media (max-width: 500px) {
     font-size: 0.8em;
   }
@@ -298,7 +298,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "FSEX300";
+    font-family: "Terminal Grotesque";
     z-index: 0;
     text-align: left;
     position: relative;
@@ -312,10 +312,54 @@ img {
     }
     h1 {
       color: rgb(255, 255, 255);
-      padding: 0px;
-      margin-left: 30px;
-      font-size: 3em;
-      text-shadow: rgba(0, 0, 0, 0.613) 2px 10px 0px;
+      padding: 10px;
+      position: relative;
+      border-radius: 10px;
+      padding: 20px;
+      color: rgb(255, 255, 255);
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+      background: linear-gradient(
+          217deg,
+          rgba(18, 3, 3, 0.668),
+          rgba(6, 2, 2, 0.709) 70.71%
+        ),
+        linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        z-index: -1;
+        background: linear-gradient(
+          60deg,
+          rgba(255, 225, 0, 0.259),
+          rgba(0, 229, 255, 0.3),
+          rgba(255, 0, 234, 0.312)
+        );
+        background-size: 300% 300%;
+        border-radius: 10px; // Slightly larger than the h1 to create a border effect
+        animation: moveGradient 6s ease infinite;
+        box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.775); // Adjust the thickness of the border here
+      }
+
+      @keyframes moveGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
     }
     // Occupation Name
     .occupation-container {
@@ -354,13 +398,16 @@ img {
         }
       }
       #front-end {
-        color: rgb(181, 254, 117);
+        color: rgb(132, 248, 31);
+        font-family: "dpcomic";
       }
       #amper {
-        color: rgb(60, 173, 243);
+        color: rgb(255, 79, 56);
+        font-family: "dpcomic";
       }
       #artist {
-        color: rgb(117, 254, 222);
+        color: rgb(255, 30, 30);
+        font-family: "dpcomic";
       }
       display: flex;
       align-items: center;
@@ -386,7 +433,7 @@ img {
   .nav-selections {
     box-sizing: border-box;
     li {
-      font-size: 2.5rem;
+      font-size: 2rem;
       &:hover {
         color: rgb(244, 236, 117);
         transition: color 0.3s ease;
@@ -432,7 +479,7 @@ img {
 }
 //Download Button
 .download-resume-wrapper {
-  font-family: "FSEX300";
+  font-family: "dpcomic";
   position: relative;
   display: flex;
   margin: auto;
@@ -572,59 +619,10 @@ section {
   height: 100%;
 }
 
-#code-pic {
-  z-index: 0;
-  opacity: 1;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: none;
-  width: 100%;
-  height: 100%;
-}
-#code-pic-overlay {
-  opacity: 0;
-  z-index: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(23, 23, 27, 0.934) 0%,
-    rgba(2, 1, 4, 0.916) 100%
-  );
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  object-fit: cover;
-  background-position: center;
-  width: 100%;
-  margin: auto;
-  left: 0;
-  right: 0;
-  height: 100%;
-}
-
-.barcode-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 15px auto 15px auto;
-  background-color: rgba(133, 133, 133, 0.574);
-  path {
-    fill: rgba(0, 0, 0, 0.464);
-    width: 100%;
-  }
-}
-
 .about-description-list {
   li {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem; // Adjusts spacing between list items
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem; // Adjusts spacing between list items
     min-width: 100px; /* Adjust as needed */
     max-width: 100%; /* Adjust as needed */
   }
@@ -749,14 +747,24 @@ section {
     }
   }
   .about-me-section {
-    background: rgba(10, 10, 16, 0.874);
+    background: linear-gradient(
+        217deg,
+        rgba(18, 3, 3, 0.668),
+        rgba(6, 2, 2, 0.709) 70.71%
+      ),
+      linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(
+        336deg,
+        rgba(24, 24, 132, 0.946),
+        rgba(9, 9, 75, 0) 70.71%
+      );
     box-shadow: 0px 0px 20px rgba(29, 59, 78, 0.42);
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 0;
-    max-width: 900px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     .about-icons-column {
@@ -785,7 +793,7 @@ section {
           width: 90%;
           height: 100%;
           position: absolute;
-          font-family: "FSEX300";
+          font-family: "dpcomic";
           font-size: 1em;
           box-sizing: border-box;
           border-radius: 20px;
@@ -852,7 +860,7 @@ section {
       ul {
         margin: auto;
         padding: 0px;
-        max-width: 900px;
+        max-width: 1200px;
         width: 90%;
       }
       li {
@@ -988,7 +996,7 @@ section {
   .language-container {
     z-index: 9999999;
     box-sizing: border-box;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     padding: 1rem 1rem;
     margin: auto;
@@ -1171,6 +1179,15 @@ section {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
+      @media (max-width: 688px) {
+        // Adjust this threshold as needed
+        flex-direction: column;
+        align-items: center;
+
+        .image-container {
+          order: -1;
+        }
+      }
       .image-container {
         box-sizing: border-box;
         display: flex;
@@ -1179,16 +1196,13 @@ section {
         flex: 30%;
         padding: 20px;
         min-width: 200px;
-        @media (max-width: 688px) {
-          flex: 50%;
-        }
         .image {
           border-radius: 20px;
           box-sizing: border-box;
           display: inherit;
           margin: auto;
           padding: 0px;
-          height: 80%;
+          height: 70%;
           width: 100%;
           object-fit: cover;
           object-position: top;
@@ -1206,10 +1220,11 @@ section {
         box-sizing: border-box;
         padding: 10px;
         color: rgb(239, 240, 255);
-        flex: 65%;
+        flex: 40%;
         width: 100%;
         // Title
         h1 {
+          font-family: "Terminal Grotesque";
           font-size: 1.2em;
           text-align: center;
           padding: 3px;
@@ -1330,7 +1345,7 @@ section {
   }
 }
 .icon-container .icon {
-  font-size: 1.7em;
+  font-size: 1.4em;
 }
 .link {
   text-decoration: none;
@@ -1344,24 +1359,28 @@ section {
 .header-title {
   position: relative;
   z-index: 1;
-  height: 130px;
-  background: rgba(9, 9, 11, 0.95);
+  height: 200px;
+  background: black;
   background-repeat: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
   width: 100%;
-  h1 {
-    text-decoration: underline;
-  }
-  @media (max-width: 660px) {
-    margin: 10;
-    font-size: 1em;
-    h1 {
-      font-weight: bolder;
-    }
-  }
   box-sizing: border-box;
   padding: 0.2rem;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/images/moon_texture.webp");
+    opacity: 0.1;
+    z-index: -2;
+  }
   .content-container {
     max-width: 900px;
+    min-width: 140px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1389,12 +1408,12 @@ section {
   flex-direction: column;
   font-size: 1.5rem;
   text-shadow: rgba(255, 204, 0, 0.098) 1px 0 10px;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
   span {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .container {
     .title {
@@ -1417,23 +1436,23 @@ section {
   left: 0;
   z-index: -1;
   /* Linear gradient stripes here */
-  background-image: repeating-linear-gradient(
-      90deg,
-      #3a465f,
-      #22375f 2px,
-      #17191d 5px,
-      #172132 10px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #3a465f,
-      #22375f 2px,
-      #17191d 5px,
-      #172132 10px
-    );
-  background-size: 100% 2px, 100% 2px;
-  background-position: top, bottom;
-  background-repeat: repeat-x, repeat-x;
+  // background-image: repeating-linear-gradient(
+  //     90deg,
+  //     #3a465f,
+  //     #22375f 2px,
+  //     #17191d 5px,
+  //     #172132 10px
+  //   ),
+  //   repeating-linear-gradient(
+  //     90deg,
+  //     #3a465f,
+  //     #22375f 2px,
+  //     #17191d 5px,
+  //     #172132 10px
+  //   );
+  // background-size: 100% 2px, 100% 2px;
+  // background-position: top, bottom;
+  // background-repeat: repeat-x, repeat-x;
   pointer-events: none;
 }
 .disclaimer {
@@ -1479,6 +1498,8 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
+    font-size: 1.2em;
   }
   // PROJECT ROW
   .row {
@@ -1531,15 +1552,15 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 98%;
+    width: 95%;
     max-width: 500px;
-    height: 300px;
-    max-height: 98%;
+    height: 250px;
+    max-height: 95%;
     margin: auto;
     position: relative;
     border: 1px solid rgb(18, 28, 57);
     .clickToViewBtn {
-      font-family: "FSEX300";
+      font-family: "dpcomic";
       position: relative;
       display: flex;
       margin: auto;
@@ -1669,7 +1690,7 @@ section {
     display: flex;
     margin: auto;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 3px;
     max-width: 1920px;
   }
 }
@@ -1683,8 +1704,6 @@ section {
 // Contact Page
 .contact-page-container {
   box-sizing: border-box;
-  background-color: #10112688;
-  min-height: 100vh;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1692,19 +1711,6 @@ section {
     height: 100%;
     width: 100%;
     z-index: 2;
-  }
-  #mountain-pic {
-    z-index: 0;
-    opacity: 0.02;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    object-fit: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
   }
   // Header
   .header-container {
@@ -1719,14 +1725,6 @@ section {
       align-items: center;
       justify-content: center;
       padding: 10px;
-    }
-    .icon {
-      display: inherit;
-      margin: auto;
-      width: 50px;
-      height: 50px;
-      padding: 20px;
-      color: rgb(255, 255, 255);
     }
   }
   .emoji {
@@ -1864,7 +1862,7 @@ section {
       margin-bottom: auto;
       height: 100%;
       width: 100%;
-      order: 2;
+      order: -1;
       flex: 40%;
 
       @media (max-width: 596px) {
@@ -1903,7 +1901,7 @@ section {
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        font-family: "Arial", sans-serif;
+        font-family: "Terminal Grotesque";
 
         span {
           display: block;
@@ -1932,6 +1930,21 @@ section {
   width: 100%;
   color: rgb(255, 255, 255);
 }
+.mountain-pic {
+  position: fixed; // Fixed relative to the viewport
+  top: 0;
+  left: 0;
+  width: 100vw; // 100% of the viewport width
+  height: 100vh; // 100% of the viewport height
+  object-fit: cover; // Cover the entire area without stretching
+  z-index: -10; // Ensures it stays in the background
+  opacity: 0.1; // Adjust as necessary
+  background-position: center; // Center the image
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
 .footer {
   margin: auto;
   display: flex;
@@ -1944,12 +1957,13 @@ section {
   span {
     color: white;
   }
+  background-color: rgba(0, 0, 0, 0.604);
   font-size: 0.8em;
 }
 
 // Button
 .pushable {
-  font-family: "FSEX300";
+  font-family: "dpcomic";
   font-size: 0.6em;
   position: relative;
   border: none;
@@ -2068,7 +2082,7 @@ section {
 
 //Tooltip
 .Tooltip {
-  font-family: "FSEX300";
+  font-family: "dpcomic";
   background: rgba(0, 0, 0, 0.85);
   color: white;
   pointer-events: none;

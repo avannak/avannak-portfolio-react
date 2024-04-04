@@ -131,8 +131,8 @@ const AboutPage = (props: Props) => {
                   <Image
                     src={smileyGlasses}
                     alt="smiley"
-                    height={60}
-                    width={60}
+                    height={50}
+                    width={50}
                     style={{ margin: 5, objectFit: "contain" }}
                     placeholder="blur"
                   />
@@ -316,8 +316,8 @@ const AboutPage = (props: Props) => {
                   <Image
                     src={toolKit}
                     alt="toolkit"
-                    height={70}
-                    width={70}
+                    height={50}
+                    width={50}
                     style={{ margin: 5, objectFit: "contain" }}
                     placeholder="blur"
                   />

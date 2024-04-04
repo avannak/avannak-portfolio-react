@@ -32,6 +32,12 @@ h1 {
 
 html {
   font-size: 1.4em;
+  @media (max-width: 1024px) {
+    font-size: 1.2em;
+  }
+  @media (max-width: 600px) {
+    font-size: 1em;
+  }
 }
 
 body {
@@ -45,12 +51,6 @@ body {
     ),
     linear-gradient(127deg, rgb(0, 4, 0), rgb(1, 21, 1) 70.71%),
     linear-gradient(336deg, rgb(0, 0, 12), rgb(0, 0, 17) 70.71%);
-  @media (max-width: 1024px) {
-    font-size: 1em;
-  }
-  @media (max-width: 600px) {
-    font-size: 1em;
-  }
   max-width: 100%;
   min-width: 370px;
 }

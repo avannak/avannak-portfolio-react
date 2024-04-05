@@ -234,7 +234,7 @@ const MyWorkPage = () => {
                     className="icon"
                     icon={faRightLong}
                   ></FontAwesomeIcon>
-                  <span>Go To Contact Page</span>
+                  <span>Next: Go To Contact Page</span>
                 </div>
               </Link>
             </div>

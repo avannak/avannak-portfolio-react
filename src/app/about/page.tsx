@@ -460,7 +460,7 @@ const AboutPage = (props: Props) => {
                         className="icon"
                         icon={faRightLong}
                       ></FontAwesomeIcon>
-                      <span>Go To Projects Page</span>
+                      <span>Next: Go To Projects Page</span>
                     </div>
                   </Link>
                 </div>

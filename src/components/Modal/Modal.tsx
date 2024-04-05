@@ -504,6 +504,8 @@ const Modal = (props: Props) => {
                           className="icon"
                           src={tailwind}
                           alt="tailwind"
+                          height={35}
+                          width={35}
                           onMouseEnter={() => {
                             setIconText("Tailwind CSS");
                             setIsHovered(true);

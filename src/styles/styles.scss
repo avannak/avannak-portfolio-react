@@ -311,12 +311,13 @@ img {
       }
     }
     h1 {
+      font-family: "Terminal Grotesque";
       color: rgb(255, 255, 255);
+      font-size: 2.5em;
       padding: 10px;
       position: relative;
       border-radius: 10px;
       padding: 20px;
-      color: rgb(255, 255, 255);
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
         1px 1px 0 #000;
       background: linear-gradient(
@@ -561,7 +562,6 @@ img {
   z-index: 999;
   box-sizing: border-box;
   position: relative;
-  height: fit-content;
 }
 
 @keyframes mymove {
@@ -596,7 +596,7 @@ section {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: max-content;
   height: 100%;
   background-size: cover;
   object-fit: cover;
@@ -623,8 +623,8 @@ section {
   li {
     margin-top: 0.8rem;
     margin-bottom: 0.8rem; // Adjusts spacing between list items
-    min-width: 100px; /* Adjust as needed */
-    max-width: 100%; /* Adjust as needed */
+    min-width: 200px; /* Adjust as needed */
+    max-width: min-content; /* Adjust as needed */
   }
 
   .animated-text {
@@ -693,9 +693,6 @@ section {
   .highlight-degree,
   .highlight-tech,
   .highlight-art,
-  .highlight-invitation {
-    font-weight: bold; // Adds emphasis
-  }
   .highlight-degree {
     color: rgb(196, 119, 255);
   }
@@ -705,9 +702,9 @@ section {
   .highlight-art {
     color: rgb(165, 165, 255);
   }
-  .highlight-invitation {
-    color: rgb(212, 247, 208);
-  }
+}
+.invitation {
+  color: rgb(172, 255, 163);
 }
 
 .about-page-container {
@@ -717,11 +714,10 @@ section {
   margin-top: 0;
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-  height: max-content;
-  min-height: 100vh;
   width: 100%;
   border-radius: 5px;
   @media (max-width: 800px) {
@@ -747,24 +743,12 @@ section {
     }
   }
   .about-me-section {
-    background: linear-gradient(
-        217deg,
-        rgba(18, 3, 3, 0.668),
-        rgba(6, 2, 2, 0.709) 70.71%
-      ),
-      linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
-      linear-gradient(
-        336deg,
-        rgba(24, 24, 132, 0.946),
-        rgba(9, 9, 75, 0) 70.71%
-      );
-    box-shadow: 0px 0px 20px rgba(29, 59, 78, 0.42);
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 0;
-    max-width: 1200px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     .about-icons-column {
@@ -853,43 +837,6 @@ section {
         }
       }
     }
-    .about-description-column {
-      box-sizing: border-box;
-      font-size: 1em;
-      text-align: left;
-      ul {
-        margin: auto;
-        padding: 0px;
-        max-width: 1200px;
-        width: 90%;
-      }
-      li {
-        max-width: 100%;
-        padding: 10px;
-        list-style: none;
-      }
-      .about-description-list {
-        #hello-emote-container {
-          box-sizing: border-box;
-          padding: 1rem;
-          display: flex;
-          flex-direction: row;
-        }
-        .img {
-          box-sizing: border-box;
-          height: 100px;
-          width: 100px;
-          object-fit: contain;
-          @media (max-width: 562px) {
-            height: 70px;
-            width: 70px;
-          }
-          &.glow {
-            filter: drop-shadow(0 0 2px #ffffff18);
-          }
-        }
-      }
-    }
     .rokit-span {
       display: flex;
       flex-direction: column;
@@ -898,108 +845,73 @@ section {
       margin-bottom: 10px;
       font-size: 0.8em;
     }
-    .rokit-container {
-      box-sizing: border-box;
-      border-radius: 20px;
-      padding: 1rem 2rem;
-      max-height: 100px;
-      display: flex;
-      justify-content: center;
-      background: repeating-conic-gradient(
-          rgba(49, 60, 93, 0.481) 0% 2%,
-          /* adjust the 2% for thinner or thicker rays */ rgba(8, 12, 22, 0.422)
-            2% 4% /* adjust the 4% likewise */
-        ),
-        linear-gradient(
-          90deg,
-          rgba(25, 46, 103, 0.81),
-          rgba(129, 129, 248, 0.625) 50%,
-          rgba(63, 84, 241, 0.478) 100%
-        );
-      width: 90%;
-      margin: auto;
-      align-items: center;
-      img {
-        height: 100px;
-        width: 100px;
-      }
-      @media (max-width: 1024px) {
-        img {
-          height: 80px;
-          width: 80px;
-        }
-      }
-      @media (max-width: 562px) {
-        img {
-          height: 50px;
-          width: 50px;
-        }
-      }
-      #rode-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
-      #rokit-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
-      #volt-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
-      #akai-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
-      #sg-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
-      #dt990-img {
-        box-sizing: border-box;
-        padding: 8px;
-        object-fit: contain;
-      }
+  }
+  .rokit-container {
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: repeating-conic-gradient(
+        rgba(49, 60, 93, 0.481) 0% 2%,
+        rgba(8, 12, 22, 0.422) 2% 4%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(25, 46, 103, 0.81),
+        rgba(129, 129, 248, 0.625) 50%,
+        rgba(63, 84, 241, 0.478) 100%
+      );
+    width: 100%;
+    max-height: 250px;
+    margin: auto;
+  }
+  .rokit-container-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .rokit-container-wrapper.top {
+    flex: 50%;
+  }
+  .rokit-container-wrapper.bottom {
+    flex: 50%;
+    flex-direction: row;
+  }
+
+  .rokit-container img {
+    height: 100px;
+    width: 100px;
+    box-sizing: border-box;
+    padding: 8px;
+    object-fit: contain;
+
+    @media (max-width: 1024px) {
+      height: 80px;
+      width: 80px;
+    }
+
+    @media (max-width: 562px) {
+      height: 50px;
+      width: 50px;
     }
   }
   // For language rotating card
   .no-pointer-events {
     pointer-events: none;
   }
-
-  .languages-section {
-    #gear-img {
-      opacity: 0.9;
-      position: absolute;
-      object-fit: contain;
-      z-index: -1;
-      width: 90%;
-      max-width: 400px;
-      min-width: 100px;
-      height: 650px;
-      min-height: 650px;
-      max-height: 650px;
-      margin: auto;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      align-items: center;
-    }
-    margin-bottom: 200px;
-  }
   // languages icons
   .language-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 9999999;
     box-sizing: border-box;
     max-width: 1200px;
-    width: 100%;
+    width: 90%;
     padding: 1rem 1rem;
-    margin: auto;
     padding: 50px 10px 50px 10px;
     display: flex;
     span {
@@ -1013,7 +925,7 @@ section {
     .fed-languages-list {
       box-sizing: border-box;
       border-radius: 20px;
-      padding: 1rem 1rem;
+      padding: 1.5rem 1.5rem;
       border: 1px solid rgba(158, 156, 199, 0.686);
       background: radial-gradient(
         circle,
@@ -1030,7 +942,6 @@ section {
       margin: auto;
       align-items: center;
       justify-content: center;
-      width: 100%;
       height: 100%;
       li {
         padding: 0px;
@@ -1099,16 +1010,95 @@ section {
     }
   }
 }
+.about-me-section.top {
+  width: 100%;
+}
+.about-me-section.left {
+  flex: 50%;
+  font-size: 1em;
+  text-align: left;
+  ul {
+    margin: auto;
+    margin-bottom: 100px;
+    padding: 0px;
+    max-width: 1200px;
+    width: 90%;
+  }
+  li {
+    max-width: 100%;
+    list-style: none;
+  }
+  .about-description-list {
+    #hello-emote-container {
+      box-sizing: border-box;
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+    }
+    .img {
+      box-sizing: border-box;
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+      @media (max-width: 562px) {
+        height: 70px;
+        width: 70px;
+      }
+      &.glow {
+        filter: drop-shadow(0 0 2px #ffffff18);
+      }
+    }
+  }
+}
+.about-me-section.right {
+  flex: 50%;
+}
+.about-me-section.left,
+.about-me-section.right {
+  box-shadow: 0px 0px 7px rgba(29, 59, 78, 0.243);
+  flex: 1;
+  min-height: 102vh;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+  @media (max-width: 1250px) {
+    /* When the viewport width is 1200px or less */
+    width: 100%; /* Take full width */
+    flex: none; /* Remove the flex-grow */
+  }
+}
+.about-me-section-wrapper {
+  background: linear-gradient(
+      217deg,
+      rgba(18, 3, 3, 0.668),
+      rgba(6, 2, 2, 0.709) 70.71%
+    ),
+    linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(24, 24, 132, 0.946), rgba(9, 9, 75, 0) 70.71%);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  width: 100%;
+  max-width: 1920px;
+  align-items: start; /* Align the content to the start of each cell */
+
+  @media (max-width: 1250px) {
+    /* When the viewport width is 1200px or less */
+    grid-template-columns: 1fr; /* Change to one column */
+  }
+}
+
 // Modal
 .modal-container {
+  overflow-y: auto; // Enable vertical scrolling
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 100;
+  z-index: 10000;
   left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
@@ -1126,6 +1116,14 @@ section {
   }
 
   .dialog-box {
+    @media (max-width: 600px) {
+      width: 100%;
+      padding: 0.5em;
+      font-size: 0.9em;
+      max-height: 100%; // Increase max height for mobile
+      margin-top: 50px;
+    }
+
     display: flex;
     flex-direction: column;
     z-index: 1001;
@@ -1135,11 +1133,8 @@ section {
       rgba(16, 16, 24, 0.967) 100%
     );
     box-sizing: border-box;
-    box-shadow: 0px 0px 20px 10px rgba(29, 59, 78, 0.071);
-    height: auto;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.321);
     width: 80vw;
-    max-height: 80vh; // It can be set to any desired value.
-    overflow-y: auto; // Add scrolling if the content exceeds max-height
     position: fixed;
     top: 50%;
     left: 50%;
@@ -1147,15 +1142,13 @@ section {
     min-width: 200px;
     max-width: 1000px;
     padding: 1em;
-    top: 50%;
-    left: 50%;
     right: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     position: absolute;
     @media (max-width: 1024px) {
-      max-height: 700px;
+      max-height: 500px;
       width: 95vw;
       height: max-content;
       font-size: 0.75em;
@@ -1167,25 +1160,30 @@ section {
       width: 30px;
       height: 30px;
       color: rgb(255, 255, 255);
-      cursor: pointer;
       z-index: 9999;
       &:hover {
         color: rgb(78, 229, 131);
       }
     }
     .content {
+      overflow: auto; // Enable vertical scrolling
       box-sizing: border-box;
       padding: 10px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       @media (max-width: 688px) {
-        // Adjust this threshold as needed
-        flex-direction: column;
-        align-items: center;
-
+        flex-direction: row;
         .image-container {
-          order: -1;
+          order: -1; /* Move the image-container to the top */
+          width: 100%;
+          padding-bottom: 20px;
+
+          .image {
+            width: 100%; /* Adjust image width */
+            max-height: none; /* Remove max height restriction */
+            height: auto; /* Adjust height automatically */
+          }
         }
       }
       .image-container {
@@ -1193,16 +1191,16 @@ section {
         display: flex;
         align-items: center;
         color: black;
-        flex: 30%;
+        flex: 50%;
         padding: 20px;
         min-width: 200px;
         .image {
-          border-radius: 20px;
+          // border-radius: 20px;
           box-sizing: border-box;
           display: inherit;
           margin: auto;
           padding: 0px;
-          height: 70%;
+          height: 80%;
           width: 100%;
           object-fit: cover;
           object-position: top;
@@ -1213,15 +1211,19 @@ section {
           @media (max-width: 768px) {
             max-height: 200px;
             max-width: 200px;
+            margin-top: 50px;
           }
         }
       }
       .description-container {
         box-sizing: border-box;
-        padding: 10px;
+        padding: 0;
         color: rgb(239, 240, 255);
-        flex: 40%;
+        flex: 50%;
         width: 100%;
+        @media (max-width: 768px) {
+          margin-bottom: 100px;
+        }
         // Title
         h1 {
           font-family: "Terminal Grotesque";
@@ -1233,7 +1235,7 @@ section {
         }
         .stack-container {
           box-sizing: border-box;
-          font-size: 1em;
+          font-size: 1.3em;
           display: flex;
           text-align: left;
           flex-direction: column;
@@ -1244,14 +1246,11 @@ section {
           }
           .stack {
             box-sizing: border-box;
-            padding: 10px 10px 20px 10px;
+            padding: 10px 10px 10px 10px;
             display: flex;
             margin: auto;
             color: rgb(255, 255, 255);
             .icon {
-              flex: 10%;
-              width: 35px;
-              height: 35px;
               padding: 4px;
               @media (max-width: 590px) {
                 width: 20px;
@@ -1271,7 +1270,7 @@ section {
               border-radius: 0 10px 10px 0;
               box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.13);
               display: flex;
-              flex-wrap: wrap;
+              flex-wrap: nowrap;
               align-items: center;
               padding: 8px;
               background-color: rgb(81, 65, 205);
@@ -1303,7 +1302,7 @@ section {
         p {
           font-size: 0.9em;
           text-align: left;
-          padding: 20px 20px 20px 20px;
+          padding: 10px 30px 30px 30px;
           line-height: 1.8em;
         }
         a {
@@ -1325,7 +1324,7 @@ section {
   font-weight: bold;
   box-sizing: border-box;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 100px;
   height: 100%;
   min-width: max-content;
   min-height: 50px;
@@ -1353,19 +1352,18 @@ section {
 }
 .link:hover {
   .icon-container {
-    background-color: rgba(145, 156, 214, 0.291);
+    background-color: rgba(50, 52, 63, 0.513);
   }
 }
 .header-title {
   position: relative;
   z-index: 1;
-  height: 200px;
+  height: 180px;
   background: black;
   background-repeat: none;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
   width: 100%;
   box-sizing: border-box;
-  padding: 0.2rem;
 
   &:after {
     content: "";
@@ -1386,7 +1384,6 @@ section {
     flex-direction: row;
     align-items: center;
     box-sizing: border-box;
-    padding: 0.2rem;
     margin: auto;
 
     &.navigation {
@@ -1409,7 +1406,6 @@ section {
   font-size: 1.5rem;
   text-shadow: rgba(255, 204, 0, 0.098) 1px 0 10px;
   margin-top: 80px;
-  margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
   span {
@@ -1435,24 +1431,6 @@ section {
   bottom: 0;
   left: 0;
   z-index: -1;
-  /* Linear gradient stripes here */
-  // background-image: repeating-linear-gradient(
-  //     90deg,
-  //     #3a465f,
-  //     #22375f 2px,
-  //     #17191d 5px,
-  //     #172132 10px
-  //   ),
-  //   repeating-linear-gradient(
-  //     90deg,
-  //     #3a465f,
-  //     #22375f 2px,
-  //     #17191d 5px,
-  //     #172132 10px
-  //   );
-  // background-size: 100% 2px, 100% 2px;
-  // background-position: top, bottom;
-  // background-repeat: repeat-x, repeat-x;
   pointer-events: none;
 }
 .disclaimer {
@@ -1467,8 +1445,43 @@ section {
 .center {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#skills-contact {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0 auto;
+}
+#skills-contact-p {
+  /* Linear gradient stripes here */
+  box-sizing: border-box;
+  padding: 30px;
+  background-image: repeating-linear-gradient(
+      90deg,
+      #3a465f,
+      #22375f 2px,
+      #17191d 5px,
+      #172132 10px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #3a465f,
+      #22375f 2px,
+      #17191d 5px,
+      #172132 10px
+    );
+  background-size: 100% 2px, 100% 2px;
+  background-position: top, bottom;
+  background-repeat: repeat-x, repeat-x;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 // My Work Page
@@ -1498,6 +1511,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
     margin-bottom: 50px;
     font-size: 1.2em;
   }
@@ -1547,6 +1561,9 @@ section {
   }
 
   .project-column {
+    @media (max-width: 660px) {
+      height: 200px;
+    }
     border-radius: 20px;
     padding: 0;
     display: flex;
@@ -1554,7 +1571,7 @@ section {
     justify-content: center;
     width: 95%;
     max-width: 500px;
-    height: 250px;
+    height: 300px;
     max-height: 95%;
     margin: auto;
     position: relative;
@@ -1659,8 +1676,14 @@ section {
         box-sizing: border-box;
         font-size: 1em;
         font-weight: bold;
-        background: linear-gradient(#191827, #06060c);
-        padding: 10px;
+        background: linear-gradient(
+          to left,
+          hsl(0, 35%, 7%) 0%,
+          /* Light Blue */ hsl(240, 22%, 10%) 30%,
+          /* Blue-Purple */ hsl(300, 17%, 2%) 70%,
+          /* Deep Purple */ hsl(0, 3%, 8%) 100% /* Dark Pink */
+        );
+        padding: 20px;
         align-items: center;
         justify-content: center;
         width: 100%;
@@ -1698,7 +1721,7 @@ section {
   margin-bottom: auto;
   margin-top: auto;
   height: max-content;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
 }
 // Contact Page

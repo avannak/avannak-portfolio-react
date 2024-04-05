@@ -106,9 +106,8 @@ const AboutPage = (props: Props) => {
           }}
           exit={{ opacity: 0 }}
         >
-          <section className="about-me-section">
-            {parallaxIsOn && <BackgroundOverlay parallax />}
-            {!parallaxIsOn && <BackgroundOverlay />}
+          <section className="about-me-section top">
+            {" "}
             <div className="header-title navigation">
               <div className="content-container">
                 <Link href="/" className="link" style={{ width: "100%" }}>
@@ -151,8 +150,12 @@ const AboutPage = (props: Props) => {
                   </div>
                 </Link>
               </div>
-            </div>
-            <div className="about-description-column container">
+            </div>{" "}
+          </section>
+          <div className="about-me-section-wrapper">
+            <section className="about-me-section left">
+              {parallaxIsOn && <BackgroundOverlay parallax />}
+              {!parallaxIsOn && <BackgroundOverlay />}
               <ul className="about-description-list">
                 <TypingEffectMission
                   text="Study the science of art. Study the art of science. Develop your senses — especially learn how to see. Realize that everything connects to everything else."
@@ -234,85 +237,84 @@ const AboutPage = (props: Props) => {
                   The synergy of technology and music drives my relentless quest
                   for learning and innovation.
                 </li>
-                <li className="invitation">
-                  Intrigued by the harmony of my music and tech? Explore the
-                  rhythm of my studio and creations.
+                <li>
+                  <div className="rokit-container">
+                    <div className="rokit-container-wrapper top">
+                      <span className="invitation">
+                        Intrigued by the harmony of my music and tech? Explore
+                        the rhythm of my studio and creations.
+                      </span>
+                    </div>
+                    <div className="rokit-container-wrapper bottom">
+                      <Tooltip content="Rode NT-2A">
+                        <Image
+                          id="rode-img"
+                          src={rodePixel}
+                          alt="rode-pixel"
+                          height={534}
+                          width={468}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                      <Tooltip content="KRK Rokit G3">
+                        <Image
+                          id="rokit-img"
+                          src={rokit}
+                          alt="rokit-pixel"
+                          height={97}
+                          width={74}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                      <Tooltip content="VOLT 2 Audio Interface">
+                        <Image
+                          id="volt-img"
+                          src={volt}
+                          alt="volt-pixel"
+                          height={318}
+                          width={786}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                      <Tooltip content="AKAI MPK Mini">
+                        <Image
+                          id="akai-img"
+                          src={akai}
+                          alt="akai-pixel"
+                          height={318}
+                          width={786}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                      <Tooltip content="Epiphone SG Cherry">
+                        <Image
+                          id="sg-img"
+                          src={sg}
+                          alt="sg-pixel"
+                          height={810}
+                          width={270}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                      <Tooltip content="Beyerdynamic DDT 990">
+                        <Image
+                          id="dt990-img"
+                          src={dt990}
+                          alt="dt990-pixel"
+                          height={500}
+                          width={500}
+                          placeholder="blur"
+                        ></Image>
+                      </Tooltip>
+                    </div>
+                  </div>
                 </li>
               </ul>
-            </div>
-            <div className="rokit-container">
-              <Tooltip content="Rode NT-2A">
-                <Image
-                  id="rode-img"
-                  src={rodePixel}
-                  alt="rode-pixel"
-                  height={534}
-                  width={468}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-              <Tooltip content="KRK Rokit G3">
-                <Image
-                  id="rokit-img"
-                  src={rokit}
-                  alt="rokit-pixel"
-                  height={97}
-                  width={74}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-              <Tooltip content="VOLT 2 Audio Interface">
-                <Image
-                  id="volt-img"
-                  src={volt}
-                  alt="volt-pixel"
-                  height={318}
-                  width={786}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-              <Tooltip content="AKAI MPK Mini">
-                <Image
-                  id="akai-img"
-                  src={akai}
-                  alt="akai-pixel"
-                  height={318}
-                  width={786}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-              <Tooltip content="Epiphone SG Cherry">
-                <Image
-                  id="sg-img"
-                  src={sg}
-                  alt="sg-pixel"
-                  height={810}
-                  width={270}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-              <Tooltip content="Beyerdynamic DDT 990">
-                <Image
-                  id="dt990-img"
-                  src={dt990}
-                  alt="dt990-pixel"
-                  height={500}
-                  width={500}
-                  placeholder="blur"
-                ></Image>
-              </Tooltip>
-            </div>
-            <div className="languages-section">
-              {/* <Image
-            id="gear-img"
-            src={gear}
-            alt="gear-pixel"
-            height={408}
-            width={630}
-          ></Image> */}
+            </section>
+            <section className="about-me-section right">
               <div className="header-title">
                 <h1 style={{ color: "rgb(255, 255, 255)" }}>
-                  Skills <br />
+                  Languages & Skills <br />
                   <Image
                     src={toolKit}
                     alt="toolkit"
@@ -322,27 +324,6 @@ const AboutPage = (props: Props) => {
                     placeholder="blur"
                   />
                 </h1>
-                {/* <div className="title-divider" /> */}
-                {/* <FaBarcode
-              style={{ width: "180px", height: "1px" }}
-              viewBox="100 0 500 150"
-              className="barcode-icon"
-              preserveAspectRatio="none"
-            ></FaBarcode> */}
-              </div>
-              <div className="center">
-                {" "}
-                <span className="disclaimer">
-                  <span>
-                    (Including but not limited to) <br />
-                    <br />
-                    Download
-                  </span>
-                  <a href="/documents/arthurvresume.pdf" download>
-                    resume
-                  </a>
-                  <span>for full list</span>
-                </span>
               </div>
               <div className="language-container">
                 <RotatingCard>
@@ -444,8 +425,36 @@ const AboutPage = (props: Props) => {
                   </ul>
                 </RotatingCard>
               </div>
-            </div>
-          </section>
+              <div className="center">
+                {" "}
+                <span className="disclaimer">
+                  <span>
+                    (Including but not limited to) <br />
+                    <br />
+                    Download
+                  </span>
+                  <a href="/documents/arthurvresume.pdf" download>
+                    resume
+                  </a>
+                  <span>for full list</span>
+                </span>
+              </div>
+              <div id="skills-contact">
+                <p id="skills-contact-p">
+                  I'm open to Job opportunities where I can contribute, learn
+                  and grow. If you have a good opportunity that matches my
+                  skills and experience then don't hesitate to contact me.
+                </p>
+                <Link href="/contact" className="link">
+                  <button className="pushable contact">
+                    <span className="shadow"></span>
+                    <span className="edge blue"></span>
+                    <span className="front blue">Get In Touch</span>
+                  </button>
+                </Link>
+              </div>
+            </section>
+          </div>
         </motion.div>
       )}
     </>

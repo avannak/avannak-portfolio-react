@@ -909,7 +909,6 @@ section {
     justify-content: center;
     z-index: 9999999;
     box-sizing: border-box;
-    max-width: 1200px;
     width: 90%;
     padding: 1rem 1rem;
     padding: 50px 10px 50px 10px;
@@ -1057,17 +1056,8 @@ section {
 .about-me-section.right {
   box-shadow: 0px 0px 7px rgba(29, 59, 78, 0.243);
   flex: 1;
-  min-height: 102vh;
   display: flex;
   flex-direction: column;
-  @media (max-width: 800px) {
-    width: 100%;
-  }
-  @media (max-width: 1250px) {
-    /* When the viewport width is 1200px or less */
-    width: 100%; /* Take full width */
-    flex: none; /* Remove the flex-grow */
-  }
 }
 .about-me-section-wrapper {
   background: linear-gradient(
@@ -1083,7 +1073,7 @@ section {
   max-width: 1920px;
   align-items: start; /* Align the content to the start of each cell */
 
-  @media (max-width: 1250px) {
+  @media (max-width: 1280px) {
     /* When the viewport width is 1200px or less */
     grid-template-columns: 1fr; /* Change to one column */
   }
@@ -1442,7 +1432,7 @@ section {
     color: rgb(84, 212, 255);
   }
 }
-.center {
+.disclaimer-center {
   width: 100%;
   display: flex;
   flex-direction: column;

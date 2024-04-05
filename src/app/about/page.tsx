@@ -425,8 +425,7 @@ const AboutPage = (props: Props) => {
                   </ul>
                 </RotatingCard>
               </div>
-              <div className="center">
-                {" "}
+              <div className="disclaimer-center">
                 <span className="disclaimer">
                   <span>
                     (Including but not limited to) <br />

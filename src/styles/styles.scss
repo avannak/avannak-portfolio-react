@@ -159,6 +159,7 @@ body {
 .nav-bar-container {
   display: flex;
   justify-content: flex-end;
+  margin-right: 5px;
   align-items: center;
   height: 100%;
 }
@@ -438,7 +439,7 @@ img {
         }
       }
       @media (max-width: 500px) {
-        font-size: 1em;
+        font-size: 0.9em;
         max-width: 350px;
       }
     }
@@ -686,6 +687,9 @@ section {
   }
 
   .mission-statement {
+    @media (max-width: 600px) {
+      font-size: 0.9em;
+    }
     background: radial-gradient(
       circle,
       rgb(18, 19, 21) 0%,
@@ -738,6 +742,7 @@ section {
   justify-content: center;
   margin: auto;
   width: 100%;
+  min-width: min-content;
   border-radius: 5px;
   @media (max-width: 800px) {
     width: 100%;
@@ -1091,6 +1096,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   width: 100%;
+  // min-width: min-content;
   max-width: 1920px;
   align-items: start; /* Align the content to the start of each cell */
 
@@ -1445,6 +1451,16 @@ section {
 }
 
 .header-title {
+  @media (max-width: 600px) {
+    font-size: 1em;
+    max-height: 110px;
+
+    img {
+      height: 30px;
+      width: 30px;
+      color: white;
+    }
+  }
   position: relative;
   z-index: 1;
   height: 180px;

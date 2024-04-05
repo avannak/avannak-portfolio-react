@@ -15,7 +15,7 @@ export function TypingEffectMission({ text, author }: propTypes) {
       const timer = setTimeout(() => {
         setDisplayedText((prev) => prev + text[charIndex]);
         setCharIndex(charIndex + 1);
-      }, 30); // Typing speed
+      }, 20); // Typing speed
 
       return () => clearTimeout(timer);
     } else {

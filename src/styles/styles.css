@@ -659,13 +659,13 @@ section {
   font-style: italic; /* optional styling */
 }
 .about-description-list .mission-statement {
-  margin-top: 100px;
-  margin-bottom: 1rem;
+  background: radial-gradient(circle, rgba(15, 16, 19, 0.523) 0%, rgba(31, 28, 36, 0.76) 98%, rgba(0, 0, 0, 0.875) 100%);
+  margin-top: 30px;
   position: relative;
-  padding: 20px;
+  padding: 35px;
   /* Add max-width or width as needed */
   max-width: 600px;
-  height: 100px;
+  height: 180px;
   box-sizing: border-box;
   border-radius: 15px;
 }
@@ -849,7 +849,7 @@ section {
   width: 100%;
   max-height: 250px;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 100px;
 }
 .about-page-container .rokit-container-wrapper {
   display: flex;
@@ -995,6 +995,7 @@ section {
 }
 .about-me-section.left ul {
   margin: auto;
+  margin-top: 50px;
   margin-bottom: 100px;
   padding: 0px;
   max-width: 1200px;
@@ -1337,9 +1338,9 @@ section {
 
 .link:hover .icon-container {
   transition: filter 250ms, box-shadow 250ms; /* Add box-shadow transition */
-  background: linear-gradient(217deg, rgba(18, 3, 3, 0.298), rgba(6, 2, 2, 0.4) 70.71%), linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%), linear-gradient(336deg, rgba(6, 6, 24, 0.518), rgba(6, 6, 23, 0.252) 70.71%);
+  background: linear-gradient(217deg, rgba(53, 36, 36, 0.298), rgba(6, 2, 2, 0.4) 70.71%), linear-gradient(127deg, rgba(4, 8, 4, 0.652), rgba(13, 45, 13, 0.073) 70.71%), linear-gradient(336deg, rgba(6, 6, 24, 0.302), rgba(6, 6, 23, 0.252) 70.71%);
   filter: brightness(110%);
-  box-shadow: rgba(255, 255, 255, 0.174) 0px 0px 8px, rgba(255, 255, 255, 0.139) 0px 0px 5px; /* Expanded shadow */
+  box-shadow: rgba(10, 9, 9, 0.113) 0px 0px 8px, rgba(255, 251, 251, 0.352) 0px 1px 10px; /* Expanded shadow */
 }
 
 .end-navigation-container {

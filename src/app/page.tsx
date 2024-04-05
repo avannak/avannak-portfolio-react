@@ -1,7 +1,7 @@
 "use client";
 import useLoading from "@/hooks/useLoading";
 import HomePage from "../PageComponents/home/HomePage";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 
 const App = () => {
   const isLoading = useLoading();
@@ -14,10 +14,11 @@ const App = () => {
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            width: "100vh",
             backgroundColor: "#0f0f14",
           }}
         >
-          <PacmanLoader
+          <RingLoader
             color="#ffffff"
             loading
             // size={150}

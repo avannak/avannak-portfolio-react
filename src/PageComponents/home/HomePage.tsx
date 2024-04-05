@@ -6,7 +6,7 @@ import useLoading from "@/hooks/useLoading";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 
 type Props = {};
 
@@ -24,10 +24,11 @@ const HomePage = (props: Props) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            width: "100vh",
             backgroundColor: "#0f0f14",
           }}
         >
-          <PacmanLoader
+          <RingLoader
             color="#ffffff"
             loading
             // size={150}

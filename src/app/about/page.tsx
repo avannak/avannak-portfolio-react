@@ -28,7 +28,7 @@ import Link from "next/link";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import { useSelector } from "react-redux";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 import akai from "../../assets/images/akai-pixel.png";
 import artPixel from "../../assets/images/artpixel2.webp";
 import dt990 from "../../assets/images/dt990-pixel.webp";
@@ -83,10 +83,11 @@ const AboutPage = (props: Props) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            width: "100vh",
             backgroundColor: "#0f0f14",
           }}
         >
-          <PacmanLoader
+          <RingLoader
             color="#ffffff"
             loading
             aria-label="Loading Spinner"

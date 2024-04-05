@@ -16,7 +16,7 @@ import financy from "../../assets/images/financy.png";
 import portFolio from "../../assets/images/portfolio.webp";
 import mountain from "../../assets/images/mountain.webp";
 import useLoading from "@/hooks/useLoading";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/types";
 import Image from "next/image";
@@ -57,7 +57,7 @@ const MyWorkPage = () => {
             backgroundColor: "#0f0f14",
           }}
         >
-          <PacmanLoader
+          <RingLoader
             color="#ffffff"
             loading
             aria-label="Loading Spinner"

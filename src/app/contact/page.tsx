@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 import ContactForm from "../../PageComponents/contact/ContactForm";
 import callMe from "../../assets/images/call.webp";
 import mountain from "../../assets/images/mountain.webp";
@@ -41,10 +41,11 @@ const ContactPage = (props: Props) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            width: "100vh",
             backgroundColor: "#0f0f14",
           }}
         >
-          <PacmanLoader
+          <RingLoader
             color="#ffffff"
             loading
             // size={150}

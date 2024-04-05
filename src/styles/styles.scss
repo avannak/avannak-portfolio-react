@@ -36,7 +36,7 @@ html {
     font-size: 1.2em;
   }
   @media (max-width: 600px) {
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }
 
@@ -186,9 +186,22 @@ body {
 
 /* Change background on mouse-over */
 .nav-bar a:hover {
-  background: #ddd;
-  color: black;
-  text-shadow: none;
+  transition: filter 250ms, box-shadow 250ms; /* Add box-shadow transition */
+  background: linear-gradient(
+      217deg,
+      rgb(37, 37, 49),
+      rgba(6, 2, 2, 0.4) 70.71%
+    ),
+    linear-gradient(
+      127deg,
+      rgba(39, 44, 39, 0.652),
+      rgba(13, 45, 13, 0.073) 70.71%
+    ),
+    linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
+  filter: brightness(130%);
+  box-shadow: rgba(10, 9, 9, 0.808) 10px 10px 10px,
+    /* Initial shadow */ rgba(20, 19, 39, 0.352) 0px 0px 14px; /* Expanded shadow */
+  color: #ffffff;
   border-radius: 5px;
   // cursor: pointer;
 }
@@ -303,7 +316,6 @@ img {
     text-align: left;
     position: relative;
     width: 100%;
-
     // Title Name
     .name {
       @media (max-width: 598px) {
@@ -314,12 +326,14 @@ img {
       font-family: "Terminal Grotesque";
       color: rgb(255, 255, 255);
       font-size: 2.5em;
-      padding: 10px;
       position: relative;
+      text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
+    }
+    // Occupation Name
+    .occupation-container {
+      max-width: 500px;
       border-radius: 10px;
-      padding: 20px;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-        1px 1px 0 #000;
+      padding: 5px;
       background: linear-gradient(
           217deg,
           rgba(18, 3, 3, 0.668),
@@ -361,9 +375,6 @@ img {
           background-position: 0% 50%;
         }
       }
-    }
-    // Occupation Name
-    .occupation-container {
       // Occupation Title
       .title {
         font-size: 1.3em;
@@ -427,7 +438,8 @@ img {
         }
       }
       @media (max-width: 500px) {
-        font-size: 0.8em;
+        font-size: 1em;
+        max-width: 350px;
       }
     }
   }
@@ -676,9 +688,9 @@ section {
   .mission-statement {
     background: radial-gradient(
       circle,
-      rgba(15, 16, 19, 0.523) 0%,
-      rgba(31, 28, 36, 0.76) 98%,
-      rgba(0, 0, 0, 0.875) 100%
+      rgb(18, 19, 21) 0%,
+      rgba(0, 0, 0, 0) 98%,
+      rgba(0, 0, 0, 0) 100%
     );
     margin-top: 30px;
     // margin-bottom: 2rem; // Adjusts spacing between list items
@@ -1118,7 +1130,7 @@ section {
     @media (max-width: 600px) {
       width: 100%;
       padding: 0.5em;
-      font-size: 0.9em;
+      font-size: 1em;
       max-height: 100%; // Increase max height for mobile
       margin-top: 50px;
     }
@@ -1126,7 +1138,7 @@ section {
       width: 100%;
       max-height: 500px;
       padding: 0.5em;
-      font-size: 0.9em;
+      font-size: 1em;
       max-height: 80%; // Increase max height for mobile
       margin-top: 50px;
     }
@@ -1157,7 +1169,7 @@ section {
     @media (max-width: 1024px) {
       width: 95vw;
       height: max-content;
-      font-size: 0.75em;
+      font-size: 1em;
     }
     .close-button {
       position: absolute;
@@ -1329,8 +1341,8 @@ section {
   font-size: 0.7em;
   font-weight: bold;
   box-sizing: border-box;
-  padding: 10px;
-  border-radius: 100px;
+  padding: 15px;
+  border-radius: 15px;
   height: 100%;
   min-width: max-content;
   min-height: 50px;
@@ -1361,22 +1373,18 @@ section {
     transition: filter 250ms, box-shadow 250ms; /* Add box-shadow transition */
     background: linear-gradient(
         217deg,
-        rgba(53, 36, 36, 0.298),
+        rgb(37, 37, 49),
         rgba(6, 2, 2, 0.4) 70.71%
       ),
       linear-gradient(
         127deg,
-        rgba(4, 8, 4, 0.652),
+        rgba(39, 44, 39, 0.652),
         rgba(13, 45, 13, 0.073) 70.71%
       ),
-      linear-gradient(
-        336deg,
-        rgba(6, 6, 24, 0.302),
-        rgba(6, 6, 23, 0.252) 70.71%
-      );
+      linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
     filter: brightness(110%);
-    box-shadow: rgba(10, 9, 9, 0.113) 0px 0px 8px,
-      /* Initial shadow */ rgba(255, 251, 251, 0.352) 0px 1px 10px; /* Expanded shadow */
+    box-shadow: rgba(0, 0, 0, 0.923) 0px 0px 10px,
+      /* Initial shadow */ rgba(17, 16, 41, 0.352) 0px 0px 14px; /* Expanded shadow */
   }
 }
 .end-navigation-container {
@@ -1417,7 +1425,7 @@ section {
 .end-navigation {
   color: white;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 18px;
 }
 .end-navigation .icon {
   font-size: 1.4em;
@@ -1433,7 +1441,7 @@ section {
     linear-gradient(336deg, rgba(6, 6, 24, 0.946), rgba(6, 6, 23, 0.252) 70.71%);
   filter: brightness(110%);
   box-shadow: rgba(255, 255, 255, 0.174) 0px 0px 8px,
-    /* Initial shadow */ rgba(255, 255, 255, 0.587) 0px 0px 8px; /* Expanded shadow */
+    /* Initial shadow */ rgba(255, 255, 255, 0.587) 0px 0px 4px; /* Expanded shadow */
 }
 
 .header-title {

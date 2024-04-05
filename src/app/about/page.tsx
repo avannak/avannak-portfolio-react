@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faHome,
+  faPhone,
   faRightLong,
   faShareNodes,
 } from "@fortawesome/free-solid-svg-icons";
@@ -451,7 +452,14 @@ const AboutPage = (props: Props) => {
                   <button className="pushable contact">
                     <span className="shadow"></span>
                     <span className="edge blue"></span>
-                    <span className="front blue">Get In Touch</span>
+                    <span className="front blue">
+                      {" "}
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faPhone}
+                      ></FontAwesomeIcon>{" "}
+                      Get In Touch
+                    </span>
                   </button>
                 </Link>
                 <div className="end-navigation-container">

@@ -103,7 +103,7 @@ const ContactForm = (props: Props) => {
         >
           <span className="shadow"></span>
           <span className="edge blue"></span>
-          <span className="front blue">Get In Touch</span>
+          <span className="front blue">Send Message</span>
         </button>
       </div>
       <div className="image-container">

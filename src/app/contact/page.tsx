@@ -40,8 +40,8 @@ const ContactPage = (props: Props) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
-            width: "100vh",
+            height: "100%",
+            width: "100%",
             backgroundColor: "#0f0f14",
           }}
         >

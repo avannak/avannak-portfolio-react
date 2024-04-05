@@ -453,6 +453,17 @@ const AboutPage = (props: Props) => {
                     <span className="front blue">Get In Touch</span>
                   </button>
                 </Link>
+                <div className="end-navigation-container">
+                  <Link href="/projects" className="end-navigation-link">
+                    <div className="end-navigation">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faRightLong}
+                      ></FontAwesomeIcon>
+                      <span>Go To Projects Page</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </section>
           </div>

@@ -4,7 +4,11 @@ import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay"
 import Header from "@/components/Header";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
-import { faHome, faLeftLong } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faLeftLong,
+  faRotateLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -129,6 +133,17 @@ const ContactPage = (props: Props) => {
                 </p>
               </div>
               <ContactForm />
+              <div className="end-navigation-container">
+                <Link href="/" className="end-navigation-link">
+                  <div className="end-navigation">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faRotateLeft}
+                    ></FontAwesomeIcon>
+                    <span>Go Back To Home Page</span>
+                  </div>
+                </Link>
+              </div>
               <div className="footer">
                 <Header />
                 <span>Designed by Arthur V</span>

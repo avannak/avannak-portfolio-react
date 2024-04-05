@@ -227,6 +227,17 @@ const MyWorkPage = () => {
                 </div>
               </div>
             </motion.section>
+            <div className="end-navigation-container">
+              <Link href="/contact" className="end-navigation-link">
+                <div className="end-navigation">
+                  <FontAwesomeIcon
+                    className="icon"
+                    icon={faRightLong}
+                  ></FontAwesomeIcon>
+                  <span>Go To Contact Page</span>
+                </div>
+              </Link>
+            </div>
           </motion.div>
         </>
       )}

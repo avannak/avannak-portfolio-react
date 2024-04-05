@@ -587,6 +587,7 @@ section {
   width: -moz-max-content;
   width: max-content;
   height: 100%;
+  width: 100%;
   background-size: cover;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1326,7 +1327,65 @@ section {
 }
 
 .link:hover .icon-container {
-  background-color: rgba(50, 52, 63, 0.513);
+  transition: filter 250ms, box-shadow 250ms; /* Add box-shadow transition */
+  background: linear-gradient(217deg, rgba(18, 3, 3, 0.298), rgba(6, 2, 2, 0.4) 70.71%), linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%), linear-gradient(336deg, rgba(6, 6, 24, 0.518), rgba(6, 6, 23, 0.252) 70.71%);
+  filter: brightness(110%);
+  box-shadow: rgba(255, 255, 255, 0.174) 0px 0px 8px, rgba(255, 255, 255, 0.139) 0px 0px 5px; /* Expanded shadow */
+}
+
+.end-navigation-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+}
+
+.end-navigation-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 100px;
+  text-decoration: none;
+  border-radius: 100px;
+  min-height: 60px;
+  flex-direction: column;
+  font-family: "dpcomic";
+  position: relative;
+  border: none;
+  background: transparent;
+  transition: filter 250ms;
+  transition: filter 250ms, box-shadow 250ms; /* Add box-shadow transition */
+}
+.end-navigation-link span {
+  padding: 0;
+  text-align: center;
+  align-items: center;
+}
+@media (max-width: 660px) {
+  .end-navigation-link {
+    margin: auto;
+  }
+}
+
+.end-navigation {
+  color: white;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.end-navigation .icon {
+  font-size: 1.4em;
+  margin-right: 5px;
+}
+
+.end-navigation-link:hover {
+  background: linear-gradient(217deg, rgba(18, 3, 3, 0.298), rgba(6, 2, 2, 0.709) 70.71%), linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%), linear-gradient(336deg, rgba(6, 6, 24, 0.946), rgba(6, 6, 23, 0.252) 70.71%);
+  filter: brightness(110%);
+  box-shadow: rgba(255, 255, 255, 0.174) 0px 0px 8px, rgba(255, 255, 255, 0.587) 0px 0px 8px; /* Expanded shadow */
 }
 
 .header-title {
@@ -1911,7 +1970,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;

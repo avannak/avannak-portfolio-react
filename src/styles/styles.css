@@ -1404,13 +1404,19 @@ section {
 }
 
 .disclaimer {
+  box-sizing: border-box;
   font-size: 0.9em;
+  font-style: italic;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: #bcecfb;
+  text-align: center;
 }
 .disclaimer a {
-  text-decoration: none;
-  color: rgb(84, 212, 255);
+  text-decoration: underline;
+  color: rgb(105, 255, 18);
 }
 
 .disclaimer-center {

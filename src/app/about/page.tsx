@@ -427,8 +427,10 @@ const AboutPage = (props: Props) => {
               </div>
               <div className="disclaimer-center">
                 <span className="disclaimer">
-                  <span>
-                    (Including but not limited to) <br />
+                  <span id="disclaimer-mini">
+                    ( The skills listed here are just a subset of my
+                    capabilities. A more comprehensive list can be found on my
+                    resume, and I am continually expanding my skillset. ) <br />
                     <br />
                     Download
                   </span>

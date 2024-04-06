@@ -2082,7 +2082,7 @@ section {
 
         #gmail-pic {
           object-fit: contain;
-          width: 100px;
+          width: 60px;
           height: auto;
         }
       }
@@ -2105,7 +2105,17 @@ section {
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         font-family: "Terminal Grotesque";
-
+        #email-link {
+          font-weight: bolder;
+          font-size: 1.3em;
+          color: rgb(95, 178, 255);
+          &:hover {
+            color: rgb(241, 248, 183);
+          }
+          @media (max-width: 518px) {
+            font-size: 1.2em;
+          }
+        }
         span {
           display: block;
           text-align: center;

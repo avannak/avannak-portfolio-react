@@ -112,7 +112,10 @@ const ContactForm = (props: Props) => {
             You can fill out the form or shoot a message straight to my inbox:
           </span>
           <span>
-            <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=arthurvat7@gmail.com&body">
+            <a
+              id="email-link"
+              href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=arthurvat7@gmail.com&body"
+            >
               arthurvat7@gmail.com
             </a>
           </span>

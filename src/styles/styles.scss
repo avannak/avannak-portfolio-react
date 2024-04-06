@@ -148,7 +148,7 @@ body {
     hsl(240, 5%, 4%) 0%,
     hsl(256, 13%, 17%) 8%,
     hsl(0, 0%, 5%) 92%,
-    hsl(227, 47%, 6%) 100%
+    hsl(226, 28%, 9%) 100%
   );
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
@@ -1234,6 +1234,7 @@ section {
       }
     }
     .content {
+      margin-top: 50px;
       @media (max-width: 1024px) {
         // Adjust this threshold as needed
         flex-direction: column;
@@ -1280,7 +1281,7 @@ section {
           padding: 0px;
           height: 80%;
           width: 100%;
-          object-fit: cover;
+          object-fit: contain;
           object-position: top;
           box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.13);
           &.bstock {
@@ -1380,7 +1381,7 @@ section {
         p {
           font-size: 0.9em;
           text-align: left;
-          padding: 10px 30px 30px 30px;
+          padding: 10px 10px 30px 10px;
           line-height: 1.8em;
         }
         a {
@@ -1917,17 +1918,18 @@ section {
   }
   // Header
   .header-container {
+    padding: 30px;
     display: inherit;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     // Contact text
     .text {
+      box-sizing: border-box;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      padding: 10px;
     }
   }
   .emoji {
@@ -1970,6 +1972,33 @@ section {
     color: rgb(81, 255, 130);
   }
   .contact-form {
+    &.title {
+      padding: 15px;
+      color: rgb(238, 248, 255);
+      box-shadow: rgba(46, 120, 240, 0.4) 0px 5px,
+        rgba(49, 46, 240, 0.3) 0px 10px, rgba(104, 46, 240, 0.2) 0px 15px,
+        rgba(59, 46, 240, 0.1) 0px 20px, rgba(46, 104, 240, 0.05) 0px 25px;
+      font-size: 1.4em;
+      background: none;
+    }
+    background: repeating-linear-gradient(
+        -45deg,
+        hsla(200, 14%, 4%, 0.723),
+        /* Light Blue */ hsl(240, 12%, 8%) 10px,
+        /* Blue-Purple */ hsla(228, 8%, 12%, 0.481) 10px,
+        /* Deep Purple */ hsla(338, 20%, 8%, 0.394) 20px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(22, 29, 33, 0.481),
+        rgba(15, 16, 21, 0.853) 50%,
+        rgba(14, 14, 22, 0.478) 100%
+      );
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    box-sizing: border-box;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 20px;
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -1991,6 +2020,17 @@ section {
       width: 100%;
       order: 1;
       flex: 50%;
+      .font-awesome-icon {
+        color: rgb(255, 255, 255);
+        height: 20px;
+        width: 20px;
+        padding: 10px;
+        @media (max-width: 590px) {
+          height: 30px;
+          width: 30px;
+        }
+      }
+
       @media (max-width: 518px) {
         order: 2; /* default order */
       }
@@ -2088,22 +2128,10 @@ section {
       }
       .description {
         padding: 50px;
-        background: repeating-linear-gradient(
-            -45deg,
-            hsla(200, 14%, 4%, 0.723),
-            /* Light Blue */ hsl(240, 12%, 8%) 10px,
-            /* Blue-Purple */ hsla(228, 8%, 12%, 0.481) 10px,
-            /* Deep Purple */ hsla(338, 20%, 8%, 0.394) 20px
-          ),
-          linear-gradient(
-            90deg,
-            rgba(22, 29, 33, 0.481),
-            rgba(15, 16, 21, 0.853) 50%,
-            rgba(14, 14, 22, 0.478) 100%
-          );
+        background: rgba(0, 0, 0, 0.485);
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
         font-family: "Terminal Grotesque";
         #email-link {
           font-weight: bolder;
@@ -2170,6 +2198,10 @@ section {
   height: 200px;
   span {
     color: white;
+  }
+  .designed-by {
+    font-weight: bold;
+    color: #ffffff; /* Adjust color to fit your design */
   }
   background-color: rgba(0, 0, 0, 0.604);
   font-size: 0.8em;

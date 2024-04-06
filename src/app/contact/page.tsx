@@ -146,8 +146,12 @@ const ContactPage = (props: Props) => {
                 </Link>
               </div>
               <div className="footer">
-                <Header />
-                <span>Designed by Arthur V</span>
+                {/* <Header /> */}
+                <p>
+                  Designed by{" "}
+                  <span className="designed-by">Arthur Vannakittikun </span>
+                  &copy; 2024
+                </p>
               </div>
             </div>
           </motion.section>

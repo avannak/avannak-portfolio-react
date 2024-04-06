@@ -4,6 +4,10 @@ import Image from "next/image";
 import gmailPixel from "../../assets/images/gmail-pixel.webp";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Header from "@/components/Header";
+import smiley from "../../assets/images/smiley.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
@@ -38,6 +42,12 @@ const ContactForm = (props: Props) => {
   return (
     <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form-container">
+        <div className="header-container">
+          <p className="contact-form title" style={{ textAlign: "center" }}>
+            <FontAwesomeIcon className="font-awesome-icon" icon={faPhone} />
+            Contact Form{" "}
+          </p>
+        </div>
         <div className="input-group">
           <input
             placeholder="Your Name"
@@ -130,6 +140,7 @@ const ContactForm = (props: Props) => {
             ></Image>
           </div>
         </div>
+        <Header />
       </div>
     </form>
   );

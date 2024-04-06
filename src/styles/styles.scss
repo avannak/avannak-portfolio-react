@@ -1887,8 +1887,14 @@ section {
     display: flex;
     margin: auto;
     box-sizing: border-box;
-    padding: 3px;
-    max-width: 1920px;
+    padding: 30px;
+    max-width: 100%;
+    background: radial-gradient(
+      circle,
+      rgb(8, 8, 11) 0%,
+      rgba(11, 10, 22, 0.612) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
 }
 .portfolio {

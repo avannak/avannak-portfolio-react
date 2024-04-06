@@ -1178,6 +1178,7 @@ section {
       font-size: 1em;
     }
     .close-button {
+      cursor: pointer;
       position: absolute;
       top: 10px;
       right: 10px;
@@ -1685,6 +1686,7 @@ section {
   }
 
   .project-column {
+    cursor: pointer;
     @media (max-width: 660px) {
       height: 200px;
     }
@@ -1701,6 +1703,7 @@ section {
     position: relative;
     border: 1px solid rgb(18, 28, 57);
     .clickToViewBtn {
+      cursor: pointer;
       font-family: "dpcomic";
       position: relative;
       display: flex;
@@ -2110,6 +2113,7 @@ section {
 
 // Button
 .pushable {
+  cursor: pointer;
   font-family: "dpcomic";
   font-size: 0.6em;
   position: relative;

@@ -324,7 +324,7 @@ img {
       100% {
         font-size: 2em;
         color: transparent;
-        background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+        background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent; // Makes the text color transparent
@@ -332,7 +332,7 @@ img {
       }
       50% {
         font-size: 2em;
-        background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+        background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent; // Makes the text color transparent
@@ -346,7 +346,7 @@ img {
       left: -180px; // Align to the left side
       top: -125px; // Adjust this value as needed to position vertically
       font-size: 2em; // Initial font size
-      background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+      background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent; // Makes the text color transparent
@@ -356,12 +356,11 @@ img {
       animation: textTransition 10s ease infinite;
 
       @media (max-width: 598px) {
-        font-size: 1.8em; // Adjust font size for smaller screens
+        font-size: 1.5em; // Adjust font size for smaller screens
         position: relative; // Reset position to flow in the document
         left: auto; // Reset left alignment
         top: auto; // Reset top alignment
         color: rgb(243, 245, 248);
-        text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
         // animation: none;
         min-width: 0;
       }
@@ -372,7 +371,7 @@ img {
       color: rgb(255, 255, 255);
       font-size: 2.6em;
       position: absolute;
-      text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
+      text-shadow: rgba(255, 255, 255, 0) 2px 4px 0px;
 
       // Apply the same animation to h1
       animation: textTransition 10s ease infinite; // Adjust time and easing as needed

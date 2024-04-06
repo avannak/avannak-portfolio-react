@@ -2107,6 +2107,7 @@ section {
         font-family: "Terminal Grotesque";
         #email-link {
           font-weight: bolder;
+          text-shadow: none;
           font-size: 1.3em;
           color: rgb(95, 178, 255);
           &:hover {

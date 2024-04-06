@@ -39,7 +39,7 @@ const NavMenu = (props: Props) => {
           <div className="occupation-container">
             <motion.div
               className="title sect1"
-              initial={{ opacity: 0, translateY: 50 }}
+              initial={{ opacity: 0, translateY: 0 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{
                 ease: "linear",
@@ -67,7 +67,7 @@ const NavMenu = (props: Props) => {
             </motion.div>
             <motion.span
               className="title sect1"
-              initial={{ opacity: 0, translateY: 50 }}
+              initial={{ opacity: 0, translateY: 0 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{
                 ease: "linear",
@@ -80,7 +80,7 @@ const NavMenu = (props: Props) => {
             </motion.span>
             <motion.div
               className="title sect2"
-              initial={{ opacity: 0, translateY: 50 }}
+              initial={{ opacity: 0, translateY: 0 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{
                 ease: "linear",

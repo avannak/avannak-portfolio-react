@@ -324,7 +324,7 @@ img {
       100% {
         font-size: 2em;
         color: transparent;
-        background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
+        background: linear-gradient(45deg, rgb(75, 144, 255), #cee4ff, #3546ff);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent; // Makes the text color transparent
@@ -332,31 +332,20 @@ img {
       }
       50% {
         font-size: 2em;
-        background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
+        background: linear-gradient(45deg, rgb(75, 144, 255), #cee4ff, #3546ff);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent; // Makes the text color transparent
         display: inline-block; // Necessary for background-clip
-        color: rgb(255, 255, 255);
+        // color: rgb(255, 255, 255);
       }
     }
     // Title Name Style with Animation
     .name {
-      position: absolute;
-      left: -180px; // Align to the left side
-      top: -125px; // Adjust this value as needed to position vertically
-      font-size: 2em; // Initial font size
-      background: linear-gradient(45deg, #07d300, #3d2be2, #1e90ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent; // Makes the text color transparent
-      display: inline-block; // Necessary for background-clip
-      min-width: max-content;
-
       animation: textTransition 10s ease infinite;
 
       @media (max-width: 598px) {
-        font-size: 1.5em; // Adjust font size for smaller screens
+        // font-size: 1.5em; // Adjust font size for smaller screens
         position: relative; // Reset position to flow in the document
         left: auto; // Reset left alignment
         top: auto; // Reset top alignment
@@ -368,19 +357,10 @@ img {
     // h1 Style with Animation
     h1 {
       font-family: "Terminal Grotesque";
-      color: rgb(255, 255, 255);
+      // color: rgb(255, 255, 255);
       font-size: 2.6em;
-      position: absolute;
+      // position: absolute;
       text-shadow: rgba(255, 255, 255, 0) 2px 4px 0px;
-
-      // Apply the same animation to h1
-      animation: textTransition 10s ease infinite; // Adjust time and easing as needed
-      @media (max-width: 598px) {
-        position: relative;
-        font-size: 2em; // Adjust font size for smaller screens
-        // Optionally, disable the animation at this breakpoint
-        animation: none;
-      }
     }
     // Occupation Name
     .occupation-container {
@@ -405,12 +385,7 @@ img {
         bottom: -2px;
         left: -2px;
         z-index: -1;
-        background: linear-gradient(
-          60deg,
-          rgba(255, 225, 0, 0.259),
-          rgba(0, 229, 255, 0.3),
-          rgba(255, 0, 234, 0.312)
-        );
+        background: linear-gradient(45deg, #6b75ff, #ffffff, #426afc);
         background-size: 300% 300%;
         border-radius: 5px; // Slightly larger than the h1 to create a border effect
         animation: moveGradient 6s ease infinite;
@@ -1544,7 +1519,7 @@ section {
   height: 180px;
   background: black;
   background-repeat: none;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 15px rgba(4, 4, 9, 0.78);
   width: 100%;
   box-sizing: border-box;
 
@@ -1785,6 +1760,7 @@ section {
         .front,
         .edge,
         .shadow {
+          font-family: "Terminal Grotesque";
           border-radius: 12px;
         }
       }
@@ -2183,7 +2159,7 @@ section {
 // Button
 .pushable {
   cursor: pointer;
-  font-family: "Terminal Grotesque";
+  font-family: "dpcomic";
   font-size: 0.6em;
   position: relative;
   border: none;

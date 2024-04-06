@@ -131,7 +131,7 @@ const NavMenu = (props: Props) => {
               transition={{ duration: 1.5, delay: 0.8 }}
             >
               <li>
-                <Link href="/about">
+                <Link id="start-link" href="/about">
                   <FloatingComponent floatStyle="floatX">
                     <FontAwesomeIcon
                       icon={faHandPointRight}

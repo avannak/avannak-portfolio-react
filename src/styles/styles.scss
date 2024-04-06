@@ -31,7 +31,7 @@ h1 {
 }
 
 html {
-  font-size: 1.4em;
+  font-size: 1.3em;
   @media (max-width: 1024px) {
     font-size: 1.2em;
   }
@@ -148,7 +148,7 @@ body {
     hsl(240, 5%, 4%) 0%,
     hsl(256, 13%, 17%) 8%,
     hsl(0, 0%, 5%) 92%,
-    hsl(224, 39%, 19%) 100%
+    hsl(227, 47%, 6%) 100%
   );
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
@@ -318,22 +318,75 @@ img {
     position: relative;
     width: 100%;
     // Title Name
-    .name {
-      @media (max-width: 598px) {
-        font-size: 1.8em;
+    // Define the Keyframes for Animation
+    @keyframes textTransition {
+      0%,
+      100% {
+        font-size: 2em;
+        color: transparent;
+        background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; // Makes the text color transparent
+        display: inline-block; // Necessary for background-clip
+      }
+      50% {
+        font-size: 2em;
+        background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; // Makes the text color transparent
+        display: inline-block; // Necessary for background-clip
+        color: rgb(255, 255, 255);
       }
     }
+    // Title Name Style with Animation
+    .name {
+      position: absolute;
+      left: -180px; // Align to the left side
+      top: -125px; // Adjust this value as needed to position vertically
+      font-size: 2em; // Initial font size
+      background: linear-gradient(45deg, #b7ff00, #3d2be2, #1e90ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; // Makes the text color transparent
+      display: inline-block; // Necessary for background-clip
+      min-width: max-content;
+
+      animation: textTransition 10s ease infinite;
+
+      @media (max-width: 598px) {
+        font-size: 1.8em; // Adjust font size for smaller screens
+        position: relative; // Reset position to flow in the document
+        left: auto; // Reset left alignment
+        top: auto; // Reset top alignment
+        color: rgb(243, 245, 248);
+        text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
+        // animation: none;
+        min-width: 0;
+      }
+    }
+    // h1 Style with Animation
     h1 {
       font-family: "Terminal Grotesque";
       color: rgb(255, 255, 255);
-      font-size: 2.5em;
-      position: relative;
+      font-size: 2.6em;
+      position: absolute;
       text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
+
+      // Apply the same animation to h1
+      animation: textTransition 10s ease infinite; // Adjust time and easing as needed
+      @media (max-width: 598px) {
+        position: relative;
+        font-size: 2em; // Adjust font size for smaller screens
+        // Optionally, disable the animation at this breakpoint
+        animation: none;
+      }
     }
     // Occupation Name
     .occupation-container {
       max-width: 500px;
-      border-radius: 10px;
+      border-radius: 5px;
       padding: 5px;
       background: linear-gradient(
           217deg,
@@ -360,9 +413,10 @@ img {
           rgba(255, 0, 234, 0.312)
         );
         background-size: 300% 300%;
-        border-radius: 10px; // Slightly larger than the h1 to create a border effect
+        border-radius: 5px; // Slightly larger than the h1 to create a border effect
         animation: moveGradient 6s ease infinite;
-        box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.775); // Adjust the thickness of the border here
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
       }
 
       @keyframes moveGradient {
@@ -428,7 +482,7 @@ img {
       position: relative;
       text-align: center;
       width: 100%;
-      height: 100px;
+      height: 70px;
       @media (max-height: 896px) {
         // top: 200px;
       }
@@ -438,7 +492,7 @@ img {
           height: 100px;
         }
       }
-      @media (max-width: 500px) {
+      @media (max-width: 530px) {
         font-size: 0.9em;
         max-width: 350px;
       }
@@ -491,6 +545,16 @@ img {
     text-align: center;
   }
 }
+#start-link {
+  max-width: 510px;
+  box-shadow: rgba(92, 92, 255, 0.25) 0px 30px 60px -12px inset,
+    rgba(80, 12, 12, 0.3) 0px 18px 36px -18px inset;
+  border-radius: 50px;
+  @media (max-width: 530px) {
+    font-size: 0.9em;
+    max-width: 350px;
+  }
+}
 //Download Button
 .download-resume-wrapper {
   font-family: "dpcomic";
@@ -506,7 +570,6 @@ img {
   @media (max-width: 600px) {
     font-size: 0.7em;
   }
-  border-radius: 20px;
 }
 //Toggle container
 .desktop-only {
@@ -900,6 +963,8 @@ section {
   }
   .rokit-container-wrapper.top {
     flex: 50%;
+    box-sizing: border-box;
+    padding: 15px;
   }
   .rokit-container-wrapper.bottom {
     flex: 50%;
@@ -1523,7 +1588,7 @@ section {
   justify-content: center;
   flex-direction: column;
   font-size: 1.5rem;
-  text-shadow: rgba(255, 204, 0, 0.098) 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 0px 10px 10px;
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
@@ -1690,7 +1755,6 @@ section {
     @media (max-width: 660px) {
       height: 200px;
     }
-    border-radius: 20px;
     padding: 0;
     display: flex;
     flex-direction: row;
@@ -1704,7 +1768,6 @@ section {
     border: 1px solid rgb(18, 28, 57);
     .clickToViewBtn {
       cursor: pointer;
-      font-family: "dpcomic";
       position: relative;
       display: flex;
       margin: auto;
@@ -1718,7 +1781,14 @@ section {
         font-size: 0.7em;
       }
       background: linear-gradient(#e6646400, #06060f);
-      border-radius: 20px;
+      border-radius: 5px;
+      .pushable {
+        .front,
+        .edge,
+        .shadow {
+          border-radius: 12px;
+        }
+      }
     }
     &:hover {
       .pushable {
@@ -1747,7 +1817,7 @@ section {
   }
 
   .container .image {
-    border-radius: 20px;
+    border-radius: 5px;
     position: relative;
     margin: auto;
     align-items: center;
@@ -1760,7 +1830,7 @@ section {
     backface-visibility: hidden;
   }
   .middle {
-    border-radius: 20px;
+    border-radius: 5px;
     box-sizing: border-box;
     z-index: 5;
     padding: 0;
@@ -1776,12 +1846,12 @@ section {
         height: 100%;
         z-index: 2;
         opacity: 1;
-        border-radius: 20px;
+        border-radius: 5px;
       }
       box-shadow: 0px 0px 0px 5px rgba(65, 249, 71, 0.861);
     }
     .project-content {
-      border-radius: 20px;
+      border-radius: 5px;
       box-sizing: border-box;
       z-index: 4;
       position: absolute;
@@ -1832,7 +1902,7 @@ section {
           padding: 10px;
         }
         font-weight: 600;
-        border-radius: 10px;
+        border-radius: 5px;
       }
     }
   }
@@ -2114,7 +2184,7 @@ section {
 // Button
 .pushable {
   cursor: pointer;
-  font-family: "dpcomic";
+  font-family: "Terminal Grotesque";
   font-size: 0.6em;
   position: relative;
   border: none;

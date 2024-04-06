@@ -1,18 +1,15 @@
 "use client";
 import Header from "@/components/Header";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useContext, useRef } from "react";
 import Link from "next/link";
 import codePixel from "../assets/images/code-pixel.webp";
 import cog from "../assets/images/cog-pixel.png";
 import musicNote from "../assets/images/music-note-blue.webp";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
-import ReactSwitch from "react-switch";
-import { isMobileDevice, useIsMobile } from "../utils/isMobileDevice";
 import StyledButton from "./Button/StyledButton";
 
 type Props = {};

@@ -1,4 +1,4 @@
-import CustomCursor from "@/components/CustomCursor/CustomCursor";
+// import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
 import localFont from "next/font/local";
@@ -36,7 +36,7 @@ export default function RootLayout({
         <Providers>
           <div className={myFont.className}>
             <NavBar />
-            <CustomCursor />
+            {/* <CustomCursor /> */}
             {children}
           </div>
         </Providers>

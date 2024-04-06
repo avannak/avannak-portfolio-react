@@ -29,75 +29,79 @@ const NavMenu = (props: Props) => {
             delay: 0.4,
           }}
         >
-          <FloatingComponent>
-            <TypewriterEffect
-              className="name"
-              propText="Arthur Vannakittikun"
-              triggerInstant={true}
-            ></TypewriterEffect>
-          </FloatingComponent>
           <div className="occupation-container">
-            <motion.div
-              className="title sect1"
-              initial={{ opacity: 0, translateY: 0 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              transition={{
-                ease: "linear",
-                duration: 1,
-                x: { duration: 0.3 },
-                delay: 0.8,
-              }}
-            >
-              <Image
-                id="cog-img"
-                src={cog}
-                alt="cog"
-                height={500}
-                width={500}
-              ></Image>
-              <Image
-                id="code-pixel-img"
-                src={codePixel}
-                alt="code-pixel"
-                height={641}
-                width={810}
-              ></Image>
-              <span id="front-end">Software Engineer</span>
-              <br />
-            </motion.div>
-            <motion.span
-              className="title sect1"
-              initial={{ opacity: 0, translateY: 0 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              transition={{
-                ease: "linear",
-                duration: 1,
-                x: { duration: 0.3 },
-                delay: 0.8,
-              }}
-            >
-              <span id="amper">&</span>
-            </motion.span>
-            <motion.div
-              className="title sect2"
-              initial={{ opacity: 0, translateY: 0 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              transition={{
-                ease: "linear",
-                duration: 1,
-                x: { duration: 0.3 },
-                delay: 0.8,
-              }}
-            >
-              <span id="artist">Artist</span>
-              <Image
-                id="music-note-img"
-                src={musicNote}
-                alt="music-note"
-                height={270}
-                width={190}
-              ></Image>
-            </motion.div>
+            <div className="top">
+              <FloatingComponent>
+                <TypewriterEffect
+                  className="name"
+                  propText="Arthur Vannakittikun"
+                  triggerInstant={true}
+                ></TypewriterEffect>
+              </FloatingComponent>
+            </div>
+            <div className="bottom">
+              <motion.div
+                className="title sect1"
+                initial={{ opacity: 0, translateY: 0 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{
+                  ease: "linear",
+                  duration: 1,
+                  x: { duration: 0.3 },
+                  delay: 0.8,
+                }}
+              >
+                <Image
+                  id="cog-img"
+                  src={cog}
+                  alt="cog"
+                  height={500}
+                  width={500}
+                ></Image>
+                <Image
+                  id="code-pixel-img"
+                  src={codePixel}
+                  alt="code-pixel"
+                  height={641}
+                  width={810}
+                ></Image>
+                <span id="front-end">Software Engineer</span>
+                <br />
+              </motion.div>
+              <motion.span
+                className="title sect1"
+                initial={{ opacity: 0, translateY: 0 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{
+                  ease: "linear",
+                  duration: 1,
+                  x: { duration: 0.3 },
+                  delay: 0.8,
+                }}
+              >
+                <span id="amper">&</span>
+              </motion.span>
+              <motion.div
+                className="title sect2"
+                initial={{ opacity: 0, translateY: 0 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{
+                  ease: "linear",
+                  duration: 1,
+                  x: { duration: 0.3 },
+                  delay: 0.8,
+                }}
+              >
+                <span id="artist">Artist</span>
+                <Image
+                  id="music-note-img"
+                  src={musicNote}
+                  alt="music-note"
+                  height={270}
+                  width={190}
+                ></Image>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
         <motion.div

@@ -397,7 +397,7 @@ img {
         linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
         1px 1px 0 #000;
-
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.512);
       &:after {
         content: "";
         position: absolute;
@@ -1706,7 +1706,7 @@ section {
       padding: 15px;
       border-radius: 30px;
       background: rgba(0, 0, 0, 0.937);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.78);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.512);
       text-align: center;
     }
     display: flex;

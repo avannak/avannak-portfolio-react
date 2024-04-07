@@ -122,15 +122,8 @@ const ContactPage = (props: Props) => {
               </div>
               <div id="contact-header">
                 <p className="text" style={{ textAlign: "center" }}>
+                  I would love to work with you. <br />
                   Let's work together!{" "}
-                  <Image
-                    className="emoji"
-                    src={smiley}
-                    alt="smiley"
-                    height={512}
-                    width={512}
-                    placeholder="blur"
-                  ></Image>
                 </p>
               </div>
               <ContactForm />

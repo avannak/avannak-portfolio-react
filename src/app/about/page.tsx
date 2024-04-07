@@ -39,7 +39,7 @@ import macBook from "../../assets/images/macbook-pixel.webp";
 import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
-import smileyGlasses from "../../assets/images/smiley-glasses2.webp";
+import smileyGlasses from "public/images/male_avatar.svg";
 import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
 import { RootState } from "../GlobalRedux/types";
@@ -136,6 +136,7 @@ const AboutPage = (props: Props) => {
                     width={50}
                     style={{ margin: 5, objectFit: "contain" }}
                     placeholder="blur"
+                    blurDataURL="none"
                   />
                 </h1>
                 <Link

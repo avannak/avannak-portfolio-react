@@ -27,7 +27,7 @@
 }
 
 h1 {
-  font-family: "dpcomic";
+  font-family: "Terminal Grotesque";
 }
 
 html {
@@ -36,7 +36,7 @@ html {
     font-size: 1.2em;
   }
   @media (max-width: 600px) {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 }
 
@@ -382,7 +382,7 @@ img {
         }
       }
       @media (max-width: 530px) {
-        font-size: 0.9em;
+        font-size: 0.7em;
         max-width: 350px;
       }
       max-width: 500px;
@@ -427,49 +427,52 @@ img {
       }
       // Occupation Title
       .title {
+        @media (max-width: 530px) {
+          font-size: 1.2em;
+        }
         font-size: 1.3em;
         font-weight: bolder;
         padding: 10px;
         text-align: center;
         text-shadow: rgba(0, 0, 0, 0.613) 2px 4px 0px;
         &.sect1 {
+          padding: 5px;
           display: flex;
           align-items: center;
           #cog-img {
             object-fit: contain;
-            height: 30px;
-            width: 30px;
+            height: 40px;
+            width: 40px;
             padding: 5px;
           }
           #code-pixel-img {
             object-fit: contain;
-            height: 30px;
-            width: 30px;
+            height: 40px;
+            width: 40px;
             padding: 5px;
+            margin-right: 5px;
           }
         }
         &.sect2 {
+          padding: 5px;
           display: flex;
           align-items: center;
           #music-note-img {
             object-fit: contain;
-            height: 30px;
-            width: 30px;
+            height: 40px;
+            width: 40px;
             padding: 5px;
           }
         }
       }
       #front-end {
-        color: rgb(132, 248, 31);
-        font-family: "dpcomic";
+        color: rgb(127, 224, 43);
       }
       #amper {
         color: rgb(255, 79, 56);
-        font-family: "dpcomic";
       }
       #artist {
-        color: rgb(255, 30, 30);
-        font-family: "dpcomic";
+        color: rgb(235, 44, 44);
       }
     }
   }
@@ -584,6 +587,9 @@ img {
       background-color: rgba(67, 58, 99, 0.437);
       transition: background-color 0.3s ease;
     }
+  }
+  @media (max-width: 530px) {
+    font-size: 0.9em;
   }
 }
 .title-divider {
@@ -2026,7 +2032,7 @@ section {
     box-shadow: 0 4px 8px rgb(0, 0, 0);
     box-sizing: border-box;
     border-radius: 30px;
-    padding: 10px;
+    padding: 20px;
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -2126,7 +2132,7 @@ section {
     .image-container {
       line-height: 2em;
       box-sizing: border-box;
-      padding: 10px;
+      padding: 0px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2134,6 +2140,18 @@ section {
       width: 100%;
       order: -1;
       flex: 50%;
+      margin: auto;
+      #collab-img {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        width: 280px;
+        height: 100%;
+        padding: 30px;
+        margin-bottom: 20px;
+      }
       .font-awesome-icon {
         color: rgb(255, 255, 255);
         height: 20px;
@@ -2161,7 +2179,7 @@ section {
 
         #gmail-pic {
           @media (max-width: 518px) {
-            width: 30px;
+            width: 50px;
           }
           object-fit: contain;
           width: 60px;
@@ -2191,10 +2209,12 @@ section {
           }
         }
         span {
-          display: block;
+          display: flex;
           text-align: center;
-          padding: 20px;
+          padding: 15px;
           box-sizing: border-box;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
@@ -2255,7 +2275,7 @@ section {
 // Button
 .pushable {
   cursor: pointer;
-  font-family: "dpcomic";
+  font-family: "Terminal Grotesque";
   font-size: 0.6em;
   position: relative;
   border: none;

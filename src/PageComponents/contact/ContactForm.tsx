@@ -5,7 +5,7 @@ import gmailPixel from "../../assets/images/gmail-pixel.webp";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Header from "@/components/Header";
-import smiley from "../../assets/images/smiley.webp";
+import collab from "public/images/collab.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 
@@ -41,6 +41,48 @@ const ContactForm = (props: Props) => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+      <div className="image-container">
+        <Image
+          id="collab-img"
+          src={collab}
+          alt="collab-pic"
+          height={200}
+          width={200}
+          placeholder="blur"
+          blurDataURL="none"
+        ></Image>
+        <div className="description">
+          <div className="header-container">
+            <p className="contact-form title" style={{ textAlign: "center" }}>
+              <FontAwesomeIcon
+                className="font-awesome-icon"
+                icon={faMailBulk}
+              />
+              My Email{" "}
+            </p>
+          </div>
+          <span>Shoot a message straight to my inbox:</span>
+          <span>
+            <a
+              id="email-link"
+              href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=arthurvat7@gmail.com&body"
+            >
+              arthurvat7@gmail.com
+            </a>
+          </span>
+          <div className="image">
+            <Image
+              id="gmail-pic"
+              src={gmailPixel}
+              alt="gmail-pixel"
+              height={374}
+              width={510}
+              placeholder="blur"
+            ></Image>
+          </div>
+        </div>
+        <Header />
+      </div>
       <div className="form-container">
         <div className="header-container-contact-form">
           <p className="contact-form title" style={{ textAlign: "center" }}>
@@ -115,39 +157,6 @@ const ContactForm = (props: Props) => {
           <span className="edge blue"></span>
           <span className="front blue">Send Message</span>
         </button>
-      </div>
-      <div className="image-container">
-        <div className="description">
-          <div className="header-container">
-            <p className="contact-form title" style={{ textAlign: "center" }}>
-              <FontAwesomeIcon
-                className="font-awesome-icon"
-                icon={faMailBulk}
-              />
-              My Email{" "}
-            </p>
-          </div>
-          <span>Shoot a message straight to my inbox:</span>
-          <span>
-            <a
-              id="email-link"
-              href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=arthurvat7@gmail.com&body"
-            >
-              arthurvat7@gmail.com
-            </a>
-          </span>
-          <div className="image">
-            <Image
-              id="gmail-pic"
-              src={gmailPixel}
-              alt="gmail-pixel"
-              height={374}
-              width={510}
-              placeholder="blur"
-            ></Image>
-          </div>
-        </div>
-        <Header />
       </div>
     </form>
   );

@@ -1937,6 +1937,16 @@ section {
   }
   // Header
   .header-container {
+    padding-bottom: 30px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-container-contact-form {
     padding-top: 30px;
     padding-bottom: 30px;
     width: 200px;
@@ -2139,6 +2149,9 @@ section {
       }
 
       .image {
+        @media (max-width: 518px) {
+          padding-bottom: 15px;
+        }
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2147,13 +2160,19 @@ section {
         color: #ffffff;
 
         #gmail-pic {
+          @media (max-width: 518px) {
+            width: 30px;
+          }
           object-fit: contain;
           width: 60px;
           height: auto;
         }
       }
       .description {
-        padding: 50px;
+        @media (max-width: 518px) {
+          padding: 0;
+        }
+        padding: 30px;
         background: rgba(0, 0, 0, 0.485);
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
@@ -2174,7 +2193,7 @@ section {
         span {
           display: block;
           text-align: center;
-          padding: 10px;
+          padding: 20px;
           box-sizing: border-box;
         }
       }

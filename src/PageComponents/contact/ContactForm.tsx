@@ -42,7 +42,7 @@ const ContactForm = (props: Props) => {
   return (
     <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form-container">
-        <div className="header-container">
+        <div className="header-container-contact-form">
           <p className="contact-form title" style={{ textAlign: "center" }}>
             <FontAwesomeIcon className="font-awesome-icon" icon={faPhone} />
             Contact Form{" "}

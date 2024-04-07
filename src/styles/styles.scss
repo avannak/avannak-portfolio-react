@@ -44,7 +44,11 @@ body {
   text-shadow: 0px 2px 2px rgb(0, 0, 0);
   font-weight: 400;
   margin: 0 auto;
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.835) 70.71%),
+  background: linear-gradient(
+      217deg,
+      rgb(30, 29, 39),
+      rgba(0, 0, 0, 0.835) 70.71%
+    ),
     linear-gradient(127deg, rgb(0, 0, 0), rgb(1, 21, 1) 70.71%),
     linear-gradient(336deg, rgb(0, 0, 0), rgb(10, 10, 25) 70.71%);
   max-width: 100%;
@@ -913,7 +917,7 @@ section {
   .rokit-container {
     box-sizing: border-box;
     border-radius: 20px;
-    padding: 2rem 2rem;
+    padding: 1.5rem 2rem;
     margin-bottom: 100px;
     display: flex;
     flex-direction: column;
@@ -1130,11 +1134,11 @@ section {
 .about-me-section-wrapper {
   background: linear-gradient(
       217deg,
-      rgba(18, 3, 3, 0.668),
+      rgba(8, 3, 18, 0.668),
       rgba(6, 2, 2, 0.709) 70.71%
     ),
     linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(24, 24, 132, 0.946), rgba(9, 9, 75, 0) 70.71%);
+    linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   width: 100%;
@@ -1523,7 +1527,7 @@ section {
   height: 180px;
   background: black;
   background-repeat: none;
-  box-shadow: 0 8px 15px rgba(4, 4, 9, 0.78);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.78);
   width: 100%;
   box-sizing: border-box;
 
@@ -1653,7 +1657,6 @@ section {
 }
 
 // My Work Page
-
 .mywork-page-container {
   box-sizing: border-box;
   position: relative;
@@ -1674,14 +1677,51 @@ section {
     text-align: center;
   }
   // Description
+  #description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 50px;
+    background: linear-gradient(#18397770, #0b0b0d);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.501);
+    height: 100%;
+    max-width: 600px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    @media (max-width: 660px) {
+      max-width: 380px;
+    }
+  }
   .description {
+    background-image: url("../../public/images/freelancer.svg"); // Path to your blob image
+    background-size: contain; // Or 'contain' based on your preference
+    background-repeat: no-repeat;
+    background-position: center; // Adjust as needed
+    .myprojects-header {
+      margin-bottom: auto;
+      padding: 15px;
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.937);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.78);
+      text-align: center;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.2em;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 10px;
   }
   // PROJECT ROW
   .row {
@@ -1745,6 +1785,7 @@ section {
     position: relative;
     border: 1px solid rgb(18, 28, 57);
     border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.78);
     .clickToViewBtn {
       cursor: pointer;
       position: relative;
@@ -1894,10 +1935,11 @@ section {
     max-width: 100%;
     background: radial-gradient(
       circle,
-      rgb(8, 8, 11) 0%,
-      rgba(11, 10, 22, 0.612) 98%,
+      rgb(0, 0, 0) 0%,
+      rgba(10, 13, 22, 0.612) 98%,
       rgba(0, 0, 0, 0) 100%
     );
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.78);
   }
 }
 .portfolio {
@@ -1922,8 +1964,8 @@ section {
     display: flex;
     font-size: 1.5em;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1937,23 +1979,56 @@ section {
       justify-content: center;
     }
   }
+  .image-container,
+  .form-container {
+    flex: 1; // Adjust as needed to manage width
+    // Other styles...
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row; // Place children side by side
+    justify-content: space-between; // Adjust as needed
+    width: 100%; // Adjust as needed
+    margin-top: 50px;
+    padding: 20px;
+    @media (max-width: 768px) {
+      // Adjust breakpoint as needed
+      flex-direction: column;
+    }
+    background: repeating-linear-gradient(
+        -45deg,
+        hsla(200, 14%, 4%, 0.723),
+        /* Light Blue */ hsl(240, 12%, 8%) 10px,
+        /* Blue-Purple */ hsla(228, 8%, 12%, 0.481) 10px,
+        /* Deep Purple */ hsla(338, 20%, 8%, 0.394) 20px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(22, 29, 33, 0.481),
+        rgba(15, 16, 21, 0.853) 50%,
+        rgba(14, 14, 22, 0.478) 100%
+      );
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    box-sizing: border-box;
+    border-radius: 30px;
+  }
   // Header
   .header-container {
     padding-bottom: 30px;
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     display: inherit;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .header-container-contact-form {
-    padding-top: 30px;
     padding-bottom: 30px;
     width: 200px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     display: inherit;
     flex-direction: column;
     align-items: center;
@@ -2004,7 +2079,7 @@ section {
       border-top-right-radius: 3px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
-      padding: 15px;
+      padding-bottom: 15px;
       color: rgb(238, 248, 255);
       box-shadow: rgba(46, 120, 240, 0.4) 0px 5px,
         rgba(49, 46, 240, 0.3) 0px 10px, rgba(104, 46, 240, 0.2) 0px 15px,
@@ -2012,28 +2087,22 @@ section {
       font-size: 1.4em;
       background: none;
     }
-    background: repeating-linear-gradient(
-        -45deg,
-        hsla(200, 14%, 4%, 0.723),
-        /* Light Blue */ hsl(240, 12%, 8%) 10px,
-        /* Blue-Purple */ hsla(228, 8%, 12%, 0.481) 10px,
-        /* Deep Purple */ hsla(338, 20%, 8%, 0.394) 20px
+    background: linear-gradient(
+        217deg,
+        rgba(8, 3, 18, 0.668),
+        rgba(6, 2, 2, 0.709) 70.71%
       ),
-      linear-gradient(
-        90deg,
-        rgba(22, 29, 33, 0.481),
-        rgba(15, 16, 21, 0.853) 50%,
-        rgba(14, 14, 22, 0.478) 100%
-      );
-    box-shadow: 0 4px 8px rgb(0, 0, 0);
+      linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
     box-sizing: border-box;
-    border-radius: 30px;
-    padding: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     justify-content: center;
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    display: flex;
+    flex-direction: column; // Stack children vertically
+    align-items: center; // Center align items
+
     max-width: 1200px;
     width: 100%;
     margin: auto;
@@ -2045,22 +2114,12 @@ section {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      margin: auto;
       height: 100%;
-      max-width: 500px;
+      max-width: 100%;
       width: 100%;
       order: 1;
       flex: 50%;
-      .font-awesome-icon {
-        color: rgb(255, 255, 255);
-        height: 20px;
-        width: 20px;
-        padding: 10px;
-        @media (max-width: 590px) {
-          height: 30px;
-          width: 30px;
-        }
-      }
-
       @media (max-width: 518px) {
         order: 2; /* default order */
       }
@@ -2125,6 +2184,11 @@ section {
         }
       }
     }
+    #contact-header {
+      display: flex;
+      width: 100%;
+      margin-top: 30px;
+    }
     .image-container {
       line-height: 2em;
       box-sizing: border-box;
@@ -2143,8 +2207,9 @@ section {
         justify-content: center;
         align-items: center;
         object-fit: contain;
-        width: 280px;
+        width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding: 30px;
         margin-bottom: 20px;
       }
@@ -2180,13 +2245,16 @@ section {
           object-fit: contain;
           width: 60px;
           height: auto;
+          margin-bottom: 20px;
         }
       }
       .description {
         @media (max-width: 518px) {
           padding: 0;
         }
-        padding: 30px;
+        box-sizing: border-box;
+        width: 80%;
+        padding: 18px;
         background: rgba(0, 0, 0, 0.485);
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
@@ -2232,6 +2300,16 @@ section {
   height: 100%;
   width: 100%;
   color: rgb(255, 255, 255);
+}
+.contact-font-awesome-icon {
+  color: rgb(255, 255, 255);
+  height: 30px;
+  width: 30px;
+  padding: 15px;
+  @media (max-width: 590px) {
+    height: 30px;
+    width: 30px;
+  }
 }
 .mountain-pic {
   position: fixed; // Fixed relative to the viewport
@@ -2391,12 +2469,12 @@ section {
 //Tooltip
 .Tooltip {
   font-family: "dpcomic";
-  background: rgba(0, 0, 0, 0.85);
+  background: rgb(0, 0, 0);
   color: white;
   pointer-events: none;
   border-radius: 6px;
   padding: 8px 18px;
-  font-size: 0.8em;
+  font-size: 1.5em;
   max-width: 400px;
   z-index: 9999999999;
 }

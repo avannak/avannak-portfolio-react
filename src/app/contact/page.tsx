@@ -120,12 +120,6 @@ const ContactPage = (props: Props) => {
                   </Link>
                 </div>
               </div>
-              <div id="contact-header">
-                <p className="text" style={{ textAlign: "center" }}>
-                  I would love to work with you. <br />
-                  Let's work together!{" "}
-                </p>
-              </div>
               <ContactForm />
               <div className="end-navigation-container">
                 <Link href="/" className="end-navigation-link">

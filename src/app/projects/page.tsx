@@ -143,19 +143,23 @@ const MyWorkPage = () => {
                   </Link>
                 </div>
               </div>
-              <div className="description">
-                <span style={{ padding: "5px" }}>
-                  Stay tuned for more projects!
-                </span>
-                <span
-                  style={{
-                    padding: "5px",
-                    color: "rgb(161, 201, 254)",
-                    fontSize: ".8em",
-                  }}
-                >
-                  Click a Project for more details
-                </span>
+              <div id="description-container">
+                <div className="description">
+                  <div className="myprojects-header">
+                    <span style={{ padding: "5px" }}>
+                      Stay tuned for more projects!
+                    </span>
+                    <span
+                      style={{
+                        padding: "5px",
+                        color: "rgb(161, 201, 254)",
+                        fontSize: ".8em",
+                      }}
+                    >
+                      <br /> Click a project for more details
+                    </span>
+                  </div>
+                </div>
               </div>
               <div className="container" id="portfolio-container">
                 <div className="row">

@@ -1683,17 +1683,17 @@ section {
     justify-content: center;
     margin: auto;
     border-radius: 50px;
-    background: linear-gradient(#18397770, #0b0b0d);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.501);
+    background: linear-gradient(#183977, #0b0b0d);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.23);
     height: 100%;
-    max-width: 600px;
+    max-width: 500px;
     height: 200px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
     box-sizing: border-box;
     @media (max-width: 660px) {
-      max-width: 380px;
+      max-width: 350px;
     }
   }
   .description {
@@ -1705,7 +1705,7 @@ section {
       margin-bottom: auto;
       padding: 15px;
       border-radius: 30px;
-      background: rgba(0, 0, 0, 0.937);
+      background: rgba(14, 12, 12, 0.937);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.512);
       text-align: center;
     }
@@ -2081,9 +2081,9 @@ section {
       border-bottom-right-radius: 0px;
       padding-bottom: 15px;
       color: rgb(238, 248, 255);
-      box-shadow: rgba(46, 120, 240, 0.4) 0px 5px,
-        rgba(49, 46, 240, 0.3) 0px 10px, rgba(104, 46, 240, 0.2) 0px 15px,
-        rgba(59, 46, 240, 0.1) 0px 20px, rgba(46, 104, 240, 0.05) 0px 25px;
+      box-shadow: rgba(46, 120, 240, 0.4) 0px 3px,
+        rgba(49, 46, 240, 0.3) 0px 7px, rgba(104, 46, 240, 0.2) 0px 13px,
+        rgba(59, 46, 240, 0.1) 0px 17px, rgba(46, 104, 240, 0.05) 0px 23px;
       font-size: 1.4em;
       background: none;
     }

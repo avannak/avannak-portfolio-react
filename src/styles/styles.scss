@@ -1916,13 +1916,16 @@ section {
     width: 100%;
     z-index: 2;
   }
-  // Header
-  .header-container {
-    padding: 30px;
-    display: inherit;
+  #contact-header {
+    display: flex;
+    font-size: 1.5em;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     // Contact text
     .text {
       box-sizing: border-box;
@@ -1931,6 +1934,18 @@ section {
       align-items: center;
       justify-content: center;
     }
+  }
+  // Header
+  .header-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .emoji {
     margin: 5px;
@@ -2000,8 +2015,8 @@ section {
       );
     box-shadow: 0 4px 8px rgb(0, 0, 0);
     box-sizing: border-box;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 30px;
+    padding: 10px;
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -2101,16 +2116,24 @@ section {
     .image-container {
       line-height: 2em;
       box-sizing: border-box;
-      padding: 50px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: auto;
       height: 100%;
       width: 100%;
       order: -1;
-      flex: 40%;
-
+      flex: 50%;
+      .font-awesome-icon {
+        color: rgb(255, 255, 255);
+        height: 20px;
+        width: 20px;
+        padding: 10px;
+        @media (max-width: 590px) {
+          height: 30px;
+          width: 30px;
+        }
+      }
       @media (max-width: 596px) {
         order: 1;
       }

@@ -7,7 +7,7 @@ import axios from "axios";
 import Header from "@/components/Header";
 import smiley from "../../assets/images/smiley.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
@@ -118,9 +118,16 @@ const ContactForm = (props: Props) => {
       </div>
       <div className="image-container">
         <div className="description">
-          <span>
-            You can fill out the form or shoot a message straight to my inbox:
-          </span>
+          <div className="header-container">
+            <p className="contact-form title" style={{ textAlign: "center" }}>
+              <FontAwesomeIcon
+                className="font-awesome-icon"
+                icon={faMailBulk}
+              />
+              My Email{" "}
+            </p>
+          </div>
+          <span>Shoot a message straight to my inbox:</span>
           <span>
             <a
               id="email-link"

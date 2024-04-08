@@ -138,6 +138,7 @@ const NavMenu = (props: Props) => {
                 <Link id="start-link" href="/about">
                   <FloatingComponent floatStyle="floatX">
                     <FontAwesomeIcon
+                      id="hand-pointer"
                       icon={faHandPointRight}
                       style={{ marginRight: 15 }}
                     />

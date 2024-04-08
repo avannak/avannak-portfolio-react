@@ -1804,11 +1804,11 @@ section {
       background-repeat: no-repeat;
       background-position: center top;
       opacity: 0.3;
-      max-width: 1200px;
+      max-width: 1300px;
       z-index: -1;
       @media (max-width: 660px) {
         grid-template-columns: repeat(2, 1fr);
-        opacity: 0.1;
+        background-image: none;
       }
     }
   }

@@ -1577,7 +1577,7 @@ section {
   height: 140px;
   background: black;
   background-repeat: none;
-  box-shadow: 0 8px 15px rgb(0, 0, 0);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.395);
   width: 100%;
   box-sizing: border-box;
 
@@ -1754,7 +1754,7 @@ section {
       margin-bottom: auto;
       padding: 20px;
       border-radius: 30px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.817);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.323);
       color: #ffffff;
       background: linear-gradient(rgb(41, 90, 125), #171a43);
       text-align: center;

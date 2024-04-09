@@ -147,7 +147,7 @@ const MyWorkPage = () => {
                 <div className="description">
                   <div className="myprojects-header">
                     <span style={{ padding: "5px" }}>
-                      Stay tuned for more projects!
+                      Click a project for more details
                     </span>
                     <span
                       style={{
@@ -156,7 +156,7 @@ const MyWorkPage = () => {
                         fontSize: ".8em",
                       }}
                     >
-                      <br /> Click a project for more details
+                      <br /> Stay tuned for more projects!
                     </span>
                   </div>
                 </div>

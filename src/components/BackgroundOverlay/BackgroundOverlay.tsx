@@ -23,10 +23,10 @@ const BackgroundOverlay = (props: Props) => {
             innerStyle={imageStyle}
             priority
           />
-          <MouseParallaxVideo
+          {/* <MouseParallaxVideo
             id="particles-video"
             src="/videos/particles5.mp4"
-          />{" "}
+          />{" "} */}
         </>
       )}
       {props.parallax && isMobile && (
@@ -39,14 +39,14 @@ const BackgroundOverlay = (props: Props) => {
             width={window.innerWidth}
             height={window.innerHeight}
           />{" "}
-          <Image
+          {/* <Image
             id="particles-video"
             src="/images/particles5.webp"
             alt="particles"
             priority
             width={window.innerWidth}
             height={window.innerHeight}
-          />{" "}
+          />{" "} */}
         </>
       )}
       {!props.parallax && (
@@ -59,14 +59,14 @@ const BackgroundOverlay = (props: Props) => {
             width={window.innerWidth}
             height={window.innerHeight}
           />{" "}
-          <Image
+          {/* <Image
             id="particles-video"
             src="/images/particles5.webp"
             alt="particles"
             priority
             width={window.innerWidth}
             height={window.innerHeight}
-          />{" "}
+          />{" "} */}
         </>
       )}
     </>

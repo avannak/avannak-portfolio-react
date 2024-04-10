@@ -67,13 +67,6 @@ const ContactPage = (props: Props) => {
             }}
             exit={{ opacity: 0 }}
           >
-            <Image
-              priority={false}
-              className="mountain-pic"
-              src={mountain}
-              alt="mountain"
-              placeholder="blur"
-            ></Image>
             <div className="contact-section" id="contact-section">
               {parallaxIsOn && <BackgroundOverlay parallax />}
               {!parallaxIsOn && <BackgroundOverlay />}

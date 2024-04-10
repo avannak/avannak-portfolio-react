@@ -3,10 +3,9 @@ import { setMousePosition } from "@/app/GlobalRedux/Features/parallax/mousePosit
 import { RootState } from "@/app/GlobalRedux/store";
 import { useIsMobile } from "@/utils/isMobileDevice";
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { StaticImageData } from "next/image";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import particlesImg from "../../assets/images/particles5.webp";
 
 type MouseParallaxVideoProps = { src: string | StaticImageData; id?: string };
 

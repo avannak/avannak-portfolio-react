@@ -88,13 +88,6 @@ const MyWorkPage = () => {
           >
             {parallaxIsOn && <BackgroundOverlay parallax />}
             {!parallaxIsOn && <BackgroundOverlay />}
-            <Image
-              priority={false}
-              className="mountain-pic"
-              src={mountain}
-              alt="mountain"
-              placeholder="blur"
-            ></Image>
             <motion.section className="portfolio" id="portfolio">
               <div className="header-title navigation">
                 <div className="content-container">

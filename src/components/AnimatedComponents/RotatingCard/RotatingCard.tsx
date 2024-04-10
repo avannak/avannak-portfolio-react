@@ -121,10 +121,9 @@ const RotatingCard: React.FC<RotatingCardProps> = ({ children }) => {
           ref={cardRef}
           style={{
             zIndex: 999999999999,
-            rotateX,
-            rotateY,
-            transformPerspective: 9000,
-            backgroundImage: sheenGradient,
+            // rotateX,
+            // rotateY,
+            // transformPerspective: 9000,
           }}
         >
           {children}

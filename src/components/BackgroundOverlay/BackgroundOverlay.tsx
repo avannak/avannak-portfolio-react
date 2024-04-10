@@ -23,10 +23,10 @@ const BackgroundOverlay = (props: Props) => {
             innerStyle={imageStyle}
             priority
           />
-          {/* <MouseParallaxVideo
+          <MouseParallaxVideo
             id="particles-video"
             src="/videos/particles5.mp4"
-          />{" "} */}
+          />{" "}
         </>
       )}
       {props.parallax && isMobile && (

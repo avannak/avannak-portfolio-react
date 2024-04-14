@@ -229,9 +229,13 @@ const AboutPage = (props: Props) => {
                   </div>
                 </div>
                 <li className="skills">
-                  Focused on{" "}
+                  With a strong background in{" "}
                   <span className="highlight-tech">full-stack development</span>
-                  , I strive to create innovative applications. Also a{" "}
+                  , I am committed to engineering cutting-edge applications that
+                  stand at the intersection of functionality and innovation.
+                </li>
+                <li>
+                  Also a{" "}
                   <span className="highlight-art">singer-songwriter</span> and{" "}
                   <span className="highlight-art">music producer</span>, I blend
                   creativity seamlessly.
@@ -244,8 +248,8 @@ const AboutPage = (props: Props) => {
                   <div className="rokit-container">
                     <div className="rokit-container-wrapper top">
                       <span className="invitation">
-                        Intrigued by the harmony of my music and tech? Explore
-                        the rhythm of my studio and creations.
+                        Please feel free to explore the details of my
+                        professional music studio setup.
                       </span>
                     </div>
                     <div className="rokit-container-wrapper bottom">

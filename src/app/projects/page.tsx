@@ -2,27 +2,39 @@
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Modal from "@/components/Modal/Modal";
 import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
+import { useImageLoading } from "@/hooks/useImagesLoaded";
+import useLoading from "@/hooks/useLoading";
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { useState, useContext } from "react";
-import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RingLoader } from "react-spinners";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
+import financy from "../../assets/images/financy.png";
 import gatormedia from "../../assets/images/gatormedia.webp";
 import musicplayer from "../../assets/images/musicplayer.webp";
-import rapidhealth from "../../assets/images/rapidhealth.webp";
-import financy from "../../assets/images/financy.png";
 import portFolio from "../../assets/images/portfolio.webp";
-import mountain from "../../assets/images/mountain.webp";
-import useLoading from "@/hooks/useLoading";
-import { RingLoader } from "react-spinners";
-import { useSelector } from "react-redux";
+import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
+import rapidhealth from "../../assets/images/rapidhealth.webp";
 import { RootState } from "../GlobalRedux/types";
-import Image from "next/image";
-import { useImageLoading } from "@/hooks/useImagesLoaded";
+import dynamic from "next/dynamic";
+import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
+import { createTextTexture } from "../../components/AnimatedComponents/JellyDescription";
+import { useIsMobile } from "@/utils/isMobileDevice";
+
+const TexturedJellyDescription = dynamic(
+  () => import("../../components/AnimatedComponents/JellyDescription"),
+  {
+    ssr: false,
+  }
+);
 
 const MyWorkPage = () => {
+  const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
   const isLoading = useLoading();
@@ -44,6 +56,16 @@ const MyWorkPage = () => {
   ];
 
   const imagesLoaded = useImageLoading(images);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const texture = createTextTexture(
+      "Click on a project for more details, Stay tuned for more projects!",
+      512,
+      256
+    );
+    setTextTexture(texture);
+  }, []);
 
   return (
     <>
@@ -138,20 +160,25 @@ const MyWorkPage = () => {
               </div>
               <div id="description-container">
                 <div className="description">
-                  <div className="myprojects-header">
-                    <span style={{ padding: "5px" }}>
-                      Click a project for more details
-                    </span>
-                    <span
-                      style={{
-                        padding: "5px",
-                        color: "rgb(161, 201, 254)",
-                        fontSize: ".8em",
-                      }}
-                    >
-                      <br /> Stay tuned for more projects!
-                    </span>
-                  </div>
+                  <Canvas>
+                    <ambientLight intensity={7} />
+                    <spotLight
+                      position={[10, 10, 10]}
+                      angle={0.15}
+                      penumbra={1}
+                    />
+                    <pointLight position={[10, 10, 10]} />
+                    {textTexture && (
+                      <TexturedJellyDescription
+                        texture={textTexture}
+                        scale={[
+                          isMobile ? 1.5 : 3,
+                          isMobile ? 1.5 : 3,
+                          isMobile ? 1.5 : 3,
+                        ]}
+                      />
+                    )}
+                  </Canvas>
                 </div>
               </div>
               <div className="container" id="portfolio-container">

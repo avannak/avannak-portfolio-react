@@ -134,12 +134,12 @@ const JellyDescription = ({
   const [hover, setHover] = useState(false);
   const { viewport, pointer } = useThree();
   const simplex = createNoise3D();
-  const noiseScale = 2;
+  const noiseScale = 3;
   const noiseSpeed = 0.2;
   const maxDeformation = 1;
   const influenceRadius = 1;
   const springStrength = 0.1;
-  const borderThickness = 0.1;
+  const borderThickness = 0.01;
   const borderAmplitude = 0.03;
 
   useFrame((state) => {

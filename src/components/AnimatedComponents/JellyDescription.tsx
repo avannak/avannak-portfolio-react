@@ -15,7 +15,7 @@ export function createTextTexture(
   if (context) {
     // Background gradient
     const gradient = context.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "#171f45de");
+    gradient.addColorStop(0, "#171f45");
     gradient.addColorStop(1, "#090c17e6");
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
@@ -31,12 +31,12 @@ export function createTextTexture(
 
     // Bordered outline
     context.strokeStyle = "#000000";
-    context.lineWidth = 8;
+    context.lineWidth = 5;
     context.strokeText(lines[0], width / 2, height / 2 - lineHeight / 2);
     context.strokeText(lines[1], width / 2, height / 2 + lineHeight / 2);
 
     // 3D effect
-    context.fillStyle = "#e2f0fb";
+    context.fillStyle = "#acc8ff";
     context.fillText(lines[0], width / 2, height / 2 - lineHeight / 2);
     context.fillText(lines[1], width / 2, height / 2 + lineHeight / 2);
   }

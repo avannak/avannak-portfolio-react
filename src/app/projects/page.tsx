@@ -158,8 +158,9 @@ const MyWorkPage = () => {
                   </Link>
                 </div>
               </div>
-              <div id="description-container">
-                <div className="description">
+              <div className="description-container">
+                <div className="description-background"></div>
+                <div id="jelly-description">
                   <Canvas>
                     <ambientLight intensity={7} />
                     <spotLight

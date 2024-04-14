@@ -15,8 +15,9 @@ export function createTextTexture(
   if (context) {
     // Background gradient
     const gradient = context.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "#171f45");
-    gradient.addColorStop(1, "#090c17e6");
+    gradient.addColorStop(0, "#132340ab");
+    gradient.addColorStop(0.5, "#11835ba4");
+    gradient.addColorStop(1, "#1718328e");
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
 
@@ -36,7 +37,7 @@ export function createTextTexture(
     context.strokeText(lines[1], width / 2, height / 2 + lineHeight / 2);
 
     // 3D effect
-    context.fillStyle = "#acc8ff";
+    context.fillStyle = "#c9cccb";
     context.fillText(lines[0], width / 2, height / 2 - lineHeight / 2);
     context.fillText(lines[1], width / 2, height / 2 + lineHeight / 2);
   }
@@ -140,7 +141,7 @@ const JellyDescription = ({
   const influenceRadius = 1;
   const springStrength = 0.1;
   const borderThickness = 0.01;
-  const borderAmplitude = 0.03;
+  const borderAmplitude = 0.04;
 
   useFrame((state) => {
     const mesh = meshRef.current;

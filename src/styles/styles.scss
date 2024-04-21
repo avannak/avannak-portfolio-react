@@ -1858,7 +1858,7 @@ section {
     flex-direction: row;
     justify-content: center;
     width: 95%;
-    max-width: 500px;
+    max-width: 400px;
     height: 300px;
     max-height: 95%;
     margin: auto;
@@ -2174,9 +2174,9 @@ section {
       border-bottom-right-radius: 0px;
       padding-bottom: 15px;
       color: rgb(238, 248, 255);
-      box-shadow: rgba(46, 120, 240, 0.4) 0px 3px,
-        rgba(49, 46, 240, 0.3) 0px 7px, rgba(104, 46, 240, 0.2) 0px 13px,
-        rgba(59, 46, 240, 0.1) 0px 17px, rgba(46, 104, 240, 0.05) 0px 23px;
+      box-shadow: rgba(46, 120, 240, 0.4) 0px 2px,
+        rgba(49, 46, 240, 0.3) 0px 5px, rgba(104, 46, 240, 0.2) 0px 11px,
+        rgba(59, 46, 240, 0.1) 0px 15px, rgba(46, 104, 240, 0.05) 0px 21px;
       font-size: 1.4em;
       background: none;
     }
@@ -2348,7 +2348,11 @@ section {
         box-sizing: border-box;
         width: 80%;
         padding: 18px;
-        background: rgba(0, 0, 0, 0.485);
+        background: linear-gradient(
+          217deg,
+          rgba(14, 15, 50, 0.668),
+          rgba(3, 8, 9, 0.709) 70.71%
+        );
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgb(0, 0, 0);

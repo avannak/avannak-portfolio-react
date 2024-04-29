@@ -178,7 +178,7 @@ body {
   font-weight: bold;
   color: #000000;
   justify-content: center;
-  width: 200px;
+  width: 230px;
   height: 50px;
   padding: 15px;
   position: relative;
@@ -187,10 +187,10 @@ body {
   text-align: center;
   background: linear-gradient(
     to left,
-    hsla(220, 17%, 7%, 0.5) 0%,
-    /* Light Blue */ hsla(240, 24%, 15%, 0.581) 30%,
-    /* Blue-Purple */ hsla(278, 27%, 8%, 0.8) 70%,
-    /* Deep Purple */ hsla(300, 20%, 6%, 0.585) 100% /* Dark Pink */
+    hsl(220, 17%, 7%) 0%,
+    /* Light Blue */ hsla(240, 24%, 15%, 0.928) 30%,
+    /* Blue-Purple */ hsla(278, 27%, 8%, 0.821) 70%,
+    /* Deep Purple */ hsla(300, 20%, 6%, 0.853) 100% /* Dark Pink */
   );
   .icon {
     margin-left: 10px;
@@ -1912,7 +1912,10 @@ section {
     z-index: 1;
 
     @media (max-width: 1020px) {
-      height: 300px;
+      height: 200px;
+    }
+    @media (max-width: 500px) {
+      height: 200px;
     }
   }
 

@@ -129,7 +129,7 @@ const ParticleSystem = ({ position, hover }: any) => {
 
 const JellyDescription = ({
   texture,
-  scale = [4, 4, 4] as [number, number, number],
+  scale = [1, 1, 1] as [number, number, number],
 }: any) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hover, setHover] = useState(false);

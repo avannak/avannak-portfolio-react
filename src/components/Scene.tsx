@@ -310,7 +310,7 @@ const Model = ({
       }}
     >
       {!zoomInMonitor && (
-        <Html position={[0, 1.3, -2.5]}>
+        <Html position={[-0.7, 1.3, -2.5]}>
           <nav>
             {cameraType === "fixedCamera" && (
               <button

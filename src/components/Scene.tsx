@@ -478,15 +478,17 @@ const Scene = () => {
     }, [cameraType, camera, freeCameraPosition, freeCameraAngle]);
 
     return (
-      cameraType === "freeCamera" && (
-        <OrbitControls
-          ref={orbitControlsRef}
-          enablePan={false}
-          enableRotate={true}
-          minDistance={3}
-          maxDistance={10}
-        />
-      )
+      <>
+        {cameraType === "freeCamera" && (
+          <OrbitControls
+            ref={orbitControlsRef}
+            enablePan={false}
+            enableRotate={true}
+            minDistance={3}
+            maxDistance={10}
+          />
+        )}
+      </>
     );
   };
 

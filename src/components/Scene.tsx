@@ -92,6 +92,41 @@ const CameraController = ({
   return null;
 };
 
+const MobileOverlay = ({
+  isVisible,
+  onNavClick,
+  onRouteClick,
+  activeRoute,
+}: any) => {
+  return isVisible ? (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 10,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+      }}
+    >
+      <nav>
+        <button onClick={onNavClick}>Back to Scene</button>
+        {/* Other navigation buttons */}
+      </nav>
+      <div>
+        {activeRoute === "home" && <NavMenu />}
+        {activeRoute === "about" && <AboutPage />}
+        {/* Other route content */}
+      </div>
+    </div>
+  ) : null;
+};
+
 const Model = ({
   cameraType,
   setCameraType,
@@ -266,8 +301,8 @@ const Model = ({
       )}
       <Html
         position={
-          zoomInMonitor
-            ? [0, 2, 1]
+          isMobile && zoomInMonitor
+            ? [0, 2, -5]
             : zoomInMonitor
             ? [0, 2.3, -4]
             : cameraType === "freeCamera"
@@ -277,7 +312,7 @@ const Model = ({
         rotation={[0, 0, 0]}
         transform
         distanceFactor={
-          isMobile && zoomInMonitor ? 0.5 : cameraType === "freeCamera" ? 1 : 1
+          isMobile && zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
         }
         style={{
           width: zoomInMonitor ? "100vw" : "1200px",
@@ -286,12 +321,13 @@ const Model = ({
             : cameraType === "freeCamera"
             ? "1000px"
             : "1530px",
+          minHeight: zoomInMonitor ? "1000px" : "500px",
           height: "100vh",
           maxHeight: zoomInMonitor
             ? "100vh"
             : cameraType === "freeCamera"
-            ? "450px"
-            : "450px",
+            ? "500px"
+            : "500px",
           background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
           transformStyle: "preserve-3d",
           overflowY: zoomInMonitor ? "auto" : "hidden",

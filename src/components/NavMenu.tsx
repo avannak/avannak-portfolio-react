@@ -13,9 +13,7 @@ import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import StyledButton from "./Button/StyledButton";
 import { Dispatch, SetStateAction } from "react";
 
-type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
-
-const NavMenu = ({ setActiveRoute }: Props) => {
+const NavMenu = ({ setActiveRoute }: any) => {
   return (
     <div className="nav-menu">
       <div className="nav-menu-container">

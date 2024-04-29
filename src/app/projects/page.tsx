@@ -243,21 +243,21 @@ const MyWorkPage = ({ setActiveRoute }: any) => {
                   />
                 </div>
               </div>
-            </motion.section>
-            <div className="end-navigation-container">
-              <div
-                onClick={() => setActiveRoute("contact")}
-                className="end-navigation-link"
-              >
-                <div className="end-navigation">
-                  <FontAwesomeIcon
-                    className="icon"
-                    icon={faRightLong}
-                  ></FontAwesomeIcon>
-                  <span>Next: Go To Contact Page</span>
+              <div className="end-navigation-container">
+                <div
+                  onClick={() => setActiveRoute("contact")}
+                  className="end-navigation-link"
+                >
+                  <div className="end-navigation">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faRightLong}
+                    ></FontAwesomeIcon>
+                    <span>Next: Go To Contact Page</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.section>
           </motion.div>
         </>
       )}

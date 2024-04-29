@@ -21,7 +21,7 @@ import ContactPage from "@/app/contact/page";
 import NavMenu from "./NavMenu";
 import { useIsMobile } from "@/utils/isMobileDevice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
 
 extend({ SpotLight });
 
@@ -97,9 +97,14 @@ const MobileOverlay = ({
   onNavClick,
   onRouteClick,
   activeRoute,
+  setActiveRoute,
+  handleRouteClick,
+  setZoomInMonitor,
+  setCameraType,
 }: any) => {
   return isVisible ? (
     <div
+      className="monitor-content"
       style={{
         position: "absolute",
         top: 0,
@@ -114,14 +119,53 @@ const MobileOverlay = ({
         backgroundColor: "rgba(0, 0, 0, 0.8)",
       }}
     >
-      <nav>
-        <button onClick={onNavClick}>Back to Scene</button>
-        {/* Other navigation buttons */}
+      <nav className="monitor-nav">
+        <button
+          className="monitor-nav-btn"
+          onClick={() => handleRouteClick("home")}
+        >
+          Home
+        </button>
+        <button
+          className="monitor-nav-btn"
+          onClick={() => handleRouteClick("about")}
+        >
+          About
+        </button>
+        <button
+          className="monitor-nav-btn"
+          onClick={() => handleRouteClick("projects")}
+        >
+          Projects
+        </button>
+        <button
+          className="monitor-nav-btn"
+          onClick={() => handleRouteClick("contact")}
+        >
+          Contact
+        </button>
+        <button
+          className="monitor-nav-btn"
+          onClick={() => {
+            setZoomInMonitor(false);
+            setCameraType("fixedCamera");
+          }}
+        >
+          Back To Scene
+        </button>
       </nav>
-      <div>
-        {activeRoute === "home" && <NavMenu />}
-        {activeRoute === "about" && <AboutPage />}
-        {/* Other route content */}
+
+      <div className="route-content">
+        {activeRoute! === "home" && <NavMenu setActiveRoute={setActiveRoute} />}
+        {activeRoute! === "about" && (
+          <AboutPage setActiveRoute={setActiveRoute} />
+        )}
+        {activeRoute! === "projects" && (
+          <MyWorkPage setActiveRoute={setActiveRoute} />
+        )}
+        {activeRoute! === "contact" && (
+          <ContactPage setActiveRoute={setActiveRoute} />
+        )}
       </div>
     </div>
   ) : null;
@@ -136,6 +180,9 @@ const Model = ({
   lightOn,
   setFreeCameraPosition,
   setFreeCameraAngle,
+  activeRoute,
+  setActiveRoute,
+  handleRouteClick,
 }: any) => {
   const { scene } = useGLTF("scenes/WorkRoom2-v1.glb");
   const monitorRef = useRef<Mesh>(null!);
@@ -144,7 +191,6 @@ const Model = ({
   const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
   const [clickedMonitor, setClickedMonitor] = useState(false);
   const [clickedLightSwitch, setClickedLightSwitch] = useState(false);
-  const [activeRoute, setActiveRoute] = useState("home");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -250,14 +296,6 @@ const Model = ({
     }
   };
 
-  const handleRouteClick = (route: string) => {
-    setActiveRoute(route);
-    if (route === "freeCamera") {
-      setFreeCameraPosition(new Vector3(0, 5, 5));
-      setFreeCameraAngle(new THREE.Euler(0, -4, 0));
-    }
-  };
-
   return (
     <primitive
       object={scene}
@@ -271,7 +309,7 @@ const Model = ({
       }}
     >
       {!zoomInMonitor && (
-        <Html position={[0, 2, -2.5]}>
+        <Html position={[0, 1.3, -2.5]}>
           <nav>
             {cameraType === "fixedCamera" && (
               <button
@@ -294,115 +332,125 @@ const Model = ({
                 }}
               >
                 Back To Scene
+                <FontAwesomeIcon className="icon" icon={faRotateBackward} />
               </button>
             )}
           </nav>
         </Html>
       )}
-      <Html
-        position={
-          isMobile && zoomInMonitor
-            ? [0, 2, -5]
-            : zoomInMonitor
-            ? [0, 2.3, -4]
-            : cameraType === "freeCamera"
-            ? [-0.35, 2.4, -3.56]
-            : [-0.35, 2.4, -5]
-        }
-        rotation={[0, 0, 0]}
-        transform
-        distanceFactor={
-          isMobile && zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
-        }
-        style={{
-          width: zoomInMonitor ? "100vw" : "1200px",
-          minWidth: zoomInMonitor
-            ? "100vw"
-            : cameraType === "freeCamera"
-            ? "1000px"
-            : "1530px",
-          minHeight: zoomInMonitor ? "1000px" : "500px",
-          height: "100vh",
-          maxHeight: zoomInMonitor
-            ? "100vh"
-            : cameraType === "freeCamera"
-            ? "500px"
-            : "500px",
-          background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
-          transformStyle: "preserve-3d",
-          overflowY: zoomInMonitor ? "auto" : "hidden",
-        }}
-      >
-        <div
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            !zoomInMonitor && setZoomInMonitor(true);
-            !zoomInMonitor && setCameraType("fixedCamera");
+      {!zoomInMonitor && (
+        <Html
+          position={
+            isMobile && zoomInMonitor
+              ? [0, 2, -5]
+              : zoomInMonitor
+              ? [0, 2.3, -4]
+              : cameraType === "freeCamera"
+              ? [-0.35, 2.4, -3.56]
+              : [-0.35, 2.4, -5]
+          }
+          rotation={[0, 0, 0]}
+          transform
+          distanceFactor={
+            isMobile && zoomInMonitor
+              ? 0.1
+              : cameraType === "freeCamera"
+              ? 1
+              : 1
+          }
+          style={{
+            width: zoomInMonitor ? "100vw" : "1200px",
+            minWidth: zoomInMonitor
+              ? "100vw"
+              : cameraType === "freeCamera"
+              ? "1000px"
+              : "1530px",
+            minHeight: zoomInMonitor ? "1000px" : "500px",
+            height: "100vh",
+            maxHeight: zoomInMonitor
+              ? "100vh"
+              : cameraType === "freeCamera"
+              ? "500px"
+              : "500px",
+            background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
+            transformStyle: "preserve-3d",
+            overflowY: zoomInMonitor ? "auto" : "hidden",
           }}
         >
           <div
-            className="monitor-content"
-            style={{
-              cursor: zoomInMonitor ? "auto" : "pointer",
-              pointerEvents: zoomInMonitor ? "auto" : "none",
-              overflowY: "hidden",
-              marginTop: zoomInMonitor ? "90px" : "0",
+            className="clickable-screen"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              !zoomInMonitor && setZoomInMonitor(true);
+              !zoomInMonitor && setCameraType("fixedCamera");
             }}
           >
-            {zoomInMonitor && (
-              <nav className="monitor-nav">
-                <button
-                  className="monitor-nav-btn"
-                  onClick={() => handleRouteClick("home")}
-                >
-                  Home
-                </button>
-                <button
-                  className="monitor-nav-btn"
-                  onClick={() => handleRouteClick("about")}
-                >
-                  About
-                </button>
-                <button
-                  className="monitor-nav-btn"
-                  onClick={() => handleRouteClick("projects")}
-                >
-                  Projects
-                </button>
-                <button
-                  className="monitor-nav-btn"
-                  onClick={() => handleRouteClick("contact")}
-                >
-                  Contact
-                </button>
-                <button
-                  className="monitor-nav-btn"
-                  onClick={() => {
-                    setZoomInMonitor(false);
-                    setCameraType("fixedCamera");
-                  }}
-                >
-                  Back To Scene
-                </button>
-              </nav>
-            )}
-            <div className="route-content">
-              {activeRoute! === "home" && (
-                <NavMenu setActiveRoute={setActiveRoute} />
+            <div
+              className="monitor-content"
+              style={{
+                cursor: zoomInMonitor ? "auto" : "pointer",
+                pointerEvents: zoomInMonitor ? "auto" : "none",
+                overflowY: "hidden",
+                marginTop: zoomInMonitor ? "90px" : "0",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              {zoomInMonitor && (
+                <nav className="monitor-nav">
+                  <button
+                    className="monitor-nav-btn"
+                    onClick={() => handleRouteClick("home")}
+                  >
+                    Home
+                  </button>
+                  <button
+                    className="monitor-nav-btn"
+                    onClick={() => handleRouteClick("about")}
+                  >
+                    About
+                  </button>
+                  <button
+                    className="monitor-nav-btn"
+                    onClick={() => handleRouteClick("projects")}
+                  >
+                    Projects
+                  </button>
+                  <button
+                    className="monitor-nav-btn"
+                    onClick={() => handleRouteClick("contact")}
+                  >
+                    Contact
+                  </button>
+                  <button
+                    className="monitor-nav-btn"
+                    onClick={() => {
+                      setZoomInMonitor(false);
+                      setCameraType("fixedCamera");
+                    }}
+                  >
+                    Back To Scene
+                  </button>
+                </nav>
               )}
-              {activeRoute! === "about" && (
-                <AboutPage setActiveRoute={setActiveRoute} />
-              )}
-              {activeRoute! === "projects" && (
-                <MyWorkPage setActiveRoute={setActiveRoute} />
-              )}
-              {activeRoute! === "contact" && (
-                <ContactPage setActiveRoute={setActiveRoute} />
-              )}
+              <div className="route-content">
+                {activeRoute! === "home" && (
+                  <NavMenu setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "about" && (
+                  <AboutPage setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "projects" && (
+                  <MyWorkPage setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "contact" && (
+                  <ContactPage setActiveRoute={setActiveRoute} />
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </Html>
+        </Html>
+      )}
     </primitive>
   );
 };
@@ -464,6 +512,7 @@ const Scene = () => {
   const [zoomInMonitor, setZoomInMonitor] = useState(false);
   const [cameraType, setCameraType] = useState("fixedCamera");
   const [lightOn, setLightOn] = useState(true);
+  const [activeRoute, setActiveRoute] = useState("home");
   const pointLightRef = useRef<PointLight>(null!);
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
@@ -472,6 +521,13 @@ const Scene = () => {
   const [freeCameraAngle, setFreeCameraAngle] = useState(
     new THREE.Euler(0, -4, 0)
   );
+  const handleRouteClick = (route: string) => {
+    setActiveRoute(route);
+    if (route === "freeCamera") {
+      setFreeCameraPosition(new Vector3(0, 5, 5));
+      setFreeCameraAngle(new THREE.Euler(0, -4, 0));
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -572,6 +628,8 @@ const Scene = () => {
             setLightOn={setLightOn}
             setFreeCameraPosition={setFreeCameraPosition}
             setFreeCameraAngle={setFreeCameraAngle}
+            activeRoute={activeRoute}
+            setActiveRoute={setActiveRoute}
           />
           {/* <Monitor onClick={handleMonitorClick} /> */}
           {cameraType !== "freeCamera" && (
@@ -594,6 +652,18 @@ const Scene = () => {
         </Suspense>
         {/* <CameraPosition /> */}
       </Canvas>
+      {zoomInMonitor && (
+        <MobileOverlay
+          isVisible={zoomInMonitor}
+          onNavClick={() => setZoomInMonitor(false)}
+          onRouteClick={handleRouteClick}
+          activeRoute={activeRoute}
+          setActiveRoute={setActiveRoute}
+          handleRouteClick={handleRouteClick}
+          setZoomInMonitor={setZoomInMonitor}
+          setCameraType={setCameraType}
+        />
+      )}
     </div>
   );
 };

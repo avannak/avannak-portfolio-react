@@ -52,9 +52,16 @@ body {
   max-width: 100%;
   min-width: 370px;
 }
+.clickable-screen {
+  width: 100vw;
+  height: 100vh;
+}
 
-.canvasContainer {
-  touch-action: none;
+.route-content {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: 100vh;
 }
 
 .monitor-content {
@@ -74,9 +81,9 @@ body {
     );
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    width: 100%;
+    width: 100vw;
     // min-width: 370px;
-    height: 100px;
+    height: 60px;
   }
   button {
     cursor: pointer;
@@ -881,13 +888,11 @@ section {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  margin-top: 0;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
   width: 100%;
   min-width: min-content;
   border-radius: 5px;
@@ -1665,7 +1670,7 @@ section {
   position: relative;
   z-index: 1;
   height: 140px;
-  background: black;
+  background: rgba(0, 0, 0, 0.966);
   background-repeat: none;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.395);
   width: 100%;
@@ -1678,8 +1683,6 @@ section {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("/images/moon_texture.webp");
-    opacity: 0.1;
     z-index: -2;
   }
   .content-container {
@@ -1849,17 +1852,13 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 300px;
     z-index: 1;
 
     @media (max-width: 1020px) {
-      position: absolute;
-      margin-left: 60px;
-      margin-right: auto;
-      height: 400px;
-      width: 100%;
+      height: 300px;
     }
   }
 

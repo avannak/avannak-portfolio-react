@@ -116,7 +116,7 @@ const ContactPage = ({ setActiveRoute }: any) => {
                       className="icon"
                       icon={faRotateLeft}
                     ></FontAwesomeIcon>
-                    <span>Go Back To Home Page</span>
+                    <span>Go Back To Title Screen</span>
                   </div>
                 </div>
               </div>

@@ -122,9 +122,19 @@ const MobileOverlay = ({
       <nav className="monitor-nav">
         <button
           className="monitor-nav-btn"
+          id="back-to-scene-btn"
+          onClick={() => {
+            setZoomInMonitor(false);
+            setCameraType("fixedCamera");
+          }}
+        >
+          <FontAwesomeIcon className="icon" icon={faRotateBackward} />
+        </button>
+        <button
+          className="monitor-nav-btn"
           onClick={() => handleRouteClick("home")}
         >
-          Home
+          Title
         </button>
         <button
           className="monitor-nav-btn"
@@ -143,15 +153,6 @@ const MobileOverlay = ({
           onClick={() => handleRouteClick("contact")}
         >
           Contact
-        </button>
-        <button
-          className="monitor-nav-btn"
-          onClick={() => {
-            setZoomInMonitor(false);
-            setCameraType("fixedCamera");
-          }}
-        >
-          Back To Scene
         </button>
       </nav>
 

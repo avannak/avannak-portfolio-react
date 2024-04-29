@@ -113,7 +113,7 @@ const AboutPage = ({ setActiveRoute }: any) => {
                       className="icon"
                       icon={faHome}
                     ></FontAwesomeIcon>
-                    <span>Home</span>
+                    <span>Title</span>
                   </div>
                 </div>
                 <h1

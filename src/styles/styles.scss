@@ -89,24 +89,78 @@ body {
     cursor: pointer;
   }
   .monitor-nav-btn {
-    font-size: 1em;
+    @media (max-width: 500px) {
+      font-size: 0.8em;
+      max-width: 70px;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 0.9em;
     font-weight: bold;
     color: #000000;
-    text-align: center;
-    margin: 5px;
-    width: 100px;
+    justify-content: center;
     height: 50px;
+    width: 180px;
+    margin: 3px;
+    padding: 15px;
     position: relative;
     border-radius: 12px;
     color: white;
+    text-align: center;
+    transition: filter 250ms, box-shadow 250ms, transform 250ms; // Add transform to transition
     background: linear-gradient(
-      to left,
-      hsl(220, 16%, 7%) 0%,
-      /* Light Blue */ hsl(240, 24%, 15%) 30%,
-      /* Blue-Purple */ hsl(282, 25%, 8%) 70%,
-      /* Deep Purple */ hsl(300, 20%, 6%) 100% /* Dark Pink */
-    );
+        217deg,
+        rgb(37, 37, 49),
+        rgba(6, 2, 2, 0.4) 70.71%
+      ),
+      linear-gradient(
+        127deg,
+        rgba(39, 44, 39, 0.652),
+        rgba(13, 45, 13, 0.073) 70.71%
+      ),
+      linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
+    filter: brightness(110%);
+    box-shadow: rgba(0, 0, 0, 0.923) 0px 0px 10px,
+      rgba(17, 16, 41, 0.352) 0px 0px 14px;
+    &:hover {
+      svg {
+        transition: transform 0.5s ease;
+        transform: rotate(-30deg);
+      }
+
+      background: linear-gradient(
+          217deg,
+          rgba(18, 3, 3, 0.298),
+          rgba(6, 2, 2, 0.709) 70.71%
+        ),
+        linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%),
+        linear-gradient(
+          336deg,
+          rgba(6, 6, 24, 0.946),
+          rgba(6, 6, 23, 0.252) 70.71%
+        );
+      filter: brightness(110%);
+      box-shadow: rgba(0, 0, 0, 0.174) 0px 0px 8px,
+        /* Initial shadow */ rgb(255, 255, 255) 0px 0px 4px; /* Expanded shadow */
+    }
+
+    .icon {
+      margin-left: 10px;
+      padding: 0px;
+      font-size: 30px;
+    }
   }
+}
+#back-to-scene-btn {
+  background-color: rgb(255, 255, 255);
 }
 
 .camera-nav-btn {

@@ -10,16 +10,16 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { Dispatch, SetStateAction } from "react";
 import { RingLoader } from "react-spinners";
 import ContactForm from "../../PageComponents/contact/ContactForm";
 import callMe from "../../assets/images/call.webp";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 
-type Props = { setActiveRoute: any };
+type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
 
-const ContactPage = (props: Props) => {
+const ContactPage = ({ setActiveRoute }: Props) => {
   const isLoading = useLoading();
   const images = [mountain, smiley, callMe];
 
@@ -63,7 +63,7 @@ const ContactPage = (props: Props) => {
               <div className="header-title navigation">
                 <div className="content-container">
                   <div
-                    onClick={() => props.setActiveRoute("projects")}
+                    onClick={() => setActiveRoute("projects")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -93,7 +93,7 @@ const ContactPage = (props: Props) => {
                     />
                   </h1>
                   <div
-                    onClick={() => props.setActiveRoute("home")}
+                    onClick={() => setActiveRoute("home")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -110,7 +110,7 @@ const ContactPage = (props: Props) => {
               <ContactForm />
               <div className="end-navigation-container">
                 <div
-                  onClick={() => props.setActiveRoute("home")}
+                  onClick={() => setActiveRoute("home")}
                   className="end-navigation-link"
                 >
                   <div className="end-navigation">

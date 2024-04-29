@@ -11,10 +11,11 @@ import musicNote from "../assets/images/music-note-blue.webp";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import StyledButton from "./Button/StyledButton";
+import { Dispatch, SetStateAction } from "react";
 
-type Props = { setActiveRoute: any };
+type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
 
-const NavMenu = (props: Props) => {
+const NavMenu = ({ setActiveRoute }: Props) => {
   return (
     <div className="nav-menu">
       <div className="nav-menu-container">
@@ -135,10 +136,7 @@ const NavMenu = (props: Props) => {
               transition={{ duration: 1.5, delay: 0.8 }}
             >
               <li>
-                <div
-                  id="start-link"
-                  onClick={() => props.setActiveRoute("about")}
-                >
+                <div id="start-link" onClick={() => setActiveRoute("about")}>
                   <FloatingComponent floatStyle="floatX">
                     <FontAwesomeIcon
                       id="hand-pointer"

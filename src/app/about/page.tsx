@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import dynamic from "next/dynamic";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
+import { TypingEffectMission } from "@/components/AnimatedComponents/TypingEffectMission";
 import Tooltip from "@/components/Tooltip/Tooltip";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
@@ -24,11 +23,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
+import smileyGlasses from "public/images/male_avatar.svg";
+import { Dispatch, SetStateAction } from "react";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
-import { useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
 import akai from "../../assets/images/akai-pixel.png";
 import artPixel from "../../assets/images/artpixel2.webp";
@@ -39,19 +39,17 @@ import macBook from "../../assets/images/macbook-pixel.webp";
 import rodePixel from "../../assets/images/rode-pixel.png";
 import rokit from "../../assets/images/rokit.webp";
 import sg from "../../assets/images/sg-pixel.webp";
-import smileyGlasses from "public/images/male_avatar.svg";
 import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import { TypingEffectMission } from "@/components/AnimatedComponents/TypingEffectMission";
 
 const RotatingCard = dynamic(
   () => import("@/components/AnimatedComponents/RotatingCard/RotatingCard"),
   { ssr: false }
 );
 
-type Props = { setActiveRoute: any };
+type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
 
-const AboutPage = (props: Props) => {
+const AboutPage = ({ setActiveRoute }: Props) => {
   const isLoading = useLoading();
   const images = [
     akai,
@@ -108,7 +106,7 @@ const AboutPage = (props: Props) => {
             <div className="header-title navigation">
               <div className="content-container">
                 <div
-                  onClick={() => props.setActiveRoute("home")}
+                  onClick={() => setActiveRoute("home")}
                   className="link"
                   style={{ width: "100%" }}
                 >
@@ -139,7 +137,7 @@ const AboutPage = (props: Props) => {
                   />
                 </h1>
                 <div
-                  onClick={() => props.setActiveRoute("projects")}
+                  onClick={() => setActiveRoute("projects")}
                   className="link"
                   style={{ width: "100%" }}
                 >
@@ -446,10 +444,7 @@ const AboutPage = (props: Props) => {
                   and grow. If you have a good opportunity that matches my
                   skills and experience then don't hesitate to contact me.
                 </p>
-                <div
-                  onClick={() => props.setActiveRoute("contact")}
-                  className="link"
-                >
+                <div onClick={() => setActiveRoute("contact")} className="link">
                   <button className="pushable contact">
                     <span className="shadow"></span>
                     <span className="edge blue"></span>
@@ -465,7 +460,7 @@ const AboutPage = (props: Props) => {
                 </div>
                 <div className="end-navigation-container">
                   <div
-                    onClick={() => props.setActiveRoute("projects")}
+                    onClick={() => setActiveRoute("projects")}
                     className="end-navigation-link"
                   >
                     <div className="end-navigation">

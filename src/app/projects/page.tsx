@@ -10,8 +10,7 @@ import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { RingLoader } from "react-spinners";
 import * as THREE from "three";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
@@ -30,9 +29,9 @@ const TexturedJellyDescription = dynamic(
   }
 );
 
-type Props = { setActiveRoute: any };
+type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
 
-const MyWorkPage = (props: Props) => {
+const MyWorkPage = ({ setActiveRoute }: Props) => {
   const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
@@ -108,7 +107,7 @@ const MyWorkPage = (props: Props) => {
               <div className="header-title navigation">
                 <div className="content-container">
                   <div
-                    onClick={() => props.setActiveRoute("about")}
+                    onClick={() => setActiveRoute("about")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -138,7 +137,7 @@ const MyWorkPage = (props: Props) => {
                     />
                   </h1>
                   <div
-                    onClick={() => props.setActiveRoute("contact")}
+                    onClick={() => setActiveRoute("contact")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -249,7 +248,7 @@ const MyWorkPage = (props: Props) => {
             </motion.section>
             <div className="end-navigation-container">
               <div
-                onClick={() => props.setActiveRoute("contact")}
+                onClick={() => setActiveRoute("contact")}
                 className="end-navigation-link"
               >
                 <div className="end-navigation">

@@ -496,7 +496,7 @@ const Scene = () => {
     <div
       className="canvasContainer"
       style={{
-        width: "100%",
+        width: "100vw",
         height: "100vh",
         position: "absolute",
         left: 0,

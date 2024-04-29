@@ -17,9 +17,7 @@ import callMe from "../../assets/images/call.webp";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
 
-type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
-
-const ContactPage = ({ setActiveRoute }: Props) => {
+const ContactPage = ({ setActiveRoute }: any) => {
   const isLoading = useLoading();
   const images = [mountain, smiley, callMe];
 

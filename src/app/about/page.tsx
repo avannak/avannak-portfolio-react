@@ -47,9 +47,7 @@ const RotatingCard = dynamic(
   { ssr: false }
 );
 
-type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
-
-const AboutPage = ({ setActiveRoute }: Props) => {
+const AboutPage = ({ setActiveRoute }: any) => {
   const isLoading = useLoading();
   const images = [
     akai,

@@ -29,9 +29,7 @@ const TexturedJellyDescription = dynamic(
   }
 );
 
-type Props = { setActiveRoute: Dispatch<SetStateAction<string>> };
-
-const MyWorkPage = ({ setActiveRoute }: Props) => {
+const MyWorkPage = ({ setActiveRoute }: any) => {
   const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");

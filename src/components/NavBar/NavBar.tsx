@@ -10,9 +10,7 @@ import { RootState } from "@/app/GlobalRedux/types";
 import { toggleParallax } from "@/app/GlobalRedux/Features/parallax/parallaxSlice";
 // import DayNightToggle from "react-day-and-night-toggle";
 
-type Props = {};
-
-const NavBar = (props: Props) => {
+const NavBar = () => {
   const isMobile = useIsMobile();
   // const parallaxIsOn = useSelector(
   //   (state: RootState) => state.parallax?.parallaxIsOn

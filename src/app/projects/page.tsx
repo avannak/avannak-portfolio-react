@@ -1,17 +1,19 @@
 "use client";
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import Modal from "@/components/Modal/Modal";
 import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
+import { useIsMobile } from "@/utils/isMobileDevice";
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
+import * as THREE from "three";
 import bstocktradein from "../../assets/images/bstock-trade-in.webp";
 import financy from "../../assets/images/financy.png";
 import gatormedia from "../../assets/images/gatormedia.webp";
@@ -19,12 +21,7 @@ import musicplayer from "../../assets/images/musicplayer.webp";
 import portFolio from "../../assets/images/portfolio.webp";
 import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
 import rapidhealth from "../../assets/images/rapidhealth.webp";
-import { RootState } from "../GlobalRedux/types";
-import dynamic from "next/dynamic";
-import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
 import { createTextTexture } from "../../components/AnimatedComponents/JellyDescription";
-import { useIsMobile } from "@/utils/isMobileDevice";
 
 const TexturedJellyDescription = dynamic(
   () => import("../../components/AnimatedComponents/JellyDescription"),
@@ -33,14 +30,13 @@ const TexturedJellyDescription = dynamic(
   }
 );
 
-const MyWorkPage = () => {
+type Props = { setActiveRoute: any };
+
+const MyWorkPage = (props: Props) => {
   const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
   const isLoading = useLoading();
-  const parallaxIsOn = useSelector(
-    (state: RootState) => state.parallax?.parallaxIsOn
-  );
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -108,13 +104,11 @@ const MyWorkPage = () => {
             }}
             exit={{ opacity: 0 }}
           >
-            {parallaxIsOn && <BackgroundOverlay parallax />}
-            {!parallaxIsOn && <BackgroundOverlay />}
             <motion.section className="portfolio" id="portfolio">
               <div className="header-title navigation">
                 <div className="content-container">
-                  <Link
-                    href="/about"
+                  <div
+                    onClick={() => props.setActiveRoute("about")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -125,7 +119,7 @@ const MyWorkPage = () => {
                       ></FontAwesomeIcon>
                       <span>About</span>
                     </div>
-                  </Link>
+                  </div>
                   <h1
                     style={{
                       color: "rgb(255, 255, 255)",
@@ -143,8 +137,8 @@ const MyWorkPage = () => {
                       placeholder="blur"
                     />
                   </h1>
-                  <Link
-                    href="/contact"
+                  <div
+                    onClick={() => props.setActiveRoute("contact")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -155,7 +149,7 @@ const MyWorkPage = () => {
                       ></FontAwesomeIcon>
                       <span>Contact</span>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
               <div className="description-container">
@@ -254,7 +248,10 @@ const MyWorkPage = () => {
               </div>
             </motion.section>
             <div className="end-navigation-container">
-              <Link href="/contact" className="end-navigation-link">
+              <div
+                onClick={() => props.setActiveRoute("contact")}
+                className="end-navigation-link"
+              >
                 <div className="end-navigation">
                   <FontAwesomeIcon
                     className="icon"
@@ -262,7 +259,7 @@ const MyWorkPage = () => {
                   ></FontAwesomeIcon>
                   <span>Next: Go To Contact Page</span>
                 </div>
-              </Link>
+              </div>
             </div>
           </motion.div>
         </>

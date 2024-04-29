@@ -2,11 +2,17 @@
 import { RootState } from "@/app/GlobalRedux/types";
 import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
 import NavMenu from "@/components/NavMenu";
+import Scene from "@/components/Scene";
 import useLoading from "@/hooks/useLoading";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
+import dynamic from "next/dynamic";
+
+const SceneWithNoSSR = dynamic(() => import("@/components/Scene"), {
+  ssr: false,
+});
 
 type Props = {};
 
@@ -37,16 +43,7 @@ const HomePage = (props: Props) => {
           />
         </div>
       ) : (
-        <motion.div
-          className="home-page-container"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {parallaxIsOn && <BackgroundOverlay parallax />}
-          {!parallaxIsOn && <BackgroundOverlay />}
-          <NavMenu />
-        </motion.div>
+        <SceneWithNoSSR />
       )}
     </>
   );

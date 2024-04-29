@@ -12,7 +12,7 @@ import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import StyledButton from "./Button/StyledButton";
 
-type Props = {};
+type Props = { setActiveRoute: any };
 
 const NavMenu = (props: Props) => {
   return (
@@ -135,7 +135,10 @@ const NavMenu = (props: Props) => {
               transition={{ duration: 1.5, delay: 0.8 }}
             >
               <li>
-                <Link id="start-link" href="/about">
+                <div
+                  id="start-link"
+                  onClick={() => props.setActiveRoute("about")}
+                >
                   <FloatingComponent floatStyle="floatX">
                     <FontAwesomeIcon
                       id="hand-pointer"
@@ -144,10 +147,10 @@ const NavMenu = (props: Props) => {
                     />
                   </FloatingComponent>
                   <p id="about-me-link">Start: About Me</p>
-                </Link>
+                </div>
               </li>
               <li>
-                <StyledButton text="Download Resume" downloadResume />
+                <StyledButton text="Download Resume" downloadResume fileIcon />
               </li>
             </motion.ul>
           </div>

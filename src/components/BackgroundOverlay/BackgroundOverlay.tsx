@@ -16,29 +16,29 @@ const BackgroundOverlay = (props: Props) => {
     <>
       {props.parallax && !isMobile && (
         <>
-          <MouseParallaxImage
+          {/* <MouseParallaxImage
             id="space-pic"
-            src="/images/space4.webp"
+            src="/images/moon_texture.webp"
             outerStyle={backgroundStyle}
             innerStyle={imageStyle}
             priority
-          />
-          <MouseParallaxVideo
+          /> */}
+          {/* <MouseParallaxVideo
             id="particles-video"
             src="/videos/particles5.mp4"
-          />{" "}
+          />{" "} */}
         </>
       )}
       {props.parallax && isMobile && (
         <>
-          <Image
+          {/* <Image
             id="space-pic"
-            src="/images/space4.webp"
+            src="/images/moon_texture.webp"
             alt="space"
             priority
             width={window.innerWidth}
             height={window.innerHeight}
-          />{" "}
+          />{" "} */}
           {/* <Image
             id="particles-video"
             src="/images/particles5.webp"
@@ -51,14 +51,14 @@ const BackgroundOverlay = (props: Props) => {
       )}
       {!props.parallax && (
         <>
-          <Image
+          {/* <Image
             id="space-pic"
-            src="/images/space4.webp"
+            src="/images/moon_texture.webp"
             alt="space"
             priority
             width={window.innerWidth}
             height={window.innerHeight}
-          />{" "}
+          />{" "} */}
           {/* <Image
             id="particles-video"
             src="/images/particles5.webp"

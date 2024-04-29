@@ -129,7 +129,7 @@ const ParticleSystem = ({ position, hover }: any) => {
 
 const JellyDescription = ({
   texture,
-  scale = [5, 5, 5] as [number, number, number],
+  scale = [4, 4, 4] as [number, number, number],
 }: any) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hover, setHover] = useState(false);
@@ -137,11 +137,11 @@ const JellyDescription = ({
   const simplex = createNoise3D();
   const noiseScale = 3;
   const noiseSpeed = 0.2;
-  const maxDeformation = 1;
+  const maxDeformation = 0.4;
   const influenceRadius = 1;
   const springStrength = 0.1;
   const borderThickness = 0.01;
-  const borderAmplitude = 0.04;
+  const borderAmplitude = 0.02;
 
   useFrame((state) => {
     const mesh = meshRef.current;

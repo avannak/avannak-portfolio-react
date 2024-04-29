@@ -1,7 +1,5 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
-import BackgroundOverlay from "@/components/BackgroundOverlay/BackgroundOverlay";
-import Header from "@/components/Header";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
 import {
@@ -13,22 +11,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
 import ContactForm from "../../PageComponents/contact/ContactForm";
 import callMe from "../../assets/images/call.webp";
 import mountain from "../../assets/images/mountain.webp";
 import smiley from "../../assets/images/smiley.webp";
-import { RootState } from "../GlobalRedux/types";
 
-type Props = {};
+type Props = { setActiveRoute: any };
 
 const ContactPage = (props: Props) => {
   const isLoading = useLoading();
-  const parallaxIsOn = useSelector(
-    (state: RootState) => state.parallax?.parallaxIsOn
-  );
-
   const images = [mountain, smiley, callMe];
 
   const imagesLoaded = useImageLoading(images);
@@ -68,12 +60,10 @@ const ContactPage = (props: Props) => {
             exit={{ opacity: 0 }}
           >
             <div className="contact-section" id="contact-section">
-              {parallaxIsOn && <BackgroundOverlay parallax />}
-              {!parallaxIsOn && <BackgroundOverlay />}
               <div className="header-title navigation">
                 <div className="content-container">
-                  <Link
-                    href="/projects"
+                  <div
+                    onClick={() => props.setActiveRoute("projects")}
                     className="link"
                     style={{ width: "100%" }}
                   >
@@ -84,7 +74,7 @@ const ContactPage = (props: Props) => {
                       ></FontAwesomeIcon>
                       <span>Projects</span>
                     </div>
-                  </Link>
+                  </div>
                   <h1
                     style={{
                       color: "rgb(255, 255, 255)",
@@ -102,7 +92,11 @@ const ContactPage = (props: Props) => {
                       placeholder="blur"
                     />
                   </h1>
-                  <Link href="/" className="link" style={{ width: "100%" }}>
+                  <div
+                    onClick={() => props.setActiveRoute("home")}
+                    className="link"
+                    style={{ width: "100%" }}
+                  >
                     <div className="icon-container">
                       <FontAwesomeIcon
                         className="icon"
@@ -110,12 +104,15 @@ const ContactPage = (props: Props) => {
                       ></FontAwesomeIcon>
                       <span>Home</span>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
               <ContactForm />
               <div className="end-navigation-container">
-                <Link href="/" className="end-navigation-link">
+                <div
+                  onClick={() => props.setActiveRoute("home")}
+                  className="end-navigation-link"
+                >
                   <div className="end-navigation">
                     <FontAwesomeIcon
                       className="icon"
@@ -123,7 +120,7 @@ const ContactPage = (props: Props) => {
                     ></FontAwesomeIcon>
                     <span>Go Back To Home Page</span>
                   </div>
-                </Link>
+                </div>
               </div>
               <div className="footer">
                 {/* <Header /> */}

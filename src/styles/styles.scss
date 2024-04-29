@@ -8,6 +8,11 @@
   src: url("../../public/fonts/terminal-grotesque.ttf") format("truetype");
   font-style: normal;
 }
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../../public/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-style: normal;
+}
 
 .cursor {
   display: flex;
@@ -27,27 +32,113 @@
 }
 
 h1 {
-  font-family: "Terminal Grotesque";
   font-weight: normal;
 }
 
 html {
-  font-size: 1.3em;
+  font-size: 1em;
   @media (max-width: 1024px) {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   @media (max-width: 600px) {
-    font-size: 1.1em;
+    font-size: 0.85em;
   }
 }
 
 body {
   text-shadow: 0px 2px 2px rgb(0, 0, 0);
   margin: 0 auto;
-  background: black;
+  background-color: rgb(19, 22, 31);
   max-width: 100%;
   min-width: 370px;
 }
+
+.monitor-content {
+  // font-size: 1.5em;
+  padding: 0;
+  .monitor-nav {
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+      to bottom,
+      hsl(240, 5%, 4%) 0%,
+      hsl(256, 13%, 17%) 8%,
+      hsl(0, 0%, 5%) 92%,
+      hsl(226, 28%, 9%) 100%
+    );
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    // min-width: 370px;
+    height: 100px;
+  }
+  button {
+    cursor: pointer;
+  }
+  .monitor-nav-btn {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(
+      to left,
+      hsl(220, 16%, 7%) 0%,
+      /* Light Blue */ hsl(240, 24%, 15%) 30%,
+      /* Blue-Purple */ hsl(282, 25%, 8%) 70%,
+      /* Deep Purple */ hsl(300, 20%, 6%) 100% /* Dark Pink */
+    );
+  }
+}
+
+.camera-nav-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000000;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  padding: 15px;
+  position: relative;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(
+    to left,
+    hsla(220, 17%, 7%, 0.5) 0%,
+    /* Light Blue */ hsla(240, 24%, 15%, 0.581) 30%,
+    /* Blue-Purple */ hsla(278, 27%, 8%, 0.8) 70%,
+    /* Deep Purple */ hsla(300, 20%, 6%, 0.585) 100% /* Dark Pink */
+  );
+  .icon {
+    margin-left: 10px;
+    padding: 0px;
+    font-size: 30px;
+  }
+
+  &:hover {
+    color: black;
+    background: rgba(255, 255, 255, 0.699);
+  }
+}
+
 .app-container {
   box-sizing: border-box;
   margin: auto;
@@ -86,7 +177,7 @@ body {
   -webkit-user-select: none;
   -o-user-select: none;
   z-index: -1000000000000000000;
-  opacity: 0.4;
+  opacity: 0.3;
   position: fixed;
   top: 0;
   left: 0;
@@ -250,7 +341,7 @@ img {
 }
 // * Navigation Menu
 #about-me-link {
-  font-family: "dpcomic";
+  // font-family: "dpcomic";
   @media (max-width: 500px) {
     font-size: 0.8em;
   }
@@ -258,7 +349,8 @@ img {
 .nav-menu {
   .nav-menu-container {
     box-sizing: border-box;
-    margin: auto;
+    margin-bottom: auto;
+    margin-top: 100px;
     width: 100%;
     height: fit-content;
   }
@@ -301,7 +393,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Terminal Grotesque";
+    // font-family: "Terminal Grotesque";
     z-index: 0;
     text-align: left;
     position: relative;
@@ -312,9 +404,9 @@ img {
       font-size: 2em;
       color: #ffffff;
       background: #000000;
-      text-shadow: #535d8f 0px 0px 5px, #772a2a 0px 0px 10px,
-        #000000 0px 0px 10px, #51f416 0px 0px 10px, #0946ff 0px 0px 10px,
-        #2d3eff 0px 0px 10px, #4c2dff 0px 0px 10px, #4c2dff 0px 0px 10px;
+      text-shadow: #535d8f 0px 0px 1px, #772a2a 0px 0px 2px, #000000 0px 0px 3px,
+        #51f416 0px 0px 3px, #0946ff 0px 0px 3px, #2d3eff 0px 0px 3px,
+        #4c2dff 0px 0px 3px, #4c2dff 0px 0px 3px;
       -webkit-background-clip: text;
       background-clip: text;
       // color: transparent; // Makes the text color transparent
@@ -323,7 +415,7 @@ img {
     }
     // h1 Style with Animation
     h1 {
-      font-family: "Terminal Grotesque";
+      // font-family: "Terminal Grotesque";
       letter-spacing: 4px;
       font-weight: 1000;
       font-size: 2.6em;
@@ -513,6 +605,11 @@ img {
   }
 }
 #start-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  cursor: pointer;
   max-width: 510px;
   box-shadow: rgba(92, 92, 255, 0.25) 0px 30px 60px -12px inset,
     rgba(80, 12, 12, 0.3) 0px 18px 36px -18px inset;
@@ -537,7 +634,7 @@ img {
 }
 //Download Button
 .download-resume-wrapper {
-  font-family: "dpcomic";
+  // font-family: "dpcomic";
   position: relative;
   display: flex;
   margin: auto;
@@ -847,7 +944,7 @@ section {
           width: 90%;
           height: 100%;
           position: absolute;
-          font-family: "dpcomic";
+          font-family: "JetBrains Mono";
           font-size: 1em;
           box-sizing: border-box;
           border-radius: 20px;
@@ -1190,7 +1287,7 @@ section {
       padding: 0.5em;
       font-size: 1em;
       max-height: 100%; // Increase max height for mobile
-      margin-top: 50px;
+      margin-top: 0px;
     }
     @media (max-height: 600px) {
       width: 100%;
@@ -1198,7 +1295,7 @@ section {
       padding: 0.5em;
       font-size: 1em;
       max-height: 80%; // Increase max height for mobile
-      margin-top: 50px;
+      margin-top: 0px;
     }
 
     display: flex;
@@ -1318,7 +1415,6 @@ section {
         }
         // Title
         h1 {
-          font-family: "Terminal Grotesque";
           font-size: 1.2em;
           text-align: center;
           padding: 3px;
@@ -1425,6 +1521,7 @@ section {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  cursor: pointer;
   span {
     padding: 0;
     width: 100%;
@@ -1504,8 +1601,8 @@ section {
   border-radius: 100px;
   min-height: 60px;
   flex-direction: column;
-
-  font-family: "dpcomic";
+  cursor: pointer;
+  // font-family: "dpcomic";
   position: relative;
   border: none;
   background: transparent;
@@ -1596,7 +1693,6 @@ section {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
       .icon {
         height: 40px;
         width: 40px;
@@ -1610,7 +1706,6 @@ section {
   flex-direction: column;
   font-size: 1.5rem;
   text-shadow: rgba(0, 0, 0, 0.575) 0px 3px 3px;
-  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
   span {
@@ -1747,18 +1842,25 @@ section {
   }
 
   #jelly-description {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     width: 100%;
     height: 300px;
     z-index: 1;
 
-    @media (max-width: 660px) {
-      height: 330px;
+    @media (max-width: 1020px) {
+      position: absolute;
+      margin-left: 60px;
+      margin-right: auto;
+      height: 400px;
+      width: 100%;
     }
   }
 
   .myprojects-header {
-    font-family: "Terminal Grotesque";
+    // font-family: "Terminal Grotesque";
     font-weight: 500;
     margin-bottom: auto;
     letter-spacing: 1px;
@@ -1886,7 +1988,6 @@ section {
         .front,
         .edge,
         .shadow {
-          font-family: "Terminal Grotesque";
           border-radius: 12px;
         }
       }
@@ -2018,7 +2119,7 @@ section {
     width: 100%;
     border-radius: 15px;
 
-    /* Background gradient (if needed) */
+    /* Background gradient */
     background: repeating-linear-gradient(
         -45deg,
         hsla(200, 14%, 4%, 0.305),
@@ -2356,7 +2457,7 @@ section {
         border: solid 2px #d1d1d9d4;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgb(0, 0, 0);
-        font-family: "Terminal Grotesque";
+        // font-family: "Terminal Grotesque";
         #email-link {
           font-weight: normal;
           text-shadow: none;
@@ -2446,7 +2547,7 @@ section {
 // Button
 .pushable {
   cursor: pointer;
-  font-family: "Terminal Grotesque";
+  font-family: "JetBrains Mono";
   font-size: 0.6em;
   position: relative;
   border: none;

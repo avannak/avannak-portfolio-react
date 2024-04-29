@@ -42,7 +42,6 @@ import sg from "../../assets/images/sg-pixel.webp";
 import smileyGlasses from "public/images/male_avatar.svg";
 import toolKit from "../../assets/images/toolkit.webp";
 import volt from "../../assets/images/volt-pixel-rouge.png";
-import { RootState } from "../GlobalRedux/types";
 import { TypingEffectMission } from "@/components/AnimatedComponents/TypingEffectMission";
 
 const RotatingCard = dynamic(
@@ -50,14 +49,10 @@ const RotatingCard = dynamic(
   { ssr: false }
 );
 
-type Props = {};
+type Props = { setActiveRoute: any };
 
 const AboutPage = (props: Props) => {
   const isLoading = useLoading();
-  const parallaxIsOn = useSelector(
-    (state: RootState) => state.parallax?.parallaxIsOn
-  );
-
   const images = [
     akai,
     artPixel,
@@ -112,7 +107,11 @@ const AboutPage = (props: Props) => {
             {" "}
             <div className="header-title navigation">
               <div className="content-container">
-                <Link href="/" className="link" style={{ width: "100%" }}>
+                <div
+                  onClick={() => props.setActiveRoute("home")}
+                  className="link"
+                  style={{ width: "100%" }}
+                >
                   <div className="icon-container">
                     <FontAwesomeIcon
                       className="icon"
@@ -120,7 +119,7 @@ const AboutPage = (props: Props) => {
                     ></FontAwesomeIcon>
                     <span>Home</span>
                   </div>
-                </Link>
+                </div>
                 <h1
                   style={{
                     color: "rgb(255, 255, 255)",
@@ -139,8 +138,8 @@ const AboutPage = (props: Props) => {
                     blurDataURL="none"
                   />
                 </h1>
-                <Link
-                  href="/projects"
+                <div
+                  onClick={() => props.setActiveRoute("projects")}
                   className="link"
                   style={{ width: "100%" }}
                 >
@@ -151,14 +150,12 @@ const AboutPage = (props: Props) => {
                     ></FontAwesomeIcon>
                     <span>Projects</span>
                   </div>
-                </Link>
+                </div>
               </div>
             </div>{" "}
           </section>
           <div className="about-me-section-wrapper">
             <section className="about-me-section left">
-              {parallaxIsOn && <BackgroundOverlay parallax />}
-              {!parallaxIsOn && <BackgroundOverlay />}
               <ul className="about-description-list">
                 <TypingEffectMission
                   text="Study the science of art. Study the art of science. Develop your senses — especially learn how to see. Realize that everything connects to everything else."
@@ -188,11 +185,8 @@ const AboutPage = (props: Props) => {
                   <span className="highlight-degree">
                     Bachelors in Computer Science
                   </span>
-                  , I fuse technical and artistic skills.
-                </li>
-                <li className="passion">
-                  Web design and development for me is an imaginative canvas,
-                  aiming for intuitive and smooth user experiences.
+                  , I bring a unique twist to web development by blending my
+                  technical skills with artistic flair.
                 </li>
                 <div className="about-icons-column container">
                   <div className="laptop-icon-container">
@@ -229,20 +223,19 @@ const AboutPage = (props: Props) => {
                   </div>
                 </div>
                 <li className="skills">
-                  With a strong background in{" "}
+                  With a strong foundation in{" "}
                   <span className="highlight-tech">full-stack development</span>
-                  , I am committed to engineering cutting-edge applications that
-                  stand at the intersection of functionality and innovation.
+                  , I craft innovative applications that merge functionality
+                  with creative design.
                 </li>
                 <li>
-                  Also a{" "}
-                  <span className="highlight-art">singer-songwriter</span> and{" "}
-                  <span className="highlight-art">music producer</span>, I blend
-                  creativity seamlessly.
+                  As a <span className="highlight-art">singer-songwriter</span>{" "}
+                  and <span className="highlight-art">music producer</span>, my
+                  creativity enhances each project.
                 </li>
                 <li className="inspiration">
-                  The synergy of technology and music drives my relentless quest
-                  for learning and innovation.
+                  Driven by the harmony between technology and music, I
+                  continuously seek new learning and innovation.
                 </li>
                 <li>
                   <div className="rokit-container">
@@ -453,7 +446,10 @@ const AboutPage = (props: Props) => {
                   and grow. If you have a good opportunity that matches my
                   skills and experience then don't hesitate to contact me.
                 </p>
-                <Link href="/contact" className="link">
+                <div
+                  onClick={() => props.setActiveRoute("contact")}
+                  className="link"
+                >
                   <button className="pushable contact">
                     <span className="shadow"></span>
                     <span className="edge blue"></span>
@@ -466,9 +462,12 @@ const AboutPage = (props: Props) => {
                       Get In Touch
                     </span>
                   </button>
-                </Link>
+                </div>
                 <div className="end-navigation-container">
-                  <Link href="/projects" className="end-navigation-link">
+                  <div
+                    onClick={() => props.setActiveRoute("projects")}
+                    className="end-navigation-link"
+                  >
                     <div className="end-navigation">
                       <FontAwesomeIcon
                         className="icon"
@@ -476,7 +475,7 @@ const AboutPage = (props: Props) => {
                       ></FontAwesomeIcon>
                       <span>Next: Go To Projects Page</span>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
             </section>

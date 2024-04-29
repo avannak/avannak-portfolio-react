@@ -20,7 +20,7 @@ export function useIsMobile() {
 
   useEffect(() => {
     const throttledCheckMobile = throttle(() =>
-      setIsMobile(window.innerWidth <= 768)
+      setIsMobile(window.innerWidth <= 768 && window.innerHeight <= 500)
     );
     window.addEventListener("resize", throttledCheckMobile);
 

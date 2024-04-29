@@ -14,14 +14,14 @@ type Props = {};
 
 const NavBar = (props: Props) => {
   const isMobile = useIsMobile();
-  const parallaxIsOn = useSelector(
-    (state: RootState) => state.parallax?.parallaxIsOn
-  );
-  const dispatch = useDispatch();
+  // const parallaxIsOn = useSelector(
+  //   (state: RootState) => state.parallax?.parallaxIsOn
+  // );
+  // const dispatch = useDispatch();
 
-  const handleToggle = () => {
-    dispatch(toggleParallax());
-  };
+  // const handleToggle = () => {
+  //   dispatch(toggleParallax());
+  // };
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">
@@ -31,7 +31,7 @@ const NavBar = (props: Props) => {
           checked={isDarkMode}
           size={navStyles}
         ></DayNightToggle> */}
-        {!isMobile && (
+        {/* {!isMobile && (
           <div className="desktop-only">
             <p style={{ color: "white", marginRight: 15, fontSize: "0.7em" }}>
               Parallax: {parallaxIsOn ? "On" : "Off"} <br /> (Turn off if page
@@ -44,7 +44,7 @@ const NavBar = (props: Props) => {
               uncheckedIcon={false}
             />
           </div>
-        )}
+        )} */}
         <Link href="/" style={{ marginLeft: "15px" }}>
           <FontAwesomeIcon
             icon={faHouse}

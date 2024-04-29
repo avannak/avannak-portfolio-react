@@ -3,9 +3,15 @@ import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
 import localFont from "next/font/local";
 import { Providers } from "./GlobalRedux/provider";
+import { Mochiy_Pop_One } from "next/font/google";
 
 const myFont = localFont({
   src: "../../public/fonts/terminal-grotesque.ttf",
+});
+
+const googleFont = Mochiy_Pop_One({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -34,8 +40,8 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>
-          <div className={myFont.className}>
-            <NavBar />
+          <div className={googleFont.className}>
+            {/* <NavBar /> */}
             {/* <CustomCursor /> */}
             {children}
           </div>

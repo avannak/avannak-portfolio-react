@@ -280,13 +280,13 @@ const Model = ({
           isMobile && zoomInMonitor ? 0.12 : cameraType === "freeCamera" ? 1 : 1
         }
         style={{
-          width: zoomInMonitor ? "100vw" : "1200px",
+          width: zoomInMonitor ? "100%" : "1200px",
           minWidth: zoomInMonitor
             ? "100%"
             : cameraType === "freeCamera"
             ? "1000px"
             : "1530px",
-          height: "100vh",
+          height: "100%",
           minHeight:
             cameraType !== "freeCamera" && zoomInMonitor
               ? "1000px"
@@ -298,8 +298,14 @@ const Model = ({
             : cameraType === "freeCamera"
             ? "450px"
             : "450px",
-          background: "black",
-          transformStyle: "flat",
+          background: `linear-gradient(
+            to bottom,
+            hsl(0, 0%, 0%) 0%,
+            hsl(252, 19.230769230769234%, 10.196078431372548%) 8%,
+            hsl(0, 0%, 0%) 92%,
+            hsl(225, 25%, 3.1372549019607843%) 100%
+          )`,
+          transformStyle: "preserve-3d",
           overflowY: zoomInMonitor ? "auto" : "hidden",
         }}
       >

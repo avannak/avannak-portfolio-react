@@ -266,8 +266,8 @@ const Model = ({
       )}
       <Html
         position={
-          isMobile && zoomInMonitor
-            ? [0, 2.02, 2.4]
+          zoomInMonitor
+            ? [0, 2, 1]
             : zoomInMonitor
             ? [0, 2.3, -4]
             : cameraType === "freeCamera"
@@ -277,34 +277,22 @@ const Model = ({
         rotation={[0, 0, 0]}
         transform
         distanceFactor={
-          isMobile && zoomInMonitor ? 0.12 : cameraType === "freeCamera" ? 1 : 1
+          isMobile && zoomInMonitor ? 0.5 : cameraType === "freeCamera" ? 1 : 1
         }
         style={{
-          width: zoomInMonitor ? "100%" : "1200px",
+          width: zoomInMonitor ? "100vw" : "1200px",
           minWidth: zoomInMonitor
-            ? "100%"
+            ? "100vw"
             : cameraType === "freeCamera"
             ? "1000px"
             : "1530px",
-          height: "100%",
-          minHeight:
-            cameraType !== "freeCamera" && zoomInMonitor
-              ? "1000px"
-              : isMobile && zoomInMonitor
-              ? "500px"
-              : "500px",
+          height: "100vh",
           maxHeight: zoomInMonitor
             ? "100vh"
             : cameraType === "freeCamera"
             ? "450px"
             : "450px",
-          background: `linear-gradient(
-            to bottom,
-            hsl(0, 0%, 0%) 0%,
-            hsl(252, 19.230769230769234%, 10.196078431372548%) 8%,
-            hsl(0, 0%, 0%) 92%,
-            hsl(225, 25%, 3.1372549019607843%) 100%
-          )`,
+          background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
           transformStyle: "preserve-3d",
           overflowY: zoomInMonitor ? "auto" : "hidden",
         }}

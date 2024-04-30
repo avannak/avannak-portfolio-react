@@ -361,18 +361,13 @@ const Model = ({
             zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
           }
           style={{
-            width: zoomInMonitor ? "100vw" : "1200px",
+            width: zoomInMonitor ? "100%" : "1200px",
             minWidth: zoomInMonitor
-              ? "100vw"
+              ? "100%"
               : cameraType === "freeCamera"
               ? "1000px"
               : "1300px",
-            height: "100vh",
-            maxHeight: zoomInMonitor
-              ? "100vh"
-              : cameraType === "freeCamera"
-              ? "400px"
-              : "400px",
+            height: "400px",
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
             transformStyle: "preserve-3d",
             overflowY: zoomInMonitor ? "auto" : "hidden",
@@ -594,7 +589,6 @@ const Scene = () => {
     <div
       className="canvasContainer"
       style={{
-        display: "block",
         width: "100vw",
         height: "100vh",
         position: "absolute",
@@ -615,29 +609,29 @@ const Scene = () => {
         }}
         resize={{ scroll: false }}
       >
+        {lightOn && !zoomInMonitor && (
+          <spotLight
+            color={"#ffffff"}
+            position={[0, 8, 0]}
+            angle={Math.PI / 4}
+            penumbra={0.2}
+            intensity={80}
+            castShadow
+            receiveShadow
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-camera-near={0.5}
+            shadow-camera-far={500}
+            shadow-bias={-0.0001}
+          />
+        )}
+        <NeonLight />
+        {!zoomInMonitor && (
+          <>
+            <ambientLight intensity={1} color={"#564ec7"} />
+          </>
+        )}
         <Suspense fallback={null}>
-          {lightOn && !zoomInMonitor && (
-            <spotLight
-              color={"#ffffff"}
-              position={[0, 8, 0]}
-              angle={Math.PI / 4}
-              penumbra={0.2}
-              intensity={80}
-              castShadow
-              receiveShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
-              shadow-camera-near={0.5}
-              shadow-camera-far={500}
-              shadow-bias={-0.0001}
-            />
-          )}
-          <NeonLight />
-          {!zoomInMonitor && (
-            <>
-              <ambientLight intensity={1} color={"#564ec7"} />
-            </>
-          )}
           <Model
             cameraType={cameraType}
             setCameraType={setCameraType}
@@ -683,13 +677,14 @@ const Scene = () => {
           setCameraType={setCameraType}
         />
       )}
-      {/* {!zoomInMonitor && (
+      {!zoomInMonitor && (
         <div
           className="footer"
           style={{
-            display: "block",
-            margin: "auto",
             position: "fixed",
+            bottom: "30px",
+            left: 0,
+            right: 0,
             zIndex: 1,
             pointerEvents: "none",
           }}
@@ -700,7 +695,7 @@ const Scene = () => {
             &copy; 2024
           </p>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

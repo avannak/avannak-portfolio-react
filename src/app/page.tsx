@@ -27,9 +27,7 @@ const App = () => {
           />
         </div>
       ) : (
-        <div className="app-container">
-          <HomePage />
-        </div>
+        <HomePage />
       )}
     </>
   );

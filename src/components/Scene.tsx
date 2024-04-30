@@ -349,22 +349,16 @@ const Model = ({
       {!zoomInMonitor && (
         <Html
           position={
-            isMobile && zoomInMonitor
-              ? [0, 2, -5]
-              : zoomInMonitor
+            zoomInMonitor
               ? [0, 2.3, -4]
               : cameraType === "freeCamera"
-              ? [-0.35, 2.6, -3.56]
-              : [-0.35, 2.6, -5]
+              ? [-0.35, 2.64, -3.56]
+              : [-0.25, 2.64, -3.56]
           }
           rotation={[0, 0, 0]}
           transform
           distanceFactor={
-            isMobile && zoomInMonitor
-              ? 0.1
-              : cameraType === "freeCamera"
-              ? 1
-              : 1
+            zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
           }
           style={{
             width: zoomInMonitor ? "100vw" : "1200px",
@@ -372,14 +366,13 @@ const Model = ({
               ? "100vw"
               : cameraType === "freeCamera"
               ? "1000px"
-              : "1530px",
-            minHeight: zoomInMonitor ? "1000px" : "500px",
+              : "1300px",
             height: "100vh",
             maxHeight: zoomInMonitor
               ? "100vh"
               : cameraType === "freeCamera"
-              ? "500px"
-              : "580px",
+              ? "400px"
+              : "400px",
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
             transformStyle: "preserve-3d",
             overflowY: zoomInMonitor ? "auto" : "hidden",
@@ -685,7 +678,12 @@ const Scene = () => {
         />
       )}
       {!zoomInMonitor && (
-        <div className="footer">
+        <div
+          className="footer"
+          style={{
+            pointerEvents: "none",
+          }}
+        >
           <p>
             Designed and Developed by{" "}
             <span className="designed-by">Arthur Vannakittikun </span>

@@ -1,6 +1,11 @@
 import { Canvas, useThree, extend, useFrame } from "@react-three/fiber";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { useGLTF, OrbitControls, Html } from "@react-three/drei";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useGLTF,
+  OrbitControls,
+  Html,
+  OrbitControlsProps,
+} from "@react-three/drei";
 import {
   Mesh,
   MeshBasicMaterial,
@@ -22,6 +27,7 @@ import NavMenu from "./NavMenu";
 import { useIsMobile } from "@/utils/isMobileDevice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
 extend({ SpotLight });
 
@@ -68,11 +74,11 @@ const CameraController = ({
 
   useFrame(() => {
     if (zoomInMonitor) {
-      camera.position.lerp(zoomPosition, 0.02);
-      setFov((prevFov) => lerp(prevFov, 30, 0.02)); // Lerp towards the zoomed in FOV
+      camera.position.lerp(zoomPosition, 0.03);
+      setFov((prevFov) => lerp(prevFov, 30, 0.03)); // Lerp towards the zoomed in FOV
     } else {
-      camera.position.lerp(initialPosition, 0.02);
-      setFov((prevFov) => lerp(prevFov, isMobile ? 110 : 70, 0.02)); // Lerp towards the normal FOV
+      camera.position.lerp(initialPosition, 0.03);
+      setFov((prevFov) => lerp(prevFov, 75, 0.03)); // Lerp towards the normal FOV
     }
     if (target) {
       // Apply manual rotation
@@ -102,15 +108,25 @@ const MobileOverlay = ({
   setZoomInMonitor,
   setCameraType,
 }: any) => {
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (overlayRef.current) {
+      overlayRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [activeRoute]);
+
   return isVisible ? (
     <div
+      ref={overlayRef}
       className="monitor-content"
       style={{
         position: "absolute",
         top: 0,
         left: 0,
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
+        overflowX: "hidden",
         zIndex: 10,
         display: "flex",
         flexDirection: "column",
@@ -287,12 +303,6 @@ const Model = ({
       if (object === lightSwitchRef.current) {
         setClickedLightSwitch(!clickedLightSwitch);
         setLightOn(!lightOn); // Toggle the light state
-
-        // Check if the camera type is "freeCamera"
-        if (cameraType !== "freeCamera") {
-          // Call the handleObjectClick function only if the camera type is not "freeCamera"
-          handleObjectClick(event);
-        }
       }
     }
   };
@@ -347,8 +357,8 @@ const Model = ({
               : zoomInMonitor
               ? [0, 2.3, -4]
               : cameraType === "freeCamera"
-              ? [-0.35, 2.4, -3.56]
-              : [-0.35, 2.4, -5]
+              ? [-0.35, 2.6, -3.56]
+              : [-0.35, 2.6, -5]
           }
           rotation={[0, 0, 0]}
           transform
@@ -372,7 +382,7 @@ const Model = ({
               ? "100vh"
               : cameraType === "freeCamera"
               ? "500px"
-              : "500px",
+              : "580px",
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
             transformStyle: "preserve-3d",
             overflowY: zoomInMonitor ? "auto" : "hidden",
@@ -389,10 +399,11 @@ const Model = ({
             <div
               className="monitor-content"
               style={{
+                fontSize: "0.7em",
                 cursor: zoomInMonitor ? "auto" : "pointer",
-                pointerEvents: zoomInMonitor ? "auto" : "none",
+                pointerEvents: "none",
                 overflowY: "hidden",
-                marginTop: zoomInMonitor ? "90px" : "0",
+                marginTop: "0",
                 width: "100%",
                 height: "100%",
               }}
@@ -508,8 +519,8 @@ const Scene = () => {
   });
 
   const initialCameraPosition = new Vector3(0, 3, 1.2);
-  const zoomCameraPosition = new Vector3(0, 2, 3);
-  const cameraTarget = new Vector3(0, 3.1, -40);
+  const zoomCameraPosition = new Vector3(0, 4, 3);
+  const cameraTarget = new Vector3(0, -9, -40);
   const [zoomInMonitor, setZoomInMonitor] = useState(false);
   const [cameraType, setCameraType] = useState("fixedCamera");
   const [lightOn, setLightOn] = useState(true);
@@ -517,15 +528,15 @@ const Scene = () => {
   const pointLightRef = useRef<PointLight>(null!);
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
-    new Vector3(0, 5, 5)
+    new Vector3(-3, 6, 6)
   );
   const [freeCameraAngle, setFreeCameraAngle] = useState(
-    new THREE.Euler(0, -4, 0)
+    new THREE.Euler(0, -6, 0)
   );
   const handleRouteClick = (route: string) => {
     setActiveRoute(route);
     if (route === "freeCamera") {
-      setFreeCameraPosition(new Vector3(0, 5, 5));
+      setFreeCameraPosition(new Vector3(-3, 6, 6));
       setFreeCameraAngle(new THREE.Euler(0, -4, 0));
     }
   };
@@ -550,18 +561,26 @@ const Scene = () => {
     freeCameraPosition,
     freeCameraAngle,
   }: any) => {
-    const { camera } = useThree();
-    const orbitControlsRef = useRef<any>();
+    const { camera, scene } = useThree();
+    const orbitControlsRef = useRef<OrbitControlsImpl>(null);
+    const prevCameraType = useRef<string>("fixedCamera");
+
+    const meshObjects = useMemo(
+      () => scene.children.filter((obj) => obj instanceof Mesh) as Mesh[],
+      [scene.children]
+    );
 
     useEffect(() => {
       if (cameraType === "freeCamera" && orbitControlsRef.current) {
-        // Set the camera position and angle
-        camera.position.copy(freeCameraPosition);
-        camera.rotation.copy(freeCameraAngle);
-
-        // Update the OrbitControls target
-        orbitControlsRef.current.target.copy(new Vector3(-1, 0, 0));
+        // Set the camera position and angle only when cameraType changes to "freeCamera"
+        if (prevCameraType.current !== "freeCamera") {
+          camera.position.copy(freeCameraPosition);
+          camera.rotation.copy(freeCameraAngle);
+          orbitControlsRef.current.target.copy(new Vector3(0, 3, -3));
+        }
       }
+
+      prevCameraType.current = cameraType;
     }, [cameraType, camera, freeCameraPosition, freeCameraAngle]);
 
     return (
@@ -572,7 +591,9 @@ const Scene = () => {
             enablePan={false}
             enableRotate={true}
             minDistance={3}
-            maxDistance={10}
+            maxDistance={6}
+            enableDamping={true}
+            // collisionObjects={meshObjects}
           />
         )}
       </>
@@ -595,6 +616,7 @@ const Scene = () => {
         style={{
           width: dimensions.width,
           height: dimensions.height,
+          position: "fixed",
         }}
       >
         {lightOn && !zoomInMonitor && (
@@ -664,6 +686,15 @@ const Scene = () => {
           setZoomInMonitor={setZoomInMonitor}
           setCameraType={setCameraType}
         />
+      )}
+      {!zoomInMonitor && (
+        <div className="footer">
+          <p>
+            Designed and Developed by{" "}
+            <span className="designed-by">Arthur Vannakittikun </span>
+            &copy; 2024
+          </p>
+        </div>
       )}
     </div>
   );

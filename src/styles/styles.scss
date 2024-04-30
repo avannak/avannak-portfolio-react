@@ -36,12 +36,12 @@ h1 {
 }
 
 html {
-  font-size: 1em;
+  font-size: 0.8em;
   @media (max-width: 1024px) {
-    font-size: 1em;
+    font-size: 0.8em;
   }
   @media (max-width: 600px) {
-    font-size: 0.85em;
+    font-size: 0.77em;
   }
 }
 
@@ -80,30 +80,25 @@ body {
   position: absolute;
   top: 60px;
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(#e6646400, #0d0e18);
+  height: 100%;
 }
 
 .monitor-content {
   // font-size: 1.5em;
+  width: 100%;
+  height: 100%;
   padding: 0;
   .monitor-nav {
     z-index: 9999;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    background: linear-gradient(
-      to bottom,
-      hsl(240, 5%, 4%) 0%,
-      hsl(256, 13%, 17%) 8%,
-      hsl(0, 0%, 5%) 92%,
-      hsl(226, 28%, 9%) 100%
-    );
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    width: 100vw;
     // min-width: 370px;
     height: 60px;
+    border-radius: 10px;
+    background-color: rgb(20, 21, 27);
   }
   button {
     cursor: pointer;
@@ -127,7 +122,7 @@ body {
     font-weight: bold;
     color: #000000;
     justify-content: center;
-    height: 50px;
+    height: 55px;
     width: 180px;
     margin: 3px;
     padding: 15px;
@@ -138,12 +133,12 @@ body {
     transition: filter 250ms, box-shadow 250ms, transform 250ms; // Add transform to transition
     background: linear-gradient(
         217deg,
-        rgb(37, 37, 49),
-        rgba(6, 2, 2, 0.4) 70.71%
+        rgb(24, 24, 32),
+        rgba(6, 2, 2, 0.811) 70.71%
       ),
       linear-gradient(
         127deg,
-        rgba(39, 44, 39, 0.652),
+        rgba(39, 44, 39, 0.799),
         rgba(13, 45, 13, 0.073) 70.71%
       ),
       linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
@@ -385,45 +380,6 @@ img {
   -ms-user-select: none;
 }
 
-// Background Photo
-.bg-img {
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  opacity: 1;
-  z-index: -5;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  object-fit: cover;
-}
-.bg-code {
-  -drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  z-index: -3;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  background-size: contain;
-  object-fit: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100vw;
-  opacity: 0.04;
-}
 // * Navigation Menu
 #about-me-link {
   // font-family: "dpcomic";
@@ -432,6 +388,7 @@ img {
   }
 }
 .nav-menu {
+  font-size: 1.3em;
   .nav-menu-container {
     box-sizing: border-box;
     margin-bottom: auto;
@@ -485,7 +442,7 @@ img {
     // Title Name
     .name {
       // animation: textTransition 10s ease infinite;
-      font-size: 2em;
+      font-size: 1.8em;
       color: #ffffff;
       background: #000000;
       text-shadow: #535d8f 0px 0px 1px, #772a2a 0px 0px 2px, #000000 0px 0px 3px,
@@ -502,7 +459,6 @@ img {
       // font-family: "Terminal Grotesque";
       letter-spacing: 4px;
       font-weight: 1000;
-      font-size: 2.6em;
       text-shadow: rgba(255, 255, 255, 0) 2px 4px 0px;
 
       // Apply gradient color
@@ -592,10 +548,6 @@ img {
       }
       // Occupation Title
       .title {
-        @media (max-width: 530px) {
-          font-size: 1.2em;
-        }
-        font-size: 1.3em;
         font-weight: bolder;
         padding: 10px;
         text-align: center;
@@ -644,7 +596,8 @@ img {
   .nav-selections {
     box-sizing: border-box;
     li {
-      font-size: 2rem;
+      margin: auto;
+      max-width: 400px;
       &:hover {
         color: rgb(244, 236, 117);
         transition: color 0.3s ease;
@@ -699,11 +652,7 @@ img {
     rgba(80, 12, 12, 0.3) 0px 18px 36px -18px inset;
   border-radius: 50px;
   transition: filter 250ms, box-shadow 250ms, transform 250ms; // Apply transitions
-  @media (max-width: 530px) {
-    font-size: 0.9em;
-    max-width: 350px;
-  }
-
+  font-size: 1.5em;
   &:hover {
     transform: scale(1.05); // Increase the size of the link
 
@@ -723,14 +672,11 @@ img {
   display: flex;
   margin: auto;
   align-items: center;
-  font-size: 0.8em;
+  font-size: 1.2em;
   justify-content: center;
   padding: 0;
-  height: 200px;
+  height: 120px;
   width: 100%;
-  @media (max-width: 600px) {
-    font-size: 0.7em;
-  }
 }
 //Toggle container
 .desktop-only {
@@ -958,6 +904,7 @@ section {
 }
 
 .about-page-container {
+  background: linear-gradient(#000000e3, #000000);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1319,11 +1266,11 @@ section {
 .about-me-section-wrapper {
   background: linear-gradient(
       217deg,
-      rgba(8, 3, 18, 0.668),
-      rgba(6, 2, 2, 0.709) 70.71%
+      rgba(8, 3, 18, 0.041),
+      rgba(6, 2, 2, 0) 70.71%
     ),
-    linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
+    linear-gradient(127deg, rgba(2, 11, 2, 0), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(9, 9, 29, 0), rgba(9, 9, 75, 0) 70.71%);
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   width: 100%;
@@ -1665,12 +1612,13 @@ section {
   }
 }
 .end-navigation-container {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   margin-top: 50px;
   margin-bottom: 50px;
   align-items: center;
-  height: 70px;
+  height: 150px;
   width: 100%;
 }
 .end-navigation-link {
@@ -1679,6 +1627,7 @@ section {
   align-items: center;
   margin-left: auto;
   margin-right: 100px;
+  margin-bottom: auto;
   text-decoration: none;
   border-radius: 100px;
   min-height: 60px;
@@ -1730,6 +1679,9 @@ section {
 }
 
 .header-title {
+  &.languages {
+    background: none;
+  }
   @media (max-width: 600px) {
     font-size: 1em;
     max-height: 110px;
@@ -1743,7 +1695,7 @@ section {
   position: relative;
   z-index: 1;
   height: 140px;
-  background: rgba(0, 0, 0, 0.966);
+  background: rgb(0, 0, 0);
   background-repeat: none;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.395);
   width: 100%;
@@ -2201,16 +2153,16 @@ section {
     /* Background gradient */
     background: repeating-linear-gradient(
         -45deg,
-        hsla(200, 14%, 4%, 0.305),
-        /* Light Blue */ hsla(240, 12%, 8%, 0.465) 10px,
-        /* Blue-Purple */ hsla(228, 8%, 12%, 0.21) 10px,
-        /* Deep Purple */ hsla(338, 20%, 8%, 0.114) 20px
+        hsla(200, 14%, 4%, 0.052),
+        /* Light Blue */ hsla(240, 12%, 8%, 0.123) 10px,
+        /* Blue-Purple */ hsla(228, 8%, 12%, 0.125) 10px,
+        /* Deep Purple */ hsla(338, 20%, 8%, 0.265) 20px
       ),
       linear-gradient(
         90deg,
-        rgb(22, 29, 33),
-        rgba(15, 16, 21, 0.853) 50%,
-        rgba(14, 14, 22, 0.736) 100%
+        rgba(22, 29, 33, 0.203),
+        rgba(15, 16, 21, 0.107) 50%,
+        rgba(14, 14, 22, 0.099) 100%
       );
     box-shadow: 0 8px 15px rgb(0, 0, 0);
   }
@@ -2263,25 +2215,13 @@ section {
     flex-direction: row; // Place children side by side
     justify-content: space-between; // Adjust as needed
     width: 100%; // Adjust as needed
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 10px;
+    padding: 10px;
     @media (max-width: 768px) {
       // Adjust breakpoint as needed
       flex-direction: column;
     }
-    background: repeating-linear-gradient(
-        -45deg,
-        hsla(200, 14%, 4%, 0.723),
-        /* Light Blue */ hsl(240, 12%, 8%) 10px,
-        /* Blue-Purple */ hsla(228, 8%, 12%, 0.481) 10px,
-        /* Deep Purple */ hsla(338, 20%, 8%, 0.394) 20px
-      ),
-      linear-gradient(
-        90deg,
-        rgba(22, 29, 33, 0.481),
-        rgba(15, 16, 21, 0.853) 50%,
-        rgba(14, 14, 22, 0.478) 100%
-      );
+    background: none;
     box-shadow: 0 4px 8px rgb(0, 0, 0);
     box-sizing: border-box;
     border-radius: 30px;
@@ -2362,11 +2302,11 @@ section {
     }
     background: linear-gradient(
         217deg,
-        rgba(8, 3, 18, 0.668),
-        rgba(6, 2, 2, 0.709) 70.71%
+        rgba(8, 3, 18, 0.148),
+        rgba(6, 2, 2, 0.229) 70.71%
       ),
-      linear-gradient(127deg, rgb(2, 11, 2), rgba(0, 255, 0, 0) 70.71%),
-      linear-gradient(336deg, rgba(9, 9, 29, 0.946), rgba(9, 9, 75, 0) 70.71%);
+      linear-gradient(127deg, rgba(2, 11, 2, 0.253), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(9, 9, 29, 0.403), rgba(9, 9, 75, 0) 70.71%);
     box-sizing: border-box;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -2480,7 +2420,7 @@ section {
         justify-content: center;
         align-items: center;
         object-fit: contain;
-        width: 100%;
+        width: 70%;
         height: 100%;
         box-sizing: border-box;
         padding: 30px;
@@ -2588,38 +2528,26 @@ section {
     width: 30px;
   }
 }
-.mountain-pic {
-  position: fixed; // Fixed relative to the viewport
-  top: 0;
-  left: 0;
-  width: 100%; // 100% of the viewport width
-  height: 100%; // 100% of the viewport height
-  object-fit: contain; // Cover the entire area without stretching
-  z-index: -10; // Ensures it stays in the background
-  opacity: 0.2; // Adjust as necessary
-  background-position: center; // Center the image
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
 .footer {
-  margin: auto;
+  z-index: 0;
+  position: absolute;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   width: 100%;
-  height: 200px;
+  height: 100px;
   span {
     color: white;
   }
   .designed-by {
     font-weight: bold;
-    color: #ffffff; /* Adjust color to fit your design */
+    color: #ffffff;
   }
-  background-color: rgba(0, 0, 0, 0.604);
+  background: none;
+  pointer-events: none;
   font-size: 0.8em;
 }
 

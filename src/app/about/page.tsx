@@ -308,7 +308,7 @@ const AboutPage = ({ setActiveRoute }: any) => {
               </ul>
             </section>
             <section className="about-me-section right">
-              <div className="header-title">
+              <div className="header-title languages">
                 <h1 style={{ color: "rgb(255, 255, 255)" }}>
                   Languages & Skills <br />
                   <Image

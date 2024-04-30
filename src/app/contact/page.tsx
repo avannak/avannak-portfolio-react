@@ -100,7 +100,7 @@ const ContactPage = ({ setActiveRoute }: any) => {
                         className="icon"
                         icon={faHome}
                       ></FontAwesomeIcon>
-                      <span>Home</span>
+                      <span>Title</span>
                     </div>
                   </div>
                 </div>
@@ -119,14 +119,6 @@ const ContactPage = ({ setActiveRoute }: any) => {
                     <span>Go Back To Title Screen</span>
                   </div>
                 </div>
-              </div>
-              <div className="footer">
-                {/* <Header /> */}
-                <p>
-                  Designed by{" "}
-                  <span className="designed-by">Arthur Vannakittikun </span>
-                  &copy; 2024
-                </p>
               </div>
             </div>
           </motion.section>

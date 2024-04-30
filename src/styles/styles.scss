@@ -2514,10 +2514,6 @@ section {
   }
 }
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
   span {
     color: white;
@@ -2526,7 +2522,7 @@ section {
     font-weight: bold;
     color: #ffffff;
   }
-  background: none;
+  background: black;
   pointer-events: none;
   font-size: 0.8em;
 }

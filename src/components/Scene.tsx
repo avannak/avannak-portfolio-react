@@ -594,6 +594,7 @@ const Scene = () => {
     <div
       className="canvasContainer"
       style={{
+        display: "block",
         width: "100vw",
         height: "100vh",
         position: "absolute",
@@ -686,10 +687,9 @@ const Scene = () => {
         <div
           className="footer"
           style={{
+            display: "block",
+            margin: "auto",
             position: "fixed",
-            bottom: "50px",
-            left: 0,
-            right: 0,
             zIndex: 1,
             pointerEvents: "none",
           }}

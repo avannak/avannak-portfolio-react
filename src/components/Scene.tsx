@@ -599,6 +599,7 @@ const Scene = () => {
         position: "absolute",
         left: 0,
         top: 0,
+        touchAction: "none",
       }}
     >
       <Canvas
@@ -608,6 +609,7 @@ const Scene = () => {
           height: dimensions.height,
           position: "fixed",
           zIndex: 1,
+          touchAction: "none",
         }}
         resize={{ scroll: false }}
       >

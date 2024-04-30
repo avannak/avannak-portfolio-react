@@ -352,8 +352,8 @@ const Model = ({
             zoomInMonitor
               ? [0, 2.3, -4]
               : cameraType === "freeCamera"
-              ? [-0.25, 2.74, -3.56]
-              : [-0.25, 2.74, -3.56]
+              ? [-0.25, 2.7, -3.56]
+              : [-0.25, 2.7, -3.56]
           }
           rotation={[0, 0, 0]}
           transform
@@ -371,6 +371,8 @@ const Model = ({
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
             transformStyle: "preserve-3d",
             overflowY: zoomInMonitor ? "auto" : "hidden",
+            overflowX: "hidden",
+            fontSize: "0.7em",
           }}
         >
           <div
@@ -388,6 +390,7 @@ const Model = ({
                 cursor: zoomInMonitor ? "auto" : "pointer",
                 pointerEvents: "none",
                 overflowY: "hidden",
+                overflowX: "hidden",
                 marginTop: "0",
                 width: "100%",
                 height: "100%",
@@ -568,13 +571,6 @@ const Scene = () => {
       prevCameraType.current = cameraType;
     }, [cameraType, camera, freeCameraPosition, freeCameraAngle]);
 
-    useEffect(() => {
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = "scroll";
-      };
-    }, []);
-
     return (
       <>
         {cameraType === "freeCamera" && (
@@ -596,8 +592,8 @@ const Scene = () => {
     <div
       className="canvasContainer"
       style={{
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
         position: "absolute",
         left: 0,
         top: 0,

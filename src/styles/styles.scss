@@ -70,6 +70,7 @@ body {
 
 .wrapper {
   z-index: 2;
+  overflow-x: hidden;
 }
 
 .clickable-screen {
@@ -97,16 +98,13 @@ body {
 
 .route-content {
   position: absolute;
-  top: 60px;
   width: 100%;
   height: 100%;
+  top: 60px;
 }
 
 .monitor-content {
   // font-size: 1.5em;
-  width: 100%;
-  height: 100%;
-  padding: 0;
   .monitor-nav {
     z-index: 9999;
     overflow: hidden;
@@ -114,6 +112,7 @@ body {
     justify-content: center;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
+    background-color: black;
     // min-width: 370px;
     height: 60px;
     border-radius: 10px;
@@ -305,9 +304,11 @@ img {
 .nav-menu {
   font-size: 1.3em;
   .nav-menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px auto auto auto;
     box-sizing: border-box;
-    margin-bottom: auto;
-    margin-top: 40px;
     width: 100%;
     height: fit-content;
   }
@@ -315,12 +316,10 @@ img {
   ul {
     list-style: none;
     padding: 0;
-    height: 100%;
     width: 100%;
     align-items: center;
   }
   li {
-    height: 100%;
     width: 100%;
     text-align: center;
     text-decoration: none;
@@ -342,7 +341,6 @@ img {
   min-width: 370px;
   height: 100%;
   max-width: 100%;
-  margin: auto;
 
   // Full Name
   .title-container {
@@ -512,7 +510,7 @@ img {
     box-sizing: border-box;
     li {
       margin: auto;
-      max-width: 400px;
+      max-width: 350px;
       &:hover {
         color: rgb(244, 236, 117);
         transition: color 0.3s ease;
@@ -1530,7 +1528,7 @@ section {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   align-items: center;
   height: 150px;

@@ -352,8 +352,8 @@ const Model = ({
             zoomInMonitor
               ? [0, 2.3, -4]
               : cameraType === "freeCamera"
-              ? [-0.35, 2.64, -3.56]
-              : [-0.25, 2.64, -3.56]
+              ? [-0.25, 2.74, -3.56]
+              : [-0.25, 2.74, -3.56]
           }
           rotation={[0, 0, 0]}
           transform
@@ -682,10 +682,10 @@ const Scene = () => {
           className="footer"
           style={{
             position: "fixed",
-            bottom: 0,
+            bottom: "50px",
             left: 0,
             right: 0,
-            zIndex: 1,
+            zIndex: 0,
             pointerEvents: "none",
           }}
         >

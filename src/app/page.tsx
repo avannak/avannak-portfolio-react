@@ -1,7 +1,11 @@
 "use client";
 import useLoading from "@/hooks/useLoading";
-import HomePage from "../PageComponents/home/HomePage";
+import dynamic from "next/dynamic";
 import { RingLoader } from "react-spinners";
+
+const SceneWithNoSSR = dynamic(() => import("@/components/Scene"), {
+  ssr: false,
+});
 
 const App = () => {
   const isLoading = useLoading();
@@ -11,10 +15,11 @@ const App = () => {
         <div
           style={{
             display: "flex",
+            position: "absolute",
             justifyContent: "center",
             alignItems: "center",
-            height: "100%",
-            width: "100%",
+            height: "100vh",
+            width: "100vw",
             backgroundColor: "#0f0f14",
           }}
         >
@@ -27,7 +32,9 @@ const App = () => {
           />
         </div>
       ) : (
-        <HomePage />
+        <div className="wrapper">
+          <SceneWithNoSSR />
+        </div>
       )}
     </>
   );

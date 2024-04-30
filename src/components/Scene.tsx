@@ -604,7 +604,6 @@ const Scene = () => {
           width: dimensions.width,
           height: dimensions.height,
           position: "fixed",
-          zIndex: 1,
           touchAction: "none",
         }}
         resize={{ scroll: false }}
@@ -685,7 +684,6 @@ const Scene = () => {
             bottom: "30px",
             left: 0,
             right: 0,
-            zIndex: 1,
             pointerEvents: "none",
           }}
         >

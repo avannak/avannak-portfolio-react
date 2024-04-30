@@ -615,29 +615,29 @@ const Scene = () => {
         }}
         resize={{ scroll: false }}
       >
-        {lightOn && !zoomInMonitor && (
-          <spotLight
-            color={"#ffffff"}
-            position={[0, 8, 0]}
-            angle={Math.PI / 4}
-            penumbra={0.2}
-            intensity={80}
-            castShadow
-            receiveShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
-            shadow-camera-near={0.5}
-            shadow-camera-far={500}
-            shadow-bias={-0.0001}
-          />
-        )}
-        <NeonLight />
-        {!zoomInMonitor && (
-          <>
-            <ambientLight intensity={1} color={"#564ec7"} />
-          </>
-        )}
         <Suspense fallback={null}>
+          {lightOn && !zoomInMonitor && (
+            <spotLight
+              color={"#ffffff"}
+              position={[0, 8, 0]}
+              angle={Math.PI / 4}
+              penumbra={0.2}
+              intensity={80}
+              castShadow
+              receiveShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-near={0.5}
+              shadow-camera-far={500}
+              shadow-bias={-0.0001}
+            />
+          )}
+          <NeonLight />
+          {!zoomInMonitor && (
+            <>
+              <ambientLight intensity={1} color={"#564ec7"} />
+            </>
+          )}
           <Model
             cameraType={cameraType}
             setCameraType={setCameraType}
@@ -683,7 +683,7 @@ const Scene = () => {
           setCameraType={setCameraType}
         />
       )}
-      {!zoomInMonitor && (
+      {/* {!zoomInMonitor && (
         <div
           className="footer"
           style={{
@@ -700,7 +700,7 @@ const Scene = () => {
             &copy; 2024
           </p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

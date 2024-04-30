@@ -125,6 +125,17 @@ body {
     cursor: pointer;
   }
   .monitor-nav-btn {
+    &.active{
+      color: rgb(251, 251, 143);
+      background: linear-gradient(
+        217deg,
+        rgb(71, 65, 65),
+        rgba(46, 38, 38, 0.709) 70.71%
+      ),
+      linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%),
+      linear-gradient(336deg, rgba(6, 6, 24, 0.946), rgb(6, 6, 23) 70.71%);
+    filter: brightness(130%);
+    }
     @media (max-width: 450px) {
       font-size: 0.8em;
       max-width: 70px;

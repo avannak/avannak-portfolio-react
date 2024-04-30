@@ -149,25 +149,41 @@ const MobileOverlay = ({
           <FontAwesomeIcon className="icon" icon={faRotateBackward} />
         </button>
         <button
-          className="monitor-nav-btn"
+          className={
+            activeRoute === "home"
+              ? "monitor-nav-btn active"
+              : "monitor-nav-btn"
+          }
           onClick={() => handleRouteClick("home")}
         >
           Title
         </button>
         <button
-          className="monitor-nav-btn"
+          className={
+            activeRoute === "about"
+              ? "monitor-nav-btn active"
+              : "monitor-nav-btn"
+          }
           onClick={() => handleRouteClick("about")}
         >
           About
         </button>
         <button
-          className="monitor-nav-btn"
+          className={
+            activeRoute === "projects"
+              ? "monitor-nav-btn active"
+              : "monitor-nav-btn"
+          }
           onClick={() => handleRouteClick("projects")}
         >
           Projects
         </button>
         <button
-          className="monitor-nav-btn"
+          className={
+            activeRoute === "contact"
+              ? "monitor-nav-btn active"
+              : "monitor-nav-btn"
+          }
           onClick={() => handleRouteClick("contact")}
         >
           Contact
@@ -329,7 +345,7 @@ const Model = ({
                   setCameraType("freeCamera");
                 }}
               >
-                Enable Free Camera
+                Look Around
                 <FontAwesomeIcon className="icon" icon={faEye} />
               </button>
             )}
@@ -402,7 +418,9 @@ const Model = ({
                 <nav className="monitor-nav">
                   <button
                     className="monitor-nav-btn"
-                    onClick={() => handleRouteClick("home")}
+                    onClick={() => {
+                      handleRouteClick("home");
+                    }}
                   >
                     Home
                   </button>

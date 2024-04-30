@@ -285,9 +285,6 @@ const Model = ({
       if (object === monitorRef.current) {
         setClickedMonitor(!clickedMonitor);
         setZoomInMonitor(!zoomInMonitor);
-      } else if (object === lightSwitchRef.current) {
-        setClickedLightSwitch(!clickedLightSwitch);
-        setLightOn(!lightOn); // Toggle the light state
       }
     }
   };
@@ -574,8 +571,8 @@ const Scene = () => {
       if (cameraType === "freeCamera" && orbitControlsRef.current) {
         // Set the camera position and angle only when cameraType changes to "freeCamera"
         if (prevCameraType.current !== "freeCamera") {
-          camera.position.copy(freeCameraPosition);
-          camera.rotation.copy(freeCameraAngle);
+          // camera.position.copy(freeCameraPosition);
+          // camera.rotation.copy(freeCameraAngle);
           orbitControlsRef.current.target.copy(new Vector3(0, 3, -3));
         }
       }

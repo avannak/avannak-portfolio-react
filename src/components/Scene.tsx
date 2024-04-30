@@ -568,6 +568,13 @@ const Scene = () => {
       prevCameraType.current = cameraType;
     }, [cameraType, camera, freeCameraPosition, freeCameraAngle]);
 
+    useEffect(() => {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "scroll";
+      };
+    }, []);
+
     return (
       <>
         {cameraType === "freeCamera" && (

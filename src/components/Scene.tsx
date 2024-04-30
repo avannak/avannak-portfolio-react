@@ -596,7 +596,7 @@ const Scene = () => {
       style={{
         width: "100vw",
         height: "100vh",
-        position: "relative",
+        position: "absolute",
         left: 0,
         top: 0,
       }}
@@ -607,7 +607,9 @@ const Scene = () => {
           width: dimensions.width,
           height: dimensions.height,
           position: "fixed",
+          zIndex: 1,
         }}
+        resize={{ scroll: false }}
       >
         {lightOn && !zoomInMonitor && (
           <spotLight
@@ -685,7 +687,7 @@ const Scene = () => {
             bottom: "50px",
             left: 0,
             right: 0,
-            zIndex: 0,
+            zIndex: 1,
             pointerEvents: "none",
           }}
         >

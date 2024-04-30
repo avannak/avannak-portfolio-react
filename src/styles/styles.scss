@@ -98,7 +98,6 @@ body {
     // min-width: 370px;
     height: 60px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.475);
   }
   button {
     cursor: pointer;
@@ -128,11 +127,12 @@ body {
     border-radius: 10px;
     color: white;
     text-align: center;
+    border: solid 2px rgba(255, 255, 255, 0.431);
     transition: filter 250ms, box-shadow 250ms, transform 250ms; // Add transform to transition
     background: linear-gradient(217deg, rgb(24, 24, 32), rgb(6, 2, 2) 70.71%),
       linear-gradient(127deg, rgba(39, 44, 39, 0.799), rgb(13, 45, 13) 70.71%),
       linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
-    box-shadow: rgba(0, 0, 0, 0.923) 0px 0px 10px,
+    box-shadow: rgba(0, 0, 0, 0.247) 0px 0px 10px,
       rgba(17, 16, 41, 0.352) 0px 0px 14px;
     &:hover {
       svg {
@@ -148,7 +148,7 @@ body {
         linear-gradient(127deg, rgb(4, 8, 4), rgba(13, 45, 13, 0.073) 70.71%),
         linear-gradient(336deg, rgba(6, 6, 24, 0.946), rgb(6, 6, 23) 70.71%);
       filter: brightness(130%);
-      box-shadow: rgba(0, 0, 0, 0.174) 0px 0px 8px,
+      box-shadow: rgba(255, 255, 255, 0.904) 0px 0px 8px,
         /* Initial shadow */ rgba(35, 26, 26, 0.132) 0px 0px 4px; /* Expanded shadow */
     }
 
@@ -2514,9 +2514,6 @@ section {
   }
 }
 .footer {
-  z-index: 0;
-  position: absolute;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

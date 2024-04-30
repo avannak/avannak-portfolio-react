@@ -600,6 +600,7 @@ const Scene = () => {
         left: 0,
         top: 0,
         touchAction: "none",
+        pointerEvents: zoomInMonitor ? "auto" : "none",
       }}
     >
       <Canvas

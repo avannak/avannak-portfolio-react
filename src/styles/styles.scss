@@ -106,41 +106,45 @@ body {
 .monitor-content {
   // font-size: 1.5em;
   .monitor-nav {
+    box-sizing: border-box;
+    padding: 0;
     z-index: 9999;
     overflow: hidden;
     display: flex;
     justify-content: center;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    background-color: black;
+    background-color: none;
     // min-width: 370px;
     height: 60px;
-    border-radius: 10px;
+    // border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
   }
   button {
     cursor: pointer;
   }
   .monitor-nav-btn {
-    @media (max-width: 1000px) {
+    @media (max-width: 450px) {
       font-size: 0.8em;
       max-width: 70px;
     }
+    box-sizing: border-box;
+    margin: 3px;
+    max-width: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
     background: none;
     color: inherit;
     border: none;
-    padding: 0px;
     font: inherit;
     cursor: pointer;
     outline: inherit;
     font-size: 0.9em;
     justify-content: center;
     height: 55px;
-    width: 180px;
-    margin: 3px;
-    padding: 15px;
+    width: 100%;
     position: relative;
     border-radius: 10px;
     color: white;

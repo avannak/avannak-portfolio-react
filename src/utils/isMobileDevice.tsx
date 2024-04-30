@@ -4,29 +4,32 @@ import { useEffect, useState } from "react";
 import { throttle } from "lodash";
 
 export const isMobileDevice = () => {
-  // Check if the window object is defined
-  if (typeof window !== "undefined") {
-    // Returns true if the viewport width is 768px or less
-    return window.innerWidth <= 768;
-  }
-  // Default to false if the window object is not available
-  return false;
+  if (typeof window === "undefined") return false; // Return false if the window object is not available
+
+  const userAgent = window.navigator.userAgent;
+
+  // Check for specific patterns in the userAgent string
+  const isAndroid = /Android/i.test(userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+  const isWindowsPhone = /Windows Phone/i.test(userAgent);
+  const isBlackBerry = /BlackBerry/i.test(userAgent);
+  const isOpera = /Opera Mini/i.test(userAgent);
+
+  // Return true if any of the patterns match, indicating a mobile device
+  return isAndroid || isIOS || isWindowsPhone || isBlackBerry || isOpera;
 };
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== "undefined" && window.innerWidth <= 768
-  );
+  const [isMobile, setIsMobile] = useState(isMobileDevice());
 
   useEffect(() => {
-    const throttledCheckMobile = throttle(() =>
-      setIsMobile(window.innerWidth <= 768 && window.innerHeight <= 500)
-    );
-    window.addEventListener("resize", throttledCheckMobile);
+    const handleResize = throttle(() => setIsMobile(isMobileDevice()), 200);
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", throttledCheckMobile);
-      throttledCheckMobile.cancel();
+      window.removeEventListener("resize", handleResize);
+      handleResize.cancel();
     };
   }, []);
 

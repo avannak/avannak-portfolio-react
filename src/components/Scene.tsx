@@ -24,7 +24,7 @@ import AboutPage from "@/app/about/page";
 import MyWorkPage from "@/app/projects/page";
 import ContactPage from "@/app/contact/page";
 import NavMenu from "./NavMenu";
-import { useIsMobile } from "@/utils/isMobileDevice";
+import { isMobileDevice, useIsMobile } from "@/utils/isMobileDevice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -109,6 +109,7 @@ const MobileOverlay = ({
   setCameraType,
 }: any) => {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const isMobileDevice = useIsMobile();
 
   useEffect(() => {
     if (overlayRef.current) {
@@ -144,6 +145,7 @@ const MobileOverlay = ({
             setCameraType("fixedCamera");
           }}
         >
+          {!isMobileDevice && "Back To Desk"}
           <FontAwesomeIcon className="icon" icon={faRotateBackward} />
         </button>
         <button
@@ -327,7 +329,7 @@ const Model = ({
                   setCameraType("freeCamera");
                 }}
               >
-                Free Camera
+                Enable Free Camera
                 <FontAwesomeIcon className="icon" icon={faEye} />
               </button>
             )}
@@ -339,7 +341,7 @@ const Model = ({
                   setCameraType("fixedCamera");
                 }}
               >
-                Back To Scene
+                Back To Desk
                 <FontAwesomeIcon className="icon" icon={faRotateBackward} />
               </button>
             )}

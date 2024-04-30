@@ -200,7 +200,7 @@ body {
   font-weight: bold;
   color: #000000;
   justify-content: center;
-  width: 230px;
+  width: 200px;
   height: 50px;
   padding: 15px;
   position: relative;
@@ -215,8 +215,8 @@ body {
     /* Deep Purple */ hsla(300, 20%, 6%, 0.853) 100% /* Dark Pink */
   );
   .icon {
-    margin-left: 10px;
-    padding: 0px;
+    box-sizing: border-box;
+    padding: 15px;
     font-size: 30px;
   }
 

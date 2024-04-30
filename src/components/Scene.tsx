@@ -537,10 +537,20 @@ const Scene = () => {
       });
     };
 
+    // Disable scrolling and touch actions
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+
+      // Re-enable scrolling and touch actions
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+      document.body.style.touchAction = "auto";
     };
   }, []);
 

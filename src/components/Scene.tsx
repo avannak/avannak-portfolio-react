@@ -78,7 +78,7 @@ const CameraController = ({
       setFov((prevFov) => lerp(prevFov, 30, 0.03)); // Lerp towards the zoomed in FOV
     } else {
       camera.position.lerp(initialPosition, 0.03);
-      setFov((prevFov) => lerp(prevFov, 75, 0.03)); // Lerp towards the normal FOV
+      setFov((prevFov) => lerp(prevFov, 69, 0.03)); // Lerp towards the normal FOV
     }
     if (target) {
       // Apply manual rotation
@@ -476,7 +476,7 @@ const NeonLight = () => {
         ref={pointLightRef}
         distance={3}
         decay={-1.2}
-        intensity={3}
+        intensity={5}
         color={"#782fff"}
         position={[-1.1, 3.5, -3.3]}
         castShadow
@@ -589,7 +589,7 @@ const Scene = () => {
             enablePan={false}
             enableRotate={true}
             minDistance={3}
-            maxDistance={6}
+            maxDistance={12}
             enableDamping={true}
             // collisionObjects={meshObjects}
           />
@@ -637,6 +637,22 @@ const Scene = () => {
             shadow-bias={-0.0001}
           />
         )}
+
+        <spotLight
+          color={"#ff0000"}
+          position={[0, 3, 0]}
+          angle={Math.PI / 3}
+          penumbra={0.2}
+          intensity={10}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.0001}
+        />
+
         <NeonLight />
         {!zoomInMonitor && (
           <>

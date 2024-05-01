@@ -264,7 +264,7 @@ const Model = ({
       monitor.userData.clickable = true;
     }
 
-    const lightSwitch = scene.getObjectByName("model") as Mesh;
+    const lightSwitch = scene.getObjectByName("light_switch") as Mesh;
     if (lightSwitch) {
       lightSwitchRef.current = lightSwitch;
       lightSwitch.userData.clickable = true;
@@ -297,8 +297,6 @@ const Model = ({
         setHoveredMonitor(true);
       } else if (object === lightSwitchRef.current) {
         setHoveredLightSwitch(true);
-      } else if (object === titleTextRef.current) {
-        setHoveredTitleText(true);
       }
       document.body.style.cursor = "pointer";
     } else {
@@ -428,7 +426,7 @@ const Model = ({
               className="monitor-content"
               style={{
                 fontSize: "0.7em",
-                cursor: zoomInMonitor ? "auto" : "pointer",
+                cursor: zoomInMonitor ? "default" : "pointer",
                 pointerEvents: "none",
                 overflowY: "hidden",
                 overflowX: "hidden",
@@ -509,18 +507,18 @@ const Model = ({
                   Contact
                 </button>
               </nav>
-              <div className="route-content">
+              <div className="route-content screen">
                 {activeRoute! === "home" && (
-                  <NavMenu setActiveRoute={setActiveRoute} />
+                  <NavMenu screen setActiveRoute={setActiveRoute} />
                 )}
                 {activeRoute! === "about" && (
-                  <AboutPage setActiveRoute={setActiveRoute} />
+                  <AboutPage screen setActiveRoute={setActiveRoute} />
                 )}
                 {activeRoute! === "projects" && (
-                  <MyWorkPage setActiveRoute={setActiveRoute} />
+                  <MyWorkPage screen setActiveRoute={setActiveRoute} />
                 )}
                 {activeRoute! === "contact" && (
-                  <ContactPage setActiveRoute={setActiveRoute} />
+                  <ContactPage screen setActiveRoute={setActiveRoute} />
                 )}
               </div>
             </div>
@@ -685,7 +683,7 @@ const Scene = () => {
         top: 0,
         touchAction: "none",
         pointerEvents: zoomInMonitor ? "auto" : "none",
-        cursor: cameraType === "freeCamera" ? "grab" : "auto",
+        cursor: cameraType === "freeCamera" ? "grab" : "",
       }}
     >
       <Canvas

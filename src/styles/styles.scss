@@ -1235,6 +1235,9 @@ section {
     /* When the viewport width is 1200px or less */
     grid-template-columns: 1fr; /* Change to one column */
   }
+  &.screen {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 // Modal
@@ -1835,7 +1838,7 @@ section {
     }
   }
 
-  #jelly-description {
+  .jelly-description {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1845,6 +1848,10 @@ section {
     z-index: 1;
     @media (max-width: 500px) {
       height: 150px;
+    }
+    &.screen {
+      height: 300px;
+      position: relative;
     }
   }
 

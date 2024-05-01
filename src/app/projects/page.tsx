@@ -29,7 +29,7 @@ const TexturedJellyDescription = dynamic(
   }
 );
 
-const MyWorkPage = ({ setActiveRoute }: any) => {
+const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
   const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
@@ -104,7 +104,13 @@ const MyWorkPage = ({ setActiveRoute }: any) => {
             <motion.section className="portfolio" id="portfolio">
               <div className="description-container">
                 <div className="description-background"></div>
-                <div id="jelly-description">
+                <div
+                  className={
+                    props.screen
+                      ? "jelly-description screen"
+                      : "jelly-description"
+                  }
+                >
                   <Canvas>
                     <ambientLight intensity={7} />
                     <spotLight

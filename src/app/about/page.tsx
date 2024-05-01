@@ -47,7 +47,7 @@ const RotatingCard = dynamic(
   { ssr: false }
 );
 
-const AboutPage = ({ setActiveRoute }: any) => {
+const AboutPage = ({ setActiveRoute, ...props }: any) => {
   const isLoading = useLoading();
   const images = [
     akai,
@@ -88,7 +88,11 @@ const AboutPage = ({ setActiveRoute }: any) => {
         </div>
       ) : (
         <motion.div
-          className="about-page-container"
+          className={
+            props.screen
+              ? "about-page-container screen"
+              : "about-page-container"
+          }
           id="about-section"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -100,7 +104,13 @@ const AboutPage = ({ setActiveRoute }: any) => {
           exit={{ opacity: 0 }}
         >
           <section className="about-me-section top"></section>
-          <div className="about-me-section-wrapper">
+          <div
+            className={
+              props.screen
+                ? "about-me-section-wrapper screen"
+                : "about-me-section-wrapper"
+            }
+          >
             <section className="about-me-section left">
               <ul className="about-description-list">
                 <TypingEffectMission

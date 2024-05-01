@@ -30,6 +30,7 @@ import doorExit from "public/images/icons/door-exit.svg";
 import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import Image from "next/image";
+import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 
 extend({ SpotLight });
 
@@ -704,6 +705,7 @@ const Scene = () => {
             activeRoute={activeRoute}
             setActiveRoute={setActiveRoute}
           />
+          {!zoomInMonitor && <HandPointerIndicator />}
           {/* <Monitor onClick={handleMonitorClick} /> */}
           {cameraType !== "freeCamera" && (
             <CameraController

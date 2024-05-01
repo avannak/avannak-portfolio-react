@@ -164,9 +164,9 @@ const MyWorkPage = ({ setActiveRoute }: any) => {
                       <TexturedJellyDescription
                         texture={textTexture}
                         scale={[
-                          isMobile ? 1.5 : 3,
-                          isMobile ? 1.5 : 3,
-                          isMobile ? 1.5 : 3,
+                          isMobile ? 3 : 3,
+                          isMobile ? 3 : 3,
+                          isMobile ? 3 : 3,
                         ]}
                       />
                     )}

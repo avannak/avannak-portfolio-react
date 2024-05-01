@@ -102,53 +102,6 @@ const MyWorkPage = ({ setActiveRoute }: any) => {
             exit={{ opacity: 0 }}
           >
             <motion.section className="portfolio" id="portfolio">
-              <div className="header-title navigation">
-                <div className="content-container">
-                  <div
-                    onClick={() => setActiveRoute("about")}
-                    className="link"
-                    style={{ width: "100%" }}
-                  >
-                    <div className="icon-container">
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={faLeftLong}
-                      ></FontAwesomeIcon>
-                      <span>About</span>
-                    </div>
-                  </div>
-                  <h1
-                    style={{
-                      color: "rgb(255, 255, 255)",
-                      margin: "5px 15px 5px 15px",
-                      width: "100%",
-                    }}
-                  >
-                    Projects <br />{" "}
-                    <Image
-                      src={portFolio}
-                      alt="folder"
-                      height={50}
-                      width={50}
-                      style={{ margin: 5, objectFit: "contain" }}
-                      placeholder="blur"
-                    />
-                  </h1>
-                  <div
-                    onClick={() => setActiveRoute("contact")}
-                    className="link"
-                    style={{ width: "100%" }}
-                  >
-                    <div className="icon-container">
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={faRightLong}
-                      ></FontAwesomeIcon>
-                      <span>Contact</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div className="description-container">
                 <div className="description-background"></div>
                 <div id="jelly-description">
@@ -242,18 +195,18 @@ const MyWorkPage = ({ setActiveRoute }: any) => {
                     imgSrc={musicplayer}
                   />
                 </div>
-              </div>
-              <div className="end-navigation-container">
-                <div
-                  onClick={() => setActiveRoute("contact")}
-                  className="end-navigation-link"
-                >
-                  <div className="end-navigation">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faRightLong}
-                    ></FontAwesomeIcon>
-                    <span>Next: Go To Contact Page</span>
+                <div className="end-navigation-container">
+                  <div
+                    onClick={() => setActiveRoute("contact")}
+                    className="end-navigation-link"
+                  >
+                    <div className="end-navigation">
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faRightLong}
+                      ></FontAwesomeIcon>
+                      <span>Next: Go To Contact Page</span>
+                    </div>
                   </div>
                 </div>
               </div>

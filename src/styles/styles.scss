@@ -655,6 +655,7 @@ img {
   justify-content: center;
   width: 100%;
   height: 100px;
+  font-size: 1.5em;
   .social-svg {
     &:hover {
       background-color: rgba(67, 58, 99, 0.437);
@@ -1201,7 +1202,7 @@ section {
 }
 .about-me-section.left,
 .about-me-section.right {
-  box-shadow: 0px 0px 7px rgba(29, 59, 78, 0.243);
+  box-shadow: 0px 0px 10px rgba(29, 59, 78, 0.06);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1559,9 +1560,9 @@ section {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   align-items: center;
-  height: 150px;
+  height: 60px;
   width: 100%;
 }
 .end-navigation-link {
@@ -1571,6 +1572,7 @@ section {
   margin-left: auto;
   margin-right: 100px;
   margin-bottom: auto;
+  margin-top: auto;
   text-decoration: none;
   border-radius: 100px;
   min-height: 60px;
@@ -2082,28 +2084,12 @@ section {
   }
   #portfolio-container {
     display: flex;
+    flex-direction: column;
     margin: auto;
     box-sizing: border-box;
     padding: 30px;
     max-width: max-content;
     width: 100%;
-    border-radius: 15px;
-
-    /* Background gradient */
-    background: repeating-linear-gradient(
-        -45deg,
-        hsla(200, 14%, 4%, 0.052),
-        /* Light Blue */ hsla(240, 12%, 8%, 0.123) 10px,
-        /* Blue-Purple */ hsla(228, 8%, 12%, 0.125) 10px,
-        /* Deep Purple */ hsla(338, 20%, 8%, 0.265) 20px
-      ),
-      linear-gradient(
-        90deg,
-        rgba(22, 29, 33, 0.203),
-        rgba(15, 16, 21, 0.107) 50%,
-        rgba(14, 14, 22, 0.099) 100%
-      );
-    box-shadow: 0 8px 15px rgb(0, 0, 0);
   }
 }
 .portfolio {

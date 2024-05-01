@@ -7,11 +7,13 @@ import axios from "axios";
 import Header from "@/components/Header";
 import collab from "public/images/collab.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMailBulk,
+  faPhone,
+  faRotateLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
-type Props = {};
-
-const ContactForm = (props: Props) => {
+const ContactForm = (props: any) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const {
@@ -170,6 +172,20 @@ const ContactForm = (props: Props) => {
             <span className="edge blue"></span>
             <span className="front blue">Send Message</span>
           </button>
+          <div className="end-navigation-container">
+            <div
+              onClick={() => props.setActiveRoute("home")}
+              className="end-navigation-link"
+            >
+              <div className="end-navigation">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faRotateLeft}
+                ></FontAwesomeIcon>
+                <span>Go Back To Title Screen</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </form>

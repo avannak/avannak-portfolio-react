@@ -99,57 +99,7 @@ const AboutPage = ({ setActiveRoute }: any) => {
           }}
           exit={{ opacity: 0 }}
         >
-          <section className="about-me-section top">
-            {" "}
-            <div className="header-title navigation">
-              <div className="content-container">
-                <div
-                  onClick={() => setActiveRoute("home")}
-                  className="link"
-                  style={{ width: "100%" }}
-                >
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faHome}
-                    ></FontAwesomeIcon>
-                    <span>Title</span>
-                  </div>
-                </div>
-                <h1
-                  style={{
-                    color: "rgb(255, 255, 255)",
-                    margin: "5px 15px 5px 15px",
-                    width: "100%",
-                  }}
-                >
-                  About Me <br />
-                  <Image
-                    src={smileyGlasses}
-                    alt="smiley"
-                    height={50}
-                    width={50}
-                    style={{ margin: 5, objectFit: "contain" }}
-                    placeholder="blur"
-                    blurDataURL="none"
-                  />
-                </h1>
-                <div
-                  onClick={() => setActiveRoute("projects")}
-                  className="link"
-                  style={{ width: "100%" }}
-                >
-                  <div className="icon-container">
-                    <FontAwesomeIcon
-                      className="icon"
-                      icon={faRightLong}
-                    ></FontAwesomeIcon>
-                    <span>Projects</span>
-                  </div>
-                </div>
-              </div>
-            </div>{" "}
-          </section>
+          <section className="about-me-section top"></section>
           <div className="about-me-section-wrapper">
             <section className="about-me-section left">
               <ul className="about-description-list">

@@ -213,6 +213,9 @@ body {
 }
 
 .camera-nav-btn {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: flex;
   flex-direction: row;
   align-items: center;

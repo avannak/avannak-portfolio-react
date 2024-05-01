@@ -685,6 +685,7 @@ const Scene = () => {
         top: 0,
         touchAction: "none",
         pointerEvents: zoomInMonitor ? "auto" : "none",
+        cursor: cameraType === "freeCamera" ? "grab" : "auto",
       }}
     >
       <Canvas

@@ -233,8 +233,10 @@ const Model = ({
   handleRouteClick,
 }: any) => {
   const { scene } = useGLTF("scenes/WorkRoom2-v1.glb");
+  const titleTextRef = useRef<Mesh>(null!);
   const monitorRef = useRef<Mesh>(null!);
   const lightSwitchRef = useRef<Mesh>(null!);
+  const [hoveredTitleText, setHoveredTitleText] = useState(false);
   const [hoveredMonitor, setHoveredMonitor] = useState(false);
   const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
   const [clickedMonitor, setClickedMonitor] = useState(false);
@@ -249,6 +251,12 @@ const Model = ({
         child.receiveShadow = true;
       }
     });
+
+    // const titleText = scene.getObjectByName("Text") as Mesh;
+    // if (titleText) {
+    //   titleTextRef.current = titleText;
+    //   titleText.userData.clickable = true;
+    // }
 
     const monitor = scene.getObjectByName("Monitor1_2") as Mesh;
     if (monitor) {
@@ -289,6 +297,8 @@ const Model = ({
         setHoveredMonitor(true);
       } else if (object === lightSwitchRef.current) {
         setHoveredLightSwitch(true);
+      } else if (object === titleTextRef.current) {
+        setHoveredTitleText(true);
       }
       document.body.style.cursor = "pointer";
     } else {

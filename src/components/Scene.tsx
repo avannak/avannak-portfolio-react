@@ -73,7 +73,6 @@ const CameraController = ({
 }: any) => {
   const { camera, gl } = useThree();
   const [fov, setFov] = useState(60);
-  const isMobile = useIsMobile();
 
   useFrame(() => {
     if (zoomInMonitor) {
@@ -226,48 +225,43 @@ const Model = ({
   setZoomInMonitor,
   setLightOn,
   lightOn,
-  setFreeCameraPosition,
-  setFreeCameraAngle,
   activeRoute,
   setActiveRoute,
   handleRouteClick,
 }: any) => {
   const { scene } = useGLTF("scenes/WorkRoom2-v1.glb");
-  const titleTextRef = useRef<Mesh>(null!);
+  const { camera } = useThree();
   const monitorRef = useRef<Mesh>(null!);
   const lightSwitchRef = useRef<Mesh>(null!);
-  const [hoveredTitleText, setHoveredTitleText] = useState(false);
-  const [hoveredMonitor, setHoveredMonitor] = useState(false);
   const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
   const [clickedMonitor, setClickedMonitor] = useState(false);
   const [clickedLightSwitch, setClickedLightSwitch] = useState(false);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
-    scene.traverse((child) => {
-      if (child instanceof Mesh) {
-        console.log(child.name);
-        child.castShadow = true;
-        child.receiveShadow = true;
+    if (scene) {
+      scene.traverse((child) => {
+        if (child instanceof Mesh) {
+          console.log(child.name);
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      const monitorObject = scene.getObjectByName("Monitor1_2");
+      const lightSwitchObject = scene.getObjectByName(
+        "Switch001_lightswitch_0"
+      );
+
+      if (monitorObject instanceof Mesh) {
+        monitorRef.current = monitorObject;
+        monitorObject.userData.clickable = true;
       }
-    });
 
-    // const titleText = scene.getObjectByName("Text") as Mesh;
-    // if (titleText) {
-    //   titleTextRef.current = titleText;
-    //   titleText.userData.clickable = true;
-    // }
-
-    const monitor = scene.getObjectByName("Monitor1_2") as Mesh;
-    if (monitor) {
-      monitorRef.current = monitor;
-      monitor.userData.clickable = true;
-    }
-
-    const lightSwitch = scene.getObjectByName("light_switch") as Mesh;
-    if (lightSwitch) {
-      lightSwitchRef.current = lightSwitch;
-      lightSwitch.userData.clickable = true;
+      if (lightSwitchObject instanceof Mesh) {
+        console.log(lightSwitchObject);
+        lightSwitchRef.current = lightSwitchObject;
+        lightSwitchObject.userData.clickable = true;
+      }
     }
   }, [scene]);
 
@@ -276,39 +270,44 @@ const Model = ({
       const material = monitorRef.current.material as MeshStandardMaterial;
       material.color.set(zoomInMonitor ? "white" : "black");
     }
-
-    if (lightSwitchRef.current) {
-      const material = lightSwitchRef.current.material as MeshStandardMaterial;
-      material.color.set(
-        clickedLightSwitch ? "red" : hoveredLightSwitch ? "hotpink" : "white"
-      );
-    }
   });
 
-  const handlePointerMove = (event: any) => {
-    event.stopPropagation();
-    const intersects = event.intersections.filter(
-      (intersect: any) => intersect.object.userData.clickable
+  const isObjectVisible = (object: Mesh, camera: THREE.Camera) => {
+    const box = new THREE.Box3().setFromObject(object);
+    const frustum = new THREE.Frustum();
+    frustum.setFromProjectionMatrix(
+      new THREE.Matrix4().multiplyMatrices(
+        camera.projectionMatrix,
+        camera.matrixWorldInverse
+      )
     );
+    return frustum.intersectsBox(box);
+  };
+
+  const handlePointerMove = (event: any, camera: THREE.Camera) => {
+    event.stopPropagation();
+    const intersects = event.intersections
+      .filter((intersect: any) => intersect.object.userData.clickable)
+      .filter((intersect: any) => {
+        const object = intersect.object;
+        const objectVisible = isObjectVisible(object, camera);
+        return objectVisible;
+      });
+    setHoveredLightSwitch(false);
 
     if (intersects.length > 0) {
       const object = intersects[0].object;
-      if (object === monitorRef.current) {
-        setHoveredMonitor(true);
-      } else if (object === lightSwitchRef.current) {
+      if (object === lightSwitchRef.current) {
         setHoveredLightSwitch(true);
+        document.body.style.cursor = "pointer";
       }
-      document.body.style.cursor = "pointer";
     } else {
-      setHoveredMonitor(false);
-      setHoveredLightSwitch(false);
       document.body.style.cursor = "default";
     }
   };
 
   const handlePointerOut = (event: any) => {
     event.stopPropagation();
-    setHoveredMonitor(false);
     setHoveredLightSwitch(false);
     document.body.style.cursor = "default";
   };
@@ -346,7 +345,9 @@ const Model = ({
   return (
     <primitive
       object={scene}
-      onPointerMove={handlePointerMove}
+      onPointerMove={(e: any) => {
+        handlePointerMove(e, camera);
+      }}
       onPointerOut={handlePointerOut}
       onClick={(event: any) => {
         if (cameraType === "fixedCamera" && !zoomInMonitor) {

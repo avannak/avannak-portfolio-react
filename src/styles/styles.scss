@@ -226,13 +226,12 @@ body {
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  font-size: 1em;
   font-weight: bold;
   color: #000000;
   justify-content: center;
   width: 200px;
   height: 50px;
-  padding: 15px;
+  padding: 5px;
   position: relative;
   border-radius: 12px;
   color: white;
@@ -247,7 +246,7 @@ body {
   .icon {
     box-sizing: border-box;
     padding: 15px;
-    font-size: 30px;
+    font-size: 25px;
   }
 
   &:hover {

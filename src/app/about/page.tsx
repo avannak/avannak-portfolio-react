@@ -258,133 +258,136 @@ const AboutPage = ({ setActiveRoute }: any) => {
               </ul>
             </section>
             <section className="about-me-section right">
-              <div className="header-title languages">
-                <h1 style={{ color: "rgb(255, 255, 255)" }}>
-                  Languages & Skills <br />
-                  <Image
-                    src={toolKit}
-                    alt="toolkit"
-                    height={50}
-                    width={50}
-                    style={{ margin: 5, objectFit: "contain" }}
-                    placeholder="blur"
-                  />
-                </h1>
-              </div>
-              <div className="language-container">
-                <RotatingCard>
-                  <ul className="fed-languages-list">
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faJs}
-                      />
-                      <span>Javascript + ES6</span>
-                    </li>
-                    <li>
-                      <Image
-                        className="font-awesome-icon"
-                        src={typescript}
-                        alt="typescript"
-                        height={200}
-                        width={200}
-                      />
-                      <span>Typescript</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faReact}
-                      />
-                      <span>React/Redux</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faGitAlt}
-                      />
-                      <span>GIT</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faShareNodes}
-                      />
-                      <span>REST APIs</span>
-                    </li>
-                    <li>
-                      <DiResponsive className="font-awesome-icon" />
-                      <span>Responsive Design</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faHtml5}
-                      />
-                      <span>HTML5</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faCss3}
-                      />
-                      <span>CSS3</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faSass}
-                      />
-                      <span>Sass</span>
-                    </li>
-                    <li>
-                      <SiStyledcomponents className="font-awesome-icon" />
-                      <span>styled-components</span>
-                    </li>
-                    <div className="title-divider"></div>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faAws}
-                      />
-                      <span>AWS</span>
-                    </li>
-                    <li>
-                      <SiMysql className="font-awesome-icon" />
-                      <span>MySQL</span>
-                    </li>
-                    <li>
-                      <DiMongodb className="font-awesome-icon" />
-                      <span>MongoDB</span>
-                    </li>
-                    <li>
-                      <SiExpress className="font-awesome-icon" />
-                      <span>Express.js</span>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        className="font-awesome-icon"
-                        icon={faNodeJs}
-                      />
-                      <span>Node.js</span>
-                    </li>
-                  </ul>
-                </RotatingCard>
-              </div>
-              <div className="disclaimer-center">
-                <span className="disclaimer">
-                  <span id="disclaimer-mini">
-                    ( The skills listed here are just a subset of my
-                    capabilities. A more comprehensive list can be found on my
-                    resume, and I am continually expanding my skillset. ) <br />
-                    <br />
-                    Download
+              <div className="languages-wrapper">
+                <div className="header-title languages">
+                  <h1 style={{ color: "rgb(255, 255, 255)" }}>
+                    Languages & Skills <br />
+                    <Image
+                      src={toolKit}
+                      alt="toolkit"
+                      height={50}
+                      width={50}
+                      style={{ margin: 5, objectFit: "contain" }}
+                      placeholder="blur"
+                    />
+                  </h1>
+                </div>
+                <div className="language-container">
+                  <RotatingCard>
+                    <ul className="fed-languages-list">
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faJs}
+                        />
+                        <span>Javascript + ES6</span>
+                      </li>
+                      <li>
+                        <Image
+                          className="font-awesome-icon"
+                          src={typescript}
+                          alt="typescript"
+                          height={200}
+                          width={200}
+                        />
+                        <span>Typescript</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faReact}
+                        />
+                        <span>React/Redux</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faGitAlt}
+                        />
+                        <span>GIT</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faShareNodes}
+                        />
+                        <span>REST APIs</span>
+                      </li>
+                      <li>
+                        <DiResponsive className="font-awesome-icon" />
+                        <span>Responsive Design</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faHtml5}
+                        />
+                        <span>HTML5</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faCss3}
+                        />
+                        <span>CSS3</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faSass}
+                        />
+                        <span>Sass</span>
+                      </li>
+                      <li>
+                        <SiStyledcomponents className="font-awesome-icon" />
+                        <span>styled-components</span>
+                      </li>
+                      <div className="title-divider"></div>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faAws}
+                        />
+                        <span>AWS</span>
+                      </li>
+                      <li>
+                        <SiMysql className="font-awesome-icon" />
+                        <span>MySQL</span>
+                      </li>
+                      <li>
+                        <DiMongodb className="font-awesome-icon" />
+                        <span>MongoDB</span>
+                      </li>
+                      <li>
+                        <SiExpress className="font-awesome-icon" />
+                        <span>Express.js</span>
+                      </li>
+                      <li>
+                        <FontAwesomeIcon
+                          className="font-awesome-icon"
+                          icon={faNodeJs}
+                        />
+                        <span>Node.js</span>
+                      </li>
+                    </ul>
+                  </RotatingCard>
+                </div>
+                <div className="disclaimer-center">
+                  <span className="disclaimer">
+                    <span id="disclaimer-mini">
+                      ( The skills listed here are just a subset of my
+                      capabilities. A more comprehensive list can be found on my
+                      resume, and I am continually expanding my skillset. ){" "}
+                      <br />
+                      <br />
+                      Download
+                    </span>
+                    <a href="/documents/arthurvresume.pdf" download>
+                      resume
+                    </a>
+                    <span>for full list</span>
                   </span>
-                  <a href="/documents/arthurvresume.pdf" download>
-                    resume
-                  </a>
-                  <span>for full list</span>
-                </span>
+                </div>
               </div>
               <div id="skills-contact">
                 <p id="skills-contact-p">

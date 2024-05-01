@@ -36,7 +36,7 @@ h1 {
 }
 
 html {
-  font-size: 0.8em;
+  font-size: 0.9em;
   @media (max-width: 1024px) {
     font-size: 0.8em;
   }
@@ -236,10 +236,10 @@ body {
   text-align: center;
   background: linear-gradient(
     to left,
-    hsl(220, 17%, 7%) 0%,
-    /* Light Blue */ hsla(240, 24%, 15%, 0.928) 30%,
+    hsla(220, 17%, 7%, 0.916) 0%,
+    /* Light Blue */ hsla(240, 17%, 8%, 0.731) 30%,
     /* Blue-Purple */ hsla(278, 27%, 8%, 0.821) 70%,
-    /* Deep Purple */ hsla(300, 20%, 6%, 0.853) 100% /* Dark Pink */
+    /* Deep Purple */ hsla(300, 20%, 6%, 0.833) 100% /* Dark Pink */
   );
   .icon {
     box-sizing: border-box;
@@ -596,7 +596,7 @@ img {
     rgba(80, 12, 12, 0.3) 0px 18px 36px -18px inset;
   border-radius: 50px;
   transition: filter 250ms, box-shadow 250ms, transform 250ms; // Apply transitions
-  font-size: 1.5em;
+  font-size: 1.2em;
   &:hover {
     transform: scale(1.05); // Increase the size of the link
 
@@ -616,7 +616,6 @@ img {
   display: flex;
   margin: auto;
   align-items: center;
-  font-size: 1.2em;
   justify-content: center;
   padding: 0;
   height: 120px;
@@ -655,7 +654,7 @@ img {
   justify-content: center;
   width: 100%;
   height: 100px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   .social-svg {
     &:hover {
       background-color: rgba(67, 58, 99, 0.437);
@@ -1059,6 +1058,7 @@ section {
     box-sizing: border-box;
     width: 95%;
     padding: 1rem 1rem;
+    margin: auto;
     display: flex;
     span {
       padding: 1px;
@@ -1205,7 +1205,13 @@ section {
   box-shadow: 0px 0px 10px rgba(29, 59, 78, 0.06);
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  .languages-wrapper,
+  .skills-contact {
+    flex: 1;
+    width: 50%;
+  }
 }
 .about-me-section-wrapper {
   background: linear-gradient(
@@ -1623,6 +1629,13 @@ section {
     /* Initial shadow */ rgba(255, 255, 255, 0.587) 0px 0px 4px; /* Expanded shadow */
 }
 
+.languages-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+}
+
 .header-title {
   &.languages {
     background: none;
@@ -1685,6 +1698,7 @@ section {
   text-shadow: rgba(0, 0, 0, 0.575) 0px 3px 3px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
   span {
     margin-top: 10px;
   }
@@ -1734,13 +1748,13 @@ section {
 }
 #skills-contact {
   width: 100%;
+  height: 50%;
   box-sizing: border-box;
-  padding: 50px;
+  padding: 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 0 auto;
 }
 #skills-contact-p {
   /* Linear gradient stripes here */

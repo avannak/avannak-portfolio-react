@@ -32,7 +32,7 @@ const HandPointerIndicator = () => {
           justifyContent: "center",
           color: "white",
           background: "rgba(0, 0, 0, 0.615)",
-          boxShadow: "rgb(0, 0, 0) 0px 0px 10px 0px",
+          boxShadow: "rgb(255, 255, 255) 0px 0px 10px 0px",
           padding: "20px",
           fontSize: "1.5em",
           borderRadius: "15px",

@@ -79,8 +79,8 @@ body {
   background: linear-gradient(217deg, rgb(37, 37, 49), rgba(6, 2, 2, 0.4) 70.71%), linear-gradient(127deg, rgba(39, 44, 39, 0.652), rgba(13, 45, 13, 0.073) 70.71%), linear-gradient(336deg, rgb(6, 6, 24), rgba(6, 6, 23, 0.252) 70.71%);
 }
 .clickable-screen:hover {
-  background: rgba(12, 101, 255, 0.404);
-  filter: brightness(160%);
+  background: rgba(36, 160, 255, 0.871);
+  filter: brightness(190%);
   box-shadow: rgba(0, 0, 0, 0.174) 0px 0px 8px, rgb(255, 255, 255) 0px 0px 4px; /* Expanded shadow */
 }
 

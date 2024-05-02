@@ -1,38 +1,48 @@
-import { Canvas, useThree, extend, useFrame } from "@react-three/fiber";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import AboutPage from "@/app/about/page";
+import ContactPage from "@/app/contact/page";
+import MyWorkPage from "@/app/projects/page";
+import { isMobileDevice, useIsMobile } from "@/utils/isMobileDevice";
+import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CameraControls, Html, useGLTF } from "@react-three/drei";
+import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import * as THREE from "three";
 import {
-  useGLTF,
-  OrbitControls,
-  Html,
-  OrbitControlsProps,
-} from "@react-three/drei";
-import {
+  ArrowHelper,
   Mesh,
-  MeshBasicMaterial,
   MeshStandardMaterial,
   PerspectiveCamera,
-  SpotLight,
-  PointLightHelper,
-  ArrowHelper,
-  Vector3,
   PointLight,
-  ShaderMaterial,
+  PointLightHelper,
+  SpotLight,
+  Vector3,
 } from "three";
 import { lerp } from "three/src/math/MathUtils";
-import * as THREE from "three";
-import AboutPage from "@/app/about/page";
-import MyWorkPage from "@/app/projects/page";
-import ContactPage from "@/app/contact/page";
-import NavMenu from "./NavMenu";
-import { isMobileDevice, useIsMobile } from "@/utils/isMobileDevice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import doorExit from "public/images/icons/door-exit.svg";
-import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
-import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
-import Image from "next/image";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
+import NavMenu from "./NavMenu";
 
 extend({ SpotLight });
+
+export enum ACTION {
+  NONE = 0,
+  ROTATE = 1,
+  TRUCK = 2,
+  OFFSET = 4,
+  DOLLY = 8,
+  ZOOM = 16,
+  TOUCH_ROTATE = 32,
+  TOUCH_TRUCK = 64,
+  TOUCH_OFFSET = 128,
+  TOUCH_DOLLY = 256,
+  TOUCH_ZOOM = 512,
+  TOUCH_DOLLY_TRUCK = 1024,
+  TOUCH_DOLLY_OFFSET = 2048,
+  TOUCH_DOLLY_ROTATE = 4096,
+  TOUCH_ZOOM_TRUCK = 8192,
+  TOUCH_ZOOM_OFFSET = 16384,
+  TOUCH_ZOOM_ROTATE = 32768,
+}
 
 const CameraPosition = () => {
   const { camera } = useThree();
@@ -219,8 +229,11 @@ const MobileOverlay = ({
 };
 
 const Model = ({
+  wallsRef,
+  cameraControlsRef,
   cameraType,
   setCameraType,
+  setCurrentCameraPosition,
   zoomInMonitor,
   setZoomInMonitor,
   setLightOn,
@@ -246,9 +259,13 @@ const Model = ({
           child.receiveShadow = true;
         }
       });
-
+      const wallsObject = scene.getObjectByName("Walls");
       const monitorObject = scene.getObjectByName("Monitor1_2");
       const lightSwitchObject = scene.getObjectByName("light_switch001");
+      // set Walls ref
+      if (wallsObject instanceof Mesh) {
+        wallsRef.current = wallsObject;
+      }
 
       if (monitorObject instanceof Mesh) {
         monitorRef.current = monitorObject;
@@ -267,6 +284,11 @@ const Model = ({
     if (monitorRef.current) {
       const material = monitorRef.current.material as MeshStandardMaterial;
       material.color.set(zoomInMonitor ? "white" : "black");
+    }
+
+    if (wallsRef.current) {
+      const material = wallsRef.current.material as MeshStandardMaterial;
+      // material.color.set("white");
     }
   });
 
@@ -327,6 +349,7 @@ const Model = ({
 
   const handleLightSwitchClick = (event: any) => {
     event.stopPropagation();
+
     const intersects = event.intersections.filter(
       (intersect: any) => intersect.object.userData.clickable
     );
@@ -561,14 +584,70 @@ const NeonLight = () => {
         shadow-bias={-0.001}
       />
       <mesh position={[-1.5, 3.5, -3.5]}>
-        {/* <cylinderGeometry args={[0.03, 0.03, 1, 32]} /> */}
         <primitive object={neonMaterial} />
       </mesh>
       <mesh position={[-1.5, 3.5, -3.5]}>
-        {/* <cylinderGeometry args={[0.06, 0.06, 1, 32]} /> */}
         <primitive object={emissiveMaterial} />
       </mesh>
-      {/* <SceneHelpers pointLightRef={pointLightRef} /> */}
+    </>
+  );
+};
+
+const FreeCameraControls = ({
+  cameraControlsRef,
+  cameraType,
+  freeCameraPosition,
+  freeCameraAngle,
+  wallsRef,
+}: any) => {
+  const prevCameraType = useRef<string>("fixedCamera");
+
+  // Load mesh objects from wallsRef
+  const meshObjects = useMemo(() => {
+    return wallsRef.current instanceof Mesh ? [wallsRef.current] : [];
+  }, [wallsRef]);
+
+  useEffect(() => {
+    if (cameraType === "freeCamera" && cameraControlsRef.current) {
+      // Set control buttons only when necessary
+      cameraControlsRef.current.mouseButtons = {
+        left: ACTION.ROTATE,
+        middle: ACTION.DOLLY,
+        right: ACTION.ROTATE,
+        wheel: ACTION.DOLLY,
+      };
+
+      // Apply camera positioning only when switching to freeCamera mode
+      if (prevCameraType.current !== "freeCamera") {
+        cameraControlsRef.current
+          .setLookAt(
+            freeCameraPosition.x,
+            freeCameraPosition.y,
+            freeCameraPosition.z,
+            0,
+            2.8,
+            0, // Target's position
+            false // Disable transition to apply immediately
+          )
+          .then(() => {
+            console.log("Camera has been repositioned for freeCamera mode.");
+          });
+
+        prevCameraType.current = cameraType;
+      }
+    }
+  }, [cameraType, freeCameraPosition, cameraControlsRef]);
+
+  return (
+    <>
+      {cameraType === "freeCamera" && (
+        <CameraControls
+          ref={cameraControlsRef}
+          minDistance={0}
+          maxDistance={8}
+          colliderMeshes={meshObjects}
+        />
+      )}
     </>
   );
 };
@@ -578,8 +657,13 @@ const Scene = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-
+  const cameraControlsRef = useRef<CameraControls>(null!);
   const initialCameraPosition = new Vector3(0, 3, 1.2);
+  const [currentCameraPosition, setCurrentCameraPosition] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
   const zoomCameraPosition = new Vector3(0, 4, 3);
   const cameraTarget = new Vector3(0, -9, -40);
   const [zoomInMonitor, setZoomInMonitor] = useState(false);
@@ -587,19 +671,16 @@ const Scene = () => {
   const [lightOn, setLightOn] = useState(true);
   const [activeRoute, setActiveRoute] = useState("home");
   const pointLightRef = useRef<PointLight>(null!);
+  const wallsRef = useRef(null);
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
-    new Vector3(-3, 6, 6)
+    new Vector3(0, 3, 4)
   );
   const [freeCameraAngle, setFreeCameraAngle] = useState(
     new THREE.Euler(0, -6, 0)
   );
   const handleRouteClick = (route: string) => {
     setActiveRoute(route);
-    if (route === "freeCamera") {
-      setFreeCameraPosition(new Vector3(-3, 6, 6));
-      setFreeCameraAngle(new THREE.Euler(0, -4, 0));
-    }
   };
 
   useEffect(() => {
@@ -626,50 +707,6 @@ const Scene = () => {
       document.body.style.touchAction = "auto";
     };
   }, []);
-
-  const FreeCameraControls = ({
-    cameraType,
-    freeCameraPosition,
-    freeCameraAngle,
-  }: any) => {
-    const { camera, scene } = useThree();
-    const orbitControlsRef = useRef<OrbitControlsImpl>(null);
-    const prevCameraType = useRef<string>("fixedCamera");
-
-    const meshObjects = useMemo(
-      () => scene.children.filter((obj) => obj instanceof Mesh) as Mesh[],
-      [scene.children]
-    );
-
-    useEffect(() => {
-      if (cameraType === "freeCamera" && orbitControlsRef.current) {
-        // Set the camera position and angle only when cameraType changes to "freeCamera"
-        if (prevCameraType.current !== "freeCamera") {
-          // camera.position.copy(freeCameraPosition);
-          // camera.rotation.copy(freeCameraAngle);
-          orbitControlsRef.current.target.copy(new Vector3(0, 3, -3));
-        }
-      }
-
-      prevCameraType.current = cameraType;
-    }, [cameraType, camera, freeCameraPosition, freeCameraAngle]);
-
-    return (
-      <>
-        {cameraType === "freeCamera" && (
-          <OrbitControls
-            ref={orbitControlsRef}
-            enablePan={false}
-            enableRotate={true}
-            minDistance={3}
-            maxDistance={12}
-            enableDamping={true}
-            // collisionObjects={meshObjects}
-          />
-        )}
-      </>
-    );
-  };
 
   return (
     <div
@@ -698,10 +735,10 @@ const Scene = () => {
         {lightOn && !zoomInMonitor && (
           <spotLight
             color={"#ffffff"}
-            position={[0, 8, 0]}
-            angle={Math.PI / 4}
-            penumbra={0.2}
-            intensity={80}
+            position={[0, 5, 0]}
+            angle={Math.PI / 2.5}
+            penumbra={1.8}
+            intensity={75}
             castShadow
             receiveShadow
             shadow-mapSize-width={1024}
@@ -735,8 +772,12 @@ const Scene = () => {
         )}
         <Suspense fallback={null}>
           <Model
+            wallsRef={wallsRef}
+            cameraControlsRef={cameraControlsRef}
             cameraType={cameraType}
             setCameraType={setCameraType}
+            currentCameraPosition={currentCameraPosition}
+            setCurrentCameraPosition={setCurrentCameraPosition}
             zoomInMonitor={zoomInMonitor}
             setZoomInMonitor={setZoomInMonitor}
             lightOn={lightOn}
@@ -758,9 +799,11 @@ const Scene = () => {
           )}
           {cameraType === "freeCamera" && (
             <FreeCameraControls
+              cameraControlsRef={cameraControlsRef}
               cameraType={cameraType}
               freeCameraPosition={freeCameraPosition}
               freeCameraAngle={freeCameraAngle}
+              wallsRef={wallsRef}
             />
           )}
 

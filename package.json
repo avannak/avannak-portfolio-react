@@ -28,6 +28,7 @@
     "@types/react-icons": "^3.0.0",
     "@types/three": "^0.164.0",
     "axios": "^1.4.0",
+    "camera-controls": "^2.8.3",
     "cannon-es": "^0.20.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",

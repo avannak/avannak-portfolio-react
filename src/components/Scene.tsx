@@ -249,6 +249,7 @@ const Model = ({
   const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
   const [clickedMonitor, setClickedMonitor] = useState(false);
   const [clickedLightSwitch, setClickedLightSwitch] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (scene) {
@@ -410,11 +411,11 @@ const Model = ({
       {!zoomInMonitor && (
         <Html
           position={
-            zoomInMonitor
-              ? [0, 2.3, -4]
+            isMobile
+              ? [-0.25, 2.65, -3.56]
               : cameraType === "freeCamera"
-              ? [-0.25, 2.7, -3.56]
-              : [-0.25, 2.7, -3.56]
+              ? [-0.25, 2.64, -3.56]
+              : [-0.25, 2.64, -3.56]
           }
           rotation={[0, 0, 0]}
           transform
@@ -428,9 +429,9 @@ const Model = ({
               : cameraType === "freeCamera"
               ? "1000px"
               : "1300px",
-            height: "400px",
+            height: "470px",
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
-            transformStyle: "preserve-3d",
+            transformStyle: "flat",
             overflowY: zoomInMonitor ? "auto" : "hidden",
             overflowX: "hidden",
             fontSize: "0.7em",
@@ -643,8 +644,8 @@ const FreeCameraControls = ({
       {cameraType === "freeCamera" && (
         <CameraControls
           ref={cameraControlsRef}
-          minDistance={0}
-          maxDistance={8}
+          minDistance={1}
+          maxDistance={12}
           colliderMeshes={meshObjects}
         />
       )}
@@ -674,7 +675,7 @@ const Scene = () => {
   const wallsRef = useRef(null);
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
-    new Vector3(0, 3, 4)
+    new Vector3(0, 3, 1)
   );
   const [freeCameraAngle, setFreeCameraAngle] = useState(
     new THREE.Euler(0, -6, 0)

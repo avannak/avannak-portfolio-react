@@ -6,6 +6,7 @@ import { faEye, faRotateBackward } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CameraControls, Html, useGLTF } from "@react-three/drei";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import {
@@ -231,10 +232,8 @@ const MobileOverlay = ({
 
 const Model = ({
   wallsRef,
-  cameraControlsRef,
   cameraType,
   setCameraType,
-  setCurrentCameraPosition,
   zoomInMonitor,
   setZoomInMonitor,
   setLightOn,
@@ -243,7 +242,7 @@ const Model = ({
   setActiveRoute,
   handleRouteClick,
 }: any) => {
-  const { scene } = useGLTF("scenes/WorkRoom2-v1.glb");
+  const { scene } = useGLTF("scenes/WorkRoom_with_pc_light-v1.glb");
   const { camera } = useThree();
   const monitorRef = useRef<Mesh>(null!);
   const lightSwitchRef = useRef<Mesh>(null!);
@@ -254,16 +253,38 @@ const Model = ({
 
   useEffect(() => {
     if (scene) {
+      const pcEmissiveObjects: Mesh[] = [];
       scene.traverse((child) => {
         if (child instanceof Mesh) {
           console.log(child.name);
           child.castShadow = true;
           child.receiveShadow = true;
+
+          if (
+            child.name.startsWith("Fan_") ||
+            child.name.startsWith("ram") ||
+            child.name.startsWith("cooler_light")
+          ) {
+            console.log(child.name);
+            child.castShadow = true;
+            child.receiveShadow = true;
+            pcEmissiveObjects.push(child);
+          }
         }
       });
       const wallsObject = scene.getObjectByName("Walls");
       const monitorObject = scene.getObjectByName("Monitor1_2");
       const lightSwitchObject = scene.getObjectByName("light_switch001");
+
+      // get pc fan lights
+      // console.log("Emissive PC Objects:", pcEmissiveObjects);
+      // Make pcEmissiveObjects emissive
+      pcEmissiveObjects.forEach((obj) => {
+        const material = obj.material as MeshStandardMaterial;
+        material.emissive = new THREE.Color(0xffffff);
+        material.emissiveIntensity = 10; // Set emissive intensity
+      });
+
       // set Walls ref
       if (wallsObject instanceof Mesh) {
         wallsRef.current = wallsObject;
@@ -286,11 +307,6 @@ const Model = ({
     if (monitorRef.current) {
       const material = monitorRef.current.material as MeshStandardMaterial;
       material.color.set(zoomInMonitor ? "white" : "black");
-    }
-
-    if (wallsRef.current) {
-      const material = wallsRef.current.material as MeshStandardMaterial;
-      // material.color.set("white");
     }
   });
 
@@ -692,6 +708,9 @@ const Scene = () => {
         }}
         resize={{ scroll: false }}
       >
+        <EffectComposer>
+          <Bloom intensity={0.25} />
+        </EffectComposer>
         {lightOn && !zoomInMonitor && (
           <spotLight
             color={"#ffffff"}

@@ -412,7 +412,7 @@ const Model = ({
         <Html
           position={
             isMobile
-              ? [-0.25, 2.65, -3.56]
+              ? [-0.25, 3, -3.56]
               : cameraType === "freeCamera"
               ? [-0.25, 2.64, -3.56]
               : [-0.25, 2.64, -3.56]

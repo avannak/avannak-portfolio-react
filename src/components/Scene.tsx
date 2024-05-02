@@ -248,9 +248,7 @@ const Model = ({
       });
 
       const monitorObject = scene.getObjectByName("Monitor1_2");
-      const lightSwitchObject = scene.getObjectByName(
-        "Switch001_lightswitch_0"
-      );
+      const lightSwitchObject = scene.getObjectByName("light_switch001");
 
       if (monitorObject instanceof Mesh) {
         monitorRef.current = monitorObject;

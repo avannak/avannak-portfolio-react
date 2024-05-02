@@ -22,7 +22,7 @@ export function createTextTexture(
     context.fillRect(0, 0, width, height);
 
     // Text settings
-    context.font = "normal 3em 'Terminal Grotesque', sans-serif";
+    context.font = "normal 2.8em sans-serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -135,12 +135,12 @@ const JellyDescription = ({
   const [hover, setHover] = useState(false);
   const { viewport, pointer } = useThree();
   const simplex = createNoise3D();
-  const noiseScale = 3;
+  const noiseScale = 2;
   const noiseSpeed = 0.2;
-  const maxDeformation = 0.4;
+  const maxDeformation = 0.3;
   const influenceRadius = 1;
   const springStrength = 0.1;
-  const borderThickness = 0.01;
+  const borderThickness = 0.001;
   const borderAmplitude = 0.02;
 
   useFrame((state) => {

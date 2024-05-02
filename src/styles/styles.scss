@@ -4,11 +4,6 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Terminal Grotesque";
-  src: url("../../public/fonts/terminal-grotesque.ttf") format("truetype");
-  font-style: normal;
-}
-@font-face {
   font-family: "JetBrains Mono";
   src: url("../../public/fonts/JetBrainsMono-Regular.ttf") format("truetype");
   font-style: normal;
@@ -100,7 +95,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 60px;
+  // top: 60px;
 }
 
 .monitor-content {
@@ -340,7 +335,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 100px auto auto auto;
+    margin: 160px auto auto auto;
     box-sizing: border-box;
     width: 100%;
     height: fit-content;
@@ -850,6 +845,7 @@ section {
 }
 
 .about-page-container {
+  margin-top: 60px;
   background: linear-gradient(#000000e3, #000000);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1287,7 +1283,7 @@ section {
     z-index: 1001;
     background: linear-gradient(
       180deg,
-      rgb(18, 21, 26) 0%,
+      rgb(9, 10, 13) 0%,
       rgba(16, 16, 24, 0.967) 100%
     );
     box-sizing: border-box;
@@ -1327,7 +1323,8 @@ section {
       }
     }
     .content {
-      margin-top: 50px;
+      margin-top: 25px;
+      margin-bottom: 50px;
       @media (max-width: 1024px) {
         // Adjust this threshold as needed
         flex-direction: column;
@@ -1373,6 +1370,7 @@ section {
           margin: auto;
           padding: 0px;
           height: 80%;
+          max-height: 300px;
           width: 100%;
           object-fit: cover;
           object-position: center top;
@@ -1795,6 +1793,7 @@ section {
   height: max-content;
   min-height: 100%;
   margin: auto;
+  margin-top: 60px;
   color: rgb(255, 255, 255);
   h1 {
     font-size: 1.2em;
@@ -2132,6 +2131,7 @@ section {
     height: 100%;
     width: 100%;
     z-index: 2;
+    margin-top: 60px;
   }
   #contact-header {
     display: flex;

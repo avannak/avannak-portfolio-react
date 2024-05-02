@@ -1,13 +1,7 @@
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import NavBar from "@/components/NavBar/NavBar";
 import "../styles/styles.scss";
-import localFont from "next/font/local";
 import { Providers } from "./GlobalRedux/provider";
 import { Mochiy_Pop_One } from "next/font/google";
-
-const myFont = localFont({
-  src: "../../public/fonts/terminal-grotesque.ttf",
-});
 
 const googleFont = Mochiy_Pop_One({
   subsets: ["latin"],

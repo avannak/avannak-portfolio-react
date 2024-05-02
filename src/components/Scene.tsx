@@ -412,7 +412,7 @@ const Model = ({
         <Html
           position={
             isMobile
-              ? [-0.25, 3, -3.56]
+              ? [-0.25, 2.8, -3.56]
               : cameraType === "freeCamera"
               ? [-0.25, 2.64, -3.56]
               : [-0.25, 2.64, -3.56]
@@ -627,8 +627,8 @@ const FreeCameraControls = ({
             freeCameraPosition.z,
             0,
             2.8,
-            0, // Target's position
-            false // Disable transition to apply immediately
+            -1.5, // Target's position
+            true // Disable transition to apply immediately
           )
           .then(() => {
             console.log("Camera has been repositioned for freeCamera mode.");

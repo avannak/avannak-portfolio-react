@@ -12,13 +12,13 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { RingLoader } from "react-spinners";
 import * as THREE from "three";
-import bstocktradein from "../../assets/images/bstock-trade-in.webp";
-import financy from "../../assets/images/financy.png";
-import gatormedia from "../../assets/images/gatormedia.webp";
-import musicplayer from "../../assets/images/musicplayer.webp";
-import portFolio from "../../assets/images/portfolio.webp";
-import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
-import rapidhealth from "../../assets/images/rapidhealth.webp";
+import bstocktradein from "public/images/bstock-trade-in.webp";
+import financy from "public/images/financy.png";
+import gatormedia from "public/images/gatormedia.webp";
+import musicplayer from "public/images/musicplayer.webp";
+import portFolio from "public/images/portfolio.webp";
+import prodyoutive from "public/images/prodyoutive_channels.webp";
+import rapidhealth from "public/images/rapidhealth.webp";
 import { createTextTexture } from "../../components/AnimatedComponents/JellyDescription";
 
 const TexturedJellyDescription = dynamic(

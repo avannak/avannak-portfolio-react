@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import magnifyGlass from "../../assets/images/magnify-glass.webp";
+import magnifyGlass from "public/images/magnify-glass.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArchive } from "@fortawesome/free-solid-svg-icons";
 

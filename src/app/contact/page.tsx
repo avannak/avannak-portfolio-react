@@ -2,24 +2,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
-import {
-  faHome,
-  faLeftLong,
-  faRotateLeft,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import callMe from "public/images/call.webp";
 import { RingLoader } from "react-spinners";
 import ContactForm from "../../PageComponents/contact/ContactForm";
-import callMe from "../../assets/images/call.webp";
-import mountain from "../../assets/images/mountain.webp";
-import smiley from "../../assets/images/smiley.webp";
 
 const ContactPage = ({ setActiveRoute }: any) => {
   const isLoading = useLoading();
-  const images = [mountain, smiley, callMe];
+  const images = [callMe];
 
   const imagesLoaded = useImageLoading(images);
   return (

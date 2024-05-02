@@ -1,7 +1,7 @@
 "use client";
 import { useState, FormEvent } from "react";
 import Image from "next/image";
-import gmailPixel from "../../assets/images/gmail-pixel.webp";
+import gmailPixel from "public/images/gmail-pixel.webp";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Header from "@/components/Header";
@@ -70,7 +70,7 @@ const ContactForm = (props: any) => {
                 My Email{" "}
               </p>
             </div>
-            <span>Shoot a message straight to my inbox:</span>
+            <span>Shoot a message straight to my inbox at</span>
             <span>
               <a
                 id="email-link"

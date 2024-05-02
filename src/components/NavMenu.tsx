@@ -4,14 +4,12 @@ import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import codePixel from "public/images/code-pixel.webp";
 import cog from "public/images/cog-pixel.svg";
-import musicNote from "../assets/images/music-note-blue.webp";
+import musicNote from "public/images/music-note-blue.webp";
 import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import StyledButton from "./Button/StyledButton";
-import { Dispatch, SetStateAction } from "react";
 
 const NavMenu = ({ setActiveRoute }: any) => {
   return (

@@ -16,7 +16,6 @@ import {
   faSass,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faHome,
   faPhone,
   faRightLong,
   faShareNodes,
@@ -25,22 +24,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import akai from "public/images/akai-pixel.png";
+import artPixel from "public/images/artpixel2.webp";
+import dt990 from "public/images/dt990-pixel.webp";
+import helloPixel from "public/images/hello.webp";
+import typescript from "public/images/icons/typescript.svg";
+import macBook from "public/images/macbook-pixel.webp";
 import smileyGlasses from "public/images/male_avatar.svg";
-import { Dispatch, SetStateAction } from "react";
+import rodePixel from "public/images/rode-pixel.png";
+import rokit from "public/images/rokit.webp";
+import sg from "public/images/sg-pixel.webp";
+import toolKit from "public/images/toolkit.webp";
+import volt from "public/images/volt-pixel-rouge.png";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import { RingLoader } from "react-spinners";
-import akai from "../../assets/images/akai-pixel.png";
-import artPixel from "../../assets/images/artpixel2.webp";
-import dt990 from "../../assets/images/dt990-pixel.webp";
-import helloPixel from "../../assets/images/hello.webp";
-import typescript from "../../assets/images/icons/typescript.svg";
-import macBook from "../../assets/images/macbook-pixel.webp";
-import rodePixel from "../../assets/images/rode-pixel.png";
-import rokit from "../../assets/images/rokit.webp";
-import sg from "../../assets/images/sg-pixel.webp";
-import toolKit from "../../assets/images/toolkit.webp";
-import volt from "../../assets/images/volt-pixel-rouge.png";
 
 const RotatingCard = dynamic(
   () => import("@/components/AnimatedComponents/RotatingCard/RotatingCard"),

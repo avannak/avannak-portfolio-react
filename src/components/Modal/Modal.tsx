@@ -21,13 +21,13 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { TiHtml5 } from "react-icons/ti";
-import prodyoutive from "../../assets/images/prodyoutive_channels.webp";
-import bstocktradein from "../../assets/images/bstock-trade-in.webp";
-import gatormedia from "../../assets/images/gatormedia.webp";
-import musicplayer from "../../assets/images/musicplayer.webp";
-import rapidhealth from "../../assets/images/rapidhealth.webp";
-import financy from "../../assets/images/financy.png";
-import tailwind from "../../assets/images/icons/tailwind.png";
+import prodyoutive from "public/images/prodyoutive_channels.webp";
+import bstocktradein from "public/images/bstock-trade-in.webp";
+import gatormedia from "public/images/gatormedia.webp";
+import musicplayer from "public/images/musicplayer.webp";
+import rapidhealth from "public/images/rapidhealth.webp";
+import financy from "public/images/financy.png";
+import tailwind from "public/images/icons/tailwind.png";
 
 type Props = {
   showModal: boolean;

@@ -1,48 +1,12 @@
 "use client";
-import { useContext } from "react";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import ReactSwitch from "react-switch";
-import { useIsMobile } from "@/utils/isMobileDevice";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/app/GlobalRedux/types";
-import { toggleParallax } from "@/app/GlobalRedux/Features/parallax/parallaxSlice";
-// import DayNightToggle from "react-day-and-night-toggle";
 
 const NavBar = () => {
-  const isMobile = useIsMobile();
-  // const parallaxIsOn = useSelector(
-  //   (state: RootState) => state.parallax?.parallaxIsOn
-  // );
-  // const dispatch = useDispatch();
-
-  // const handleToggle = () => {
-  //   dispatch(toggleParallax());
-  // };
   return (
     <div className="nav-bar">
       <div className="nav-bar-container">
-        {/* <DayNightToggle
-          className="day-night-toggle"
-          onChange={() => setIsDarkMode(!isDarkMode)}
-          checked={isDarkMode}
-          size={navStyles}
-        ></DayNightToggle> */}
-        {/* {!isMobile && (
-          <div className="desktop-only">
-            <p style={{ color: "white", marginRight: 15, fontSize: "0.7em" }}>
-              Parallax: {parallaxIsOn ? "On" : "Off"} <br /> (Turn off if page
-              is slow)
-            </p>
-            <ReactSwitch
-              onChange={handleToggle}
-              checked={parallaxIsOn}
-              checkedIcon={false}
-              uncheckedIcon={false}
-            />
-          </div>
-        )} */}
         <Link href="/" style={{ marginLeft: "15px" }}>
           <FontAwesomeIcon
             icon={faHouse}

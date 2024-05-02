@@ -628,7 +628,7 @@ const FreeCameraControls = ({
             0,
             2.8,
             -1.5, // Target's position
-            true // Disable transition to apply immediately
+            false // Disable transition to apply immediately
           )
           .then(() => {
             console.log("Camera has been repositioned for freeCamera mode.");

@@ -23,6 +23,7 @@ import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
 import NeonLight from "./SceneComponents/NeonLight";
+import Sun from "./SceneComponents/Sun";
 
 extend({ SpotLight });
 
@@ -242,7 +243,7 @@ const Model = ({
   setActiveRoute,
   handleRouteClick,
 }: any) => {
-  const { scene } = useGLTF("scenes/WorkRoom_with_pc_light-v1.glb");
+  const { scene } = useGLTF("scenes/WorkRoom_with_skybox-v1.glb");
   const { camera } = useThree();
   const monitorRef = useRef<Mesh>(null!);
   const lightSwitchRef = useRef<Mesh>(null!);
@@ -577,11 +578,25 @@ const FreeCameraControls = ({
   wallsRef,
 }: any) => {
   const prevCameraType = useRef<string>("fixedCamera");
+  const { scene } = useThree();
 
   // Load mesh objects from wallsRef
+  // Load mesh objects from wallsRef
   const meshObjects = useMemo(() => {
-    return wallsRef.current instanceof Mesh ? [wallsRef.current] : [];
-  }, [wallsRef]);
+    const objects = [];
+
+    if (wallsRef.current instanceof Mesh) {
+      objects.push(wallsRef.current);
+    }
+
+    // Assuming "window_pane" is a separate mesh
+    const windowPaneMesh = scene.getObjectByName("window_pane");
+    if (windowPaneMesh instanceof Mesh) {
+      objects.push(windowPaneMesh);
+    }
+
+    return objects;
+  }, [wallsRef, scene]);
 
   useEffect(() => {
     if (cameraType === "freeCamera" && cameraControlsRef.current) {
@@ -709,7 +724,7 @@ const Scene = () => {
         resize={{ scroll: false }}
       >
         <EffectComposer>
-          <Bloom intensity={0.25} />
+          <Bloom intensity={0.15} />
         </EffectComposer>
         {lightOn && !zoomInMonitor && (
           <spotLight
@@ -727,6 +742,20 @@ const Scene = () => {
             shadow-bias={-0.0001}
           />
         )}
+        <spotLight
+          color={"#fefefe"}
+          position={[-21, 10, -3]}
+          angle={Math.PI / 1}
+          penumbra={0}
+          intensity={30}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.0001}
+        />
 
         <spotLight
           color={"#ff0000"}
@@ -742,7 +771,20 @@ const Scene = () => {
           shadow-camera-far={500}
           shadow-bias={-0.0001}
         />
-
+        <spotLight
+          color={"#174de1"}
+          position={[-1, 8, 0]}
+          angle={Math.PI / 1}
+          penumbra={0.2}
+          intensity={80}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.0001}
+        />
         <NeonLight />
         {!zoomInMonitor && (
           <>

@@ -23,7 +23,6 @@ import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
 import NeonLight from "./SceneComponents/NeonLight";
-import Sun from "./SceneComponents/Sun";
 
 extend({ SpotLight });
 
@@ -663,6 +662,7 @@ const Scene = () => {
   const [activeRoute, setActiveRoute] = useState("home");
   const pointLightRef = useRef<PointLight>(null!);
   const wallsRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
     new Vector3(0, 3, 1)
@@ -723,9 +723,11 @@ const Scene = () => {
         }}
         resize={{ scroll: false }}
       >
-        <EffectComposer>
-          <Bloom intensity={0.15} />
-        </EffectComposer>
+        {!isMobile && (
+          <EffectComposer>
+            <Bloom intensity={0.1} />
+          </EffectComposer>
+        )}
         {lightOn && !zoomInMonitor && (
           <spotLight
             color={"#ffffff"}
@@ -739,7 +741,7 @@ const Scene = () => {
             shadow-mapSize-height={1024}
             shadow-camera-near={0.5}
             shadow-camera-far={500}
-            shadow-bias={-0.0001}
+            shadow-bias={-0.01}
           />
         )}
         <spotLight
@@ -754,7 +756,7 @@ const Scene = () => {
           shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.0001}
+          shadow-bias={-0.01}
         />
 
         <spotLight
@@ -769,7 +771,7 @@ const Scene = () => {
           shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.0001}
+          shadow-bias={-0.01}
         />
         <spotLight
           color={"#174de1"}
@@ -783,7 +785,7 @@ const Scene = () => {
           shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.0001}
+          shadow-bias={-0.01}
         />
         <NeonLight />
         {!zoomInMonitor && (

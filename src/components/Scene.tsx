@@ -751,11 +751,9 @@ const Scene = () => {
             resize={{ scroll: false }}
           >
             {/* <Perf /> */}
-            {!isMobile && (
-              <EffectComposer>
-                <Bloom intensity={0.1} />
-              </EffectComposer>
-            )}
+            <EffectComposer>
+              <Bloom intensity={0.1} />
+            </EffectComposer>
             {lightOn && !zoomInMonitor && (
               <spotLight
                 color={"#ffffff"}
@@ -765,8 +763,8 @@ const Scene = () => {
                 intensity={65}
                 castShadow
                 receiveShadow
-                shadow-mapSize-width={1024}
-                shadow-mapSize-height={1024}
+                shadow-mapSize-width={512}
+                shadow-mapSize-height={512}
                 shadow-camera-near={0.5}
                 shadow-camera-far={500}
                 shadow-bias={-0.01}
@@ -780,8 +778,8 @@ const Scene = () => {
               intensity={30}
               castShadow
               receiveShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
               shadow-camera-near={0.5}
               shadow-camera-far={500}
               shadow-bias={-0.01}
@@ -795,8 +793,8 @@ const Scene = () => {
               intensity={10}
               castShadow
               receiveShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
               shadow-camera-near={0.5}
               shadow-camera-far={500}
               shadow-bias={-0.01}
@@ -806,11 +804,11 @@ const Scene = () => {
               position={[-1, 8, 0]}
               angle={Math.PI / 1}
               penumbra={0.2}
-              intensity={80}
+              intensity={40}
               castShadow
               receiveShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
               shadow-camera-near={0.5}
               shadow-camera-far={500}
               shadow-bias={-0.01}

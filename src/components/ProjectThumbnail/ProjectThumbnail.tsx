@@ -14,6 +14,7 @@ type PropTypes = {
   middleClassName: string;
   text: string;
   imgSrc: StaticImageData | string;
+  blurDataUrl: any;
 };
 const ProjectThumbnail = (props: PropTypes) => {
   return (
@@ -31,6 +32,7 @@ const ProjectThumbnail = (props: PropTypes) => {
           placeholder="blur"
           height={300}
           width={500}
+          blurDataURL={props.blurDataUrl}
         />
       </div>
     </div>

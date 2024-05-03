@@ -19,10 +19,13 @@ import {
   SpotLight,
   Vector3,
 } from "three";
+import { Perf } from "r3f-perf";
 import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
 import NeonLight from "./SceneComponents/NeonLight";
+import useLoading from "@/hooks/useLoading";
+import { RingLoader } from "react-spinners";
 
 extend({ SpotLight });
 
@@ -242,7 +245,7 @@ const Model = ({
   setActiveRoute,
   handleRouteClick,
 }: any) => {
-  const { scene } = useGLTF("scenes/WorkRoom_with_skybox-v1.glb");
+  const { scene } = useGLTF("scenes/WorkRoom_optimized_1-v1.glb");
   const { camera } = useThree();
   const monitorRef = useRef<Mesh>(null!);
   const lightSwitchRef = useRef<Mesh>(null!);
@@ -699,172 +702,199 @@ const Scene = () => {
     };
   }, []);
 
+  const isLoading = useLoading();
+
   return (
-    <div
-      className="canvasContainer"
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "absolute",
-        left: 0,
-        top: 0,
-        touchAction: "none",
-        pointerEvents: zoomInMonitor ? "auto" : "none",
-        cursor: cameraType === "freeCamera" ? "grab" : "",
-      }}
-    >
-      <Canvas
-        shadows
-        style={{
-          width: dimensions.width,
-          height: dimensions.height,
-          position: "fixed",
-          touchAction: "none",
-        }}
-        resize={{ scroll: false }}
-      >
-        {!isMobile && (
-          <EffectComposer>
-            <Bloom intensity={0.1} />
-          </EffectComposer>
-        )}
-        {lightOn && !zoomInMonitor && (
-          <spotLight
-            color={"#ffffff"}
-            position={[0, 5, 0]}
-            angle={Math.PI / 2.5}
-            penumbra={1.8}
-            intensity={65}
-            castShadow
-            receiveShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
-            shadow-camera-near={0.5}
-            shadow-camera-far={500}
-            shadow-bias={-0.01}
-          />
-        )}
-        <spotLight
-          color={"#fefefe"}
-          position={[-21, 10, -3]}
-          angle={Math.PI / 1}
-          penumbra={0}
-          intensity={30}
-          castShadow
-          receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-near={0.5}
-          shadow-camera-far={500}
-          shadow-bias={-0.01}
-        />
-
-        <spotLight
-          color={"#ff0000"}
-          position={[0, 3, 0]}
-          angle={Math.PI / 3}
-          penumbra={0.2}
-          intensity={10}
-          castShadow
-          receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-near={0.5}
-          shadow-camera-far={500}
-          shadow-bias={-0.01}
-        />
-        <spotLight
-          color={"#174de1"}
-          position={[-1, 8, 0]}
-          angle={Math.PI / 1}
-          penumbra={0.2}
-          intensity={80}
-          castShadow
-          receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-near={0.5}
-          shadow-camera-far={500}
-          shadow-bias={-0.01}
-        />
-        <NeonLight />
-        {!zoomInMonitor && (
-          <>
-            <ambientLight intensity={1} color={"#564ec7"} />
-          </>
-        )}
-        <Suspense fallback={null}>
-          <Model
-            wallsRef={wallsRef}
-            cameraControlsRef={cameraControlsRef}
-            cameraType={cameraType}
-            setCameraType={setCameraType}
-            currentCameraPosition={currentCameraPosition}
-            setCurrentCameraPosition={setCurrentCameraPosition}
-            zoomInMonitor={zoomInMonitor}
-            setZoomInMonitor={setZoomInMonitor}
-            lightOn={lightOn}
-            setLightOn={setLightOn}
-            setFreeCameraPosition={setFreeCameraPosition}
-            setFreeCameraAngle={setFreeCameraAngle}
-            activeRoute={activeRoute}
-            setActiveRoute={setActiveRoute}
-          />
-          {!zoomInMonitor && <HandPointerIndicator />}
-          {/* <Monitor onClick={handleMonitorClick} /> */}
-          {cameraType !== "freeCamera" && (
-            <CameraController
-              target={cameraTarget}
-              initialPosition={initialCameraPosition}
-              zoomPosition={zoomCameraPosition}
-              zoomInMonitor={zoomInMonitor}
-            />
-          )}
-          {cameraType === "freeCamera" && (
-            <FreeCameraControls
-              cameraControlsRef={cameraControlsRef}
-              cameraType={cameraType}
-              freeCameraPosition={freeCameraPosition}
-              freeCameraAngle={freeCameraAngle}
-              wallsRef={wallsRef}
-            />
-          )}
-
-          <SceneHelpers pointLightRef={pointLightRef} />
-        </Suspense>
-        {/* <CameraPosition /> */}
-      </Canvas>
-      {zoomInMonitor && (
-        <MobileOverlay
-          isVisible={zoomInMonitor}
-          onNavClick={() => setZoomInMonitor(false)}
-          onRouteClick={handleRouteClick}
-          activeRoute={activeRoute}
-          setActiveRoute={setActiveRoute}
-          handleRouteClick={handleRouteClick}
-          setZoomInMonitor={setZoomInMonitor}
-          setCameraType={setCameraType}
-        />
-      )}
-      {!zoomInMonitor && (
+    <>
+      {isLoading ? (
         <div
-          className="footer"
           style={{
-            position: "fixed",
-            bottom: "30px",
-            left: 0,
-            right: 0,
-            pointerEvents: "none",
+            display: "flex",
+            position: "absolute",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            width: "100vw",
+            backgroundColor: "#0f0f14",
           }}
         >
-          <p>
-            Designed and Developed by{" "}
-            <span className="designed-by">Arthur Vannakittikun </span>
-            &copy; 2024
-          </p>
+          <RingLoader
+            color="#ffffff"
+            loading
+            // size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      ) : (
+        <div
+          className="canvasContainer"
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            left: 0,
+            top: 0,
+            touchAction: "none",
+            pointerEvents: zoomInMonitor ? "auto" : "none",
+            cursor: cameraType === "freeCamera" ? "grab" : "",
+          }}
+        >
+          <Canvas
+            shadows
+            style={{
+              width: dimensions.width,
+              height: dimensions.height,
+              position: "fixed",
+              touchAction: "none",
+            }}
+            resize={{ scroll: false }}
+          >
+            <Perf />
+            {!isMobile && (
+              <EffectComposer>
+                <Bloom intensity={0.1} />
+              </EffectComposer>
+            )}
+            {lightOn && !zoomInMonitor && (
+              <spotLight
+                color={"#ffffff"}
+                position={[0, 5, 0]}
+                angle={Math.PI / 2.5}
+                penumbra={1.8}
+                intensity={65}
+                castShadow
+                receiveShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+                shadow-camera-near={0.5}
+                shadow-camera-far={500}
+                shadow-bias={-0.01}
+              />
+            )}
+            <spotLight
+              color={"#fefefe"}
+              position={[-19, 10, -3]}
+              angle={Math.PI / 1}
+              penumbra={0}
+              intensity={30}
+              castShadow
+              receiveShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-near={0.5}
+              shadow-camera-far={500}
+              shadow-bias={-0.01}
+            />
+
+            <spotLight
+              color={"#ff0000"}
+              position={[0, 3, 0]}
+              angle={Math.PI / 3}
+              penumbra={0.2}
+              intensity={10}
+              castShadow
+              receiveShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-near={0.5}
+              shadow-camera-far={500}
+              shadow-bias={-0.01}
+            />
+            <spotLight
+              color={"#174de1"}
+              position={[-1, 8, 0]}
+              angle={Math.PI / 1}
+              penumbra={0.2}
+              intensity={80}
+              castShadow
+              receiveShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-near={0.5}
+              shadow-camera-far={500}
+              shadow-bias={-0.01}
+            />
+            <NeonLight />
+            {!zoomInMonitor && (
+              <>
+                <ambientLight intensity={1} color={"#564ec7"} />
+              </>
+            )}
+            <Suspense fallback={null}>
+              <Model
+                wallsRef={wallsRef}
+                cameraControlsRef={cameraControlsRef}
+                cameraType={cameraType}
+                setCameraType={setCameraType}
+                currentCameraPosition={currentCameraPosition}
+                setCurrentCameraPosition={setCurrentCameraPosition}
+                zoomInMonitor={zoomInMonitor}
+                setZoomInMonitor={setZoomInMonitor}
+                lightOn={lightOn}
+                setLightOn={setLightOn}
+                setFreeCameraPosition={setFreeCameraPosition}
+                setFreeCameraAngle={setFreeCameraAngle}
+                activeRoute={activeRoute}
+                setActiveRoute={setActiveRoute}
+              />
+              {!zoomInMonitor && <HandPointerIndicator />}
+              {/* <Monitor onClick={handleMonitorClick} /> */}
+              {cameraType !== "freeCamera" && (
+                <CameraController
+                  target={cameraTarget}
+                  initialPosition={initialCameraPosition}
+                  zoomPosition={zoomCameraPosition}
+                  zoomInMonitor={zoomInMonitor}
+                />
+              )}
+              {cameraType === "freeCamera" && (
+                <FreeCameraControls
+                  cameraControlsRef={cameraControlsRef}
+                  cameraType={cameraType}
+                  freeCameraPosition={freeCameraPosition}
+                  freeCameraAngle={freeCameraAngle}
+                  wallsRef={wallsRef}
+                />
+              )}
+
+              <SceneHelpers pointLightRef={pointLightRef} />
+            </Suspense>
+            {/* <CameraPosition /> */}
+          </Canvas>
+          {zoomInMonitor && (
+            <MobileOverlay
+              isVisible={zoomInMonitor}
+              onNavClick={() => setZoomInMonitor(false)}
+              onRouteClick={handleRouteClick}
+              activeRoute={activeRoute}
+              setActiveRoute={setActiveRoute}
+              handleRouteClick={handleRouteClick}
+              setZoomInMonitor={setZoomInMonitor}
+              setCameraType={setCameraType}
+            />
+          )}
+          {!zoomInMonitor && (
+            <div
+              className="footer"
+              style={{
+                position: "fixed",
+                bottom: "30px",
+                left: 0,
+                right: 0,
+                pointerEvents: "none",
+              }}
+            >
+              <p>
+                Designed and Developed by{" "}
+                <span className="designed-by">Arthur Vannakittikun </span>
+                &copy; 2024
+              </p>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

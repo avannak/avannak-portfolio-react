@@ -49,36 +49,36 @@ export enum ACTION {
   TOUCH_ZOOM_ROTATE = 32768,
 }
 
-const CameraPosition = () => {
-  const { camera } = useThree();
-  const [position, setPosition] = useState(camera.position.clone());
+// const CameraPosition = () => {
+//   const { camera } = useThree();
+//   const [position, setPosition] = useState(camera.position.clone());
 
-  useFrame(() => {
-    if (!camera.position.equals(position)) {
-      setPosition(camera.position?.clone());
-    }
-  });
+//   useFrame(() => {
+//     if (!camera.position.equals(position)) {
+//       setPosition(camera.position?.clone());
+//     }
+//   });
 
-  return (
-    <Html
-      position={[0, 0, 0]}
-      zIndexRange={[100, 0]}
-      className="camera-position"
-    >
-      <div
-        style={{
-          color: "white",
-          position: "absolute",
-          top: "10px",
-          left: "10px",
-        }}
-      >
-        Camera Position: x: {position.x.toFixed(2)}, y: {position.y.toFixed(2)},
-        z: {position.z.toFixed(2)}
-      </div>
-    </Html>
-  );
-};
+//   return (
+//     <Html
+//       position={[0, 0, 0]}
+//       zIndexRange={[100, 0]}
+//       className="camera-position"
+//     >
+//       <div
+//         style={{
+//           color: "white",
+//           position: "absolute",
+//           top: "10px",
+//           left: "10px",
+//         }}
+//       >
+//         Camera Position: x: {position.x.toFixed(2)}, y: {position.y.toFixed(2)},
+//         z: {position.z.toFixed(2)}
+//       </div>
+//     </Html>
+//   );
+// };
 
 const CameraController = ({
   target,
@@ -437,11 +437,8 @@ const Model = ({
               ? [-0.25, 2.64, -3.56]
               : [-0.25, 2.64, -3.56]
           }
-          rotation={[0, 0, 0]}
           transform
-          distanceFactor={
-            zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
-          }
+          distanceFactor={1}
           style={{
             width: zoomInMonitor ? "100%" : "1200px",
             minWidth: zoomInMonitor
@@ -469,7 +466,6 @@ const Model = ({
               className="monitor-content"
               style={{
                 fontSize: "0.7em",
-                cursor: zoomInMonitor ? "default" : "pointer",
                 pointerEvents: "none",
                 overflowY: "hidden",
                 overflowX: "hidden",
@@ -488,14 +484,7 @@ const Model = ({
               }}
             >
               <nav className="monitor-nav">
-                <button
-                  className="monitor-nav-btn"
-                  id="back-to-scene-btn"
-                  onClick={() => {
-                    setZoomInMonitor(false);
-                    setCameraType("fixedCamera");
-                  }}
-                >
+                <button className="monitor-nav-btn" id="back-to-scene-btn">
                   {!isMobileDevice && "Back To Desk"}
                   <svg
                     className="icon"
@@ -515,7 +504,6 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
-                  onClick={() => handleRouteClick("home")}
                 >
                   Title
                 </button>
@@ -525,7 +513,6 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
-                  onClick={() => handleRouteClick("about")}
                 >
                   About
                 </button>
@@ -535,7 +522,6 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
-                  onClick={() => handleRouteClick("projects")}
                 >
                   Projects
                 </button>
@@ -545,24 +531,15 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
-                  onClick={() => handleRouteClick("contact")}
                 >
                   Contact
                 </button>
               </nav>
               <div className="route-content screen">
-                {activeRoute! === "home" && (
-                  <NavMenu screen setActiveRoute={setActiveRoute} />
-                )}
-                {activeRoute! === "about" && (
-                  <AboutPage screen setActiveRoute={setActiveRoute} />
-                )}
-                {activeRoute! === "projects" && (
-                  <MyWorkPage screen setActiveRoute={setActiveRoute} />
-                )}
-                {activeRoute! === "contact" && (
-                  <ContactPage screen setActiveRoute={setActiveRoute} />
-                )}
+                {activeRoute! === "home" && <NavMenu screen />}
+                {activeRoute! === "about" && <AboutPage screen />}
+                {activeRoute! === "projects" && <MyWorkPage screen />}
+                {activeRoute! === "contact" && <ContactPage screen />}
               </div>
             </div>
           </div>
@@ -856,7 +833,7 @@ const Scene = () => {
                 />
               )}
 
-              <SceneHelpers pointLightRef={pointLightRef} />
+              {/* <SceneHelpers pointLightRef={pointLightRef} /> */}
             </Suspense>
             {/* <CameraPosition /> */}
           </Canvas>
@@ -896,38 +873,38 @@ const Scene = () => {
   );
 };
 
-const SceneHelpers = ({ pointLightRef }: any) => {
-  const { scene } = useThree();
+// const SceneHelpers = ({ pointLightRef }: any) => {
+//   const { scene } = useThree();
 
-  useEffect(() => {
-    if (!pointLightRef.current) return;
+//   useEffect(() => {
+//     if (!pointLightRef.current) return;
 
-    // Create the PointLightHelper
-    const pointLightHelper = new PointLightHelper(pointLightRef.current);
-    scene.add(pointLightHelper);
+//     // Create the PointLightHelper
+//     const pointLightHelper = new PointLightHelper(pointLightRef.current);
+//     scene.add(pointLightHelper);
 
-    // Create the ArrowHelper
-    const updateHelpers = () => {
-      const direction = new Vector3(0, -1, 0); // Pointing downwards
-      const origin = pointLightRef.current.position.clone();
-      const length = 1;
-      const color = 0xff0000;
-      const arrowHelper = new ArrowHelper(direction, origin, length, color);
-      scene.add(arrowHelper);
+//     // Create the ArrowHelper
+//     const updateHelpers = () => {
+//       const direction = new Vector3(0, -1, 0); // Pointing downwards
+//       const origin = pointLightRef.current.position.clone();
+//       const length = 1;
+//       const color = 0xff0000;
+//       const arrowHelper = new ArrowHelper(direction, origin, length, color);
+//       scene.add(arrowHelper);
 
-      // Clean up the previous helpers
-      return () => {
-        scene.remove(pointLightHelper);
-        scene.remove(arrowHelper);
-      };
-    };
+//       // Clean up the previous helpers
+//       return () => {
+//         scene.remove(pointLightHelper);
+//         scene.remove(arrowHelper);
+//       };
+//     };
 
-    // Register and update helpers whenever the light position changes
-    const unsubscribe = updateHelpers();
-    return () => unsubscribe();
-  }, [scene, pointLightRef.current]);
+//     // Register and update helpers whenever the light position changes
+//     const unsubscribe = updateHelpers();
+//     return () => unsubscribe();
+//   }, [scene, pointLightRef.current]);
 
-  return null;
-};
+//   return null;
+// };
 
 export default Scene;

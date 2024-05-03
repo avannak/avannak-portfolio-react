@@ -712,7 +712,12 @@ const Scene = () => {
       >
         {/* <Perf /> */}
         <EffectComposer>
-          <Bloom intensity={0.1} />
+          <Bloom
+            intensity={0.1}
+            luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+            luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+            mipmapBlur={true} // Enables or disables mipmap blur.
+          />
         </EffectComposer>
         {lightOn && !zoomInMonitor && (
           <spotLight
@@ -723,11 +728,11 @@ const Scene = () => {
             intensity={65}
             castShadow
             receiveShadow
-            shadow-mapSize-width={512}
-            shadow-mapSize-height={512}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
             shadow-camera-near={0.5}
             shadow-camera-far={500}
-            shadow-bias={-0.01}
+            shadow-bias={-0.0001}
           />
         )}
         <spotLight
@@ -738,11 +743,11 @@ const Scene = () => {
           intensity={30}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.01}
+          shadow-bias={-0.0001}
         />
 
         <spotLight
@@ -753,11 +758,11 @@ const Scene = () => {
           intensity={10}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.01}
+          shadow-bias={-0.0001}
         />
         <spotLight
           color={"#174de1"}
@@ -767,18 +772,18 @@ const Scene = () => {
           intensity={40}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.01}
+          shadow-bias={-0.00001}
         />
         <NeonLight />
-        {!zoomInMonitor && (
+        {/* {!zoomInMonitor && (
           <>
             <ambientLight intensity={1} color={"#564ec7"} />
           </>
-        )}
+        )} */}
         <Suspense fallback={null}>
           <Model
             wallsRef={wallsRef}

@@ -1,3 +1,4 @@
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import bstocktradein from "public/images/bstock-trade-in.webp";

@@ -6,7 +6,6 @@ import useLoading from "@/hooks/useLoading";
 import { useIsMobile } from "@/utils/isMobileDevice";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
@@ -102,34 +101,7 @@ const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
           >
             <motion.section className="portfolio" id="portfolio">
               <div className="description-container">
-                <div className="description-background"></div>
-                <div
-                  className={
-                    props.screen
-                      ? "jelly-description screen"
-                      : "jelly-description"
-                  }
-                >
-                  <Canvas>
-                    <ambientLight intensity={7} />
-                    <spotLight
-                      position={[10, 10, 10]}
-                      angle={0.15}
-                      penumbra={1}
-                    />
-                    <pointLight position={[10, 10, 10]} />
-                    {textTexture && (
-                      <TexturedJellyDescription
-                        texture={textTexture}
-                        scale={[
-                          isMobile ? 3 : 3,
-                          isMobile ? 3 : 3,
-                          isMobile ? 3 : 3,
-                        ]}
-                      />
-                    )}
-                  </Canvas>
-                </div>
+                <div className="description-background" />
               </div>
               <div className="container" id="portfolio-container">
                 <div className="row">

@@ -11,10 +11,14 @@ import FloatingComponent from "./AnimatedComponents/FloatingComponent";
 import TypewriterEffect from "./AnimatedComponents/TypewriterEffect";
 import StyledButton from "./Button/StyledButton";
 
-const NavMenu = ({ setActiveRoute }: any) => {
+const NavMenu = ({ setActiveRoute, ...props }: any) => {
   return (
     <div className="nav-menu">
-      <div className="nav-menu-container">
+      <div
+        className={
+          props.screen ? "nav-menu-container screen" : "nav-menu-container"
+        }
+      >
         <motion.div
           className="title-container"
           initial={{ opacity: 0 }}

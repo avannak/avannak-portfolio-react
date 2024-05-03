@@ -536,10 +536,18 @@ const Model = ({
                 </button>
               </nav>
               <div className="route-content screen">
-                {activeRoute! === "home" && <NavMenu screen />}
-                {activeRoute! === "about" && <AboutPage screen />}
-                {activeRoute! === "projects" && <MyWorkPage screen />}
-                {activeRoute! === "contact" && <ContactPage screen />}
+                {activeRoute! === "home" && (
+                  <NavMenu screen setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "about" && (
+                  <AboutPage screen setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "projects" && (
+                  <MyWorkPage screen setActiveRoute={setActiveRoute} />
+                )}
+                {activeRoute! === "contact" && (
+                  <ContactPage screen setActiveRoute={setActiveRoute} />
+                )}
               </div>
             </div>
           </div>

@@ -117,8 +117,6 @@ const CameraController = ({
 
 const MobileOverlay = ({
   isVisible,
-  onNavClick,
-  onRouteClick,
   activeRoute,
   setActiveRoute,
   handleRouteClick,
@@ -142,7 +140,7 @@ const MobileOverlay = ({
         position: "absolute",
         top: 0,
         left: 0,
-        width: "100%",
+        width: "100vw",
         height: "100%",
         overflowX: "hidden",
         zIndex: 10,
@@ -482,7 +480,7 @@ const Model = ({
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                backgroundColor: !zoomInMonitor ? "rgba(0, 0, 0, 0.8)" : "",
               }}
             >
               <nav className="monitor-nav">
@@ -509,7 +507,7 @@ const Model = ({
                 </button>
                 <button
                   className={
-                    activeRoute === "home"
+                    activeRoute! === "home"
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
@@ -518,7 +516,7 @@ const Model = ({
                 </button>
                 <button
                   className={
-                    activeRoute === "about"
+                    activeRoute! === "about"
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
@@ -527,7 +525,7 @@ const Model = ({
                 </button>
                 <button
                   className={
-                    activeRoute === "projects"
+                    activeRoute! === "projects"
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
@@ -536,7 +534,7 @@ const Model = ({
                 </button>
                 <button
                   className={
-                    activeRoute === "contact"
+                    activeRoute! === "contact"
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
@@ -688,8 +686,6 @@ const Scene = () => {
     };
   }, []);
 
-  const isLoading = useLoading();
-
   return (
     <div
       className="canvasContainer"
@@ -824,18 +820,15 @@ const Scene = () => {
         </Suspense>
         {/* <CameraPosition /> */}
       </Canvas>
-      {zoomInMonitor && (
-        <MobileOverlay
-          isVisible={zoomInMonitor}
-          onNavClick={() => setZoomInMonitor(false)}
-          onRouteClick={handleRouteClick}
-          activeRoute={activeRoute}
-          setActiveRoute={setActiveRoute}
-          handleRouteClick={handleRouteClick}
-          setZoomInMonitor={setZoomInMonitor}
-          setCameraType={setCameraType}
-        />
-      )}
+      <MobileOverlay
+        isVisible={zoomInMonitor}
+        onNavClick={() => setZoomInMonitor(false)}
+        activeRoute={activeRoute}
+        setActiveRoute={setActiveRoute}
+        handleRouteClick={handleRouteClick}
+        setZoomInMonitor={setZoomInMonitor}
+        setCameraType={setCameraType}
+      />
       {!zoomInMonitor && (
         <div
           className="footer"

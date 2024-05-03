@@ -343,14 +343,14 @@ const Model = ({
         document.body.style.cursor = "pointer";
       }
     } else {
-      document.body.style.cursor = "default";
+      document.body.style.cursor = "";
     }
   };
 
   const handlePointerOut = (event: any) => {
     event.stopPropagation();
     setHoveredLightSwitch(false);
-    document.body.style.cursor = "default";
+    document.body.style.cursor = "";
   };
 
   const handleObjectClick = (event: any) => {
@@ -438,7 +438,9 @@ const Model = ({
               : [-0.25, 2.64, -3.56]
           }
           transform
-          distanceFactor={1}
+          distanceFactor={
+            zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
+          }
           style={{
             width: zoomInMonitor ? "100%" : "1200px",
             minWidth: zoomInMonitor
@@ -484,7 +486,14 @@ const Model = ({
               }}
             >
               <nav className="monitor-nav">
-                <button className="monitor-nav-btn" id="back-to-scene-btn">
+                <button
+                  className="monitor-nav-btn"
+                  id="back-to-scene-btn"
+                  onClick={() => {
+                    setZoomInMonitor(false);
+                    setCameraType("fixedCamera");
+                  }}
+                >
                   {!isMobileDevice && "Back To Desk"}
                   <svg
                     className="icon"
@@ -504,6 +513,7 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
+                  onClick={() => handleRouteClick("home")}
                 >
                   Title
                 </button>
@@ -513,6 +523,7 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
+                  onClick={() => handleRouteClick("about")}
                 >
                   About
                 </button>
@@ -522,6 +533,7 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
+                  onClick={() => handleRouteClick("projects")}
                 >
                   Projects
                 </button>
@@ -531,6 +543,7 @@ const Model = ({
                       ? "monitor-nav-btn active"
                       : "monitor-nav-btn"
                   }
+                  onClick={() => handleRouteClick("contact")}
                 >
                   Contact
                 </button>

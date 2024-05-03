@@ -1,6 +1,5 @@
 // import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import "../styles/styles.scss";
-import { Providers } from "./GlobalRedux/provider";
 import { Mochiy_Pop_One } from "next/font/google";
 
 const googleFont = Mochiy_Pop_One({
@@ -33,13 +32,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Providers>
-          <div className={googleFont.className}>
-            {/* <NavBar /> */}
-            {/* <CustomCursor /> */}
-            {children}
-          </div>
-        </Providers>
+        <div className={googleFont.className}>
+          {/* <NavBar /> */}
+          {/* <CustomCursor /> */}
+          {children}
+        </div>
       </body>
     </html>
   );

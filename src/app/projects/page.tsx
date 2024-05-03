@@ -47,7 +47,6 @@ const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
   ];
 
   const imagesLoaded = useImageLoading(images);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     const texture = createTextTexture(
@@ -100,11 +99,18 @@ const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
             exit={{ opacity: 0 }}
           >
             <motion.section className="portfolio" id="portfolio">
-              <div className="description-container">
+              {/* <div className="description-container">
                 <div className="description-background" />
-              </div>
-              <div className="container" id="portfolio-container">
-                <div className="row">
+              </div> */}
+              <div
+                className="container"
+                id={
+                  props.screen
+                    ? "portfolio-container screen"
+                    : "portfolio-container"
+                }
+              >
+                <div className={props.screen ? "row screen" : "row"}>
                   <ProjectThumbnail
                     onClick={() => {
                       toggleModal();

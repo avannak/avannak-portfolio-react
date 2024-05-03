@@ -24,8 +24,6 @@ import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
 import NeonLight from "./SceneComponents/NeonLight";
-import useLoading from "@/hooks/useLoading";
-import { RingLoader } from "react-spinners";
 
 extend({ SpotLight });
 
@@ -141,6 +139,7 @@ const MobileOverlay = ({
         top: 0,
         left: 0,
         width: "100vw",
+        minWidth: "370px",
         height: "100%",
         overflowX: "hidden",
         zIndex: 10,

@@ -19,7 +19,7 @@ import {
   SpotLight,
   Vector3,
 } from "three";
-import { Perf } from "r3f-perf";
+// import { Perf } from "r3f-perf";
 import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
@@ -750,7 +750,7 @@ const Scene = () => {
             }}
             resize={{ scroll: false }}
           >
-            <Perf />
+            {/* <Perf /> */}
             {!isMobile && (
               <EffectComposer>
                 <Bloom intensity={0.1} />

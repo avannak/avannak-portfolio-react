@@ -448,7 +448,7 @@ const Model = ({
               : "1300px",
             height: "470px",
             background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
-            transformStyle: "flat",
+            transformStyle: "preserve-3d",
             overflowY: zoomInMonitor ? "auto" : "hidden",
             overflowX: "hidden",
             fontSize: "0.7em",

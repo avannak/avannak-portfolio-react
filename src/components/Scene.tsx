@@ -734,7 +734,7 @@ const Scene = () => {
             position={[0, 5, 0]}
             angle={Math.PI / 2.5}
             penumbra={1.8}
-            intensity={75}
+            intensity={65}
             castShadow
             receiveShadow
             shadow-mapSize-width={1024}

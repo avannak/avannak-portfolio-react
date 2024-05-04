@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import FloatingComponent from "@/components/AnimatedComponents/FloatingComponent";
+import RotatingCard from "@/components/AnimatedComponents/RotatingCard/RotatingCard";
 import { TypingEffectMission } from "@/components/AnimatedComponents/TypingEffectMission";
 import Tooltip from "@/components/Tooltip/Tooltip";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
@@ -39,11 +40,6 @@ import volt from "public/images/volt-pixel-rouge.png";
 import { DiMongodb, DiResponsive } from "react-icons/di";
 import { SiExpress, SiMysql, SiStyledcomponents } from "react-icons/si";
 import { RingLoader } from "react-spinners";
-
-const RotatingCard = dynamic(
-  () => import("@/components/AnimatedComponents/RotatingCard/RotatingCard"),
-  { ssr: false }
-);
 
 const AboutPage = ({ setActiveRoute, ...props }: any) => {
   const isLoading = useLoading();

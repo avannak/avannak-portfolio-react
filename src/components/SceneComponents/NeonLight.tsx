@@ -30,8 +30,8 @@ const NeonLight = () => {
         position={[-1.1, 3.5, -3.3]}
         castShadow
         receiveShadow
-        shadow-mapSize-width={isMobile ? 128 : 512}
-        shadow-mapSize-height={isMobile ? 128 : 512}
+        shadow-mapSize-width={isMobile ? 64 : 512}
+        shadow-mapSize-height={isMobile ? 64 : 512}
         shadow-camera-near={0.1}
         shadow-camera-far={500}
         shadow-bias={-0.01}

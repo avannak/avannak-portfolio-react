@@ -256,7 +256,7 @@ const Model = ({
       const pcEmissiveObjects: Mesh[] = [];
       scene.traverse((child) => {
         if (child instanceof Mesh) {
-          console.log(child.name);
+          // console.log(child.name);
           child.castShadow = true;
           child.receiveShadow = true;
 
@@ -265,7 +265,7 @@ const Model = ({
             child.name.startsWith("ram") ||
             child.name.startsWith("cooler_light")
           ) {
-            console.log(child.name);
+            // console.log(child.name);
             child.castShadow = true;
             child.receiveShadow = true;
             pcEmissiveObjects.push(child);
@@ -296,7 +296,7 @@ const Model = ({
       }
 
       if (lightSwitchObject instanceof Mesh) {
-        console.log(lightSwitchObject);
+        // console.log(lightSwitchObject);
         lightSwitchRef.current = lightSwitchObject;
         lightSwitchObject.userData.clickable = true;
       }
@@ -595,19 +595,18 @@ const FreeCameraControls = ({
 
       // Apply camera positioning only when switching to freeCamera mode
       if (prevCameraType.current !== "freeCamera") {
-        cameraControlsRef.current
-          .setLookAt(
-            freeCameraPosition.x,
-            freeCameraPosition.y,
-            freeCameraPosition.z,
-            0,
-            2.8,
-            -1.5, // Target's position
-            false // Disable transition to apply immediately
-          )
-          .then(() => {
-            console.log("Camera has been repositioned for freeCamera mode.");
-          });
+        cameraControlsRef.current.setLookAt(
+          freeCameraPosition.x,
+          freeCameraPosition.y,
+          freeCameraPosition.z,
+          0,
+          2.8,
+          -1.5, // Target's position
+          false // Disable transition to apply immediately
+        );
+        // .then(() => {
+        //   console.log("Camera has been repositioned for freeCamera mode.");
+        // });
 
         prevCameraType.current = cameraType;
       }
@@ -731,15 +730,57 @@ const Scene = () => {
             shadow-mapSize-height={1024}
             shadow-camera-near={0.5}
             shadow-camera-far={500}
-            shadow-bias={-0.0001}
+            shadow-bias={-0.009}
           />
         )}
-        <spotLight
+        {/* <spotLight
           color={"#fefefe"}
           position={[-19, 10, -3]}
           angle={Math.PI / 1}
           penumbra={0}
           intensity={30}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.0001}
+        /> */}
+        <spotLight
+          color={"#fefefe"}
+          position={[-19, 5, -10]}
+          angle={Math.PI / 1}
+          penumbra={0}
+          intensity={30}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.000001}
+        />
+        <spotLight
+          color={"#fefba8"}
+          position={[-17, 3, -2]}
+          angle={Math.PI / 4}
+          penumbra={900}
+          intensity={15}
+          castShadow
+          receiveShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={0.5}
+          shadow-camera-far={500}
+          shadow-bias={-0.0001}
+        />
+        <spotLight
+          color={"#fafdc3"}
+          position={[-19, -6, -3]}
+          angle={Math.PI / 1}
+          penumbra={200}
+          intensity={5}
           castShadow
           receiveShadow
           shadow-mapSize-width={1024}
@@ -761,7 +802,7 @@ const Scene = () => {
           shadow-mapSize-height={1024}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.0001}
+          shadow-bias={-0.009}
         />
         <spotLight
           color={"#174de1"}

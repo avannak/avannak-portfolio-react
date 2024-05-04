@@ -99,9 +99,6 @@ const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
             exit={{ opacity: 0 }}
           >
             <motion.section className="portfolio" id="portfolio">
-              {/* <div className="description-container">
-                <div className="description-background" />
-              </div> */}
               <div
                 className="container"
                 id={

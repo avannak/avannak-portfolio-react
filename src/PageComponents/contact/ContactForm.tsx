@@ -23,7 +23,7 @@ const ContactForm = (props: any) => {
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<IFormInput>({ mode: "onChange" });
   const onSubmit = (data: any) => {
-    console.log("Form Submitted! Here is what was submitted: ", data);
+    // console.log("Form Submitted! Here is what was submitted: ", data);
     axios
       .post("https://eopvtqqy312v6wt.m.pipedream.net", data)
       .then((res) => {

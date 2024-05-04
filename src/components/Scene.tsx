@@ -10,12 +10,10 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import {
-  ArrowHelper,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
   PointLight,
-  PointLightHelper,
   SpotLight,
   Vector3,
 } from "three";
@@ -46,37 +44,6 @@ export enum ACTION {
   TOUCH_ZOOM_OFFSET = 16384,
   TOUCH_ZOOM_ROTATE = 32768,
 }
-
-// const CameraPosition = () => {
-//   const { camera } = useThree();
-//   const [position, setPosition] = useState(camera.position.clone());
-
-//   useFrame(() => {
-//     if (!camera.position.equals(position)) {
-//       setPosition(camera.position?.clone());
-//     }
-//   });
-
-//   return (
-//     <Html
-//       position={[0, 0, 0]}
-//       zIndexRange={[100, 0]}
-//       className="camera-position"
-//     >
-//       <div
-//         style={{
-//           color: "white",
-//           position: "absolute",
-//           top: "10px",
-//           left: "10px",
-//         }}
-//       >
-//         Camera Position: x: {position.x.toFixed(2)}, y: {position.y.toFixed(2)},
-//         z: {position.z.toFixed(2)}
-//       </div>
-//     </Html>
-//   );
-// };
 
 const CameraController = ({
   target,
@@ -284,17 +251,14 @@ const Model = ({
         material.emissive = new THREE.Color(0xffffff);
         material.emissiveIntensity = 10; // Set emissive intensity
       });
-
       // set Walls ref
       if (wallsObject instanceof Mesh) {
         wallsRef.current = wallsObject;
       }
-
       if (monitorObject instanceof Mesh) {
         monitorRef.current = monitorObject;
         monitorObject.userData.clickable = true;
       }
-
       if (lightSwitchObject instanceof Mesh) {
         // console.log(lightSwitchObject);
         lightSwitchRef.current = lightSwitchObject;
@@ -723,30 +687,16 @@ const Scene = () => {
             position={[0, 5, 0]}
             angle={Math.PI / 2.5}
             penumbra={1.8}
-            intensity={65}
+            intensity={50}
             castShadow
             receiveShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
+            shadow-mapSize-width={512}
+            shadow-mapSize-height={512}
             shadow-camera-near={0.5}
             shadow-camera-far={500}
-            shadow-bias={-0.009}
+            shadow-bias={-0.01}
           />
         )}
-        {/* <spotLight
-          color={"#fefefe"}
-          position={[-19, 10, -3]}
-          angle={Math.PI / 1}
-          penumbra={0}
-          intensity={30}
-          castShadow
-          receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-near={0.5}
-          shadow-camera-far={500}
-          shadow-bias={-0.0001}
-        /> */}
         <spotLight
           color={"#fefefe"}
           position={[-19, 5, -10]}
@@ -755,8 +705,8 @@ const Scene = () => {
           intensity={30}
           castShadow
           receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.000001}
@@ -769,8 +719,8 @@ const Scene = () => {
           intensity={15}
           castShadow
           receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.0001}
@@ -783,8 +733,8 @@ const Scene = () => {
           intensity={5}
           castShadow
           receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.0001}
@@ -798,8 +748,8 @@ const Scene = () => {
           intensity={10}
           castShadow
           receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.009}
@@ -812,18 +762,28 @@ const Scene = () => {
           intensity={40}
           castShadow
           receiveShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
-          shadow-bias={-0.00001}
+          shadow-bias={-0.0001}
         />
+        {lightOn && (
+          <pointLight
+            ref={pointLightRef}
+            distance={5}
+            decay={-0.1}
+            intensity={2}
+            color={"#ffffff"}
+            position={[-2, 2, 2]}
+            shadow-mapSize-width={512}
+            shadow-mapSize-height={512}
+            shadow-camera-near={0.1}
+            shadow-camera-far={200}
+            shadow-bias={-0.01}
+          />
+        )}
         <NeonLight />
-        {/* {!zoomInMonitor && (
-          <>
-            <ambientLight intensity={1} color={"#564ec7"} />
-          </>
-        )} */}
         <Suspense fallback={null}>
           <Model
             wallsRef={wallsRef}
@@ -895,39 +855,5 @@ const Scene = () => {
     </div>
   );
 };
-
-// const SceneHelpers = ({ pointLightRef }: any) => {
-//   const { scene } = useThree();
-
-//   useEffect(() => {
-//     if (!pointLightRef.current) return;
-
-//     // Create the PointLightHelper
-//     const pointLightHelper = new PointLightHelper(pointLightRef.current);
-//     scene.add(pointLightHelper);
-
-//     // Create the ArrowHelper
-//     const updateHelpers = () => {
-//       const direction = new Vector3(0, -1, 0); // Pointing downwards
-//       const origin = pointLightRef.current.position.clone();
-//       const length = 1;
-//       const color = 0xff0000;
-//       const arrowHelper = new ArrowHelper(direction, origin, length, color);
-//       scene.add(arrowHelper);
-
-//       // Clean up the previous helpers
-//       return () => {
-//         scene.remove(pointLightHelper);
-//         scene.remove(arrowHelper);
-//       };
-//     };
-
-//     // Register and update helpers whenever the light position changes
-//     const unsubscribe = updateHelpers();
-//     return () => unsubscribe();
-//   }, [scene, pointLightRef.current]);
-
-//   return null;
-// };
 
 export default Scene;

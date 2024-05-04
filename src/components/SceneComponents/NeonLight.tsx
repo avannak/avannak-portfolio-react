@@ -22,8 +22,8 @@ const NeonLight = () => {
       <pointLight
         ref={pointLightRef}
         distance={3}
-        decay={-1.2}
-        intensity={5}
+        decay={-0.1}
+        intensity={8}
         color={"#782fff"}
         position={[-1.1, 3.5, -3.3]}
         castShadow
@@ -32,7 +32,7 @@ const NeonLight = () => {
         shadow-mapSize-height={1024}
         shadow-camera-near={0.1}
         shadow-camera-far={500}
-        shadow-bias={-0.001}
+        shadow-bias={-0.01}
       />
       <mesh position={[-1.5, 3.5, -3.5]}>
         <primitive object={neonMaterial} />

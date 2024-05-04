@@ -690,8 +690,8 @@ const Scene = () => {
             intensity={50}
             castShadow
             receiveShadow
-            shadow-mapSize-width={512}
-            shadow-mapSize-height={512}
+            shadow-mapSize-width={isMobile ? 256 : 512}
+            shadow-mapSize-height={isMobile ? 256 : 512}
             shadow-camera-near={0.5}
             shadow-camera-far={500}
             shadow-bias={-0.01}
@@ -705,8 +705,8 @@ const Scene = () => {
           intensity={30}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={isMobile ? 256 : 512}
+          shadow-mapSize-height={isMobile ? 256 : 512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.000001}
@@ -719,8 +719,8 @@ const Scene = () => {
           intensity={15}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={isMobile ? 256 : 512}
+          shadow-mapSize-height={isMobile ? 256 : 512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.0001}
@@ -733,8 +733,8 @@ const Scene = () => {
           intensity={5}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={isMobile ? 256 : 512}
+          shadow-mapSize-height={isMobile ? 256 : 512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.0001}
@@ -748,8 +748,8 @@ const Scene = () => {
           intensity={10}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={isMobile ? 256 : 512}
+          shadow-mapSize-height={isMobile ? 256 : 512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.009}
@@ -762,8 +762,8 @@ const Scene = () => {
           intensity={40}
           castShadow
           receiveShadow
-          shadow-mapSize-width={512}
-          shadow-mapSize-height={512}
+          shadow-mapSize-width={isMobile ? 256 : 512}
+          shadow-mapSize-height={isMobile ? 256 : 512}
           shadow-camera-near={0.5}
           shadow-camera-far={500}
           shadow-bias={-0.0001}
@@ -772,12 +772,12 @@ const Scene = () => {
           <pointLight
             ref={pointLightRef}
             distance={5}
-            decay={-0.1}
+            decay={-0.01}
             intensity={2}
             color={"#ffffff"}
             position={[-2, 2, 2]}
-            shadow-mapSize-width={512}
-            shadow-mapSize-height={512}
+            shadow-mapSize-width={isMobile ? 256 : 512}
+            shadow-mapSize-height={isMobile ? 256 : 512}
             shadow-camera-near={0.1}
             shadow-camera-far={200}
             shadow-bias={-0.01}

@@ -20,7 +20,7 @@ const HandPointerIndicator = () => {
         opacity: 1,
         transition: "opacity 0.3s",
         pointerEvents: "none",
-        transformStyle: "preserve-3d",
+        transformStyle: "flat",
       }}
     >
       <div

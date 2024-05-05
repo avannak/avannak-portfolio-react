@@ -645,7 +645,7 @@ const Scene = React.memo(() => {
     } else if (screenWidth * screenHeight * pixelRatio > 5000000) {
       return 0.75; // Medium-resolution devices
     } else {
-      return 0.9; // Low-resolution devices
+      return 1; // Low-resolution devices
     }
   };
 

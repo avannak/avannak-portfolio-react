@@ -1,11 +1,8 @@
-import { Html } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
-import { Mesh, Vector3 } from "three";
-import FloatingComponent from "./FloatingComponent";
 import { useIsMobile } from "@/utils/isMobileDevice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Html } from "@react-three/drei";
+import FloatingComponent from "./FloatingComponent";
 
 const HandPointerIndicator = () => {
   const isMobileDevice = useIsMobile();

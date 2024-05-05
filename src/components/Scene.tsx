@@ -7,16 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   AdaptiveDpr,
   AdaptiveEvents,
-  BakeShadows,
   Bvh,
   CameraControls,
   Html,
-  PerformanceMonitor,
   useGLTF,
 } from "@react-three/drei";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { RingLoader } from "react-spinners";
 import * as THREE from "three";
 import {
   Mesh,
@@ -26,13 +25,10 @@ import {
   SpotLight,
   Vector3,
 } from "three";
-import { Perf } from "r3f-perf";
 import { lerp } from "three/src/math/MathUtils";
 import HandPointerIndicator from "./AnimatedComponents/HandPointerIndicator";
 import NavMenu from "./NavMenu";
 import NeonLight from "./SceneComponents/NeonLight";
-import { RingLoader } from "react-spinners";
-import React from "react";
 
 extend({ SpotLight });
 
@@ -583,10 +579,6 @@ const FreeCameraControls = React.memo(
             -1.5, // Target's position
             false // Disable transition to apply immediately
           );
-          // .then(() => {
-          //   console.log("Camera has been repositioned for freeCamera mode.");
-          // });
-
           prevCameraType.current = cameraType;
         }
       }
@@ -647,9 +639,8 @@ const Scene = React.memo(() => {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
     const pixelRatio = window.devicePixelRatio;
-
     // Adjust the thresholds based on performance requirements
-    if (screenWidth * screenHeight * pixelRatio > 8000000) {
+    if (screenWidth * screenHeight * pixelRatio > 7000000) {
       return 1; // High-resolution devices
     } else if (screenWidth * screenHeight * pixelRatio > 4000000) {
       return 0.7; // Medium-resolution devices
@@ -667,17 +658,13 @@ const Scene = React.memo(() => {
         height: window.innerHeight,
       });
     };
-
     // Disable scrolling and touch actions
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
     document.body.style.touchAction = "none";
-
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
-
       // Re-enable scrolling and touch actions
       document.body.style.overflow = "auto";
       document.documentElement.style.overflow = "auto";
@@ -735,7 +722,7 @@ const Scene = React.memo(() => {
             setRenderer(gl);
           }}
         >
-          <Perf />
+          {/* <Perf /> */}
           <AdaptiveDpr pixelated />
           <AdaptiveEvents />
           <EffectComposer>

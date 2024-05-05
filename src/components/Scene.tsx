@@ -634,18 +634,25 @@ const Scene = React.memo(() => {
   };
 
   // Performance Scaling
-  // Determine the appropriate DPR based on device performance
   const getOptimalDPR = () => {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
     const pixelRatio = window.devicePixelRatio;
-    // Adjust the thresholds based on performance requirements
-    if (screenWidth * screenHeight * pixelRatio > 7000000) {
-      return 1; // High-resolution devices
-    } else if (screenWidth * screenHeight * pixelRatio > 6000000) {
-      return 0.75; // Medium-resolution devices
+    const totalDevicePixels = screenWidth * screenHeight * pixelRatio;
+
+    // Thresholds adjusted for more realistic device categories
+    if (totalDevicePixels > 8000000) {
+      // Very high-resolution devices like high-end smartphones or tablets
+      return 0.9;
+    } else if (totalDevicePixels > 6000000) {
+      // High-resolution devices
+      return 1;
+    } else if (totalDevicePixels > 2000000) {
+      // Medium-resolution devices
+      return 0.65;
     } else {
-      return 0.9; // Low-resolution devices
+      // Lower-resolution devices
+      return 1.25; // Higher DPR might actually be beneficial for visual quality without much cost
     }
   };
 

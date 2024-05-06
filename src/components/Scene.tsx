@@ -224,6 +224,9 @@ const Model = React.memo(
     const { camera, size, gl } = useThree();
     const isMobile = useIsMobile();
     const [htmlPosition, setHtmlPosition] = useState({ x: 0, y: 0 });
+    const [customTransform, setCustomTransform] = useState(
+      "translate(0%, -225%)"
+    );
     const htmlRef = useRef<any>(null);
 
     const toScreenPosition = (
@@ -305,7 +308,7 @@ const Model = React.memo(
         );
         if (iphone15MediaQuery.matches) {
           if (htmlRef.current) {
-            htmlRef.current.style.transform = "translate(0%, -250%)";
+            htmlRef.current.style.transform = "translate(0%, -550%)";
           }
         } else {
           if (htmlRef.current) {
@@ -319,6 +322,23 @@ const Model = React.memo(
 
       return () => window.removeEventListener("resize", handleResize); // Cleanup
     }, []);
+
+    const style: any = {
+      transform: customTransform,
+      transformOrigin: "center center",
+      width: zoomInMonitor ? "100%" : "1200px",
+      height: "470px",
+      minWidth: zoomInMonitor
+        ? "100%"
+        : cameraType === "freeCamera"
+        ? "1000px"
+        : "1300px",
+      background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
+      transformStyle: "preserve-3d",
+      overflowY: zoomInMonitor ? "auto" : "hidden",
+      overflowX: "hidden",
+      fontSize: "0.7em",
+    };
 
     useFrame(() => {
       if (monitorRef.current) {
@@ -379,22 +399,7 @@ const Model = React.memo(
             distanceFactor={
               zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
             }
-            style={{
-              // transform: `translate(0%, -225%)`, // Centers the element based on its top-left corner
-              transformOrigin: "center center", // Ensures transformation is centered
-              width: zoomInMonitor ? "100%" : "1200px",
-              height: "470px", // Fixed height
-              minWidth: zoomInMonitor
-                ? "100%"
-                : cameraType === "freeCamera"
-                ? "1000px"
-                : "1300px",
-              background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
-              transformStyle: "preserve-3d",
-              overflowY: zoomInMonitor ? "auto" : "hidden",
-              overflowX: "hidden",
-              fontSize: "0.7em",
-            }}
+            style={style}
           >
             <div
               className="clickable-screen"

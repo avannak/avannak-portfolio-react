@@ -221,8 +221,28 @@ const Model = React.memo(
     handleLightSwitchClick,
   }: any) => {
     const { scene } = useGLTF("scenes/WorkRoom_optimized_1-v1.glb");
-    const { camera } = useThree();
+    const { camera, size, gl } = useThree();
     const isMobile = useIsMobile();
+    const [htmlPosition, setHtmlPosition] = useState({ x: 0, y: 0 });
+    const htmlRef = useRef<any>(null);
+
+    const toScreenPosition = (
+      obj: { updateMatrixWorld: () => void; matrixWorld: THREE.Matrix4 },
+      camera: THREE.Camera
+    ) => {
+      const vector = new THREE.Vector3();
+      const rect = gl.domElement.getBoundingClientRect(); // Get the size of the renderer
+
+      obj.updateMatrixWorld();
+      vector.setFromMatrixPosition(obj.matrixWorld);
+      vector.project(camera);
+
+      // Convert NDC to screen coordinates
+      vector.x = ((vector.x + 1) * rect.width) / 2;
+      vector.y = (-(vector.y - 1) * rect.height) / 2;
+
+      return { x: vector.x, y: vector.y };
+    };
 
     useEffect(() => {
       if (scene) {
@@ -271,7 +291,16 @@ const Model = React.memo(
           lightSwitchObject.userData.clickable = true;
         }
       }
-    }, [scene]);
+      if (monitorRef.current && scene && htmlRef.current) {
+        const newPosition = toScreenPosition(monitorRef.current, camera);
+        // console.log("Computed Position:", newPosition);
+        // htmlRef.current.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+      }
+    }, [camera, monitorRef.current, gl, scene]);
+
+    // useEffect(() => {
+    //   console.log("Updated HTML Position Y:", htmlPosition.y);
+    // }, [htmlPosition.y]); // Dependency on htmlPosition.y to log whenever it changes
 
     useFrame(() => {
       if (monitorRef.current) {
@@ -326,25 +355,22 @@ const Model = React.memo(
         )}
         {!zoomInMonitor && (
           <Html
-            position={
-              isMobile
-                ? [-0.25, 2.95, -3.56]
-                : cameraType === "freeCamera"
-                ? [-0.25, 2.64, -3.56]
-                : [-0.25, 2.64, -3.56]
-            }
+            ref={htmlRef}
+            position={[-0.25, -htmlPosition.y, -3.56]}
             transform
             distanceFactor={
               zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
             }
             style={{
+              transform: `translate(0%, -225%)`, // Centers the element based on its top-left corner
+              transformOrigin: "center center", // Ensures transformation is centered
               width: zoomInMonitor ? "100%" : "1200px",
+              height: "470px", // Fixed height
               minWidth: zoomInMonitor
                 ? "100%"
                 : cameraType === "freeCamera"
                 ? "1000px"
                 : "1300px",
-              height: "470px",
               background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
               transformStyle: "preserve-3d",
               overflowY: zoomInMonitor ? "auto" : "hidden",

@@ -298,9 +298,27 @@ const Model = React.memo(
       }
     }, [camera, monitorRef.current, gl, scene]);
 
-    // useEffect(() => {
-    //   console.log("Updated HTML Position Y:", htmlPosition.y);
-    // }, [htmlPosition.y]); // Dependency on htmlPosition.y to log whenever it changes
+    useEffect(() => {
+      function handleResize() {
+        const iphone15MediaQuery = window.matchMedia(
+          "(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)"
+        );
+        if (iphone15MediaQuery.matches) {
+          if (htmlRef.current) {
+            htmlRef.current.style.transform = "translate(0%, -250%)";
+          }
+        } else {
+          if (htmlRef.current) {
+            htmlRef.current.style.transform = "translate(0%, -225%)";
+          }
+        }
+      }
+
+      handleResize(); // Call on mount
+      window.addEventListener("resize", handleResize); // Adjust on window resize
+
+      return () => window.removeEventListener("resize", handleResize); // Cleanup
+    }, []);
 
     useFrame(() => {
       if (monitorRef.current) {
@@ -362,7 +380,7 @@ const Model = React.memo(
               zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1
             }
             style={{
-              transform: `translate(0%, -225%)`, // Centers the element based on its top-left corner
+              // transform: `translate(0%, -225%)`, // Centers the element based on its top-left corner
               transformOrigin: "center center", // Ensures transformation is centered
               width: zoomInMonitor ? "100%" : "1200px",
               height: "470px", // Fixed height

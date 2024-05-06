@@ -308,7 +308,7 @@ const Model = React.memo(
         );
         if (iphone15MediaQuery.matches) {
           if (htmlRef.current) {
-            htmlRef.current.style.transform = "translate(0%, -250%)";
+            htmlRef.current.style.transform = "translate(0%, -255%)";
           }
         } else {
           if (htmlRef.current) {

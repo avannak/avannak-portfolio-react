@@ -212,19 +212,16 @@ const Model = React.memo(
     setCameraType,
     zoomInMonitor,
     setZoomInMonitor,
-    setLightOn,
-    lightOn,
     activeRoute,
-    setActiveRoute,
-    handleRouteClick,
+    monitorRef,
+    lightSwitchRef,
+    handlePointerMove,
+    handlePointerOut,
+    handleObjectClick,
+    handleLightSwitchClick,
   }: any) => {
     const { scene } = useGLTF("scenes/WorkRoom_optimized_1-v1.glb");
     const { camera } = useThree();
-    const monitorRef = useRef<Mesh>(null!);
-    const lightSwitchRef = useRef<Mesh>(null!);
-    const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
-    const [clickedMonitor, setClickedMonitor] = useState(false);
-    const [clickedLightSwitch, setClickedLightSwitch] = useState(false);
     const isMobile = useIsMobile();
 
     useEffect(() => {
@@ -282,77 +279,6 @@ const Model = React.memo(
         material.color.set(zoomInMonitor ? "white" : "black");
       }
     });
-
-    const isObjectVisible = (object: Mesh, camera: THREE.Camera) => {
-      const box = new THREE.Box3().setFromObject(object);
-      const frustum = new THREE.Frustum();
-      frustum.setFromProjectionMatrix(
-        new THREE.Matrix4().multiplyMatrices(
-          camera.projectionMatrix,
-          camera.matrixWorldInverse
-        )
-      );
-      return frustum.intersectsBox(box);
-    };
-
-    const handlePointerMove = (event: any, camera: THREE.Camera) => {
-      event.stopPropagation();
-      const intersects = event.intersections
-        .filter((intersect: any) => intersect.object.userData.clickable)
-        .filter((intersect: any) => {
-          const object = intersect.object;
-          const objectVisible = isObjectVisible(object, camera);
-          return objectVisible;
-        });
-      setHoveredLightSwitch(false);
-
-      if (intersects.length > 0) {
-        const object = intersects[0].object;
-        if (object === lightSwitchRef.current) {
-          setHoveredLightSwitch(true);
-          document.body.style.cursor = "pointer";
-        }
-      } else {
-        document.body.style.cursor = "";
-      }
-    };
-
-    const handlePointerOut = (event: any) => {
-      event.stopPropagation();
-      setHoveredLightSwitch(false);
-      document.body.style.cursor = "";
-    };
-
-    const handleObjectClick = (event: any) => {
-      event.stopPropagation();
-      const intersects = event.intersections.filter(
-        (intersect: any) => intersect.object.userData.clickable
-      );
-
-      if (intersects.length > 0) {
-        const object = intersects[0].object;
-        if (object === monitorRef.current) {
-          setClickedMonitor(!clickedMonitor);
-          setZoomInMonitor(!zoomInMonitor);
-        }
-      }
-    };
-
-    const handleLightSwitchClick = (event: any) => {
-      event.stopPropagation();
-
-      const intersects = event.intersections.filter(
-        (intersect: any) => intersect.object.userData.clickable
-      );
-
-      if (intersects.length > 0) {
-        const object = intersects[0].object;
-        if (object === lightSwitchRef.current) {
-          setClickedLightSwitch(!clickedLightSwitch);
-          setLightOn(!lightOn); // Toggle the light state
-        }
-      }
-    };
 
     return (
       <primitive
@@ -420,7 +346,7 @@ const Model = React.memo(
                 : "1300px",
               height: "470px",
               background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
-              transformStyle: "flat",
+              transformStyle: "preserve-3d",
               overflowY: zoomInMonitor ? "auto" : "hidden",
               overflowX: "hidden",
               fontSize: "0.7em",
@@ -621,6 +547,12 @@ const Scene = React.memo(() => {
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const pointLightRef = useRef<PointLight>(null!);
   const wallsRef = useRef(null);
+  const monitorRef = useRef<Mesh>(null!);
+  const lightSwitchRef = useRef<Mesh>(null!);
+  const [hoveredLightSwitch, setHoveredLightSwitch] = useState(false);
+  const [clickedMonitor, setClickedMonitor] = useState(false);
+  const [clickedLightSwitch, setClickedLightSwitch] = useState(false);
+
   const isMobile = useIsMobile();
 
   const [freeCameraPosition, setFreeCameraPosition] = useState(
@@ -631,6 +563,77 @@ const Scene = React.memo(() => {
   );
   const handleRouteClick = (route: string) => {
     setActiveRoute(route);
+  };
+
+  const isObjectVisible = (object: Mesh, camera: THREE.Camera) => {
+    const box = new THREE.Box3().setFromObject(object);
+    const frustum = new THREE.Frustum();
+    frustum.setFromProjectionMatrix(
+      new THREE.Matrix4().multiplyMatrices(
+        camera.projectionMatrix,
+        camera.matrixWorldInverse
+      )
+    );
+    return frustum.intersectsBox(box);
+  };
+
+  const handlePointerMove = (event: any, camera: THREE.Camera) => {
+    event.stopPropagation();
+    const intersects = event.intersections
+      .filter((intersect: any) => intersect.object.userData.clickable)
+      .filter((intersect: any) => {
+        const object = intersect.object;
+        const objectVisible = isObjectVisible(object, camera);
+        return objectVisible;
+      });
+    setHoveredLightSwitch(false);
+
+    if (intersects.length > 0) {
+      const object = intersects[0].object;
+      if (object === lightSwitchRef.current) {
+        setHoveredLightSwitch(true);
+        document.body.style.cursor = "pointer";
+      }
+    } else {
+      document.body.style.cursor = "";
+    }
+  };
+
+  const handlePointerOut = (event: any) => {
+    event.stopPropagation();
+    setHoveredLightSwitch(false);
+    document.body.style.cursor = "";
+  };
+
+  const handleObjectClick = (event: any) => {
+    event.stopPropagation();
+    const intersects = event.intersections.filter(
+      (intersect: any) => intersect.object.userData.clickable
+    );
+
+    if (intersects.length > 0) {
+      const object = intersects[0].object;
+      if (object === monitorRef.current) {
+        setClickedMonitor(!clickedMonitor);
+        setZoomInMonitor(!zoomInMonitor);
+      }
+    }
+  };
+
+  const handleLightSwitchClick = (event: any) => {
+    event.stopPropagation();
+
+    const intersects = event.intersections.filter(
+      (intersect: any) => intersect.object.userData.clickable
+    );
+
+    if (intersects.length > 0) {
+      const object = intersects[0].object;
+      if (object === lightSwitchRef.current) {
+        setClickedLightSwitch(!clickedLightSwitch);
+        setLightOn(!lightOn); // Toggle the light state
+      }
+    }
   };
 
   // Performance Scaling
@@ -737,7 +740,7 @@ const Scene = React.memo(() => {
               intensity={0.1}
               luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
               luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
-              mipmapBlur={true} // Enables or disables mipmap blur.
+              mipmapBlur={false} // Enables or disables mipmap blur.
             />
           </EffectComposer>
           <Bvh firstHitOnly>
@@ -756,6 +759,18 @@ const Scene = React.memo(() => {
               setFreeCameraAngle={setFreeCameraAngle}
               activeRoute={activeRoute}
               setActiveRoute={setActiveRoute}
+              monitorRef={monitorRef}
+              lightSwitchRef={lightSwitchRef}
+              hoveredLightSwitch={hoveredLightSwitch}
+              setHoveredLightSwitch={setHoveredLightSwitch}
+              clickedMonitor={clickedMonitor}
+              setClickedMonitor={setClickedMonitor}
+              clickedLightSwitch={clickedLightSwitch}
+              setClickedLightSwitch={setClickedLightSwitch}
+              handlePointerMove={handlePointerMove}
+              handlePointerOut={handlePointerOut}
+              handleObjectClick={handleObjectClick}
+              handleLightSwitchClick={handleLightSwitchClick}
             />
           </Bvh>
           {lightOn && !zoomInMonitor && (
@@ -878,7 +893,6 @@ const Scene = React.memo(() => {
               wallsRef={wallsRef}
             />
           )}
-          {/* <SceneHelpers pointLightRef={pointLightRef} /> */}
         </Canvas>
         <MobileOverlay
           isVisible={zoomInMonitor}

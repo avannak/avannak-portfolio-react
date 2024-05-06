@@ -304,7 +304,7 @@ const Model = React.memo(
     useEffect(() => {
       function handleResize() {
         const iphone15MediaQuery = window.matchMedia(
-          "(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)"
+          "(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)"
         );
         if (iphone15MediaQuery.matches) {
           if (htmlRef.current) {

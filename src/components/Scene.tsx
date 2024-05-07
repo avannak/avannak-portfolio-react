@@ -224,7 +224,7 @@ const Model = React.memo(
     const { camera, size, gl } = useThree();
     const isMobile = useIsMobile();
     const [htmlPosition, setHtmlPosition] = useState({ x: 0, y: 0 });
-    const [customTransform, setCustomTransform] = useState(
+    const [transformStyle, setTransformStyle] = useState(
       "translate(0%, -225%)"
     );
     const htmlRef = useRef<any>(null);
@@ -235,15 +235,12 @@ const Model = React.memo(
     ) => {
       const vector = new THREE.Vector3();
       const rect = gl.domElement.getBoundingClientRect(); // Get the size of the renderer
-
       obj.updateMatrixWorld();
       vector.setFromMatrixPosition(obj.matrixWorld);
       vector.project(camera);
-
       // Convert NDC to screen coordinates
       vector.x = ((vector.x + 1) * rect.width) / 2;
       vector.y = (-(vector.y - 1) * rect.height) / 2;
-
       return { x: vector.x, y: vector.y };
     };
 
@@ -294,37 +291,31 @@ const Model = React.memo(
           lightSwitchObject.userData.clickable = true;
         }
       }
-      if (monitorRef.current && scene && htmlRef.current) {
-        const newPosition = toScreenPosition(monitorRef.current, camera);
-        // console.log("Computed Position:", newPosition);
-        // htmlRef.current.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-      }
     }, [camera, monitorRef.current, gl, scene]);
 
+    const updateTransformForDevice = (matches: any) => {
+      setTransformStyle(
+        matches ? "translate(0%, -255%)" : "translate(0%, -225%)"
+      );
+    };
+
     useEffect(() => {
-      function handleResize() {
-        const iphone15MediaQuery = window.matchMedia(
-          "(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)"
+      const mediaQuery = window.matchMedia(
+        "(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)"
+      );
+      mediaQuery.addEventListener("change", (e) =>
+        updateTransformForDevice(e.matches)
+      );
+      updateTransformForDevice(mediaQuery.matches); // Initial check
+
+      return () =>
+        mediaQuery.removeEventListener("change", (e) =>
+          updateTransformForDevice(e.matches)
         );
-        if (iphone15MediaQuery.matches) {
-          if (htmlRef.current) {
-            htmlRef.current.style.transform = "translate(0%, -255%)";
-          }
-        } else {
-          if (htmlRef.current) {
-            htmlRef.current.style.transform = "translate(0%, -225%)";
-          }
-        }
-      }
-
-      handleResize(); // Call on mount
-      window.addEventListener("resize", handleResize); // Adjust on window resize
-
-      return () => window.removeEventListener("resize", handleResize); // Cleanup
     }, []);
 
     const style: any = {
-      transform: customTransform,
+      transform: transformStyle,
       transformOrigin: "center center",
       width: zoomInMonitor ? "100%" : "1200px",
       height: "470px",
@@ -394,7 +385,7 @@ const Model = React.memo(
         {!zoomInMonitor && (
           <Html
             ref={htmlRef}
-            position={[-0.25, -htmlPosition.y, -3.56]}
+            position={[-0.25, 0, -3.56]}
             transform
             distanceFactor={
               zoomInMonitor ? 0.1 : cameraType === "freeCamera" ? 1 : 1

@@ -295,7 +295,7 @@ const Model = React.memo(
 
     const updateTransformForDevice = (matches: any) => {
       setTransformStyle(
-        matches ? "translate(0%, -255%)" : "translate(0%, -225%)"
+        matches ? "translate(0%, -253%)" : "translate(0%, -225%)"
       );
     };
 

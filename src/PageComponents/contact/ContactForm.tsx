@@ -66,7 +66,7 @@ const ContactForm = (props: any) => {
                   className="contact-font-awesome-icon"
                   icon={faMailBulk}
                 />
-                My Email{" "}
+                My Email
               </p>
             </div>
             <span>Shoot a message straight to my inbox at</span>
@@ -99,7 +99,7 @@ const ContactForm = (props: any) => {
                 className="contact-font-awesome-icon"
                 icon={faPhone}
               />
-              Contact Form{" "}
+              Contact Form
             </p>
           </div>
           <div className="input-group">

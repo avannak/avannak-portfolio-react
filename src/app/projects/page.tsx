@@ -3,14 +3,9 @@ import Modal from "@/components/Modal/Modal";
 import ProjectThumbnail from "@/components/ProjectThumbnail/ProjectThumbnail";
 import { useImageLoading } from "@/hooks/useImagesLoaded";
 import useLoading from "@/hooks/useLoading";
-import { useIsMobile } from "@/utils/isMobileDevice";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { RingLoader } from "react-spinners";
-import * as THREE from "three";
 import bstocktradein from "public/images/bstock-trade-in.webp";
 import financy from "public/images/financy.webp";
 import gatormedia from "public/images/gatormedia.webp";
@@ -18,17 +13,10 @@ import musicplayer from "public/images/musicplayer.webp";
 import portFolio from "public/images/portfolio.webp";
 import prodyoutive from "public/images/prodyoutive_channels.webp";
 import rapidhealth from "public/images/rapidhealth.webp";
-import { createTextTexture } from "../../components/AnimatedComponents/JellyDescription";
-
-const TexturedJellyDescription = dynamic(
-  () => import("../../components/AnimatedComponents/JellyDescription"),
-  {
-    ssr: false,
-  }
-);
+import { useEffect, useState } from "react";
+import { RingLoader } from "react-spinners";
 
 const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
-  const [textTexture, setTextTexture] = useState<THREE.Texture | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
   const isLoading = useLoading();
@@ -47,15 +35,6 @@ const MyWorkPage = ({ setActiveRoute, ...props }: any) => {
   ];
 
   const imagesLoaded = useImageLoading(images);
-
-  useEffect(() => {
-    const texture = createTextTexture(
-      "Click on a project for more details, Stay tuned for more projects!",
-      512,
-      256
-    );
-    setTextTexture(texture);
-  }, []);
 
   return (
     <>

@@ -322,8 +322,8 @@ const Model = React.memo(
       minWidth: zoomInMonitor
         ? "100%"
         : cameraType === "freeCamera"
-        ? "1000px"
-        : "1300px",
+          ? "1000px"
+          : "1300px",
       background: `linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(252, 19.230769230769234%, 10.196078431372548%) 8%, hsl(0, 0%, 0%) 92%, hsl(0, 0%, 0%) 100%)`,
       transformStyle: "preserve-3d",
       overflowY: zoomInMonitor ? "auto" : "hidden",
@@ -582,7 +582,7 @@ const Scene = React.memo(() => {
   const cameraTarget = new Vector3(0, -9, -40);
   const [zoomInMonitor, setZoomInMonitor] = useState(false);
   const [cameraType, setCameraType] = useState("fixedCamera");
-  const [lightOn, setLightOn] = useState(true);
+  const [lightOn, setLightOn] = useState(false);
   const [activeRoute, setActiveRoute] = useState("home");
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const pointLightRef = useRef<PointLight>(null!);
